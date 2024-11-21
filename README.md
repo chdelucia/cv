@@ -1,5 +1,5 @@
 # Chris Heredia Naranjo  
-Barcelona, Spain · [LinkedIn](https://linkedin.com/in/christian) · c.heredia.naranjo@gmail.com
+Barcelona, Spain · [LinkedIn](https://linkedin.com/in/christian) · c.heredia.xxxxxjo@gmail.com
 
 I’m a software engineer with expertise in frontend development (Angular) and full-stack integration. I’ve led teams on large-scale projects, delivering high-performance platforms in the tech and tourism industries. I focus on creating scalable solutions, optimizing code quality, and driving agile practices to enhance team productivity and deliver impactful results.
 
