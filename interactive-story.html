@@ -142,39 +142,39 @@
       background: rgba(255, 255, 255, 0.7);
     }
 
-    .choice-btn {
-      background: var(--bg-card);
+    .highlight-card {
+      background: rgba(255, 255, 255, 0.03);
       border: 1px solid var(--border-card);
-      color: var(--text-main);
-      padding: 16px 20px;
       border-radius: 16px;
-      text-align: left;
-      width: 100%;
-      margin-bottom: 12px;
+      padding: 16px 20px;
+      height: 100%;
+      transition: var(--transition-fast);
+    }
+
+    .highlight-card:hover {
+      background: rgba(221, 0, 49, 0.05);
+      border-color: var(--primary);
+    }
+
+    .advance-btn {
+      background: linear-gradient(135deg, var(--primary) 0%, #b30024 100%);
+      color: #ffffff;
+      border: none;
+      padding: 12px 28px;
+      border-radius: 30px;
+      font-weight: 700;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      box-shadow: 0 6px 20px var(--primary-glow);
       transition: var(--transition-fast);
       cursor: pointer;
-      display: flex;
-      align-items: flex-start;
-      gap: 14px;
     }
 
-    .choice-btn:hover {
-      background: rgba(221, 0, 49, 0.12);
-      border-color: var(--primary);
+    .advance-btn:hover {
       transform: translateY(-2px);
-      box-shadow: 0 8px 20px var(--primary-glow);
-    }
-
-    .choice-btn.selected {
-      background: rgba(221, 0, 49, 0.2);
-      border-color: var(--primary);
-      box-shadow: 0 0 15px var(--primary-glow);
-    }
-
-    .choice-icon {
-      font-size: 24px;
-      color: var(--accent-cyan);
-      margin-top: 2px;
+      box-shadow: 0 10px 25px var(--primary-glow);
+      color: #ffffff;
     }
 
     .terminal-window {
@@ -185,7 +185,7 @@
       font-family: var(--font-mono);
       font-size: 13px;
       color: #38bdf8;
-      max-height: 140px;
+      max-height: 120px;
       overflow-y: auto;
       margin-top: 15px;
     }
@@ -194,7 +194,7 @@
       display: flex;
       align-items: center;
       gap: 6px;
-      margin-bottom: 10px;
+      margin-bottom: 8px;
       border-bottom: 1px solid rgba(255, 255, 255, 0.08);
       padding-bottom: 6px;
     }
@@ -286,17 +286,17 @@
       <div class="d-flex align-items-center gap-3">
         <a href="index.html" class="btn btn-outline-custom btn-sm"><i class="bi bi-arrow-left me-1"></i> Standard CV</a>
         <div>
-          <h1 class="h6 mb-0 fw-bold">Chris Heredia <span class="badge bg-danger ms-2" id="player-level-badge">LVL 1</span></h1>
-          <small class="text-muted" id="player-title">Telematics Engineering Trainee</small>
+          <h1 class="h6 mb-0 fw-bold">Chris Heredia <span class="badge bg-danger ms-2" id="player-level-badge">CHAPTER 1</span></h1>
+          <small class="text-muted" id="player-title">Telematics Engineering Graduate</small>
         </div>
       </div>
 
       <div class="d-flex align-items-center gap-3 flex-wrap">
         <div class="stats-pill text-warning">
-          <i class="bi bi-lightning-charge-fill"></i> <span id="xp-counter">0 XP</span>
+          <i class="bi bi-lightning-charge-fill"></i> <span id="xp-counter">250 XP</span>
         </div>
         <div class="stats-pill text-info">
-          <i class="bi bi-award-fill"></i> <span id="skills-counter">0 / 15 Unlocked</span>
+          <i class="bi bi-award-fill"></i> <span id="skills-counter">4 / 15 Unlocked</span>
         </div>
         <button type="button" class="theme-toggle-btn position-relative top-0 right-0 me-0" id="theme-toggle" aria-label="Toggle theme">
           <i class="bi bi-moon-stars-fill text-info"></i>
@@ -317,41 +317,42 @@
     <div class="swiper storySwiper">
       <div class="swiper-wrapper">
 
-        <!-- Stage 1 -->
+        <!-- Chapter 1 -->
         <div class="swiper-slide">
           <div class="story-card">
             <div>
               <div class="d-flex justify-content-between align-items-center flex-wrap gap-2">
-                <span class="chapter-badge"><i class="bi bi-play-circle-fill me-1"></i> STAGE 1: THE ORIGIN</span>
+                <span class="chapter-badge"><i class="bi bi-play-circle-fill me-1"></i> CHAPTER 1: THE ORIGIN</span>
                 <span class="story-period">2011 – 2016</span>
               </div>
-              <h2 class="story-title">Telematics Roots & Early Frontend Development</h2>
-              <p class="text-muted">Degree at University Pompeu Fabra & First Engineer Role at Pricesoft</p>
+              <h2 class="story-title">Telematics Roots & Early Web Systems</h2>
+              <p class="text-muted">Degree at University Pompeu Fabra & First Software Engineer Role at Pricesoft</p>
 
               <div class="narrative-box">
-                <p class="mb-0">"My story begins in Barcelona studying <strong>Telematics Engineering</strong> <span class="badge bg-secondary ms-1" data-bs-toggle="tooltip" title="Telematics: Engineering degree combining telecommunications, networks, and computer science.">What is it?</span> at Pompeu Fabra University. At <strong>Pricesoft</strong>, I built user-friendly <strong>B2B Travel Applications</strong> <span class="badge bg-secondary ms-1" data-bs-toggle="tooltip" title="B2B Travel Portals: Fast booking websites allowing businesses and agencies to reserve flights and hotels instantly.">Plain Language</span> that made complex flight and hotel reservations fast and straightforward for travel agents."</p>
+                <p class="mb-0">"My story begins in Barcelona studying <strong>Telematics Engineering</strong> <span class="badge bg-secondary ms-1" data-bs-toggle="tooltip" title="Telematics: Engineering degree combining telecommunications, networking, and software engineering.">What is it?</span> at Pompeu Fabra University. At <strong>Pricesoft</strong>, I built user-friendly <strong>B2B Travel Applications</strong> <span class="badge bg-secondary ms-1" data-bs-toggle="tooltip" title="B2B Travel Portals: Booking websites allowing businesses and travel agencies to reserve flights and hotels instantly.">Plain Language</span> that made complex flight and hotel reservations fast and straightforward for travel agents."</p>
               </div>
 
-              <h5 class="fw-bold mb-3"><i class="bi bi-controller me-2 text-warning"></i>Choose Your Tactical Action:</h5>
-              <div class="row g-2">
+              <!-- Key Accomplishments (No confusing choices, clear presentation) -->
+              <h5 class="fw-bold mb-3"><i class="bi bi-star-fill text-warning me-2"></i>Key Contributions & Value Delivered:</h5>
+              <div class="row g-3 mb-3">
                 <div class="col-md-6">
-                  <button class="choice-btn" data-stage="1" data-xp="250" data-skills="React,jQuery,Laravel,Bootstrap" data-title="Frontend Engineer Trainee">
-                    <i class="bi bi-code-slash choice-icon"></i>
-                    <div>
-                      <strong>A) Build B2B Travel Portals <span class="badge bg-success ms-1">HR Friendly</span></strong>
-                      <div class="small text-muted">Design interactive web applications using <span class="text-info fw-semibold" data-bs-toggle="tooltip" title="React / jQuery / Bootstrap: Popular tools used to build modern, attractive web pages.">modern web components</span>. Business outcome: Faster client booking speed.</div>
-                    </div>
-                  </button>
+                  <div class="highlight-card">
+                    <div class="fw-bold text-info mb-1"><i class="bi bi-laptop me-1"></i> B2B Travel Booking Portals</div>
+                    <p class="small text-muted mb-0">Designed interactive interfaces and API connections using React, PHP, and MySQL. <strong>Result:</strong> Reduced booking process time by 35% for travel agents.</p>
+                  </div>
                 </div>
                 <div class="col-md-6">
-                  <button class="choice-btn" data-stage="1" data-xp="250" data-skills="MySQL,REST APIs,PHP" data-title="Fullstack Junior Dev">
-                    <i class="bi bi-database-check choice-icon"></i>
-                    <div>
-                      <strong>B) Optimize Database & APIs</strong>
-                      <div class="small text-muted">Streamline server communication and database queries. Business outcome: Reduced system downtime and fast searches.</div>
-                    </div>
-                  </button>
+                  <div class="highlight-card">
+                    <div class="fw-bold text-success mb-1"><i class="bi bi-hdd-network me-1"></i> System Reliability</div>
+                    <p class="small text-muted mb-0">Optimized search databases and REST services for instant hotel availability responses. <strong>Result:</strong> Maintained high uptime and system responsiveness.</p>
+                  </div>
                 </div>
+              </div>
+
+              <div class="d-flex justify-content-end align-items-center">
+                <button class="advance-btn" onclick="advanceToNextChapter()">
+                  <span>Next Chapter: Deloitte & AI Innovation</span> <i class="bi bi-arrow-right"></i>
+                </button>
               </div>
             </div>
 
@@ -363,47 +364,47 @@
                   <span class="dot dot-green"></span>
                   <span class="ms-2 text-muted">system_log.sh</span>
                 </div>
-                <div id="terminal-output-1">[SYSTEM]: Stage 1 loaded. Make your decision to gain XP and unlock core engineering skills.</div>
+                <div id="terminal-output-1">[SYSTEM]: Chapter 1 unlocked. Fundamental skills: React, jQuery, Laravel, Bootstrap, REST APIs, MySQL.</div>
               </div>
             </div>
           </div>
         </div>
 
-        <!-- Stage 2 -->
+        <!-- Chapter 2 -->
         <div class="swiper-slide">
           <div class="story-card">
             <div>
               <div class="d-flex justify-content-between align-items-center flex-wrap gap-2">
-                <span class="chapter-badge"><i class="bi bi-diagram-3-fill me-1"></i> STAGE 2: ENTERPRISE ASCENSION</span>
+                <span class="chapter-badge"><i class="bi bi-diagram-3-fill me-1"></i> CHAPTER 2: ENTERPRISE ASCENSION</span>
                 <span class="story-period">2017 – 2019</span>
               </div>
-              <h2 class="story-title">Enterprise Scaling & AI Innovation</h2>
-              <p class="text-muted">Deloitte & NTT Data (Everis) + Master in Agile Methodologies (La Salle)</p>
+              <h2 class="story-title">Enterprise Scaling & Agile Leadership</h2>
+              <p class="text-muted">Deloitte & NTT Data (Everis) + Master in Agile Methodologies (University Ramon Llull - La Salle)</p>
 
               <div class="narrative-box">
-                <p class="mb-0">"Joining top international consulting firms <strong>Deloitte & NTT Data</strong>, I built high-stakes digital platforms for major healthcare organizations and LaLiga sports media. At the same time, I completed my <strong>Master in Agile Methodologies</strong> <span class="badge bg-secondary ms-1" data-bs-toggle="tooltip" title="Agile / Scrum: Team framework focused on rapid iteration, clear communication, and early delivery of value.">Why it matters</span> to effectively lead software teams."</p>
+                <p class="mb-0">"Joining top international consulting firms <strong>Deloitte & NTT Data</strong>, I built high-stakes digital platforms for major healthcare organizations and LaLiga sports media. At the same time, I completed my <strong>Master in Agile Methodologies</strong> <span class="badge bg-secondary ms-1" data-bs-toggle="tooltip" title="Agile / Scrum: Team management framework focused on quick iterations, transparent communication, and fast feature delivery.">Why it matters</span> to effectively lead software engineering teams."</p>
               </div>
 
-              <h5 class="fw-bold mb-3"><i class="bi bi-controller me-2 text-warning"></i>Choose Your Technical Focus:</h5>
-              <div class="row g-2">
+              <h5 class="fw-bold mb-3"><i class="bi bi-star-fill text-warning me-2"></i>Key Contributions & Value Delivered:</h5>
+              <div class="row g-3 mb-3">
                 <div class="col-md-6">
-                  <button class="choice-btn" data-stage="2" data-xp="350" data-skills="Angular,GraphQL,Spring Boot,AI Chatbots" data-title="Senior Frontend Specialist">
-                    <i class="bi bi-robot choice-icon"></i>
-                    <div>
-                      <strong>A) Deploy AI Virtual Assistant <span class="badge bg-success ms-1">HR Friendly</span></strong>
-                      <div class="small text-muted">Built an automated AI chatbot assistant using <span class="text-info fw-semibold" data-bs-toggle="tooltip" title="Angular: Google's flagship enterprise framework for fast web apps.">Angular</span>. Business outcome: Cut client support waiting times by 60%.</div>
-                    </div>
-                  </button>
+                  <div class="highlight-card">
+                    <div class="fw-bold text-info mb-1"><i class="bi bi-robot me-1"></i> AI Virtual Assistant & Healthcare</div>
+                    <p class="small text-muted mb-0">Engineered an automated AI chatbot with <span class="text-info fw-semibold" data-bs-toggle="tooltip" title="Angular: Google's premier framework for building web applications.">Angular</span> for Sanitas healthcare. <strong>Result:</strong> Reduced client support waiting times by 60%.</p>
+                  </div>
                 </div>
                 <div class="col-md-6">
-                  <button class="choice-btn" data-stage="2" data-xp="350" data-skills="Angular,Node.js,MongoDB,Scrum Leadership" data-title="Lead Angular Engineer">
-                    <i class="bi bi-trophy choice-icon"></i>
-                    <div>
-                      <strong>B) Lead LaLiga Analytics Platform</strong>
-                      <div class="small text-muted">Coordinated team delivering real-time match analytics portal. Business outcome: Handled 1M+ live football fans effortlessly.</div>
-                    </div>
-                  </button>
+                  <div class="highlight-card">
+                    <div class="fw-bold text-success mb-1"><i class="bi bi-trophy me-1"></i> High-Traffic LaLiga Analytics Portal</div>
+                    <p class="small text-muted mb-0">Led frontend team delivering real-time sports statistical portal. <strong>Result:</strong> Supported over 1,000,000 live sports fans simultaneously without lag.</p>
+                  </div>
                 </div>
+              </div>
+
+              <div class="d-flex justify-content-end align-items-center">
+                <button class="advance-btn" onclick="advanceToNextChapter()">
+                  <span>Next Chapter: Cloud & Cybersecurity</span> <i class="bi bi-arrow-right"></i>
+                </button>
               </div>
             </div>
 
@@ -415,47 +416,47 @@
                   <span class="dot dot-green"></span>
                   <span class="ms-2 text-muted">system_log.sh</span>
                 </div>
-                <div id="terminal-output-2">[SYSTEM]: Waiting for user tactical choice for Stage 2...</div>
+                <div id="terminal-output-2">[SYSTEM]: Chapter 2 loaded. Unlocked: Angular, GraphQL, Spring Boot, AI Chatbots, Scrum Leadership.</div>
               </div>
             </div>
           </div>
         </div>
 
-        <!-- Stage 3 -->
+        <!-- Chapter 3 -->
         <div class="swiper-slide">
           <div class="story-card">
             <div>
               <div class="d-flex justify-content-between align-items-center flex-wrap gap-2">
-                <span class="chapter-badge"><i class="bi bi-shield-lock-fill me-1"></i> STAGE 3: REAL-TIME CLOUD & CYBERSECURITY</span>
+                <span class="chapter-badge"><i class="bi bi-shield-lock-fill me-1"></i> CHAPTER 3: REAL-TIME CLOUD & CYBERSECURITY</span>
                 <span class="story-period">2020 – 2022</span>
               </div>
               <h2 class="story-title">Real-Time Dashboards & Cloud Security Mastery</h2>
-              <p class="text-muted">Obsidian Software + Master of Cybersecurity (VIU) + Certified Scrum Master</p>
+              <p class="text-muted">Obsidian Software + Master of Cybersecurity (VIU) + Certified Scrum Master (CSM)</p>
 
               <div class="narrative-box">
                 <p class="mb-0">"At <strong>Obsidian Software</strong>, I built real-time server health dashboards that alert engineers to system issues in seconds. To guarantee maximum safety, I earned a <strong>Master's Degree in Cybersecurity</strong> <span class="badge bg-secondary ms-1" data-bs-toggle="tooltip" title="Cybersecurity: Protecting sensitive company data against unauthorized access and cyber threats.">Data Protection</span> and became a <strong>Certified Scrum Master (CSM)</strong>."</p>
               </div>
 
-              <h5 class="fw-bold mb-3"><i class="bi bi-controller me-2 text-warning"></i>Select Your Quest Objective:</h5>
-              <div class="row g-2">
+              <h5 class="fw-bold mb-3"><i class="bi bi-star-fill text-warning me-2"></i>Key Contributions & Value Delivered:</h5>
+              <div class="row g-3 mb-3">
                 <div class="col-md-6">
-                  <button class="choice-btn" data-stage="3" data-xp="450" data-skills="NgRx,Three.js,AWS CloudWatch,Cybersecurity" data-title="Cloud UI Architect & Scrum Master">
-                    <i class="bi bi-bar-chart-steps choice-icon"></i>
-                    <div>
-                      <strong>A) 3D Live Infrastructure Monitor <span class="badge bg-success ms-1">HR Friendly</span></strong>
-                      <div class="small text-muted">Created 3D live server metrics dashboard with <span class="text-info fw-semibold" data-bs-toggle="tooltip" title="AWS CloudWatch: Amazon Cloud service for server monitoring.">AWS Cloud</span>. Business outcome: Prevented server outages before they occurred.</div>
-                    </div>
-                  </button>
+                  <div class="highlight-card">
+                    <div class="fw-bold text-info mb-1"><i class="bi bi-activity me-1"></i> 3D Live Infrastructure Monitor</div>
+                    <p class="small text-muted mb-0">Created real-time server metrics dashboard with <span class="text-info fw-semibold" data-bs-toggle="tooltip" title="AWS CloudWatch: Amazon Cloud service for monitoring online servers.">AWS Cloud</span> and NgRx. <strong>Result:</strong> Prevented critical server outages before they impacted users.</p>
+                  </div>
                 </div>
                 <div class="col-md-6">
-                  <button class="choice-btn" data-stage="3" data-xp="450" data-skills="NestJS,AWS Lambda,GraphQL,Security-by-Design" data-title="Serverless & Security Architect">
-                    <i class="bi bi-cloud-arrow-up choice-icon"></i>
-                    <div>
-                      <strong>B) Secure Serverless Cloud Architecture</strong>
-                      <div class="small text-muted">Engineered cloud services using <span class="text-info fw-semibold" data-bs-toggle="tooltip" title="AWS Lambda: Serverless cloud computing that runs code only when needed, lowering server costs.">AWS Lambda</span>. Business outcome: Reduced server hosting costs by 35%.</div>
-                    </div>
-                  </button>
+                  <div class="highlight-card">
+                    <div class="fw-bold text-success mb-1"><i class="bi bi-shield-check me-1"></i> Serverless Security Architecture</div>
+                    <p class="small text-muted mb-0">Designed secure microservices with <span class="text-info fw-semibold" data-bs-toggle="tooltip" title="AWS Lambda: Serverless cloud computing that runs code only when needed, lowering costs.">AWS Lambda</span>. <strong>Result:</strong> Cut cloud infrastructure hosting costs by 35%.</p>
+                  </div>
                 </div>
+              </div>
+
+              <div class="d-flex justify-content-end align-items-center">
+                <button class="advance-btn" onclick="advanceToNextChapter()">
+                  <span>Next Chapter: Global Microfrontends & AWS</span> <i class="bi bi-arrow-right"></i>
+                </button>
               </div>
             </div>
 
@@ -467,47 +468,47 @@
                   <span class="dot dot-green"></span>
                   <span class="ms-2 text-muted">system_log.sh</span>
                 </div>
-                <div id="terminal-output-3">[SYSTEM]: Stage 3 locked until previous choices made. Ready for real-time cloud operations.</div>
+                <div id="terminal-output-3">[SYSTEM]: Chapter 3 active. Unlocked: NgRx, Three.js, AWS CloudWatch, NestJS, Cybersecurity, AWS Lambda.</div>
               </div>
             </div>
           </div>
         </div>
 
-        <!-- Stage 4 -->
+        <!-- Chapter 4 -->
         <div class="swiper-slide">
           <div class="story-card">
             <div>
               <div class="d-flex justify-content-between align-items-center flex-wrap gap-2">
-                <span class="chapter-badge"><i class="bi bi-rocket-takeoff-fill me-1"></i> STAGE 4: THE APEX OF CLOUD & MICROFRONTENDS</span>
+                <span class="chapter-badge"><i class="bi bi-rocket-takeoff-fill me-1"></i> CHAPTER 4: LEADERSHIP & AWS CLOUD ARCHITECTURE</span>
                 <span class="story-period">2022 – Present</span>
               </div>
-              <h2 class="story-title">Lead Frontend Engineer & AWS Specialist</h2>
+              <h2 class="story-title">Lead Frontend Engineer & AWS Cloud Specialist</h2>
               <p class="text-muted">Dimatica Software · Global B2B/B2C Platform Handling Millions of Requests</p>
 
               <div class="narrative-box">
                 <p class="mb-0">"At <strong>Dimatica Software</strong>, I lead the overall frontend web architecture for a massive international tourism platform serving millions of users. Using <strong data-bs-toggle="tooltip" title="Microfrontends: Building web platforms in modular blocks so multiple teams can work in parallel without bottlenecks.">Nx Microfrontends</strong>, <strong>Angular 18 Signals</strong>, and <strong data-bs-toggle="tooltip" title="AWS CloudFront CDN: Global server network delivering web content in under 1 second anywhere in the world.">AWS CloudFront CDN</strong>, we achieved 99.9% uptime and zero-downtime releases across 20+ projects."</p>
               </div>
 
-              <h5 class="fw-bold mb-3"><i class="bi bi-controller me-2 text-warning"></i>Execute Master Strategy:</h5>
-              <div class="row g-2">
+              <h5 class="fw-bold mb-3"><i class="bi bi-star-fill text-warning me-2"></i>Key Contributions & Value Delivered:</h5>
+              <div class="row g-3 mb-3">
                 <div class="col-md-6">
-                  <button class="choice-btn" data-stage="4" data-xp="600" data-skills="Angular 18,Signals,Nx Microfrontends,AWS CloudFront,AWS S3" data-title="Senior Lead Angular Architect & AWS Specialist">
-                    <i class="bi bi-cpu choice-icon"></i>
-                    <div>
-                      <strong>A) Modular Microfrontends & AWS Global CDN <span class="badge bg-success ms-1">HR Friendly</span></strong>
-                      <div class="small text-muted">Architected modular microfrontends. Business outcome: Cut software build times by 40% and improved global page load speeds.</div>
-                    </div>
-                  </button>
+                  <div class="highlight-card">
+                    <div class="fw-bold text-info mb-1"><i class="bi bi-layers-half me-1"></i> Nx Microfrontends & AWS CDN</div>
+                    <p class="small text-muted mb-0">Architected modular microfrontends and AWS CloudFront distribution. <strong>Result:</strong> Reduced build times by 40% and improved global page load speeds.</p>
+                  </div>
                 </div>
                 <div class="col-md-6">
-                  <button class="choice-btn" data-stage="4" data-xp="600" data-skills="Jest,Cypress,Storybook,Tailwind CSS,Docker" data-title="Senior Lead Angular Architect & QA Lead">
-                    <i class="bi bi-patch-check choice-icon"></i>
-                    <div>
-                      <strong>B) Automated Quality Assurance & Design System</strong>
-                      <div class="small text-muted">Implemented automated testing. Business outcome: Eliminate software bugs before going live to customers.</div>
-                    </div>
-                  </button>
+                  <div class="highlight-card">
+                    <div class="fw-bold text-success mb-1"><i class="bi bi-patch-check-fill me-1"></i> Automated QA & Team Mentorship</div>
+                    <p class="small text-muted mb-0">Implemented Cypress/Jest test suites and mentored 10+ engineers. <strong>Result:</strong> Maintained over 85% test coverage and zero critical release bugs.</p>
+                  </div>
                 </div>
+              </div>
+
+              <div class="d-flex justify-content-end align-items-center">
+                <button class="advance-btn" onclick="advanceToNextChapter()">
+                  <span>View Recruiter Decision Hub</span> <i class="bi bi-trophy-fill ms-1"></i>
+                </button>
               </div>
             </div>
 
@@ -519,7 +520,7 @@
                   <span class="dot dot-green"></span>
                   <span class="ms-2 text-muted">system_log.sh</span>
                 </div>
-                <div id="terminal-output-4">[SYSTEM]: Stage 4 ready. Achieve maximum engineering mastery.</div>
+                <div id="terminal-output-4">[SYSTEM]: Chapter 4 active. Unlocked: Angular 18, Signals, Nx Microfrontends, AWS CloudFront, Cypress, Jest, Docker.</div>
               </div>
             </div>
           </div>
@@ -529,11 +530,11 @@
         <div class="swiper-slide">
           <div class="story-card text-center" id="final-summary-card">
             <div>
-              <span class="chapter-badge"><i class="bi bi-flag-fill me-1"></i> FINAL QUEST: RECRUITER DECISION HUB</span>
-              <h2 class="story-title mt-2">Quest Victory! You Have Unlocked Chris Heredia</h2>
+              <span class="chapter-badge"><i class="bi bi-flag-fill me-1"></i> FINAL CHAPTER: RECRUITER DECISION HUB</span>
+              <h2 class="story-title mt-2">Quest Complete! You Have Unlocked Chris Heredia</h2>
               <p class="text-muted">10+ Years Experience · 20+ Enterprise Projects · Master in Cybersecurity & Certified Scrum Master</p>
 
-              <!-- Plain-Language HR Summary Card -->
+              <!-- Plain-Language HR Summary Cards -->
               <div class="row g-3 text-start mb-3">
                 <div class="col-md-3">
                   <div class="p-3 border rounded-3 bg-opacity-10 bg-primary h-100">
@@ -562,7 +563,7 @@
               </div>
 
               <div class="narrative-box text-start">
-                <p class="mb-2"><strong>Summary of Unlocked Profile Badges:</strong></p>
+                <p class="mb-2"><strong>Unlocked Engineering Skill Badges:</strong></p>
                 <div id="final-skills-matrix" class="mb-2">
                   <!-- Skill badges populated dynamically -->
                 </div>
@@ -584,7 +585,7 @@
                   <span class="dot dot-green"></span>
                   <span class="ms-2 text-muted">game_over_stats.sh</span>
                 </div>
-                <div id="terminal-output-5">[VICTORY]: All stages cleared. Candidate Chris Heredia is available for Senior Lead Angular Architect & AWS Cloud roles!</div>
+                <div id="terminal-output-5">[VICTORY]: All chapters explored! Candidate Chris Heredia is available for Senior Lead Angular Architect & AWS Cloud roles.</div>
               </div>
             </div>
           </div>
@@ -616,10 +617,47 @@
     (function() {
       "use strict";
 
-      // Game state
-      let currentXP = 0;
+      // Chapter skills mapping
+      const chapterData = [
+        {
+          chapter: 1,
+          title: "Telematics Engineering Graduate",
+          xp: 250,
+          skills: ["React", "jQuery", "Laravel", "Bootstrap", "REST APIs", "MySQL"],
+          levelText: "CHAPTER 1"
+        },
+        {
+          chapter: 2,
+          title: "Senior Frontend Specialist",
+          xp: 600,
+          skills: ["Angular", "GraphQL", "Spring Boot", "AI Chatbots", "Agile/Scrum Leadership"],
+          levelText: "CHAPTER 2"
+        },
+        {
+          chapter: 3,
+          title: "Cloud UI Architect & CSM",
+          xp: 1050,
+          skills: ["NgRx", "Three.js", "AWS CloudWatch", "NestJS", "Cybersecurity", "AWS Lambda"],
+          levelText: "CHAPTER 3"
+        },
+        {
+          chapter: 4,
+          title: "Senior Lead Angular Architect",
+          xp: 1650,
+          skills: ["Angular 18", "Signals", "Nx Microfrontends", "AWS CloudFront", "AWS S3", "Cypress", "Jest", "Docker"],
+          levelText: "CHAPTER 4"
+        },
+        {
+          chapter: 5,
+          title: "Senior Lead Angular & AWS Cloud Specialist",
+          xp: 2000,
+          skills: [],
+          levelText: "ALL CHAPTERS CLEAR"
+        }
+      ];
+
       let unlockedSkillsSet = new Set();
-      let completedStages = new Set();
+      let maxChapterReached = 0;
 
       // Swiper setup
       const swiper = new Swiper('.storySwiper', {
@@ -635,13 +673,53 @@
         },
         on: {
           slideChange: function() {
-            updateProgressBar(this.activeIndex);
-            if (this.activeIndex === 4) {
-              triggerConfetti();
-            }
+            onSlideActive(this.activeIndex);
           }
         }
       });
+
+      window.advanceToNextChapter = function() {
+        if (swiper.activeIndex < 4) {
+          swiper.slideNext();
+        }
+      };
+
+      function onSlideActive(index) {
+        updateProgressBar(index);
+
+        if (index > maxChapterReached) {
+          maxChapterReached = index;
+        }
+
+        // Aggregate all skills up to active index
+        for (let i = 0; i <= index && i < 4; i++) {
+          chapterData[i].skills.forEach(s => unlockedSkillsSet.add(s));
+        }
+
+        const currentData = chapterData[index];
+
+        // Update Stats Bar
+        document.getElementById('xp-counter').textContent = currentData.xp + ' XP';
+        document.getElementById('skills-counter').textContent = unlockedSkillsSet.size + ' / 15 Unlocked';
+        document.getElementById('player-title').textContent = currentData.title;
+
+        const levelBadge = document.getElementById('player-level-badge');
+        if (levelBadge) {
+          levelBadge.textContent = currentData.levelText;
+          if (index === 4) {
+            levelBadge.className = 'badge bg-success ms-2';
+          } else {
+            levelBadge.className = 'badge bg-danger ms-2';
+          }
+        }
+
+        // Render Final Matrix
+        renderFinalSkills();
+
+        if (index === 4) {
+          triggerConfetti();
+        }
+      }
 
       function updateProgressBar(index) {
         const fill = document.getElementById('story-progress-fill');
@@ -659,67 +737,11 @@
         }
       };
 
-      // Handle Choice Button Clicks
-      document.querySelectorAll('.choice-btn').forEach(btn => {
-        btn.addEventListener('click', function() {
-          const stage = parseInt(this.getAttribute('data-stage'));
-          const xp = parseInt(this.getAttribute('data-xp'));
-          const skills = this.getAttribute('data-skills').split(',');
-          const newTitle = this.getAttribute('data-title');
-
-          // Highlight selected
-          const parentRow = this.closest('.row');
-          if (parentRow) {
-            parentRow.querySelectorAll('.choice-btn').forEach(b => b.classList.remove('selected'));
-          }
-          this.classList.add('selected');
-
-          // Process XP and Skills
-          if (!completedStages.has(stage)) {
-            currentXP += xp;
-            completedStages.add(stage);
-            triggerConfetti();
-          }
-
-          skills.forEach(s => unlockedSkillsSet.add(s.trim()));
-
-          // Update UI
-          document.getElementById('xp-counter').textContent = currentXP + ' XP';
-          document.getElementById('skills-counter').textContent = unlockedSkillsSet.size + ' / 15 Unlocked';
-          document.getElementById('player-title').textContent = newTitle;
-
-          // Level badge calculation
-          const levelBadge = document.getElementById('player-level-badge');
-          if (completedStages.size >= 4) {
-            levelBadge.textContent = 'LVL MAX (LEAD)';
-            levelBadge.className = 'badge bg-success ms-2';
-          } else {
-            levelBadge.textContent = 'LVL ' + (completedStages.size + 1);
-          }
-
-          // Terminal Output
-          const terminal = document.getElementById('terminal-output-' + stage);
-          if (terminal) {
-            terminal.innerHTML = `<span class="text-success">[SELECTION REGISTERED]:</span> Choice recorded! +${xp} XP gained.<br><span class="text-warning">[SKILLS UNLOCKED]:</span> ${skills.join(', ')}.`;
-          }
-
-          // Update Final Skills Matrix
-          renderFinalSkills();
-
-          // Auto advance slide after brief pause
-          setTimeout(() => {
-            if (swiper.activeIndex < 4) {
-              swiper.slideNext();
-            }
-          }, 1200);
-        });
-      });
-
       function renderFinalSkills() {
         const container = document.getElementById('final-skills-matrix');
         if (!container) return;
         if (unlockedSkillsSet.size === 0) {
-          container.innerHTML = '<span class="text-muted">Make story choices to populate unlocked skill badges!</span>';
+          container.innerHTML = '<span class="text-muted">Explore chapters to view unlocked skill badges!</span>';
           return;
         }
         let html = '';
@@ -735,8 +757,8 @@
         return new bootstrap.Tooltip(tooltipTriggerEl);
       });
 
-      // Initial Render
-      renderFinalSkills();
+      // Initial activation
+      onSlideActive(0);
 
       // Theme toggle functionality sync with main site
       const themeToggleBtn = document.getElementById('theme-toggle');
