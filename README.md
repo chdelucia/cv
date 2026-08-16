@@ -1,7 +1,7 @@
 # Chris Heredia Naranjo  
 Barcelona, Spain · [LinkedIn](https://www.linkedin.com/in/christian-heredia-angular-developer/) · c.heredia87@gmail.com
 
-I am a **Senior Frontend Engineer, Angular Expert, and AWS Cloud Specialist** with over 10 years of professional experience (since 2013) and a certified Scrum Master. I specialize in building enterprise-grade, high-performance web applications using **Angular (16/17/18)**, **Nx Microfrontends**, and scalable **AWS Cloud Architectures** (S3, CloudFront, Lambda, API Gateway, Route 53, Serverless CI/CD), backed by a Master's Degree in Cybersecurity to guarantee security-by-design.
+I am a **Senior Lead Angular Architect and AWS Cloud Frontend Specialist** with over 10 years of professional experience (since 2013), 20+ delivered enterprise applications, and a certified Scrum Master. I specialize in building enterprise-grade, high-performance web platforms using **Angular (16/17/18)**, **Angular Signals**, **Nx Microfrontends**, and scalable **AWS Cloud Architectures** (S3, CloudFront CDN, Lambda, API Gateway, Route 53, Serverless CI/CD), backed by a Master's Degree in Cybersecurity to guarantee security-by-design.
 
 ---
 

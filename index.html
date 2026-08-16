@@ -5,23 +5,31 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Chris Heredia | Senior Angular Expert & AWS Cloud Frontend Engineer</title>
-  <meta content="Senior Frontend Engineer & Angular Expert with over 10 years experience. Specialist in Nx Microfrontends, AWS Cloud (S3, CloudFront, Lambda, API Gateway), Master in Cybersecurity & Certified Scrum Master." name="description">
-  <meta content="Chris Heredia, Angular Expert, AWS Frontend Engineer, Microfrontends, Nx, Scrum Master, Cybersecurity, Cloud Developer, Barcelona" name="keywords">
+  <title>Chris Heredia | Senior Lead Angular Architect & AWS Cloud Specialist (10+ Yrs, 20+ Projects)</title>
+  <meta content="Senior Lead Angular Architect & AWS Cloud Specialist with 10+ years experience & 20+ enterprise projects delivered. Expert in Angular 18, Nx Microfrontends, Signals, AWS S3/CloudFront/Lambda, Cybersecurity & Certified Scrum Master." name="description">
+  <meta content="Senior Lead Angular Developer, Angular Lead Architect, Angular 18 Specialist, Microfrontends Architect, Nx Monorepo Expert, AWS Cloud Frontend Engineer, Senior Frontend Lead 20+ Projects, Certified Scrum Master, Barcelona" name="keywords">
   <link rel="canonical" href="https://chdelucia.github.io/">
 
   <!-- Open Graph / Social SEO -->
   <meta property="og:type" content="website">
-  <meta property="og:title" content="Chris Heredia | Senior Angular Expert & AWS Cloud Engineer">
-  <meta property="og:description" content="Senior Angular Developer & AWS Specialist with 10+ years experience. Expert in Nx Monorepos, Microfrontends, Signals, AWS S3/CloudFront/Lambda, and Certified Scrum Master.">
+  <meta property="og:title" content="Chris Heredia | Senior Lead Angular Architect & AWS Cloud Specialist (20+ Projects)">
+  <meta property="og:description" content="Senior Lead Angular Architect & AWS Specialist with 10+ years experience and 20+ enterprise projects delivered. Expert in Angular 18, Nx Microfrontends, Signals, AWS S3/CloudFront/Lambda, and Scrum Master Leadership.">
   <meta property="og:image" content="assets/img/profile-img.png">
   <meta property="og:url" content="https://chdelucia.github.io/">
 
   <!-- Twitter Cards -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Chris Heredia | Senior Angular Expert & AWS Cloud Engineer">
-  <meta name="twitter:description" content="Senior Angular Developer & AWS Specialist with 10+ years experience. Expert in Nx Monorepos, Microfrontends, Signals, AWS S3/CloudFront/Lambda, and Certified Scrum Master.">
+  <meta name="twitter:title" content="Chris Heredia | Senior Lead Angular Architect & AWS Cloud Specialist">
+  <meta name="twitter:description" content="Senior Lead Angular Architect & AWS Specialist with 10+ years experience and 20+ enterprise projects delivered. Expert in Angular 18, Nx Microfrontends, Signals, AWS S3/CloudFront/Lambda, and Scrum Master Leadership.">
   <meta name="twitter:image" content="assets/img/profile-img.png">
+
+  <!-- Anti-Flicker Theme Initialization -->
+  <script>
+    (function() {
+      var savedTheme = localStorage.getItem('theme') || (window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+      document.documentElement.setAttribute('data-theme', savedTheme);
+    })();
+  </script>
 
   <!-- Preload Critical Assets -->
   <link rel="preload" as="image" href="assets/img/hero-bg.jpg">
@@ -30,30 +38,41 @@
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "Person",
-    "name": "Chris Heredia",
-    "jobTitle": "Senior Angular Expert & AWS Cloud Frontend Engineer",
-    "description": "Senior Frontend Specialist with over 10 years experience in Angular (16/17/18), Nx Microfrontends, AWS Cloud services, Cybersecurity, and Scrum Master leadership.",
-    "url": "https://chdelucia.github.io/",
-    "sameAs": [
-      "https://github.com/chdelucia",
-      "https://www.linkedin.com/in/christian-heredia-angular-developer/"
-    ],
-    "knowsAbout": [
-      "Angular",
-      "Angular Signals",
-      "TypeScript",
-      "AWS S3",
-      "AWS CloudFront",
-      "AWS Lambda",
-      "Nx Monorepo",
-      "Microfrontends",
-      "RxJS",
-      "NgRx",
-      "Jest",
-      "Cypress",
-      "Cybersecurity",
-      "Scrum Master"
+    "@graph": [
+      {
+        "@type": "Person",
+        "@id": "https://chdelucia.github.io/#person",
+        "name": "Chris Heredia",
+        "jobTitle": "Senior Lead Angular Architect & AWS Cloud Specialist",
+        "description": "Senior Lead Angular Specialist with over 10 years professional experience and 20+ high-impact enterprise projects delivered. Specialist in Angular (16/17/18), Nx Microfrontends, AWS Cloud services, Cybersecurity, and Agile Technical Leadership.",
+        "url": "https://chdelucia.github.io/",
+        "sameAs": [
+          "https://github.com/chdelucia",
+          "https://www.linkedin.com/in/christian-heredia-angular-developer/"
+        ],
+        "knowsAbout": [
+          "Senior Lead Angular Architecture",
+          "Angular 18 & Signals",
+          "Nx Monorepo & Microfrontends",
+          "AWS Cloud (S3, CloudFront, Lambda, API Gateway)",
+          "TypeScript & RxJS",
+          "NgRx & State Management",
+          "Jest & Cypress Automated Testing",
+          "Cybersecurity & Security-by-Design",
+          "Scrum Master & Agile Leadership",
+          "20+ Enterprise Web Projects"
+        ]
+      },
+      {
+        "@type": "Occupation",
+        "name": "Senior Lead Angular Architect",
+        "occupationLocation": {
+          "@type": "City",
+          "name": "Barcelona"
+        },
+        "description": "Architecting and leading enterprise Angular frontends and AWS Cloud infrastructure across 20+ mission-critical applications.",
+        "skills": "Angular 18, Signals, Nx Microfrontends, AWS CloudFront, AWS S3, TypeScript, RxJS, NgRx, Cybersecurity, Agile Leadership"
+      }
     ]
   }
   </script>
@@ -84,7 +103,12 @@
   <!-- Top Progress Bar -->
   <div id="scroll-progress"></div>
 
-  <i class="bi bi-list mobile-nav-toggle d-xl-none"></i>
+  <!-- Floating Theme Switcher & Mobile Toggle -->
+  <button type="button" class="theme-toggle-btn" id="theme-toggle" aria-label="Toggle theme" title="Toggle Light/Dark Theme">
+    <i class="bi bi-moon-stars-fill text-info"></i>
+    <span class="theme-btn-text">Dark Mode</span>
+  </button>
+  <i class="bi bi-list mobile-nav-toggle d-xl-none" aria-label="Toggle mobile menu"></i>
 
   <!-- Navigation Header -->
   <header id="header" class="d-flex flex-column justify-content-center">
@@ -95,6 +119,7 @@
         <li><a href="#skills" class="nav-link scrollto"><i class="bx bx-code-alt"></i> <span>Skills & AWS</span></a></li>
         <li><a href="#resume" class="nav-link scrollto"><i class="bx bx-file-blank"></i> <span>Experience</span></a></li>
         <li><a href="cvgsap.html" class="nav-link gsap-switch-link" title="Switch to GSAP Animated Experience"><i class="bx bx-planet"></i> <span>GSAP Version</span></a></li>
+        <li><a href="#" class="nav-link nav-theme-toggle" title="Toggle Light / Dark Theme"><i class="bi bi-moon-stars-fill"></i> <span class="theme-btn-text">Dark Mode</span></a></li>
       </ul>
     </nav>
   </header>
@@ -107,12 +132,13 @@
         <a href="cvgsap.html" class="badge-version-toggle"><i class="bi bi-stars me-1"></i> Switch to GSAP Edition</a>
       </div>
       <h1 class="hero-title">Chris Heredia</h1>
-      <p class="hero-subtitle">I'm a <span class="typed" data-typed-items="Senior Angular Expert, AWS Cloud Specialist, Microfrontend Architect, Certified Scrum Master"></span></p>
+      <p class="hero-subtitle">I'm a <span class="typed" data-typed-items="Senior Lead Angular Architect, AWS Cloud Specialist, Nx Microfrontend Architect, Certified Scrum Master, 20+ Enterprise Projects Lead"></span></p>
 
       <div class="hero-highlights">
-        <span class="tech-pill"><i class="bx bxl-angular text-danger"></i> Angular 16-18 & Signals</span>
-        <span class="tech-pill"><i class="bx bxl-aws text-warning"></i> AWS Cloud & CloudFront</span>
+        <span class="tech-pill"><i class="bx bxl-angular text-danger"></i> Angular 18 & Signals</span>
+        <span class="tech-pill"><i class="bx bxl-aws text-warning"></i> AWS Cloud Architecture</span>
         <span class="tech-pill"><i class="bx bx-layer text-info"></i> Nx Microfrontends</span>
+        <span class="tech-pill"><i class="bx bx-briefcase text-primary"></i> 20+ Delivered Projects</span>
         <span class="tech-pill"><i class="bx bx-shield-quarter text-success"></i> Master's Cybersecurity</span>
       </div>
 
@@ -138,28 +164,28 @@
 
         <div class="section-title">
           <h2>About Me</h2>
-          <p class="lead-text">10+ years engineering modern, enterprise-grade Angular frontends powered by scalable AWS cloud architectures.</p>
+          <p class="lead-text">10+ years engineering modern, enterprise-grade Angular frontends and AWS Cloud architectures across 20+ successful high-scale applications.</p>
         </div>
 
         <div class="row align-items-center">
           <div class="col-lg-4 text-center mb-4 mb-lg-0" data-scroll-reveal="scale-up">
             <div class="profile-card">
-              <img src="assets/img/profile-img.png" class="img-fluid rounded-4 profile-img" alt="Chris Heredia - Senior Angular Expert & AWS Cloud Engineer" loading="lazy" decoding="async" width="350" height="350">
+              <img src="assets/img/profile-img.png" class="img-fluid rounded-4 profile-img" alt="Chris Heredia - Senior Lead Angular Architect & AWS Cloud Specialist" loading="lazy" decoding="async" width="350" height="350">
               <div class="profile-badge">
-                <i class="bi bi-patch-check-fill text-primary"></i> 10+ Years Exp.
+                <i class="bi bi-patch-check-fill text-primary"></i> 10+ Yrs Exp | 20+ Projects
               </div>
             </div>
           </div>
           <div class="col-lg-8 content" data-scroll-reveal="fade-left">
-            <h3 class="fw-bold mb-3">Senior Angular Expert &amp; AWS Cloud Frontend Engineer</h3>
+            <h3 class="fw-bold mb-3">Senior Lead Angular Architect &amp; AWS Cloud Frontend Specialist</h3>
             <p>
-              I am a <strong>Senior Frontend Specialist and certified Scrum Master</strong> with a strong foundation built since age 12. I specialize in architecting scalable, ultra-performant Web applications using <strong>Angular (16/17/18)</strong>, <strong>Nx Monorepos</strong>, and <strong>Microfrontend Architecture</strong>.
+              I am a <strong>Senior Lead Frontend Architect and Certified Scrum Master</strong> with over 10 years of professional software engineering leadership (since 2013). Having successfully led and delivered over <strong>20+ enterprise web applications</strong>, I specialize in architecting scalable, ultra-performant platforms using <strong>Angular (16/17/18)</strong>, <strong>Signals</strong>, <strong>Nx Monorepos</strong>, and <strong>Microfrontend Architecture</strong>.
             </p>
             <p>
-              Beyond core frontend mastery, I possess hands-on expertise in <strong>AWS Cloud Services</strong> (S3, CloudFront, Lambda, API Gateway, Route 53, Serverless deployment), enabling seamless frontend delivery from development to global CDN distribution.
+              Beyond core Angular expertise, I design and deploy frontend infrastructure on <strong>AWS Cloud Services</strong> (S3, CloudFront CDN, Lambda, API Gateway, Route 53, CloudWatch, Serverless CI/CD), ensuring global edge acceleration, zero downtime, and top-tier Web Vitals performance.
             </p>
             <p>
-              With a <strong>Master's Degree in Cybersecurity</strong> and a <strong>Master's in Agile Methodologies</strong>, I bring a rare combination of technical excellence, security-by-design, and team leadership to drive immediate ROI for high-growth engineering teams.
+              Holding both a <strong>Master's Degree in Cybersecurity</strong> and a <strong>Master's in Agile Methodologies</strong>, I bring a proven track record of technical leadership, security-by-design, and developer team mentorship to accelerate enterprise engineering roadmaps.
             </p>
 
             <!-- Key metrics grid -->
@@ -172,20 +198,20 @@
               </div>
               <div class="col-6 col-md-3">
                 <div class="stat-card">
+                  <div class="stat-number">20+</div>
+                  <div class="stat-label">Enterprise Projects</div>
+                </div>
+              </div>
+              <div class="col-6 col-md-3">
+                <div class="stat-card">
                   <div class="stat-number">v18</div>
-                  <div class="stat-label">Angular Mastered</div>
+                  <div class="stat-label">Angular & Signals</div>
                 </div>
               </div>
               <div class="col-6 col-md-3">
                 <div class="stat-card">
                   <div class="stat-number">AWS</div>
                   <div class="stat-label">S3/CloudFront/Lambda</div>
-                </div>
-              </div>
-              <div class="col-6 col-md-3">
-                <div class="stat-card">
-                  <div class="stat-number">100%</div>
-                  <div class="stat-label">Agile & Secure</div>
                 </div>
               </div>
             </div>
@@ -414,11 +440,11 @@
   <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
   <!-- Vendor JS Files -->
-  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="assets/vendor/typed.js/typed.min.js"></script>
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js" defer></script>
+  <script src="assets/vendor/typed.js/typed.min.js" defer></script>
 
   <!-- Main JS Script -->
-  <script src="assets/js/main.js"></script>
+  <script src="assets/js/main.js" defer></script>
 
 </body>
 
