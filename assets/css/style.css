@@ -418,7 +418,9 @@ h1, h2, h3, h4, h5, h6 {
 .hero-subtitle .typed {
   color: #38bdf8;
   font-weight: 700;
-  border-bottom: 2px solid var(--primary);
+  background: linear-gradient(135deg, #38bdf8 0%, #818cf8 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .hero-highlights {
@@ -964,7 +966,9 @@ section {
 
 [data-theme="light"] .hero-subtitle .typed {
   color: #026597;
-  border-bottom-color: #be123c;
+  background: linear-gradient(135deg, #0284c7 0%, #4f46e5 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 [data-theme="light"] .resume .resume-item h5 {
