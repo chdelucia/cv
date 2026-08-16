@@ -5,9 +5,9 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Chris Heredia | Senior Angular Expert & AWS Cloud Frontend Engineer</title>
-  <meta content="Senior Frontend Engineer & Angular Expert with over 10 years experience. Specialist in Nx Microfrontends, AWS Cloud (S3, CloudFront, Lambda, API Gateway), Master in Cybersecurity & Certified Scrum Master." name="description">
-  <meta content="Chris Heredia, Angular Expert, AWS Frontend Engineer, Microfrontends, Nx, Scrum Master, Cybersecurity, Cloud Developer, Barcelona" name="keywords">
+  <title>Chris Heredia | GSAP Interactive Resume - Angular Expert & AWS Specialist</title>
+  <meta content="Interactive GSAP animated portfolio of Chris Heredia, Senior Angular Expert & AWS Cloud Engineer." name="description">
+  <meta content="Chris Heredia, GSAP, ScrollTrigger, Angular Expert, AWS Frontend Engineer, Microfrontends, Nx, Scrum Master, Barcelona" name="keywords">
 
   <!-- Favicons -->
   <link href="assets/img/favicon.ico" rel="icon">
@@ -28,11 +28,33 @@
   <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
   <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
   <link href="assets/css/style.css" rel="stylesheet">
+
+  <!-- Additional GSAP Specific Styles -->
+  <style>
+    .gsap-hero-title span {
+      display: inline-block;
+    }
+    .gsap-card {
+      will-change: transform, opacity;
+    }
+    .gsap-pin-container {
+      position: relative;
+    }
+    .gsap-timeline-line {
+      position: absolute;
+      left: 11px;
+      top: 0;
+      width: 3px;
+      height: 0%;
+      background: linear-gradient(180deg, var(--primary) 0%, var(--aws-orange) 50%, var(--accent-cyan) 100%);
+      z-index: 1;
+    }
+  </style>
 </head>
 
-<body>
+<body class="gsap-version-body">
 
-  <!-- Top Progress Bar -->
+  <!-- Top Scroll Progress Bar -->
   <div id="scroll-progress"></div>
 
   <i class="bi bi-list mobile-nav-toggle d-xl-none"></i>
@@ -45,35 +67,36 @@
         <li><a href="#about" class="nav-link scrollto"><i class="bx bx-user"></i> <span>About</span></a></li>
         <li><a href="#skills" class="nav-link scrollto"><i class="bx bx-code-alt"></i> <span>Skills & AWS</span></a></li>
         <li><a href="#resume" class="nav-link scrollto"><i class="bx bx-file-blank"></i> <span>Experience</span></a></li>
-        <li><a href="cvgsap.html" class="nav-link gsap-switch-link" title="Switch to GSAP Animated Experience"><i class="bx bx-planet"></i> <span>GSAP Version</span></a></li>
+        <li><a href="index.html" class="nav-link" title="Switch to Native Scroll Version"><i class="bx bx-bolt-circle"></i> <span>Native Edition</span></a></li>
       </ul>
     </nav>
   </header>
 
   <!-- Hero Section -->
   <section id="hero" class="d-flex flex-column justify-content-center">
-    <div class="container hero-container" data-scroll-reveal="fade-up">
-      <div class="version-badge-wrapper mb-3">
-        <span class="badge-tech"><i class="bi bi-lightning-charge-fill me-1"></i> Native Scroll Edition</span>
-        <a href="cvgsap.html" class="badge-version-toggle"><i class="bi bi-stars me-1"></i> Switch to GSAP Edition</a>
-      </div>
-      <h1 class="hero-title">Chris Heredia</h1>
-      <p class="hero-subtitle">I'm a <span class="typed" data-typed-items="Senior Angular Expert, AWS Cloud Specialist, Microfrontend Architect, Certified Scrum Master"></span></p>
-
-      <div class="hero-highlights">
-        <span class="tech-pill"><i class="bx bxl-angular text-danger"></i> Angular 16-18 & Signals</span>
-        <span class="tech-pill"><i class="bx bxl-aws text-warning"></i> AWS Cloud & CloudFront</span>
-        <span class="tech-pill"><i class="bx bx-layer text-info"></i> Nx Microfrontends</span>
-        <span class="tech-pill"><i class="bx bx-shield-quarter text-success"></i> Master's Cybersecurity</span>
+    <div class="container hero-container">
+      <div class="version-badge-wrapper mb-3 gsap-reveal-hero">
+        <span class="badge-version-toggle me-2"><i class="bi bi-stars me-1"></i> GSAP & ScrollTrigger Powered</span>
+        <a href="index.html" class="badge-tech"><i class="bi bi-lightning-charge-fill me-1"></i> Switch to Native Scroll Edition</a>
       </div>
 
-      <div class="hero-actions mt-4">
+      <h1 class="hero-title gsap-hero-title gsap-reveal-hero">Chris Heredia</h1>
+      <p class="hero-subtitle gsap-reveal-hero">I'm a <span class="typed" data-typed-items="Senior Angular Expert, AWS Cloud Specialist, Microfrontend Architect, Certified Scrum Master"></span></p>
+
+      <div class="hero-highlights gsap-reveal-hero">
+        <span class="tech-pill gsap-pill"><i class="bx bxl-angular text-danger"></i> Angular 16-18 & Signals</span>
+        <span class="tech-pill gsap-pill"><i class="bx bxl-aws text-warning"></i> AWS Cloud & CloudFront</span>
+        <span class="tech-pill gsap-pill"><i class="bx bx-layer text-info"></i> Nx Microfrontends</span>
+        <span class="tech-pill gsap-pill"><i class="bx bx-shield-quarter text-success"></i> Master's Cybersecurity</span>
+      </div>
+
+      <div class="hero-actions mt-4 gsap-reveal-hero">
         <a href="#about" class="btn btn-primary-custom scrollto me-3"><i class="bi bi-person-check me-2"></i>Why Hire Me</a>
         <a href="Chris_Heredia_CV.pdf" target="_blank" class="btn btn-outline-custom me-3"><i class="bi bi-download me-2"></i>Download Resume</a>
         <a href="mailto:c.heredia87@gmail.com" class="btn btn-accent-custom"><i class="bi bi-envelope-fill me-2"></i>Get in Touch</a>
       </div>
 
-      <div class="social-links mt-4">
+      <div class="social-links mt-4 gsap-reveal-hero">
         <a href="mailto:c.heredia87@gmail.com" class="social-icon" title="Email"><i class="bx bxl-gmail"></i></a>
         <a href="https://github.com/chdelucia" class="social-icon" target="_blank" title="GitHub"><i class="bx bxl-github"></i></a>
         <a href="https://www.linkedin.com/in/christian-heredia-angular-developer/" class="social-icon" target="_blank" title="LinkedIn"><i class="bx bxl-linkedin"></i></a>
@@ -85,23 +108,23 @@
 
     <!-- About Section -->
     <section id="about" class="about">
-      <div class="container" data-scroll-reveal="fade-up">
+      <div class="container">
 
-        <div class="section-title">
+        <div class="section-title gsap-about-title">
           <h2>About Me</h2>
           <p class="lead-text">10+ years engineering modern, enterprise-grade Angular frontends powered by scalable AWS cloud architectures.</p>
         </div>
 
         <div class="row align-items-center">
-          <div class="col-lg-4 text-center mb-4 mb-lg-0" data-scroll-reveal="scale-up">
-            <div class="profile-card">
+          <div class="col-lg-4 text-center mb-4 mb-lg-0">
+            <div class="profile-card gsap-profile">
               <img src="assets/img/profile-img.png" class="img-fluid rounded-4 profile-img" alt="Chris Heredia - Senior Angular Expert & AWS Cloud Engineer">
               <div class="profile-badge">
                 <i class="bi bi-patch-check-fill text-primary"></i> 10+ Years Exp.
               </div>
             </div>
           </div>
-          <div class="col-lg-8 content" data-scroll-reveal="fade-left">
+          <div class="col-lg-8 content gsap-about-content">
             <h3 class="fw-bold mb-3">Senior Angular Expert &amp; AWS Cloud Frontend Engineer</h3>
             <p>
               I am a <strong>Senior Frontend Specialist and certified Scrum Master</strong> with a strong foundation built since age 12. I specialize in architecting scalable, ultra-performant Web applications using <strong>Angular (16/17/18)</strong>, <strong>Nx Monorepos</strong>, and <strong>Microfrontend Architecture</strong>.
@@ -116,25 +139,25 @@
             <!-- Key metrics grid -->
             <div class="row g-3 stats-grid mt-3">
               <div class="col-6 col-md-3">
-                <div class="stat-card">
+                <div class="stat-card gsap-stat">
                   <div class="stat-number">10+</div>
                   <div class="stat-label">Years Experience</div>
                 </div>
               </div>
               <div class="col-6 col-md-3">
-                <div class="stat-card">
+                <div class="stat-card gsap-stat">
                   <div class="stat-number">v18</div>
                   <div class="stat-label">Angular Mastered</div>
                 </div>
               </div>
               <div class="col-6 col-md-3">
-                <div class="stat-card">
+                <div class="stat-card gsap-stat">
                   <div class="stat-number">AWS</div>
                   <div class="stat-label">S3/CloudFront/Lambda</div>
                 </div>
               </div>
               <div class="col-6 col-md-3">
-                <div class="stat-card">
+                <div class="stat-card gsap-stat">
                   <div class="stat-number">100%</div>
                   <div class="stat-label">Agile & Secure</div>
                 </div>
@@ -149,17 +172,17 @@
 
     <!-- Skills Section -->
     <section id="skills" class="skills section-bg">
-      <div class="container" data-scroll-reveal="fade-up">
+      <div class="container">
 
-        <div class="section-title">
+        <div class="section-title gsap-skills-title">
           <h2>Technical Expertise & AWS Stack</h2>
           <p>A categorized breakdown of my specialized skillset engineered for scalable, high-throughput applications.</p>
         </div>
 
-        <div class="row g-4">
+        <div class="row g-4 gsap-skills-grid">
           <!-- Skill Card 1 -->
-          <div class="col-lg-6" data-scroll-reveal="slide-up" data-delay="100">
-            <div class="skill-category-card">
+          <div class="col-lg-6">
+            <div class="skill-category-card gsap-card">
               <div class="card-icon text-danger"><i class="bx bxl-angular"></i></div>
               <h4 class="card-title">Angular & Frontend Ecosystem</h4>
               <p class="card-desc">Expertise in enterprise Angular architecture, reactive state management, and modern component systems.</p>
@@ -177,8 +200,8 @@
           </div>
 
           <!-- Skill Card 2 -->
-          <div class="col-lg-6" data-scroll-reveal="slide-up" data-delay="200">
-            <div class="skill-category-card">
+          <div class="col-lg-6">
+            <div class="skill-category-card gsap-card">
               <div class="card-icon text-warning"><i class="bx bxl-aws"></i></div>
               <h4 class="card-title">AWS Cloud & Infrastructure</h4>
               <p class="card-desc">Hands-on delivery of web assets, edge caching, serverless APIs, and cloud deployments on AWS.</p>
@@ -196,8 +219,8 @@
           </div>
 
           <!-- Skill Card 3 -->
-          <div class="col-lg-6" data-scroll-reveal="slide-up" data-delay="300">
-            <div class="skill-category-card">
+          <div class="col-lg-6">
+            <div class="skill-category-card gsap-card">
               <div class="card-icon text-success"><i class="bx bx-check-shield"></i></div>
               <h4 class="card-title">Testing, Security & DevOps</h4>
               <p class="card-desc">End-to-end quality assurance, CI/CD automated pipelines, and cybersecurity protocols.</p>
@@ -214,8 +237,8 @@
           </div>
 
           <!-- Skill Card 4 -->
-          <div class="col-lg-6" data-scroll-reveal="slide-up" data-delay="400">
-            <div class="skill-category-card">
+          <div class="col-lg-6">
+            <div class="skill-category-card gsap-card">
               <div class="card-icon text-info"><i class="bx bx-server"></i></div>
               <h4 class="card-title">Backend, DB & Agile Leadership</h4>
               <p class="card-desc">Full-stack backend integration and proven team leadership in fast-paced agile environments.</p>
@@ -238,19 +261,20 @@
 
     <!-- Resume Section -->
     <section id="resume" class="resume">
-      <div class="container" data-scroll-reveal="fade-up">
+      <div class="container">
 
-        <div class="section-title">
+        <div class="section-title gsap-resume-title">
           <h2>Professional Experience & Education</h2>
           <p>A proven track record of delivering enterprise cloud frontends and leading high-performing engineering teams.</p>
         </div>
 
         <div class="row">
           <!-- Experience Column -->
-          <div class="col-lg-6">
+          <div class="col-lg-6 gsap-pin-container">
+            <div class="gsap-timeline-line"></div>
             <h3 class="resume-title"><i class="bx bx-briefcase me-2"></i>Professional Experience</h3>
 
-            <div class="resume-item" data-scroll-reveal="fade-up">
+            <div class="resume-item gsap-resume-item">
               <h4>Lead Frontend Engineer &amp; Angular/AWS Architect</h4>
               <h5>May 2022 - Present</h5>
               <p><em>Dimatica Software · Full-time</em></p>
@@ -265,7 +289,7 @@
               </ul>
             </div>
 
-            <div class="resume-item" data-scroll-reveal="fade-up">
+            <div class="resume-item gsap-resume-item">
               <h4>Senior Frontend Engineer &amp; Scrum Master</h4>
               <h5>Jan 2020 - Dec 2022</h5>
               <p><em>Obsidian Software · Full-time</em></p>
@@ -277,7 +301,7 @@
               </ul>
             </div>
 
-            <div class="resume-item" data-scroll-reveal="fade-up">
+            <div class="resume-item gsap-resume-item">
               <h4>Senior Frontend Engineer</h4>
               <h5>Jan 2017 - Aug 2019</h5>
               <p><em>Deloitte &amp; NTT Data (Everis)</em></p>
@@ -288,7 +312,7 @@
               </ul>
             </div>
 
-            <div class="resume-item" data-scroll-reveal="fade-up">
+            <div class="resume-item gsap-resume-item">
               <h4>Frontend Developer</h4>
               <h5>Sept 2013 - Oct 2016</h5>
               <p><em>Pricesoft · Full-time</em></p>
@@ -303,7 +327,7 @@
           <div class="col-lg-6">
             <h3 class="resume-title"><i class="bx bx-graduation me-2"></i>Education &amp; Masters</h3>
 
-            <div class="resume-item" data-scroll-reveal="fade-up">
+            <div class="resume-item gsap-edu-item">
               <h4>Master of Cybersecurity</h4>
               <h5>2022 - 2023</h5>
               <p><em>Valencia International University</em></p>
@@ -312,7 +336,7 @@
               </p>
             </div>
 
-            <div class="resume-item" data-scroll-reveal="fade-up">
+            <div class="resume-item gsap-edu-item">
               <h4>Master in Agile Methodologies</h4>
               <h5>2017 - 2018</h5>
               <p><em>University Ramon Llull - La Salle</em></p>
@@ -321,7 +345,7 @@
               </p>
             </div>
 
-            <div class="resume-item" data-scroll-reveal="fade-up">
+            <div class="resume-item gsap-edu-item">
               <h4>Telematics Engineering Degree</h4>
               <h5>2011 - 2016</h5>
               <p><em>University Pompeu Fabra</em></p>
@@ -331,7 +355,7 @@
             </div>
 
             <!-- Callout Card -->
-            <div class="cta-hiring-card mt-4" data-scroll-reveal="scale-up">
+            <div class="cta-hiring-card mt-4 gsap-cta">
               <h4><i class="bi bi-rocket-takeoff text-warning me-2"></i>Ready to boost your Frontend & AWS Cloud capabilities?</h4>
               <p class="mb-3">I am available for senior/lead Angular engineering roles, cloud frontend architecture, and team leadership.</p>
               <a href="mailto:c.heredia87@gmail.com" class="btn btn-accent-custom w-100 text-center"><i class="bi bi-envelope-check-fill me-2"></i>Hire Chris Heredia</a>
@@ -356,7 +380,7 @@
         <a href="https://www.linkedin.com/in/christian-heredia-angular-developer/" class="social-icon" target="_blank" title="LinkedIn"><i class="bx bxl-linkedin"></i></a>
       </div>
       <div class="copyright">
-        &copy; Chris Heredia portfolio. Native & GSAP Interactive Animations.
+        &copy; Chris Heredia portfolio. GSAP 3 & ScrollTrigger Interactive Edition.
       </div>
     </div>
   </footer>
@@ -368,8 +392,14 @@
   <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
   <script src="assets/vendor/typed.js/typed.min.js"></script>
 
+  <!-- GSAP 3 & ScrollTrigger CDN Libraries -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
   <!-- Main JS Script -->
   <script src="assets/js/main.js"></script>
+  <!-- GSAP Animation Controller JS -->
+  <script src="assets/js/gsap-init.js"></script>
 
 </body>
 
