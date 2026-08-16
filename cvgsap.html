@@ -8,6 +8,57 @@
   <title>Chris Heredia | GSAP Interactive Resume - Angular Expert & AWS Specialist</title>
   <meta content="Interactive GSAP animated portfolio of Chris Heredia, Senior Angular Expert & AWS Cloud Engineer." name="description">
   <meta content="Chris Heredia, GSAP, ScrollTrigger, Angular Expert, AWS Frontend Engineer, Microfrontends, Nx, Scrum Master, Barcelona" name="keywords">
+  <link rel="canonical" href="https://chdelucia.github.io/cvgsap.html">
+
+  <!-- Open Graph / Social SEO -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Chris Heredia | GSAP Interactive Edition - Angular & AWS Specialist">
+  <meta property="og:description" content="GSAP & ScrollTrigger powered interactive portfolio of Chris Heredia, Senior Angular Expert and AWS Cloud Engineer.">
+  <meta property="og:image" content="assets/img/profile-img.png">
+  <meta property="og:url" content="https://chdelucia.github.io/cvgsap.html">
+
+  <!-- Twitter Cards -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Chris Heredia | GSAP Interactive Edition - Angular & AWS Specialist">
+  <meta name="twitter:description" content="GSAP & ScrollTrigger powered interactive portfolio of Chris Heredia, Senior Angular Expert and AWS Cloud Engineer.">
+  <meta name="twitter:image" content="assets/img/profile-img.png">
+
+  <!-- Preload Critical Assets -->
+  <link rel="preload" as="image" href="assets/img/hero-bg.jpg">
+
+  <!-- Schema.org JSON-LD Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Chris Heredia",
+    "jobTitle": "Senior Angular Expert & AWS Cloud Frontend Engineer",
+    "description": "Senior Frontend Specialist with over 10 years experience in Angular (16/17/18), Nx Microfrontends, AWS Cloud services, Cybersecurity, and Scrum Master leadership.",
+    "url": "https://chdelucia.github.io/cvgsap.html",
+    "sameAs": [
+      "https://github.com/chdelucia",
+      "https://www.linkedin.com/in/christian-heredia-angular-developer/"
+    ],
+    "knowsAbout": [
+      "GSAP",
+      "ScrollTrigger",
+      "Angular",
+      "Angular Signals",
+      "TypeScript",
+      "AWS S3",
+      "AWS CloudFront",
+      "AWS Lambda",
+      "Nx Monorepo",
+      "Microfrontends",
+      "RxJS",
+      "NgRx",
+      "Jest",
+      "Cypress",
+      "Cybersecurity",
+      "Scrum Master"
+    ]
+  }
+  </script>
 
   <!-- Favicons -->
   <link href="assets/img/favicon.ico" rel="icon">
@@ -36,18 +87,6 @@
     }
     .gsap-card {
       will-change: transform, opacity;
-    }
-    .gsap-pin-container {
-      position: relative;
-    }
-    .gsap-timeline-line {
-      position: absolute;
-      left: 11px;
-      top: 0;
-      width: 3px;
-      height: 0%;
-      background: linear-gradient(180deg, var(--primary) 0%, var(--aws-orange) 50%, var(--accent-cyan) 100%);
-      z-index: 1;
     }
   </style>
 </head>
@@ -118,7 +157,7 @@
         <div class="row align-items-center">
           <div class="col-lg-4 text-center mb-4 mb-lg-0">
             <div class="profile-card gsap-profile">
-              <img src="assets/img/profile-img.png" class="img-fluid rounded-4 profile-img" alt="Chris Heredia - Senior Angular Expert & AWS Cloud Engineer">
+              <img src="assets/img/profile-img.png" class="img-fluid rounded-4 profile-img" alt="Chris Heredia - Senior Angular Expert & AWS Cloud Engineer" loading="lazy" decoding="async" width="350" height="350">
               <div class="profile-badge">
                 <i class="bi bi-patch-check-fill text-primary"></i> 10+ Years Exp.
               </div>
@@ -270,8 +309,7 @@
 
         <div class="row">
           <!-- Experience Column -->
-          <div class="col-lg-6 gsap-pin-container">
-            <div class="gsap-timeline-line"></div>
+          <div class="col-lg-6">
             <h3 class="resume-title"><i class="bx bx-briefcase me-2"></i>Professional Experience</h3>
 
             <div class="resume-item gsap-resume-item">
@@ -392,9 +430,9 @@
   <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
   <script src="assets/vendor/typed.js/typed.min.js"></script>
 
-  <!-- GSAP 3 & ScrollTrigger CDN Libraries -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <!-- Local GSAP 3 & ScrollTrigger Libraries -->
+  <script src="assets/vendor/gsap/gsap.min.js"></script>
+  <script src="assets/vendor/gsap/ScrollTrigger.min.js"></script>
 
   <!-- Main JS Script -->
   <script src="assets/js/main.js"></script>

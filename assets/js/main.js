@@ -158,8 +158,13 @@
       const revealObserver = new IntersectionObserver((entries, observer) => {
         entries.forEach(entry => {
           if (entry.isIntersecting) {
-            entry.target.classList.add('reveal-active');
-            observer.unobserve(entry.target);
+            const target = entry.target;
+            target.classList.add('reveal-active');
+            target.addEventListener('transitionend', function handler() {
+              target.style.willChange = 'auto';
+              target.removeEventListener('transitionend', handler);
+            });
+            observer.unobserve(target);
           }
         });
       }, observerOptions);
