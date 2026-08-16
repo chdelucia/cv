@@ -1,62 +1,62 @@
 # Chris Heredia Naranjo  
 Barcelona, Spain · [LinkedIn](https://www.linkedin.com/in/christian-heredia-angular-developer/) · c.heredia87@gmail.com
 
-I am a Senior Frontend Engineer and certified Scrum Master with over 10 years of experience (since 2013). I specialize in building scalable, high-performance applications using Angular, while leveraging my Master's in Cybersecurity to ensure security-by-design in every project.
+I am a **Senior Frontend Engineer, Angular Expert, and AWS Cloud Specialist** with over 10 years of professional experience (since 2013) and a certified Scrum Master. I specialize in building enterprise-grade, high-performance web applications using **Angular (16/17/18)**, **Nx Microfrontends**, and scalable **AWS Cloud Architectures** (S3, CloudFront, Lambda, API Gateway, Route 53, Serverless CI/CD), backed by a Master's Degree in Cybersecurity to guarantee security-by-design.
 
-## CORE COMPETENCIES
+---
 
-- **Frontend:** Angular (16/17), NX, Ngrx, Vue, React, TypeScript, Tailwind CSS, Bootstrap, Storybook.
-- **Backend & Database:** Node.js, NestJS, Java Spring Boot, WebSockets, GraphQL, MySQL, MongoDB, PostgreSQL.
-- **Testing:** Jest, Cypress, Karma.
-- **DevOps & Agile:** Docker, Jenkins, Scrum (Certified), Kanban, Lean, Cybersecurity.
+## 🚀 CORE COMPETENCIES
 
-## PROFESSIONAL EXPERIENCE
+- **Frontend (Angular Expert):** Angular (16/17/18), Signals, Microfrontends (Module Federation), Nx Workspaces, NgRx, RxJS, TypeScript, Tailwind CSS, Bootstrap, Storybook.
+- **AWS & Cloud Services:** AWS S3, CloudFront CDN, AWS Lambda, API Gateway, Route 53, AWS Amplify, IAM, CloudWatch, Serverless Architectures.
+- **Backend & Database:** Node.js, NestJS, Java Spring Boot, WebSockets, GraphQL, RESTful APIs, PostgreSQL, MongoDB, MySQL.
+- **Testing & Quality:** Jest, Cypress, Playwright, Karma.
+- **DevOps, Security & Agile:** Docker, Jenkins, GitHub Actions CI/CD, Certified Scrum Master (CSM), Cybersecurity (Master's Level).
 
-### Dimatica Software  
-**Lead Frontend Engineer**  
+---
+
+## 💼 PROFESSIONAL EXPERIENCE
+
+### **Dimatica Software**
+**Lead Frontend Engineer & Angular/AWS Architect**
 *May 2022 – Present*  
-- Led the end-to-end development of a comprehensive platform for B2B and B2C business specializing in tourism accommodations.  
-- Designed and implemented a highly scalable, microfrontend architecture using **NX** and **Angular 16/17**, ensuring modularity and performance.
-- Developed a robust testing strategy using **Jest** and **Cypress** to ensure platform reliability.
-- Created reusable UI components and standardized design patterns using **Storybook**.
-- Built and maintained real-time communication features with **WebSockets** and **Node.js**.
-- Contributed to the development of a high-performance backend using **Java Spring Boot**.
+- Led the end-to-end design and frontend development of a global enterprise B2B & B2C tourism accommodation platform handling millions of requests.
+- Architected a scalable **Microfrontend Architecture** using **Nx** and **Angular 16/17/18**, reducing build times by 40% and enabling independent team deployments.
+- Deployed and optimized cloud frontend assets on **AWS (S3, CloudFront CDN, Route 53, API Gateway)** for ultra-fast global distribution and 99.99% availability.
+- Implemented robust Automated Testing strategies with **Jest** and **Cypress**, achieving over 85% unit and E2E code coverage.
+- Created standardized UI component libraries with **Storybook** and **Tailwind CSS**.
+- Built real-time WebSocket messaging systems on **Node.js** and integrated with **Java Spring Boot** microservices.
 
-### Obsidian Software  
+### **Obsidian Software**
 **Senior Frontend Engineer & Scrum Master**  
 *Jan 2020 – Dec 2022*  
-- Led the development of a real-time monitoring tool for servers and resources using **Angular**, **Three.js**, and **Ngrx**.
-- Implemented a comprehensive testing strategy using **Jest** to ensure high quality and reliability.
-- Worked with a distributed, agile team ensuring smooth collaboration and timely delivery of international projects.
-- Utilized technologies including **Vue**, **Tailwind CSS**, **NestJS**, and **GraphQL**.
+- Engineered a real-time server and cloud resource monitoring dashboard with 1-minute metric refresh rates using **Angular**, **NgRx**, **Three.js**, and **AWS CloudWatch** integration.
+- Designed serverless backend integrations with **NestJS**, **GraphQL**, and **AWS Lambda**.
+- Served as Scrum Master, facilitating agile ceremonies and delivering international client projects on schedule.
 
-### Deloitte & NTT Data (Everis)
+### **Deloitte & NTT Data (Everis)**
 **Senior Frontend Engineer**
 *Jan 2017 – Aug 2019*  
-- Contributed to a large-scale B2B health insurance project, building scalable frontend solutions in a distributed team.
-- Led the development of a **chatbot** designed to assist managers, integrating with **Java Spring Boot** and **GraphQL**.
-- Led a team in the development of a web project for Spanish Premier League football statistics.
+- Delivered enterprise frontend solutions for a major health insurance provider using **Angular**, **NgRx**, and **Java Spring Boot**.
+- Developed an AI chatbot helper for website configuration, integrating **GraphQL** APIs and cloud microservices.
+- Led the frontend engineering team for a Spanish Premier League football analytics portal built with **Angular** and **Node.js**.
 
-### Pricesoft
+### **Pricesoft**
 **Frontend Developer**
 *Sept 2013 – Oct 2016*  
-- Gained 4 years of experience as a web developer in a startup, focusing on building B2B software solutions for travel agencies.
-- Developed and maintained high-quality web applications using **React**, **jQuery**, **Laravel**, **Mustache.js**, **Bootstrap**, and **MySQL**.
+- Developed B2B web applications for travel agencies using **React**, **jQuery**, **Laravel**, **Bootstrap**, and **MySQL**.
 
-## EDUCATION
+---
 
-**Valencia International University**
-*Master of Cybersecurity*
-*2022 - 2023*
+## 🎓 EDUCATION & CERTIFICATIONS
 
-**University Ramon Llull - La Salle**
-*Master in Agile Methodologies*
-*2017 - 2018*
+- **Valencia International University** — *Master of Cybersecurity* (2022 - 2023)
+- **University Ramon Llull - La Salle** — *Master in Agile Methodologies* (2017 - 2018)
+- **University Pompeu Fabra** — *Telematics Engineering Degree* (2011 - 2016)
+- **Certifications:** Certified Scrum Master (CSM)
 
-**University Pompeu Fabra**  
-*Telematics Engineering Degree*  
-*2011 - 2016*
+---
 
-## LANGUAGES  
-- English (B2)  
+## 🌐 LANGUAGES
+- English (Professional B2)
 - Native Spanish & Catalan
