@@ -14,14 +14,14 @@
   <meta property="og:type" content="website">
   <meta property="og:title" content="Chris Heredia | Senior Lead Angular Architect & AWS Cloud Specialist (20+ Projects)">
   <meta property="og:description" content="Senior Lead Angular Architect & AWS Specialist with 10+ years experience and 20+ enterprise projects delivered. Expert in Angular 18, Nx Microfrontends, Signals, AWS S3/CloudFront/Lambda, and Scrum Master Leadership.">
-  <meta property="og:image" content="assets/img/profile-img.png">
+  <meta property="og:image" content="https://chdelucia.github.io/assets/img/profile-img.png">
   <meta property="og:url" content="https://chdelucia.github.io/">
 
   <!-- Twitter Cards -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Chris Heredia | Senior Lead Angular Architect & AWS Cloud Specialist">
   <meta name="twitter:description" content="Senior Lead Angular Architect & AWS Specialist with 10+ years experience and 20+ enterprise projects delivered. Expert in Angular 18, Nx Microfrontends, Signals, AWS S3/CloudFront/Lambda, and Scrum Master Leadership.">
-  <meta name="twitter:image" content="assets/img/profile-img.png">
+  <meta name="twitter:image" content="https://chdelucia.github.io/assets/img/profile-img.png">
 
   <!-- Anti-Flicker Theme Initialization -->
   <script>
@@ -32,7 +32,7 @@
   </script>
 
   <!-- Preload Critical Assets -->
-  <link rel="preload" as="image" href="assets/img/hero-bg.jpg">
+  <link rel="preload" as="image" href="assets/img/hero-bg.webp" type="image/webp">
 
   <!-- Schema.org JSON-LD Structured Data -->
   <script type="application/ld+json">
@@ -72,6 +72,17 @@
         },
         "description": "Architecting and leading enterprise Angular frontends and AWS Cloud infrastructure across 20+ mission-critical applications.",
         "skills": "Angular 18, Signals, Nx Microfrontends, AWS CloudFront, AWS S3, TypeScript, RxJS, NgRx, Cybersecurity, Agile Leadership"
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://chdelucia.github.io/#website",
+        "url": "https://chdelucia.github.io/",
+        "name": "Chris Heredia Portfolio",
+        "description": "Official Portfolio & Professional CV of Chris Heredia - Senior Lead Angular Architect & AWS Cloud Specialist",
+        "publisher": {
+          "@id": "https://chdelucia.github.io/#person"
+        },
+        "inLanguage": "en-US"
       }
     ]
   }
@@ -167,7 +178,10 @@
         <div class="row align-items-center">
           <div class="col-lg-4 text-center mb-4 mb-lg-0" data-scroll-reveal="scale-up">
             <div class="profile-card">
-              <img src="assets/img/profile-img.png" class="img-fluid rounded-4 profile-img" alt="Chris Heredia - Senior Lead Angular Architect & AWS Cloud Specialist" loading="lazy" decoding="async" width="350" height="350">
+              <picture>
+                <source srcset="assets/img/profile-img.webp" type="image/webp">
+                <img src="assets/img/profile-img.png" class="img-fluid rounded-4 profile-img" alt="Chris Heredia - Senior Lead Angular Architect & AWS Cloud Specialist" loading="lazy" decoding="async" width="350" height="350">
+              </picture>
               <div class="profile-badge">
                 <i class="bi bi-patch-check-fill text-primary"></i> 10+ Yrs Exp | 20+ Projects
               </div>
