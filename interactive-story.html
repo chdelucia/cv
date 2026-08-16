@@ -1,0 +1,732 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Chris Heredia | Interactive Career Story CV (Angular & AWS Cloud Specialist)</title>
+  <meta content="Experience the career journey of Chris Heredia through an interactive story quest. Senior Lead Angular Architect & AWS Cloud Specialist." name="description">
+  <meta content="Chris Heredia, Interactive CV, Angular Architect, AWS Cloud Specialist, Microfrontends, Interactive Story, Portfolio" name="keywords">
+  <link rel="canonical" href="https://chdelucia.github.io/interactive-story.html">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Chris Heredia | Interactive Career Story CV">
+  <meta property="og:description" content="Explore Chris Heredia's 10+ year career as an interactive tech quest. Senior Lead Angular Architect & AWS Cloud Specialist.">
+  <meta property="og:image" content="https://chdelucia.github.io/assets/img/profile-img.png">
+  <meta property="og:url" content="https://chdelucia.github.io/interactive-story.html">
+
+  <!-- Anti-Flicker Theme Initialization -->
+  <script>
+    (function() {
+      var savedTheme = localStorage.getItem('theme') || (window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+      document.documentElement.setAttribute('data-theme', savedTheme);
+    })();
+  </script>
+
+  <!-- Favicons -->
+  <link href="assets/img/favicon.ico" rel="icon">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/img/apple-icon-180x180.png">
+  <link rel="manifest" href="assets/img/manifest.json">
+  <meta name="theme-color" content="#0f172a">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+  <link href="assets/css/style.css" rel="stylesheet">
+
+  <style>
+    /* Interactive Story Specific UI Enhancements */
+    .story-page {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      position: relative;
+    }
+
+    .story-navbar {
+      background: var(--bg-card);
+      border-bottom: 1px solid var(--border-card);
+      backdrop-filter: blur(16px);
+      padding: 12px 24px;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .story-progress-bar-wrapper {
+      height: 6px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 10px;
+      overflow: hidden;
+      margin-top: 8px;
+    }
+
+    .story-progress-fill {
+      height: 100%;
+      width: 20%;
+      background: linear-gradient(90deg, #dd0031 0%, #ff9900 50%, #06b6d4 100%);
+      transition: width 0.5s ease-out;
+    }
+
+    .swiper {
+      width: 100%;
+      padding-top: 20px;
+      padding-bottom: 40px;
+    }
+
+    .story-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-card);
+      border-radius: 24px;
+      padding: 35px;
+      backdrop-filter: blur(16px);
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+      min-height: 520px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: var(--transition-smooth);
+    }
+
+    .story-card:hover {
+      border-color: rgba(255, 255, 255, 0.2);
+    }
+
+    .chapter-badge {
+      font-family: var(--font-mono);
+      font-size: 13px;
+      padding: 6px 16px;
+      border-radius: 30px;
+      background: rgba(221, 0, 49, 0.15);
+      color: #ff4d6d;
+      border: 1px solid rgba(221, 0, 49, 0.3);
+      display: inline-block;
+      margin-bottom: 15px;
+    }
+
+    .story-title {
+      font-size: 2rem;
+      font-weight: 800;
+      margin-bottom: 10px;
+    }
+
+    .story-period {
+      color: var(--aws-orange);
+      font-family: var(--font-mono);
+      font-size: 0.95rem;
+      font-weight: 600;
+    }
+
+    .narrative-box {
+      background: rgba(0, 0, 0, 0.25);
+      border-left: 4px solid var(--accent-cyan);
+      border-radius: 12px;
+      padding: 18px 22px;
+      font-size: 1.05rem;
+      line-height: 1.7;
+      margin: 20px 0;
+      color: var(--text-main);
+    }
+
+    [data-theme="light"] .narrative-box {
+      background: rgba(255, 255, 255, 0.7);
+    }
+
+    .choice-btn {
+      background: var(--bg-card);
+      border: 1px solid var(--border-card);
+      color: var(--text-main);
+      padding: 16px 20px;
+      border-radius: 16px;
+      text-align: left;
+      width: 100%;
+      margin-bottom: 12px;
+      transition: var(--transition-fast);
+      cursor: pointer;
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+    }
+
+    .choice-btn:hover {
+      background: rgba(221, 0, 49, 0.12);
+      border-color: var(--primary);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px var(--primary-glow);
+    }
+
+    .choice-btn.selected {
+      background: rgba(221, 0, 49, 0.2);
+      border-color: var(--primary);
+      box-shadow: 0 0 15px var(--primary-glow);
+    }
+
+    .choice-icon {
+      font-size: 24px;
+      color: var(--accent-cyan);
+      margin-top: 2px;
+    }
+
+    .terminal-window {
+      background: #090d16;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 16px;
+      padding: 15px 20px;
+      font-family: var(--font-mono);
+      font-size: 13px;
+      color: #38bdf8;
+      max-height: 140px;
+      overflow-y: auto;
+      margin-top: 15px;
+    }
+
+    .terminal-header {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      margin-bottom: 10px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      padding-bottom: 6px;
+    }
+
+    .dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+    }
+
+    .dot-red { background: #ef4444; }
+    .dot-yellow { background: #f59e0b; }
+    .dot-green { background: #10b981; }
+
+    .unlocked-badge {
+      background: rgba(255, 153, 0, 0.15);
+      border: 1px solid rgba(255, 153, 0, 0.4);
+      color: #ffb703;
+      padding: 4px 10px;
+      border-radius: 8px;
+      font-size: 12px;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      margin-right: 6px;
+      margin-bottom: 6px;
+      animation: popIn 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+
+    @keyframes popIn {
+      0% { transform: scale(0.6); opacity: 0; }
+      100% { transform: scale(1); opacity: 1; }
+    }
+
+    .stats-pill {
+      background: var(--bg-card);
+      border: 1px solid var(--border-card);
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-size: 13px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .swiper-button-next, .swiper-button-prev {
+      color: var(--primary);
+      background: var(--bg-card);
+      border: 1px solid var(--border-card);
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      backdrop-filter: blur(10px);
+    }
+
+    .swiper-button-next:after, .swiper-button-prev:after {
+      font-size: 20px;
+      font-weight: bold;
+    }
+
+    .swiper-pagination-bullet {
+      background: var(--text-muted);
+      opacity: 0.5;
+    }
+
+    .swiper-pagination-bullet-active {
+      background: var(--primary);
+      opacity: 1;
+      width: 24px;
+      border-radius: 6px;
+    }
+
+    .final-cta-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 15px;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+
+<body class="story-page">
+
+  <!-- Top Navigation & Character Status Dashboard -->
+  <header class="story-navbar">
+    <div class="container-fluid d-flex flex-wrap align-items-center justify-content-between gap-3">
+      <div class="d-flex align-items-center gap-3">
+        <a href="index.html" class="btn btn-outline-custom btn-sm"><i class="bi bi-arrow-left me-1"></i> Standard CV</a>
+        <div>
+          <h1 class="h6 mb-0 fw-bold">Chris Heredia <span class="badge bg-danger ms-2" id="player-level-badge">LVL 1</span></h1>
+          <small class="text-muted" id="player-title">Telematics Engineering Trainee</small>
+        </div>
+      </div>
+
+      <div class="d-flex align-items-center gap-3 flex-wrap">
+        <div class="stats-pill text-warning">
+          <i class="bi bi-lightning-charge-fill"></i> <span id="xp-counter">0 XP</span>
+        </div>
+        <div class="stats-pill text-info">
+          <i class="bi bi-award-fill"></i> <span id="skills-counter">0 / 15 Unlocked</span>
+        </div>
+        <button type="button" class="theme-toggle-btn position-relative top-0 right-0 me-0" id="theme-toggle" aria-label="Toggle theme">
+          <i class="bi bi-moon-stars-fill text-info"></i>
+          <span class="theme-btn-text">Dark Mode</span>
+        </button>
+      </div>
+    </div>
+
+    <div class="container-fluid px-0">
+      <div class="story-progress-bar-wrapper">
+        <div class="story-progress-fill" id="story-progress-fill"></div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Story Swiper Container -->
+  <main class="container my-auto py-4">
+    <div class="swiper storySwiper">
+      <div class="swiper-wrapper">
+
+        <!-- Stage 1 -->
+        <div class="swiper-slide">
+          <div class="story-card">
+            <div>
+              <div class="d-flex justify-content-between align-items-center flex-wrap gap-2">
+                <span class="chapter-badge"><i class="bi bi-play-circle-fill me-1"></i> STAGE 1: THE ORIGIN</span>
+                <span class="story-period">2011 – 2016</span>
+              </div>
+              <h2 class="story-title">Telematics Roots & Early Frontend Development</h2>
+              <p class="text-muted">Degree at University Pompeu Fabra & First Engineer Role at Pricesoft</p>
+
+              <div class="narrative-box">
+                <p class="mb-0">"My story begins in Barcelona studying <strong>Telematics Engineering</strong> at Pompeu Fabra University, diving deep into networking protocols, memory management, and software design. Shortly after, at <strong>Pricesoft</strong>, I stepped onto the frontend battleground, constructing B2B travel applications."</p>
+              </div>
+
+              <h5 class="fw-bold mb-3"><i class="bi bi-controller me-2 text-warning"></i>Choose Your Tactical Action:</h5>
+              <div class="row g-2">
+                <div class="col-md-6">
+                  <button class="choice-btn" data-stage="1" data-xp="250" data-skills="React,jQuery,Laravel,Bootstrap" data-title="Frontend Engineer Trainee">
+                    <i class="bi bi-code-slash choice-icon"></i>
+                    <div>
+                      <strong>A) Build B2B Travel Portals</strong>
+                      <div class="small text-muted">Architect client-facing interfaces with React, jQuery, Laravel, and Bootstrap.</div>
+                    </div>
+                  </button>
+                </div>
+                <div class="col-md-6">
+                  <button class="choice-btn" data-stage="1" data-xp="250" data-skills="MySQL,REST APIs,PHP" data-title="Fullstack Junior Dev">
+                    <i class="bi bi-database-check choice-icon"></i>
+                    <div>
+                      <strong>B) Optimize Database & APIs</strong>
+                      <div class="small text-muted">Engineered high-concurrency MySQL schemas and seamless REST integrations.</div>
+                    </div>
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <div class="terminal-window">
+                <div class="terminal-header">
+                  <span class="dot dot-red"></span>
+                  <span class="dot dot-yellow"></span>
+                  <span class="dot dot-green"></span>
+                  <span class="ms-2 text-muted">system_log.sh</span>
+                </div>
+                <div id="terminal-output-1">[SYSTEM]: Stage 1 loaded. Make your decision to gain XP and unlock core engineering skills.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Stage 2 -->
+        <div class="swiper-slide">
+          <div class="story-card">
+            <div>
+              <div class="d-flex justify-content-between align-items-center flex-wrap gap-2">
+                <span class="chapter-badge"><i class="bi bi-diagram-3-fill me-1"></i> STAGE 2: ENTERPRISE ASCENSION</span>
+                <span class="story-period">2017 – 2019</span>
+              </div>
+              <h2 class="story-title">Enterprise Scaling & AI Innovation</h2>
+              <p class="text-muted">Deloitte & NTT Data (Everis) + Master in Agile Methodologies (La Salle)</p>
+
+              <div class="narrative-box">
+                <p class="mb-0">"Joining consulting giants <strong>Deloitte & NTT Data</strong>, I tackled mission-critical applications for major healthcare and sports media clients. Concurrently, I earned my <strong>Master in Agile Methodologies</strong> at University Ramon Llull."</p>
+              </div>
+
+              <h5 class="fw-bold mb-3"><i class="bi bi-controller me-2 text-warning"></i>Choose Your Technical Focus:</h5>
+              <div class="row g-2">
+                <div class="col-md-6">
+                  <button class="choice-btn" data-stage="2" data-xp="350" data-skills="Angular,GraphQL,Spring Boot,AI Chatbots" data-title="Senior Frontend Specialist">
+                    <i class="bi bi-robot choice-icon"></i>
+                    <div>
+                      <strong>A) Deploy AI Configuration Chatbot</strong>
+                      <div class="small text-muted">Constructed an AI helper with Angular, GraphQL APIs, and Spring Boot backend.</div>
+                    </div>
+                  </button>
+                </div>
+                <div class="col-md-6">
+                  <button class="choice-btn" data-stage="2" data-xp="350" data-skills="Angular,Node.js,MongoDB,Scrum Leadership" data-title="Lead Angular Engineer">
+                    <i class="bi bi-trophy choice-icon"></i>
+                    <div>
+                      <strong>B) Lead LaLiga Analytics Portal</strong>
+                      <div class="small text-muted">Led frontend team building LaLiga football statistics suite with Angular & Node.js.</div>
+                    </div>
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <div class="terminal-window">
+                <div class="terminal-header">
+                  <span class="dot dot-red"></span>
+                  <span class="dot dot-yellow"></span>
+                  <span class="dot dot-green"></span>
+                  <span class="ms-2 text-muted">system_log.sh</span>
+                </div>
+                <div id="terminal-output-2">[SYSTEM]: Waiting for user tactical choice for Stage 2...</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Stage 3 -->
+        <div class="swiper-slide">
+          <div class="story-card">
+            <div>
+              <div class="d-flex justify-content-between align-items-center flex-wrap gap-2">
+                <span class="chapter-badge"><i class="bi bi-shield-lock-fill me-1"></i> STAGE 3: REAL-TIME CLOUD & CYBERSECURITY</span>
+                <span class="story-period">2020 – 2022</span>
+              </div>
+              <h2 class="story-title">Real-Time Dashboards & Cloud Security Mastery</h2>
+              <p class="text-muted">Obsidian Software + Master of Cybersecurity (VIU) + Certified Scrum Master</p>
+
+              <div class="narrative-box">
+                <p class="mb-0">"At <strong>Obsidian Software</strong>, I engineered real-time server monitoring dashboards with 1-minute live data updates. To fortify cloud infrastructure, I completed a <strong>Master's Degree in Cybersecurity</strong> and achieved <strong>Certified Scrum Master (CSM)</strong> accreditation."</p>
+              </div>
+
+              <h5 class="fw-bold mb-3"><i class="bi bi-controller me-2 text-warning"></i>Select Your Quest Objective:</h5>
+              <div class="row g-2">
+                <div class="col-md-6">
+                  <button class="choice-btn" data-stage="3" data-xp="450" data-skills="NgRx,Three.js,AWS CloudWatch,Cybersecurity" data-title="Cloud UI Architect & Scrum Master">
+                    <i class="bi bi-bar-chart-steps choice-icon"></i>
+                    <div>
+                      <strong>A) Real-Time 3D Resource Monitor</strong>
+                      <div class="small text-muted">Combined Angular, NgRx, Three.js, and AWS CloudWatch for live cloud metrics.</div>
+                    </div>
+                  </button>
+                </div>
+                <div class="col-md-6">
+                  <button class="choice-btn" data-stage="3" data-xp="450" data-skills="NestJS,AWS Lambda,GraphQL,Security-by-Design" data-title="Serverless & Security Architect">
+                    <i class="bi bi-cloud-arrow-up choice-icon"></i>
+                    <div>
+                      <strong>B) Serverless Cloud Backend APIs</strong>
+                      <div class="small text-muted">Architected serverless microservices using NestJS, GraphQL, and AWS Lambda.</div>
+                    </div>
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <div class="terminal-window">
+                <div class="terminal-header">
+                  <span class="dot dot-red"></span>
+                  <span class="dot dot-yellow"></span>
+                  <span class="dot dot-green"></span>
+                  <span class="ms-2 text-muted">system_log.sh</span>
+                </div>
+                <div id="terminal-output-3">[SYSTEM]: Stage 3 locked until previous choices made. Ready for real-time cloud operations.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Stage 4 -->
+        <div class="swiper-slide">
+          <div class="story-card">
+            <div>
+              <div class="d-flex justify-content-between align-items-center flex-wrap gap-2">
+                <span class="chapter-badge"><i class="bi bi-rocket-takeoff-fill me-1"></i> STAGE 4: THE APEX OF CLOUD & MICROFRONTENDS</span>
+                <span class="story-period">2022 – Present</span>
+              </div>
+              <h2 class="story-title">Lead Frontend Engineer & AWS Specialist</h2>
+              <p class="text-muted">Dimatica Software · Global B2B/B2C Platform Handling Millions of Requests</p>
+
+              <div class="narrative-box">
+                <p class="mb-0">"At <strong>Dimatica Software</strong>, I lead the end-to-end frontend architecture of a high-volume B2B/B2C tourism platform. Using <strong>Nx Monorepo, Angular 18 Signals</strong>, and <strong>AWS CloudFront CDN edge distribution</strong>, we achieved sub-second global response rates and zero-downtime deployments across 20+ delivered enterprise projects."</p>
+              </div>
+
+              <h5 class="fw-bold mb-3"><i class="bi bi-controller me-2 text-warning"></i>Execute Master Strategy:</h5>
+              <div class="row g-2">
+                <div class="col-md-6">
+                  <button class="choice-btn" data-stage="4" data-xp="600" data-skills="Angular 18,Signals,Nx Microfrontends,AWS CloudFront,AWS S3" data-title="Senior Lead Angular Architect & AWS Specialist">
+                    <i class="bi bi-cpu choice-icon"></i>
+                    <div>
+                      <strong>A) Nx Microfrontends & AWS Edge</strong>
+                      <div class="small text-muted">Reduced build times by 40% with Nx Module Federation and AWS CloudFront distribution.</div>
+                    </div>
+                  </button>
+                </div>
+                <div class="col-md-6">
+                  <button class="choice-btn" data-stage="4" data-xp="600" data-skills="Jest,Cypress,Storybook,Tailwind CSS,Docker" data-title="Senior Lead Angular Architect & QA Lead">
+                    <i class="bi bi-patch-check choice-icon"></i>
+                    <div>
+                      <strong>B) Automated Testing & Design System</strong>
+                      <div class="small text-muted">Achieved >85% code coverage with Jest/Cypress and built a Storybook UI library.</div>
+                    </div>
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <div class="terminal-window">
+                <div class="terminal-header">
+                  <span class="dot dot-red"></span>
+                  <span class="dot dot-yellow"></span>
+                  <span class="dot dot-green"></span>
+                  <span class="ms-2 text-muted">system_log.sh</span>
+                </div>
+                <div id="terminal-output-4">[SYSTEM]: Stage 4 ready. Achieve maximum engineering mastery.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Stage 5 -->
+        <div class="swiper-slide">
+          <div class="story-card text-center">
+            <div>
+              <span class="chapter-badge"><i class="bi bi-flag-fill me-1"></i> FINAL QUEST: RECRUITER DECISION HUB</span>
+              <h2 class="story-title mt-2">Quest Victory! You Have Unlocked Chris Heredia</h2>
+              <p class="text-muted">10+ Years Experience · 20+ Enterprise Projects · Master in Cybersecurity & Certified Scrum Master</p>
+
+              <div class="narrative-box text-start">
+                <p class="mb-2"><strong>Summary of Unlocked Profile:</strong></p>
+                <div id="final-skills-matrix" class="mb-2">
+                  <!-- Skill badges populated dynamically -->
+                </div>
+                <p class="mb-0 text-muted">"Ready to level up your engineering team with a Senior Lead Angular Architect and AWS Cloud Frontend Specialist?"</p>
+              </div>
+
+              <div class="final-cta-grid">
+                <a href="mailto:c.heredia87@gmail.com" class="btn btn-primary-custom justify-content-center" onclick="triggerConfetti()"><i class="bi bi-envelope-check-fill me-2"></i>Hire Chris Heredia</a>
+                <a href="Chris_Heredia_CV.pdf" target="_blank" class="btn btn-accent-custom justify-content-center"><i class="bi bi-download me-2"></i>Download Resume PDF</a>
+                <a href="index.html" class="btn btn-outline-custom justify-content-center"><i class="bi bi-file-earmark-person me-2"></i>View Standard CV</a>
+              </div>
+            </div>
+
+            <div>
+              <div class="terminal-window text-start">
+                <div class="terminal-header">
+                  <span class="dot dot-red"></span>
+                  <span class="dot dot-yellow"></span>
+                  <span class="dot dot-green"></span>
+                  <span class="ms-2 text-muted">game_over_stats.sh</span>
+                </div>
+                <div id="terminal-output-5">[VICTORY]: All stages cleared. Candidate Chris Heredia is available for Senior Lead Angular Architect & AWS Cloud roles!</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Swiper Navigation Controls -->
+      <div class="swiper-button-next"></div>
+      <div class="swiper-button-prev"></div>
+      <div class="swiper-pagination mt-3"></div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="text-center py-3 border-top" style="border-color: var(--border-card) !important;">
+    <div class="container">
+      <small class="text-muted">&copy; Chris Heredia portfolio. Interactive Story Experience.</small>
+    </div>
+  </footer>
+
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+
+  <!-- Interactive Story Controller Script -->
+  <script>
+    (function() {
+      "use strict";
+
+      // Game state
+      let currentXP = 0;
+      let unlockedSkillsSet = new Set();
+      let completedStages = new Set();
+
+      // Swiper setup
+      const swiper = new Swiper('.storySwiper', {
+        spaceBetween: 30,
+        effect: 'slide',
+        pagination: {
+          el: '.swiper-pagination',
+          clickable: true,
+        },
+        navigation: {
+          nextEl: '.swiper-button-next',
+          prevEl: '.swiper-button-prev',
+        },
+        on: {
+          slideChange: function() {
+            updateProgressBar(this.activeIndex);
+            if (this.activeIndex === 4) {
+              triggerConfetti();
+            }
+          }
+        }
+      });
+
+      function updateProgressBar(index) {
+        const fill = document.getElementById('story-progress-fill');
+        const percentage = ((index + 1) / 5) * 100;
+        if (fill) fill.style.width = percentage + '%';
+      }
+
+      window.triggerConfetti = function() {
+        if (typeof confetti === 'function') {
+          confetti({
+            particleCount: 100,
+            spread: 70,
+            origin: { y: 0.6 }
+          });
+        }
+      };
+
+      // Handle Choice Button Clicks
+      document.querySelectorAll('.choice-btn').forEach(btn => {
+        btn.addEventListener('click', function() {
+          const stage = parseInt(this.getAttribute('data-stage'));
+          const xp = parseInt(this.getAttribute('data-xp'));
+          const skills = this.getAttribute('data-skills').split(',');
+          const newTitle = this.getAttribute('data-title');
+
+          // Highlight selected
+          const parentRow = this.closest('.row');
+          if (parentRow) {
+            parentRow.querySelectorAll('.choice-btn').forEach(b => b.classList.remove('selected'));
+          }
+          this.classList.add('selected');
+
+          // Process XP and Skills
+          if (!completedStages.has(stage)) {
+            currentXP += xp;
+            completedStages.add(stage);
+            triggerConfetti();
+          }
+
+          skills.forEach(s => unlockedSkillsSet.add(s.trim()));
+
+          // Update UI
+          document.getElementById('xp-counter').textContent = currentXP + ' XP';
+          document.getElementById('skills-counter').textContent = unlockedSkillsSet.size + ' / 15 Unlocked';
+          document.getElementById('player-title').textContent = newTitle;
+
+          // Level badge calculation
+          const levelBadge = document.getElementById('player-level-badge');
+          if (completedStages.size >= 4) {
+            levelBadge.textContent = 'LVL MAX (LEAD)';
+            levelBadge.className = 'badge bg-success ms-2';
+          } else {
+            levelBadge.textContent = 'LVL ' + (completedStages.size + 1);
+          }
+
+          // Terminal Output
+          const terminal = document.getElementById('terminal-output-' + stage);
+          if (terminal) {
+            terminal.innerHTML = `<span class="text-success">[SELECTION REGISTERED]:</span> Choice recorded! +${xp} XP gained.<br><span class="text-warning">[SKILLS UNLOCKED]:</span> ${skills.join(', ')}.`;
+          }
+
+          // Update Final Skills Matrix
+          renderFinalSkills();
+
+          // Auto advance slide after brief pause
+          setTimeout(() => {
+            if (swiper.activeIndex < 4) {
+              swiper.slideNext();
+            }
+          }, 1200);
+        });
+      });
+
+      function renderFinalSkills() {
+        const container = document.getElementById('final-skills-matrix');
+        if (!container) return;
+        if (unlockedSkillsSet.size === 0) {
+          container.innerHTML = '<span class="text-muted">Make story choices to populate unlocked skill badges!</span>';
+          return;
+        }
+        let html = '';
+        unlockedSkillsSet.forEach(skill => {
+          html += `<span class="unlocked-badge"><i class="bi bi-check-circle-fill text-warning"></i> ${skill}</span>`;
+        });
+        container.innerHTML = html;
+      }
+
+      // Initial Render
+      renderFinalSkills();
+
+      // Theme toggle functionality sync with main site
+      const themeToggleBtn = document.getElementById('theme-toggle');
+      if (themeToggleBtn) {
+        themeToggleBtn.addEventListener('click', function() {
+          const currentTheme = document.documentElement.getAttribute('data-theme');
+          const nextTheme = currentTheme === 'light' ? 'dark' : 'light';
+          document.documentElement.setAttribute('data-theme', nextTheme);
+          localStorage.setItem('theme', nextTheme);
+
+          const icon = this.querySelector('i');
+          const text = this.querySelector('.theme-btn-text');
+          if (nextTheme === 'light') {
+            if (icon) icon.className = 'bi bi-sun-fill text-warning';
+            if (text) text.textContent = 'Light Mode';
+          } else {
+            if (icon) icon.className = 'bi bi-moon-stars-fill text-info';
+            if (text) text.textContent = 'Dark Mode';
+          }
+        });
+      }
+
+    })();
+  </script>
+</body>
+
+</html>
