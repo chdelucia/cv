@@ -18,7 +18,7 @@
 
   --text-main: #f1f5f9;
   --text-muted: #94a3b8;
-  --text-dim: #64748b;
+  --text-dim: #a1a1aa;
   --text-heading: #ffffff;
 
   --font-main: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
@@ -31,20 +31,20 @@
 /* Light Theme Variables */
 [data-theme="light"] {
   --bg-dark: #f8fafc;
-  --bg-card: rgba(255, 255, 255, 0.9);
+  --bg-card: rgba(255, 255, 255, 0.95);
   --bg-card-hover: #ffffff;
-  --border-card: rgba(15, 23, 42, 0.12);
-  --border-card-active: rgba(221, 0, 49, 0.5);
+  --border-card: rgba(15, 23, 42, 0.15);
+  --border-card-active: rgba(190, 18, 60, 0.5);
 
-  --primary: #dd0031;
-  --primary-glow: rgba(221, 0, 49, 0.2);
-  --aws-orange: #d97706;
-  --aws-glow: rgba(217, 119, 6, 0.2);
-  --accent-cyan: #0284c7;
+  --primary: #be123c;
+  --primary-glow: rgba(190, 18, 60, 0.2);
+  --aws-orange: #b45309;
+  --aws-glow: rgba(180, 83, 9, 0.2);
+  --accent-cyan: #026597;
 
-  --text-main: #1e293b;
-  --text-muted: #475569;
-  --text-dim: #64748b;
+  --text-main: #0f172a;
+  --text-muted: #334155;
+  --text-dim: #475569;
   --text-heading: #0f172a;
 }
 
@@ -75,13 +75,13 @@ body {
 }
 
 a {
-  color: #0284c7;
+  color: #026597;
   text-decoration: none;
   transition: var(--transition-fast);
 }
 
 a:hover {
-  color: #0369a1;
+  color: #03496d;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -124,6 +124,10 @@ h1, h2, h3, h4, h5, h6 {
 .back-to-top i {
   font-size: 24px;
   color: #38bdf8;
+}
+
+[data-theme="light"] .back-to-top i {
+  color: #026597;
 }
 
 .back-to-top:hover {
@@ -347,7 +351,7 @@ h1, h2, h3, h4, h5, h6 {
   display: flex;
   align-items: center;
   padding: 80px 0;
-  background: linear-gradient(135deg, rgba(11, 15, 25, 0.88) 0%, rgba(15, 23, 42, 0.82) 100%), url("../img/hero-bg.jpg") top right / cover no-repeat;
+  background: linear-gradient(135deg, rgba(11, 15, 25, 0.88) 0%, rgba(15, 23, 42, 0.82) 100%), url("../img/hero-bg.webp") top right / cover no-repeat;
   background-attachment: fixed;
 }
 
@@ -486,7 +490,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .btn-accent-custom {
-  background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+  background: linear-gradient(135deg, #d97706 0%, #b45309 100%);
   color: #ffffff !important;
   font-weight: 700;
   padding: 12px 28px;
@@ -903,7 +907,7 @@ section {
 # Light Mode Specific Enhancements
 -------------------------------------------------------------- */
 [data-theme="light"] #hero {
-  background: linear-gradient(135deg, rgba(248, 250, 252, 0.94) 0%, rgba(241, 245, 249, 0.88) 100%), url("../img/hero-bg.jpg") top right / cover no-repeat;
+  background: linear-gradient(135deg, rgba(248, 250, 252, 0.94) 0%, rgba(241, 245, 249, 0.88) 100%), url("../img/hero-bg.webp") top right / cover no-repeat;
 }
 
 [data-theme="light"] .hero-title {
@@ -935,28 +939,46 @@ section {
 }
 
 [data-theme="light"] .skill-tag.highlight {
-  background: rgba(221, 0, 49, 0.1);
-  color: #c2002b;
-  border-color: rgba(221, 0, 49, 0.3);
+  background: rgba(190, 18, 60, 0.1);
+  color: #be123c;
+  border-color: rgba(190, 18, 60, 0.3);
 }
 
 [data-theme="light"] .skill-tag.highlight-aws {
-  background: rgba(217, 119, 6, 0.1);
+  background: rgba(180, 83, 9, 0.1);
   color: #b45309;
-  border-color: rgba(217, 119, 6, 0.3);
+  border-color: rgba(180, 83, 9, 0.3);
+}
+
+[data-theme="light"] .badge-tech {
+  background: rgba(190, 18, 60, 0.12);
+  border-color: rgba(190, 18, 60, 0.4);
+  color: #be123c;
+}
+
+[data-theme="light"] .badge-version-toggle {
+  background: rgba(180, 83, 9, 0.12);
+  border-color: rgba(180, 83, 9, 0.4);
+  color: #b45309;
+}
+
+[data-theme="light"] .hero-subtitle .typed {
+  color: #026597;
+  border-bottom-color: #be123c;
 }
 
 [data-theme="light"] .resume .resume-item h5 {
-  background: rgba(15, 23, 42, 0.05);
-  color: #475569;
+  background: rgba(15, 23, 42, 0.06);
+  color: #334155;
+  border-color: rgba(15, 23, 42, 0.15);
 }
 
 [data-theme="light"] .resume .resume-item h4 {
-  color: #0284c7;
+  color: #026597;
 }
 
 [data-theme="light"] .stat-number {
-  color: #0284c7;
+  color: #026597;
 }
 
 [data-theme="light"] .cta-hiring-card {
