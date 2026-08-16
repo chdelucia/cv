@@ -90,24 +90,46 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: 700;
 }
 
-/* Scroll Progress Bar */
+/* Scroll Progress Bar (Pure CSS Scroll Timeline) */
 #scroll-progress {
   position: fixed;
   top: 0;
   left: 0;
   height: 3px;
   background: linear-gradient(90deg, var(--primary) 0%, var(--aws-orange) 50%, var(--accent-cyan) 100%);
-  width: 0%;
+  width: 100%;
   z-index: 9999;
-  transition: width 0.1s linear;
   box-shadow: 0 0 10px var(--primary-glow);
+  transform-origin: left center;
+  animation: scrollProgressGrow linear auto;
+  animation-timeline: scroll(root block);
 }
 
-/* Back to Top Button */
+@keyframes scrollProgressGrow {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+/* Back to Top Button (Pure CSS Scroll Timeline) */
+@keyframes backToTopReveal {
+  from {
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+}
+
 .back-to-top {
   position: fixed;
-  visibility: hidden;
-  opacity: 0;
   right: 20px;
   bottom: 20px;
   z-index: 996;
@@ -118,7 +140,10 @@ h1, h2, h3, h4, h5, h6 {
   border-radius: 12px;
   backdrop-filter: blur(10px);
   color: var(--text-main);
-  transition: var(--transition-fast);
+  transition: background var(--transition-fast), border-color var(--transition-fast), transform var(--transition-fast);
+  animation: backToTopReveal linear auto both;
+  animation-timeline: scroll(root block);
+  animation-range: 150px 350px;
 }
 
 .back-to-top i {
@@ -139,11 +164,6 @@ h1, h2, h3, h4, h5, h6 {
 
 .back-to-top:hover i {
   color: #fff;
-}
-
-.back-to-top.active {
-  visibility: visible;
-  opacity: 1;
 }
 
 /* Preloader */
@@ -869,41 +889,87 @@ section {
 }
 
 /* --------------------------------------------------------------
-# Native Scroll Animations (IntersectionObserver driven)
+# Pure CSS Scroll-Driven Animations (CSS View Timeline)
 -------------------------------------------------------------- */
-[data-scroll-reveal] {
-  opacity: 0;
-  will-change: transform, opacity;
-  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+
+@keyframes cssRevealFadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
-[data-scroll-reveal="fade-up"] {
-  transform: translateY(40px);
+@keyframes cssRevealSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
-[data-scroll-reveal="slide-up"] {
-  transform: translateY(50px);
+@keyframes cssRevealFadeLeft {
+  from {
+    opacity: 0;
+    transform: translateX(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
 
-[data-scroll-reveal="fade-left"] {
-  transform: translateX(40px);
+@keyframes cssRevealScaleUp {
+  from {
+    opacity: 0;
+    transform: scale(0.88);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
 }
 
-[data-scroll-reveal="scale-up"] {
-  transform: scale(0.9);
+/* Scroll View Animations */
+@supports (animation-timeline: view()) {
+  [data-scroll-reveal="fade-up"] {
+    animation: cssRevealFadeUp linear both;
+    animation-timeline: view();
+    animation-range: entry 10% cover 30%;
+  }
+
+  [data-scroll-reveal="slide-up"] {
+    animation: cssRevealSlideUp linear both;
+    animation-timeline: view();
+    animation-range: entry 10% cover 30%;
+  }
+
+  [data-scroll-reveal="fade-left"] {
+    animation: cssRevealFadeLeft linear both;
+    animation-timeline: view();
+    animation-range: entry 10% cover 30%;
+  }
+
+  [data-scroll-reveal="scale-up"] {
+    animation: cssRevealScaleUp linear both;
+    animation-timeline: view();
+    animation-range: entry 10% cover 30%;
+  }
 }
 
-[data-scroll-reveal].reveal-active {
-  opacity: 1;
-  transform: translateY(0) translateX(0) scale(1);
+/* Fallback for browsers without animation-timeline: view() support */
+@supports not (animation-timeline: view()) {
+  [data-scroll-reveal] {
+    opacity: 1;
+    transform: none;
+  }
 }
-
-/* Stagger delay classes */
-[data-delay="100"] { transition-delay: 0.1s; }
-[data-delay="200"] { transition-delay: 0.2s; }
-[data-delay="300"] { transition-delay: 0.3s; }
-[data-delay="400"] { transition-delay: 0.4s; }
-[data-delay="500"] { transition-delay: 0.5s; }
 
 /* --------------------------------------------------------------
 # Light Mode Specific Enhancements

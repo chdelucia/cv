@@ -1,5 +1,5 @@
 /**
-* Native Scroll Animations & UI Enhancements JS
+* UI Controller & Interactivity JS
 * Chris Heredia Portfolio
 */
 (function() {
@@ -61,18 +61,6 @@
   });
 
   /**
-   * Top Scroll Progress Bar
-   */
-  const scrollProgress = select('#scroll-progress');
-  const updateScrollProgress = () => {
-    if (scrollProgress) {
-      const totalHeight = document.documentElement.scrollHeight - window.innerHeight;
-      const progress = (window.scrollY / totalHeight) * 100;
-      scrollProgress.style.width = `${Math.min(100, Math.max(0, progress))}%`;
-    }
-  };
-
-  /**
    * Active Navigation Spy on Scroll
    */
   const navLinks = select('#navbar .scrollto', true);
@@ -90,25 +78,7 @@
     });
   };
 
-  /**
-   * Back to Top button visibility
-   */
-  const backtotop = select('.back-to-top');
-  const toggleBackToTop = () => {
-    if (backtotop) {
-      if (window.scrollY > 300) {
-        backtotop.classList.add('active');
-      } else {
-        backtotop.classList.remove('active');
-      }
-    }
-  };
-
-  window.addEventListener('scroll', () => {
-    updateScrollProgress();
-    updateActiveNav();
-    toggleBackToTop();
-  }, { passive: true });
+  window.addEventListener('scroll', updateActiveNav, { passive: true });
 
   /**
    * Theme Switcher Controller
@@ -202,45 +172,8 @@
     }
   }
 
-  /**
-   * Native IntersectionObserver for Scroll Reveal Animations
-   */
-  const initNativeScrollReveal = () => {
-    const revealElements = select('[data-scroll-reveal]', true);
-    if (!revealElements.length) return;
-
-    if ('IntersectionObserver' in window) {
-      const observerOptions = {
-        root: null,
-        rootMargin: '0px 0px -60px 0px',
-        threshold: 0.15
-      };
-
-      const revealObserver = new IntersectionObserver((entries, observer) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            const target = entry.target;
-            target.classList.add('reveal-active');
-            target.addEventListener('transitionend', function handler() {
-              target.style.willChange = 'auto';
-              target.removeEventListener('transitionend', handler);
-            });
-            observer.unobserve(target);
-          }
-        });
-      }, observerOptions);
-
-      revealElements.forEach(el => revealObserver.observe(el));
-    } else {
-      // Fallback if IntersectionObserver is unsupported
-      revealElements.forEach(el => el.classList.add('reveal-active'));
-    }
-  };
-
   window.addEventListener('DOMContentLoaded', () => {
     initTheme();
-    initNativeScrollReveal();
-    updateScrollProgress();
     updateActiveNav();
   });
 
