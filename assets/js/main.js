@@ -108,7 +108,68 @@
     updateScrollProgress();
     updateActiveNav();
     toggleBackToTop();
-  });
+  }, { passive: true });
+
+  /**
+   * Theme Switcher Controller
+   */
+  const getPreferredTheme = () => {
+    const storedTheme = localStorage.getItem('theme');
+    if (storedTheme) {
+      return storedTheme;
+    }
+    return window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+  };
+
+  const setTheme = (theme) => {
+    document.documentElement.setAttribute('data-theme', theme);
+    localStorage.setItem('theme', theme);
+    updateThemeUI(theme);
+  };
+
+  const updateThemeUI = (theme) => {
+    const themeToggles = document.querySelectorAll('.theme-toggle-btn, .nav-theme-toggle');
+    themeToggles.forEach(btn => {
+      const icon = btn.querySelector('i');
+      const text = btn.querySelector('.theme-btn-text, span');
+      if (theme === 'light') {
+        if (icon) icon.className = 'bi bi-sun-fill text-warning';
+        if (text) text.textContent = 'Light Mode';
+        btn.setAttribute('aria-label', 'Switch to dark theme');
+        btn.setAttribute('title', 'Switch to dark theme');
+      } else {
+        if (icon) icon.className = 'bi bi-moon-stars-fill text-info';
+        if (text) text.textContent = 'Dark Mode';
+        btn.setAttribute('aria-label', 'Switch to light theme');
+        btn.setAttribute('title', 'Switch to light theme');
+      }
+    });
+  };
+
+  const initTheme = () => {
+    const currentTheme = getPreferredTheme();
+    setTheme(currentTheme);
+
+    const themeToggles = document.querySelectorAll('.theme-toggle-btn, .nav-theme-toggle');
+    themeToggles.forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        const activeTheme = document.documentElement.getAttribute('data-theme');
+        const nextTheme = activeTheme === 'light' ? 'dark' : 'light';
+        setTheme(nextTheme);
+      });
+    });
+
+    try {
+      window.matchMedia('(prefers-color-scheme: light)').addEventListener('change', (e) => {
+        if (!localStorage.getItem('theme')) {
+          setTheme(e.matches ? 'light' : 'dark');
+        }
+      });
+    } catch (err) {
+      // Legacy browser support
+    }
+  };
 
   /**
    * Preloader removal
@@ -177,6 +238,7 @@
   };
 
   window.addEventListener('DOMContentLoaded', () => {
+    initTheme();
     initNativeScrollReveal();
     updateScrollProgress();
     updateActiveNav();
