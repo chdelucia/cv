@@ -841,7 +841,7 @@
               { x: 1500, y: 320, type: 'pipe', height: 100 },
               { x: 1800, y: 260, type: 'brick' },
               { x: 1850, y: 260, type: 'coin_block', coins: 3 },
-              { x: 2500, y: 160, type: 'flagpole' }
+              { x: 2500, y: 160, type: 'flagpole', width: 60, height: 260 }
             ],
             coins: [
               { x: 400, y: 380, collected: false },
@@ -862,7 +862,7 @@
               { x: 1300, y: 320, type: 'pipe', height: 100 },
               { x: 1700, y: 220, type: 'cloud_platform', width: 140 },
               { x: 2100, y: 260, type: 'brick' },
-              { x: 2500, y: 160, type: 'flagpole' }
+              { x: 2500, y: 160, type: 'flagpole', width: 60, height: 260 }
             ],
             coins: [
               { x: 450, y: 380, collected: false },
@@ -882,7 +882,7 @@
               { x: 1200, y: 310, type: 'pipe', height: 110 },
               { x: 1600, y: 220, type: 'cloud_platform', width: 140 },
               { x: 2000, y: 260, type: 'brick' },
-              { x: 2500, y: 160, type: 'flagpole' }
+              { x: 2500, y: 160, type: 'flagpole', width: 60, height: 260 }
             ],
             coins: [
               { x: 500, y: 380, collected: false },
@@ -901,7 +901,7 @@
               { x: 1100, y: 220, type: 'cloud_platform', width: 200 },
               { x: 1500, y: 320, type: 'pipe', height: 100 },
               { x: 1900, y: 260, type: 'brick' },
-              { x: 2500, y: 160, type: 'flagpole' }
+              { x: 2500, y: 160, type: 'flagpole', width: 60, height: 260 }
             ],
             coins: [
               { x: 450, y: 380, collected: false },
@@ -919,7 +919,7 @@
               { x: 600, y: 220, type: 'cloud_platform', width: 160 },
               { x: 900, y: 260, type: '?', milestoneIndex: 7, hit: false },
               { x: 1400, y: 320, type: 'castle_entrance' },
-              { x: 2200, y: 260, type: 'castle' }
+              { x: 2200, y: 260, type: 'castle', width: 160, height: 160 }
             ],
             coins: [
               { x: 300, y: 380, collected: false },
@@ -1053,8 +1053,8 @@
         // Auto-play logic if enabled
         if (this.autoPlay) {
           this.keys.right = true;
-          // Jump over obstacles or when near blocks
-          const nextBlock = stage.blocks.find(b => b.x > this.player.x && b.x - this.player.x < 100);
+          // Jump over pipes, platforms, or jump underneath ? blocks
+          const nextBlock = stage.blocks.find(b => (b.type === 'pipe' || b.type === '?') && b.x > this.player.x && b.x - this.player.x < 90);
           if (nextBlock && this.player.grounded) {
             this.player.vy = this.player.jumpStrength;
             this.player.grounded = false;
