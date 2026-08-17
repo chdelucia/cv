@@ -1,0 +1,1298 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Dragon Ball CV 🐉 | Goku en la Nube Mágica - Descubre quién soy</title>
+  <meta content="Videojuego interactivo 2D de Dragon Ball volando con Goku y la Nube Mágica para descubrir el CV de Chris Heredia: Lead Angular Architect & AWS Specialist." name="description">
+
+  <!-- Open Graph / Social SEO -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Dragon Ball CV 🐉 | Goku & Flying Nimbus Interactive CV">
+  <meta property="og:description" content="¡Vuela con Goku y la Nube Mágica! Junta las 7 Bolas de Dragón y supera las sagas para revelar las habilidades, proyectos e identidad de Chris Heredia.">
+  <meta property="og:image" content="https://chdelucia.github.io/assets/img/profile-img.png">
+  <meta property="og:url" content="https://chdelucia.github.io/goku-cv.html">
+
+  <!-- Favicons & Vendors -->
+  <link href="assets/img/favicon.ico" rel="icon">
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+
+  <!-- Retro Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --db-orange: #ff6600;
+      --db-yellow: #fcc200;
+      --db-blue: #0088ff;
+      --db-dark: #0b0f19;
+      --db-font: 'Press Start 2P', cursive, monospace;
+    }
+
+    * {
+      box-sizing: border-box;
+      user-select: none;
+      -webkit-user-select: none;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: var(--db-dark);
+      color: #ffffff;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      overflow-x: hidden;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Top Nav Bar */
+    .game-header {
+      background: rgba(11, 15, 25, 0.95);
+      border-bottom: 3px solid #ff6600;
+      padding: 10px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 100;
+    }
+
+    .brand-logo {
+      font-family: var(--db-font);
+      font-size: 14px;
+      color: var(--db-yellow);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-shadow: 2px 2px #ff6600;
+    }
+
+    .brand-logo:hover {
+      color: #ffffff;
+    }
+
+    .nav-actions {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .btn-db {
+      font-family: var(--db-font);
+      font-size: 10px;
+      padding: 8px 14px;
+      border-radius: 6px;
+      border: 2px solid #ffffff;
+      cursor: pointer;
+      text-decoration: none;
+      transition: transform 0.1s ease, background-color 0.2s;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .btn-db:active {
+      transform: scale(0.95);
+    }
+
+    .btn-db-orange {
+      background: #ff6600;
+      color: #fff;
+    }
+
+    .btn-db-orange:hover {
+      background: #cc5200;
+      color: #fff;
+    }
+
+    .btn-db-blue {
+      background: #0088ff;
+      color: #fff;
+    }
+
+    .btn-db-blue:hover {
+      background: #0066cc;
+      color: #fff;
+    }
+
+    .btn-db-gold {
+      background: #fcc200;
+      color: #000;
+      border-color: #000;
+    }
+
+    .btn-db-gold:hover {
+      background: #d4a300;
+      color: #000;
+    }
+
+    /* Main Container */
+    .game-wrapper {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 15px;
+      max-width: 1200px;
+      margin: 0 auto;
+      width: 100%;
+    }
+
+    /* HUD Bar */
+    .hud-bar {
+      width: 100%;
+      max-width: 960px;
+      background: #000000;
+      border: 4px solid #ff6600;
+      border-bottom: none;
+      border-radius: 12px 12px 0 0;
+      padding: 12px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-family: var(--db-font);
+      font-size: 11px;
+      color: #fff;
+      text-shadow: 2px 2px #000;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .hud-item {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .hud-label {
+      color: #94a3b8;
+      font-size: 9px;
+    }
+
+    .hud-value {
+      color: var(--db-yellow);
+    }
+
+    /* Progress Bar */
+    .identity-progress-container {
+      width: 100%;
+      max-width: 960px;
+      background: #1e293b;
+      border: 4px solid #ff6600;
+      border-top: none;
+      border-bottom: none;
+      padding: 6px 20px;
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      font-family: var(--db-font);
+      font-size: 10px;
+    }
+
+    .progress-bar-outer {
+      flex: 1;
+      height: 16px;
+      background: #0f172a;
+      border: 2px solid #64748b;
+      border-radius: 8px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .progress-bar-inner {
+      height: 100%;
+      width: 0%;
+      background: linear-gradient(90deg, #ff6600, #fcc200, #10b981);
+      transition: width 0.3s ease-out;
+    }
+
+    /* Game Canvas Container */
+    .canvas-container {
+      position: relative;
+      width: 100%;
+      max-width: 960px;
+      border: 4px solid #ff6600;
+      border-radius: 0 0 12px 12px;
+      overflow: hidden;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.8);
+      background: #38bdf8;
+    }
+
+    canvas {
+      display: block;
+      width: 100%;
+      height: auto;
+      aspect-ratio: 16 / 9;
+      image-rendering: pixelated;
+    }
+
+    /* Overlay Screen (Start / Pause / Victory) */
+    .canvas-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(11, 15, 25, 0.94);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 20px;
+      z-index: 10;
+      backdrop-filter: blur(4px);
+    }
+
+    .overlay-title {
+      font-family: var(--db-font);
+      font-size: 22px;
+      color: var(--db-yellow);
+      margin-bottom: 15px;
+      text-shadow: 3px 3px #ff6600;
+      line-height: 1.4;
+    }
+
+    .overlay-subtitle {
+      font-size: 15px;
+      color: #cbd5e1;
+      max-width: 620px;
+      margin-bottom: 25px;
+      line-height: 1.6;
+    }
+
+    /* On-Screen Mobile Controls */
+    .touch-controls {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+      max-width: 960px;
+      margin-top: 15px;
+      padding: 0 10px;
+    }
+
+    .dpad-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 45px);
+      grid-template-rows: repeat(2, 45px);
+      gap: 5px;
+    }
+
+    .touch-btn {
+      width: 45px;
+      height: 45px;
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.15);
+      border: 2px solid rgba(255, 255, 255, 0.4);
+      color: #ffffff;
+      font-size: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      user-select: none;
+      touch-action: manipulation;
+    }
+
+    .touch-btn:active {
+      background: rgba(255, 102, 0, 0.6);
+      transform: scale(0.92);
+    }
+
+    .touch-btn-fire {
+      width: 75px;
+      height: 75px;
+      border-radius: 50%;
+      background: rgba(0, 136, 255, 0.7);
+      border: 3px solid #ffffff;
+      font-family: var(--db-font);
+      font-size: 9px;
+      color: #fff;
+    }
+
+    /* Level Selector Shortcuts */
+    .saga-shortcuts {
+      display: flex;
+      gap: 8px;
+      margin-top: 15px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .saga-btn {
+      font-family: var(--db-font);
+      font-size: 8px;
+      padding: 6px 10px;
+      background: #1e293b;
+      border: 1px solid #475569;
+      color: #94a3b8;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    .saga-btn.active, .saga-btn:hover {
+      background: #ff6600;
+      color: #fff;
+      border-color: #fcc200;
+    }
+
+    /* Modals for Unlocked CV Details */
+    .modal-content-retro {
+      background: #0b0f19;
+      border: 4px solid var(--db-yellow);
+      border-radius: 12px;
+      color: #ffffff;
+    }
+
+    .modal-header-retro {
+      border-bottom: 2px solid #334155;
+      font-family: var(--db-font);
+      color: var(--db-yellow);
+    }
+
+    .badge-unlock {
+      background: #ff6600;
+      color: #fff;
+      font-family: var(--db-font);
+      font-size: 10px;
+      padding: 4px 8px;
+      border-radius: 4px;
+      display: inline-block;
+      margin-bottom: 10px;
+    }
+
+    /* Radar Panel */
+    .unlocked-log {
+      width: 100%;
+      max-width: 960px;
+      margin-top: 20px;
+      background: #1e293b;
+      border-radius: 12px;
+      padding: 20px;
+      border: 2px solid #ff6600;
+    }
+
+    .log-title {
+      font-family: var(--db-font);
+      font-size: 11px;
+      color: var(--db-yellow);
+      margin-bottom: 15px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .log-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 12px;
+    }
+
+    .log-card {
+      background: #0b0f19;
+      border: 1px solid #334155;
+      border-radius: 8px;
+      padding: 12px;
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      opacity: 0.4;
+      transition: all 0.3s ease;
+    }
+
+    .log-card.unlocked {
+      opacity: 1;
+      border-color: #fcc200;
+      box-shadow: 0 4px 12px rgba(252, 194, 0, 0.2);
+    }
+
+    .log-icon {
+      font-size: 24px;
+      color: var(--db-yellow);
+      line-height: 1;
+    }
+
+    .log-info h5 {
+      font-size: 14px;
+      font-weight: 700;
+      margin: 0 0 4px 0;
+      color: #f8fafc;
+    }
+
+    .log-info p {
+      font-size: 12px;
+      color: #94a3b8;
+      margin: 0;
+    }
+
+    /* Sound Toggle */
+    .sound-toggle-btn {
+      background: transparent;
+      border: none;
+      color: #fff;
+      font-size: 20px;
+      cursor: pointer;
+    }
+
+    @media (max-width: 768px) {
+      .hud-bar {
+        font-size: 8px;
+        padding: 8px 12px;
+      }
+      .overlay-title {
+        font-size: 16px;
+      }
+      .overlay-subtitle {
+        font-size: 13px;
+      }
+      .btn-db {
+        font-size: 8px;
+        padding: 6px 10px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Top Navigation -->
+  <header class="game-header">
+    <a href="index.html" class="brand-logo">
+      <i class="bi bi-arrow-left-circle-fill text-warning fs-5"></i>
+      <span>VOLVER AL CV WEB</span>
+    </a>
+
+    <div class="nav-actions">
+      <button id="soundToggle" class="sound-toggle-btn" title="Activar/Desactivar Sonido">
+        <i class="bi bi-volume-up-fill text-warning"></i>
+      </button>
+      <button id="autoPlayBtn" class="btn-db btn-db-gold" title="Modo Vuelo Automático">
+        <i class="bi bi-play-circle-fill me-1"></i> VUELO AUTOMÁTICO
+      </button>
+      <a href="Chris_Heredia_CV.pdf" target="_blank" class="btn-db btn-db-orange">
+        <i class="bi bi-file-earmark-pdf-fill me-1"></i> DESCARGAR CV PDF
+      </a>
+    </div>
+  </header>
+
+  <!-- Game Main Section -->
+  <main class="game-wrapper">
+
+    <!-- HUD -->
+    <div class="hud-bar">
+      <div class="hud-item">
+        <span class="hud-label">GUERRERO</span>
+        <span class="hud-value" id="hudPlayer">GOKU NIMBUS</span>
+      </div>
+      <div class="hud-item">
+        <span class="hud-label">SEMILLAS / EXP</span>
+        <span class="hud-value" id="hudCoins">🫘 x00</span>
+      </div>
+      <div class="hud-item">
+        <span class="hud-label">SAGA</span>
+        <span class="hud-value" id="hudStage">SAGA 1: TIERRA</span>
+      </div>
+      <div class="hud-item">
+        <span class="hud-label">KI / PUNTOS</span>
+        <span class="hud-value" id="hudScore">000000</span>
+      </div>
+      <div class="hud-item">
+        <span class="hud-label">IDENTIDAD</span>
+        <span class="hud-value" id="hudIdentityText">DESCONOCIDO ❓</span>
+      </div>
+    </div>
+
+    <!-- Identity Progress Bar -->
+    <div class="identity-progress-container">
+      <span style="color: var(--db-yellow);">BOLAS DE DRAGÓN (IDENTIDAD):</span>
+      <div class="progress-bar-outer">
+        <div class="progress-bar-inner" id="identityProgressBar"></div>
+      </div>
+      <span id="identityPercent" style="color:#fcc200; font-weight:bold;">0%</span>
+    </div>
+
+    <!-- Canvas Wrapper -->
+    <div class="canvas-container" id="canvasContainer">
+      <canvas id="gokuCanvas" width="960" height="540"></canvas>
+
+      <!-- Start Overlay -->
+      <div class="canvas-overlay" id="startOverlay">
+        <h1 class="overlay-title">DRAGON BALL CV 🐉</h1>
+        <p class="overlay-subtitle">
+          ¡Acompaña a <strong>Goku en la Nube Mágica</strong>! Vuela por los cielos, recolecta las Bolas de Dragón ⭐, lanza ataques <strong>Kamehameha</strong> y desbloquea el historial profesional completo de Chris Heredia.
+        </p>
+        <div class="mb-4">
+          <span class="badge bg-warning text-dark me-2"><i class="bi bi-controller me-1"></i> Controles: Flechas / WASD para volar + Espacio (Kamehameha)</span>
+          <span class="badge bg-info me-2"><i class="bi bi-hand-index-thumb me-1"></i> Controles Táctiles en Pantalla</span>
+        </div>
+        <button id="startGameBtn" class="btn-db btn-db-orange fs-6 px-4 py-3">
+          <i class="bi bi-play-fill me-1"></i> ¡VOLAR EN LA NUBE MÁGICA Y DESCUBRIR!
+        </button>
+      </div>
+
+      <!-- Victory Overlay -->
+      <div class="canvas-overlay" id="victoryOverlay" style="display: none;">
+        <h1 class="overlay-title" style="color: #fcc200;">¡DRAGÓN SHENRON INVOCADO! 🐲</h1>
+        <p class="overlay-subtitle">
+          ¡Has reunido todas las Bolas de Dragón! Shenron ha concedido el deseo revelando a <strong>Chris Heredia</strong>: Senior Lead Angular Architect & AWS Cloud Frontend Specialist con más de 10 años de experiencia, +20 proyectos empresariales y Certified Scrum Master.
+        </p>
+        <div class="d-flex gap-3 flex-wrap justify-content-center">
+          <a href="index.html" class="btn-db btn-db-blue">
+            <i class="bi bi-person-badge-fill me-1"></i> VER CV COMPLETO WEB
+          </a>
+          <a href="Chris_Heredia_CV.pdf" target="_blank" class="btn-db btn-db-gold">
+            <i class="bi bi-download me-1"></i> DESCARGAR RESUME PDF
+          </a>
+          <a href="mailto:c.heredia87@gmail.com" class="btn-db btn-db-orange">
+            <i class="bi bi-envelope-fill me-1"></i> CONTACTAR A CHRIS
+          </a>
+          <button id="restartGameBtn" class="btn-db btn-db-orange" style="background:#475569;">
+            <i class="bi bi-arrow-counterclockwise me-1"></i> REJUGAR SAGA
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- On-screen Controls for Mobile & Touch -->
+    <div class="touch-controls">
+      <div class="dpad-grid">
+        <div></div>
+        <button class="touch-btn" id="btnUp" aria-label="Volar arriba"><i class="bi bi-arrow-up"></i></button>
+        <div></div>
+        <button class="touch-btn" id="btnLeft" aria-label="Mover izquierda"><i class="bi bi-arrow-left"></i></button>
+        <button class="touch-btn" id="btnDown" aria-label="Volar abajo"><i class="bi bi-arrow-down"></i></button>
+        <button class="touch-btn" id="btnRight" aria-label="Mover derecha"><i class="bi bi-arrow-right"></i></button>
+      </div>
+
+      <div class="saga-shortcuts">
+        <button class="saga-btn active" onclick="game.loadStage(0)">Saga 1: Tierra</button>
+        <button class="saga-btn" onclick="game.loadStage(1)">Saga 2: Namek</button>
+        <button class="saga-btn" onclick="game.loadStage(2)">Saga 3: Androides</button>
+        <button class="saga-btn" onclick="game.loadStage(3)">Saga 4: Dioses</button>
+        <button class="saga-btn" onclick="game.loadStage(4)">Saga 5: Shenron</button>
+      </div>
+
+      <button class="touch-btn touch-btn-fire" id="btnFire" aria-label="Lanzar Kamehameha">KAMEHAMEHA</button>
+    </div>
+
+    <!-- Radar Panel Log -->
+    <section class="unlocked-log">
+      <div class="log-title">
+        <span><i class="bi bi-radar me-2"></i>RADAR DE BOLAS DE DRAGÓN Y HITOS UNLOCKED</span>
+        <span id="unlockedCounter" style="color: #fcc200;">0 / 8 Unlocked</span>
+      </div>
+      <div class="log-grid" id="logGrid">
+        <!-- Dynamically populated cards -->
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Milestone Modal Popup -->
+  <div class="modal fade" id="milestoneModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content modal-content-retro">
+        <div class="modal-header modal-header-retro">
+          <h5 class="modal-title" id="modalTitle">¡BOLA DE DRAGÓN Y HABILIDAD CONSEGUIDA! 🌟</h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body text-center p-4">
+          <div id="modalIcon" style="font-size: 48px;" class="mb-3">🔮</div>
+          <span class="badge-unlock" id="modalBadge">Saga 1 · Educación</span>
+          <h4 class="fw-bold mb-2" id="modalHeaderTitle" style="color: #f8fafc;">Ingeniería Telemática (UPF)</h4>
+          <p id="modalDescription" style="color: #cbd5e1; font-size: 14px; line-height: 1.6;">
+            Grado en Ingeniería Telemática por la Universidad Pompeu Fabra (2011 - 2016). Base sólida en redes de computadores, sistemas distribuidos, software y telecomunicaciones.
+          </p>
+        </div>
+        <div class="modal-footer border-0 justify-content-center">
+          <button type="button" class="btn-db btn-db-orange" data-bs-dismiss="modal">¡CONTINUAR VOLANDO!</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap JS -->
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  <!-- 2D Game Engine Logic Script -->
+  <script>
+    /* Audio Synthesizer via Web Audio API */
+    class RetroAudio {
+      constructor() {
+        this.ctx = null;
+        this.enabled = true;
+      }
+
+      init() {
+        if (!this.ctx) {
+          const AudioContext = window.AudioContext || window.webkitAudioContext;
+          if (AudioContext) {
+            this.ctx = new AudioContext();
+          }
+        }
+      }
+
+      playBeam() {
+        if (!this.enabled || !this.ctx) return;
+        try {
+          const osc = this.ctx.createOscillator();
+          const gain = this.ctx.createGain();
+          osc.type = 'sawtooth';
+          osc.frequency.setValueAtTime(440, this.ctx.currentTime);
+          osc.frequency.exponentialRampToValueAtTime(120, this.ctx.currentTime + 0.2);
+          gain.gain.setValueAtTime(0.03, this.ctx.currentTime);
+          gain.gain.exponentialRampToValueAtTime(0.001, this.ctx.currentTime + 0.2);
+          osc.connect(gain);
+          gain.connect(this.ctx.destination);
+          osc.start();
+          osc.stop(this.ctx.currentTime + 0.2);
+        } catch (e) {}
+      }
+
+      playDragonBall() {
+        if (!this.enabled || !this.ctx) return;
+        try {
+          const notes = [523.25, 659.25, 783.99, 1046.50]; // C5, E5, G5, C6
+          notes.forEach((freq, i) => {
+            const osc = this.ctx.createOscillator();
+            const gain = this.ctx.createGain();
+            osc.type = 'sine';
+            osc.frequency.value = freq;
+            gain.gain.setValueAtTime(0.04, this.ctx.currentTime + i * 0.06);
+            gain.gain.exponentialRampToValueAtTime(0.001, this.ctx.currentTime + (i + 1) * 0.06);
+            osc.connect(gain);
+            gain.connect(this.ctx.destination);
+            osc.start(this.ctx.currentTime + i * 0.06);
+            osc.stop(this.ctx.currentTime + (i + 1) * 0.06);
+          });
+        } catch (e) {}
+      }
+
+      playFanfare() {
+        if (!this.enabled || !this.ctx) return;
+        try {
+          const notes = [392, 523, 659, 784, 1046, 1318];
+          notes.forEach((freq, i) => {
+            const osc = this.ctx.createOscillator();
+            const gain = this.ctx.createGain();
+            osc.type = 'triangle';
+            osc.frequency.value = freq;
+            gain.gain.setValueAtTime(0.04, this.ctx.currentTime + i * 0.08);
+            gain.gain.exponentialRampToValueAtTime(0.001, this.ctx.currentTime + i * 0.08 + 0.18);
+            osc.connect(gain);
+            gain.connect(this.ctx.destination);
+            osc.start(this.ctx.currentTime + i * 0.08);
+            osc.stop(this.ctx.currentTime + i * 0.08 + 0.18);
+          });
+        } catch (e) {}
+      }
+    }
+
+    /* Official CV Milestones */
+    const CV_MILESTONES = [
+      {
+        id: "m1",
+        stageIndex: 0,
+        title: "Ingeniería Telemática (UPF)",
+        category: "Educación & Base Técnica",
+        icon: "🔮",
+        shortDesc: "Universidad Pompeu Fabra (2011-2016). Redes y desarrollo de software.",
+        fullDesc: "Grado en Ingeniería Telemática por la Universidad Pompeu Fabra (2011 - 2016). Base sólida en redes de computadores, sistemas distribuidos, software y telecomunicaciones."
+      },
+      {
+        id: "m2",
+        stageIndex: 0,
+        title: "Másteres & Certified Scrum Master",
+        category: "Certificaciones & Liderazgo",
+        icon: "🛡️",
+        shortDesc: "Master Ciberseguridad (VIU) + Master Metodologías Ágiles (La Salle) + CSM.",
+        fullDesc: "Master en Ciberseguridad (Valencia International University, 2022-2023), Master en Metodologías Ágiles (University Ramon Llull - La Salle, 2017-2018) y Certified Scrum Master (CSM)."
+      },
+      {
+        id: "m3",
+        stageIndex: 1,
+        title: "Pricesoft (Frontend Developer)",
+        category: "Experiencia Profesional",
+        icon: "💻",
+        shortDesc: "Sept 2013 – Oct 2016: React, jQuery, Laravel, Bootstrap, MySQL.",
+        fullDesc: "Desarrollo de aplicaciones web B2B para agencias de viajes utilizando React, jQuery, Laravel, Bootstrap y MySQL."
+      },
+      {
+        id: "m4",
+        stageIndex: 1,
+        title: "Deloitte & NTT Data (Everis)",
+        category: "Senior Frontend Engineer",
+        icon: "⚽",
+        shortDesc: "Ene 2017 – Ago 2019: Angular, NgRx, Spring Boot, Chatbot IA GraphQL, LaLiga.",
+        fullDesc: "Módulos frontend corporativos para seguro médico con Angular y Java Spring Boot, chatbot de IA para configuración con GraphQL y portal de analítica deportiva para LaLiga con Angular y Node.js."
+      },
+      {
+        id: "m5",
+        stageIndex: 2,
+        title: "Obsidian Software",
+        category: "Senior Frontend & Scrum Master",
+        icon: "📊",
+        shortDesc: "Ene 2020 – Dic 2022: Angular, NgRx, Three.js, AWS CloudWatch, NestJS, Lambda.",
+        fullDesc: "Dashboard de monitorización en tiempo real con datos cada 1 min usando Angular, NgRx, Three.js y AWS CloudWatch. Integración serverless con NestJS, GraphQL y AWS Lambda."
+      },
+      {
+        id: "m6",
+        stageIndex: 3,
+        title: "Dimatica Software (Trabajo Actual)",
+        category: "Lead Frontend Engineer & Angular/AWS Architect",
+        icon: "🚀",
+        shortDesc: "Mayo 2022 – Presente: Angular 16/17/18, Nx Microfrontends, AWS (S3/CloudFront) + CloudBees.",
+        fullDesc: "Liderazgo técnico frontend en plataforma turística B2B/B2C con Nx Microfrontends y Angular 16/17/18. Despliegues de frontend en AWS (S3 y CloudFront CDN) automatizados mediante CloudBees CI/CD."
+      },
+      {
+        id: "m7",
+        stageIndex: 3,
+        title: "AWS Cloud & CloudBees CI/CD",
+        category: "Especialización Cloud Frontend",
+        icon: "☁️",
+        shortDesc: "AWS S3, CloudFront CDN, Lambda, API Gateway, Route 53, CloudWatch y CloudBees.",
+        fullDesc: "Diseño y despliegues de arquitectura cloud frontend en AWS (S3, CloudFront, Route 53, API Gateway) utilizando CloudBees CI/CD para lanzamientos continuos y aceleración global."
+      },
+      {
+        id: "m8",
+        stageIndex: 4,
+        title: "Chris Heredia Naranjo",
+        category: "Senior Lead Angular Architect & AWS Specialist",
+        icon: "👑",
+        shortDesc: "+10 Años de Experiencia (desde 2013) · +20 Proyectos Entregados · Barcelona",
+        fullDesc: "Senior Lead Angular Architect y AWS Cloud Frontend Specialist con más de 10 años de trayectoria (desde 2013), +20 proyectos empresariales entregados, Certified Scrum Master y Master en Ciberseguridad."
+      }
+    ];
+
+    class GokuCVGame {
+      constructor() {
+        this.canvas = document.getElementById('gokuCanvas');
+        this.ctx = this.canvas.getContext('2d');
+        this.audio = new RetroAudio();
+
+        this.isRunning = false;
+        this.autoPlay = false;
+        this.score = 0;
+        this.coins = 0;
+        this.currentStage = 0;
+        this.unlockedMilestones = new Set();
+
+        // Player Goku & Flying Nimbus
+        this.player = {
+          x: 100,
+          y: 240,
+          width: 60,
+          height: 50,
+          speed: 5.5,
+          vy: 0,
+          vx: 0
+        };
+
+        // Projectiles (Kamehameha beams)
+        this.beams = [];
+
+        this.keys = {
+          up: false,
+          down: false,
+          left: false,
+          right: false,
+          fire: false
+        };
+
+        this.cameraX = 0;
+        this.worldWidth = 3200;
+
+        // Stage Sagas
+        this.stages = [
+          {
+            name: "SAGA 1: TIERRA & KAME HOUSE",
+            bgSky: "#38bdf8",
+            cloudColor: "rgba(255, 255, 255, 0.7)",
+            dragonBalls: [
+              { x: 500, y: 180, stars: "⭐", milestoneIndex: 0, collected: false },
+              { x: 1200, y: 260, stars: "⭐⭐", milestoneIndex: 1, collected: false }
+            ],
+            senzuBeans: [
+              { x: 300, y: 120, collected: false },
+              { x: 800, y: 320, collected: false },
+              { x: 1600, y: 200, collected: false }
+            ],
+            portalX: 2500
+          },
+          {
+            name: "SAGA 2: PLANETA NAMEK",
+            bgSky: "#0d9488",
+            cloudColor: "rgba(167, 243, 208, 0.7)",
+            dragonBalls: [
+              { x: 600, y: 200, stars: "⭐⭐⭐", milestoneIndex: 2, collected: false },
+              { x: 1400, y: 280, stars: "⭐⭐⭐⭐", milestoneIndex: 3, collected: false }
+            ],
+            senzuBeans: [
+              { x: 400, y: 150, collected: false },
+              { x: 900, y: 340, collected: false },
+              { x: 1800, y: 220, collected: false }
+            ],
+            portalX: 2500
+          },
+          {
+            name: "SAGA 3: JUEGOS DE CELL",
+            bgSky: "#334155",
+            cloudColor: "rgba(148, 163, 184, 0.6)",
+            dragonBalls: [
+              { x: 700, y: 220, stars: "⭐⭐⭐⭐⭐", milestoneIndex: 4, collected: false }
+            ],
+            senzuBeans: [
+              { x: 500, y: 200, collected: false },
+              { x: 1100, y: 120, collected: false },
+              { x: 1700, y: 300, collected: false }
+            ],
+            portalX: 2500
+          },
+          {
+            name: "SAGA 4: REINO DE LOS DIOSES",
+            bgSky: "#4c1d95",
+            cloudColor: "rgba(216, 180, 254, 0.6)",
+            dragonBalls: [
+              { x: 600, y: 180, stars: "⭐⭐⭐⭐⭐⭐", milestoneIndex: 5, collected: false },
+              { x: 1300, y: 260, stars: "⭐⭐⭐⭐⭐⭐⭐", milestoneIndex: 6, collected: false }
+            ],
+            senzuBeans: [
+              { x: 400, y: 240, collected: false },
+              { x: 950, y: 140, collected: false },
+              { x: 1600, y: 320, collected: false }
+            ],
+            portalX: 2500
+          },
+          {
+            name: "SAGA 5: PALACIO DE SHENRON",
+            bgSky: "#0f172a",
+            cloudColor: "rgba(253, 224, 71, 0.5)",
+            dragonBalls: [
+              { x: 800, y: 220, stars: "👑", milestoneIndex: 7, collected: false }
+            ],
+            senzuBeans: [
+              { x: 500, y: 200, collected: false },
+              { x: 1200, y: 250, collected: false }
+            ],
+            portalX: 2200
+          }
+        ];
+
+        this.initUI();
+        this.initEvents();
+        this.renderLogGrid();
+      }
+
+      initUI() {
+        document.getElementById('startGameBtn').addEventListener('click', () => {
+          this.audio.init();
+          document.getElementById('startOverlay').style.display = 'none';
+          this.start();
+        });
+
+        document.getElementById('restartGameBtn').addEventListener('click', () => {
+          document.getElementById('victoryOverlay').style.display = 'none';
+          this.loadStage(0);
+          this.start();
+        });
+
+        document.getElementById('soundToggle').addEventListener('click', () => {
+          this.audio.enabled = !this.audio.enabled;
+          const icon = document.querySelector('#soundToggle i');
+          if (this.audio.enabled) {
+            icon.className = 'bi bi-volume-up-fill text-warning';
+          } else {
+            icon.className = 'bi bi-volume-mute-fill text-secondary';
+          }
+        });
+
+        document.getElementById('autoPlayBtn').addEventListener('click', () => {
+          this.autoPlay = !this.autoPlay;
+          const btn = document.getElementById('autoPlayBtn');
+          if (this.autoPlay) {
+            btn.classList.add('bg-success', 'text-white');
+            btn.innerHTML = `<i class="bi bi-gear-fill me-1"></i> VUELO AUTOMÁTICO ON`;
+          } else {
+            btn.classList.remove('bg-success', 'text-white');
+            btn.innerHTML = `<i class="bi bi-play-circle-fill me-1"></i> VUELO AUTOMÁTICO`;
+          }
+        });
+      }
+
+      initEvents() {
+        window.addEventListener('keydown', (e) => {
+          if (e.key === 'ArrowUp' || e.key === 'w' || e.key === 'W') this.keys.up = true;
+          if (e.key === 'ArrowDown' || e.key === 's' || e.key === 'S') this.keys.down = true;
+          if (e.key === 'ArrowLeft' || e.key === 'a' || e.key === 'A') this.keys.left = true;
+          if (e.key === 'ArrowRight' || e.key === 'd' || e.key === 'D') this.keys.right = true;
+          if (e.key === ' ') {
+            this.fireKamehameha();
+            e.preventDefault();
+          }
+        });
+
+        window.addEventListener('keyup', (e) => {
+          if (e.key === 'ArrowUp' || e.key === 'w' || e.key === 'W') this.keys.up = false;
+          if (e.key === 'ArrowDown' || e.key === 's' || e.key === 'S') this.keys.down = false;
+          if (e.key === 'ArrowLeft' || e.key === 'a' || e.key === 'A') this.keys.left = false;
+          if (e.key === 'ArrowRight' || e.key === 'd' || e.key === 'D') this.keys.right = false;
+        });
+
+        const setupTouchBtn = (id, keyName) => {
+          const btn = document.getElementById(id);
+          if (!btn) return;
+          const start = (e) => {
+            e.preventDefault();
+            this.audio.init();
+            if (keyName === 'fire') {
+              this.fireKamehameha();
+            } else {
+              this.keys[keyName] = true;
+            }
+          };
+          const end = (e) => {
+            e.preventDefault();
+            if (keyName !== 'fire') this.keys[keyName] = false;
+          };
+          btn.addEventListener('touchstart', start);
+          btn.addEventListener('touchend', end);
+          btn.addEventListener('mousedown', start);
+          btn.addEventListener('mouseup', end);
+        };
+
+        setupTouchBtn('btnUp', 'up');
+        setupTouchBtn('btnDown', 'down');
+        setupTouchBtn('btnLeft', 'left');
+        setupTouchBtn('btnRight', 'right');
+        setupTouchBtn('btnFire', 'fire');
+      }
+
+      fireKamehameha() {
+        this.audio.playBeam();
+        this.beams.push({
+          x: this.player.x + 50,
+          y: this.player.y + 18,
+          width: 30,
+          height: 12,
+          speed: 12
+        });
+      }
+
+      start() {
+        if (!this.isRunning) {
+          this.isRunning = true;
+          requestAnimationFrame(() => this.gameLoop());
+        }
+      }
+
+      loadStage(stageIndex) {
+        this.currentStage = stageIndex;
+        this.player.x = 100;
+        this.player.y = 240;
+        this.cameraX = 0;
+        this.beams = [];
+
+        const lvlBtns = document.querySelectorAll('.saga-btn');
+        lvlBtns.forEach((btn, idx) => {
+          if (idx === stageIndex) btn.classList.add('active');
+          else btn.classList.remove('active');
+        });
+
+        document.getElementById('hudStage').innerText = `SAGA ${stageIndex + 1}: ${this.stages[stageIndex].name.split(':')[1] || ''}`;
+      }
+
+      update() {
+        const stage = this.stages[this.currentStage];
+
+        if (this.autoPlay) {
+          this.player.x += 4;
+          // Auto height movement towards next Dragon ball
+          const target = stage.dragonBalls.find(db => !db.collected);
+          if (target) {
+            if (this.player.y < target.y - 10) this.player.y += 2.5;
+            if (this.player.y > target.y + 10) this.player.y -= 2.5;
+          }
+        } else {
+          if (this.keys.up) this.player.y -= this.player.speed;
+          if (this.keys.down) this.player.y += this.player.speed;
+          if (this.keys.left) this.player.x -= this.player.speed;
+          if (this.keys.right) this.player.x += this.player.speed;
+        }
+
+        // Keep inside vertical bounds
+        if (this.player.y < 40) this.player.y = 40;
+        if (this.player.y > 440) this.player.y = 440;
+        if (this.player.x < 0) this.player.x = 0;
+
+        // Beams movement
+        this.beams.forEach((beam, idx) => {
+          beam.x += beam.speed;
+          beam.width += 2;
+          if (beam.x > this.cameraX + 1000) {
+            this.beams.splice(idx, 1);
+          }
+        });
+
+        // Dragon Balls Collection (Touch or Beam Hit)
+        stage.dragonBalls.forEach(db => {
+          if (!db.collected) {
+            const dist = Math.hypot(this.player.x + 30 - db.x, this.player.y + 20 - db.y);
+            const beamHit = this.beams.some(b => Math.hypot(b.x - db.x, b.y - db.y) < 40);
+
+            if (dist < 45 || beamHit) {
+              db.collected = true;
+              this.score += 1000;
+              this.audio.playDragonBall();
+              if (db.milestoneIndex !== undefined) {
+                this.unlockMilestone(db.milestoneIndex);
+              }
+            }
+          }
+        });
+
+        // Senzu Beans Collection
+        stage.senzuBeans.forEach(bean => {
+          if (!bean.collected && Math.hypot(this.player.x + 30 - bean.x, this.player.y + 20 - bean.y) < 40) {
+            bean.collected = true;
+            this.coins++;
+            this.score += 200;
+            this.audio.playDragonBall();
+          }
+        });
+
+        // Saga Portal Progression
+        if (this.player.x >= stage.portalX) {
+          this.audio.playFanfare();
+          if (this.currentStage < this.stages.length - 1) {
+            this.loadStage(this.currentStage + 1);
+          } else {
+            this.triggerVictory();
+          }
+        }
+
+        // Camera Follows Player
+        this.cameraX = this.player.x - 200;
+        if (this.cameraX < 0) this.cameraX = 0;
+
+        this.updateHUD();
+      }
+
+      unlockMilestone(index) {
+        const milestone = CV_MILESTONES[index];
+        if (!milestone || this.unlockedMilestones.has(milestone.id)) return;
+
+        this.unlockedMilestones.add(milestone.id);
+
+        document.getElementById('modalIcon').innerText = milestone.icon;
+        document.getElementById('modalBadge').innerText = milestone.category;
+        document.getElementById('modalHeaderTitle').innerText = milestone.title;
+        document.getElementById('modalDescription').innerText = milestone.fullDesc;
+
+        const modal = new bootstrap.Modal(document.getElementById('milestoneModal'));
+        modal.show();
+
+        this.renderLogGrid();
+      }
+
+      renderLogGrid() {
+        const container = document.getElementById('logGrid');
+        container.innerHTML = '';
+
+        CV_MILESTONES.forEach(m => {
+          const isUnlocked = this.unlockedMilestones.has(m.id);
+          const card = document.createElement('div');
+          card.className = `log-card ${isUnlocked ? 'unlocked' : ''}`;
+          card.innerHTML = `
+            <div class="log-icon">${isUnlocked ? m.icon : '🔒'}</div>
+            <div class="log-info">
+              <h5>${isUnlocked ? m.title : '??? (Bola Bloqueada)'}</h5>
+              <p>${isUnlocked ? m.shortDesc : 'Vuela hacia las Bolas de Dragón ⭐ en el cielo para desbloquear este hito.'}</p>
+            </div>
+          `;
+          container.appendChild(card);
+        });
+
+        const percent = Math.round((this.unlockedMilestones.size / CV_MILESTONES.length) * 100);
+        document.getElementById('unlockedCounter').innerText = `${this.unlockedMilestones.size} / ${CV_MILESTONES.length} Unlocked`;
+        document.getElementById('identityProgressBar').style.width = `${percent}%`;
+        document.getElementById('identityPercent').innerText = `${percent}%`;
+
+        if (percent >= 100) {
+          document.getElementById('hudIdentityText').innerText = "CHRIS HEREDIA 👑";
+          document.getElementById('hudIdentityText').style.color = "#fcc200";
+        } else if (percent > 40) {
+          document.getElementById('hudIdentityText').innerText = "SUPER SAIYAN ARCHITECT ⚡";
+        }
+      }
+
+      triggerVictory() {
+        CV_MILESTONES.forEach((m, idx) => this.unlockMilestone(idx));
+        document.getElementById('victoryOverlay').style.display = 'flex';
+      }
+
+      updateHUD() {
+        document.getElementById('hudCoins').innerText = `🫘 x${String(this.coins).padStart(2, '0')}`;
+        document.getElementById('hudScore').innerText = String(this.score).padStart(6, '0');
+      }
+
+      render() {
+        const stage = this.stages[this.currentStage];
+
+        // Background Sky
+        this.ctx.fillStyle = stage.bgSky;
+        this.ctx.fillRect(0, 0, this.canvas.width, this.canvas.height);
+
+        this.ctx.save();
+        this.ctx.translate(-this.cameraX, 0);
+
+        // Clouds in Sky
+        this.ctx.fillStyle = stage.cloudColor;
+        for (let i = 0; i < 12; i++) {
+          this.drawCloud(i * 350 + 80, 60 + (i % 4) * 40);
+        }
+
+        // Draw Dragon Balls ⭐
+        stage.dragonBalls.forEach(db => {
+          if (!db.collected) {
+            this.ctx.fillStyle = "#ff6600";
+            this.ctx.beginPath();
+            this.ctx.arc(db.x, db.y, 22, 0, Math.PI * 2);
+            this.ctx.fill();
+            this.ctx.strokeStyle = "#fcc200";
+            this.ctx.lineWidth = 3;
+            this.ctx.stroke();
+
+            this.ctx.fillStyle = "#ffffff";
+            this.ctx.font = "14px Arial";
+            this.ctx.textAlign = "center";
+            this.ctx.fillText(db.stars, db.x, db.y + 5);
+          }
+        });
+
+        // Draw Senzu Beans 🫘
+        stage.senzuBeans.forEach(bean => {
+          if (!bean.collected) {
+            this.ctx.fillStyle = "#10b981";
+            this.ctx.beginPath();
+            this.ctx.ellipse(bean.x, bean.y, 12, 8, Math.PI / 4, 0, Math.PI * 2);
+            this.ctx.fill();
+            this.ctx.strokeStyle = "#ffffff";
+            this.ctx.lineWidth = 2;
+            this.ctx.stroke();
+          }
+        });
+
+        // Draw Saga End Portal
+        this.ctx.fillStyle = "rgba(252, 194, 0, 0.4)";
+        this.ctx.beginPath();
+        this.ctx.arc(stage.portalX + 40, 240, 60, 0, Math.PI * 2);
+        this.ctx.fill();
+        this.ctx.strokeStyle = "#ff6600";
+        this.ctx.lineWidth = 5;
+        this.ctx.stroke();
+
+        this.ctx.fillStyle = "#ffffff";
+        this.ctx.font = '12px "Press Start 2P"';
+        this.ctx.textAlign = "center";
+        this.ctx.fillText("NEXT SAGA ▶", stage.portalX + 40, 245);
+
+        // Draw Kamehameha Beams
+        this.beams.forEach(b => {
+          this.ctx.fillStyle = "#38bdf8";
+          this.ctx.shadowColor = "#0088ff";
+          this.ctx.shadowBlur = 15;
+          this.ctx.beginPath();
+          this.ctx.roundRect(b.x, b.y, b.width, b.height, 6);
+          this.ctx.fill();
+          this.ctx.shadowBlur = 0;
+        });
+
+        // Draw Goku & Flying Nimbus
+        this.drawGokuAndNimbus();
+
+        this.ctx.restore();
+      }
+
+      drawCloud(x, y) {
+        this.ctx.beginPath();
+        this.ctx.arc(x, y, 20, Math.PI * 0.5, Math.PI * 1.5);
+        this.ctx.arc(x + 25, y - 20, 25, Math.PI * 1, Math.PI * 1.85);
+        this.ctx.arc(x + 60, y - 15, 20, Math.PI * 1.37, Math.PI * 1.91);
+        this.ctx.arc(x + 80, y, 20, Math.PI * 1.5, Math.PI * 0.5);
+        this.ctx.moveTo(x + 80, y + 20);
+        this.ctx.lineTo(x, y + 20);
+        this.ctx.fill();
+      }
+
+      drawGokuAndNimbus() {
+        const p = this.player;
+
+        // Flying Nimbus Cloud (Yellow Kintoun)
+        this.ctx.fillStyle = "#fcc200";
+        this.ctx.beginPath();
+        this.ctx.arc(p.x + 15, p.y + 35, 18, 0, Math.PI * 2);
+        this.ctx.arc(p.x + 35, p.y + 35, 22, 0, Math.PI * 2);
+        this.ctx.arc(p.x + 55, p.y + 35, 16, 0, Math.PI * 2);
+        this.ctx.fill();
+        this.ctx.strokeStyle = "#ff6600";
+        this.ctx.lineWidth = 2;
+        this.ctx.stroke();
+
+        // Goku Gi (Orange Outfit & Black/Spiky Hair)
+        this.ctx.fillStyle = "#ff6600"; // Orange Gi
+        this.ctx.fillRect(p.x + 20, p.y + 12, 24, 20);
+
+        this.ctx.fillStyle = "#2563eb"; // Blue undershirt & belt
+        this.ctx.fillRect(p.x + 24, p.y + 12, 16, 6);
+        this.ctx.fillRect(p.x + 20, p.y + 24, 24, 4);
+
+        this.ctx.fillStyle = "#fde047"; // Skin Face
+        this.ctx.fillRect(p.x + 22, p.y + 2, 20, 12);
+
+        // Goku Spiky Black Hair
+        this.ctx.fillStyle = "#000000";
+        this.ctx.beginPath();
+        this.ctx.arc(p.x + 32, p.y - 2, 14, 0, Math.PI * 2);
+        this.ctx.fill();
+        // Hair Spikes
+        this.ctx.beginPath();
+        this.ctx.moveTo(p.x + 15, p.y);
+        this.ctx.lineTo(p.x + 8, p.y - 12);
+        this.ctx.lineTo(p.x + 24, p.y - 4);
+
+        this.ctx.moveTo(p.x + 32, p.y - 8);
+        this.ctx.lineTo(p.x + 32, p.y - 20);
+        this.ctx.lineTo(p.x + 40, p.y - 6);
+
+        this.ctx.moveTo(p.x + 42, p.y);
+        this.ctx.lineTo(p.x + 52, p.y - 12);
+        this.ctx.lineTo(p.x + 46, p.y + 4);
+        this.ctx.fill();
+      }
+
+      gameLoop() {
+        if (!this.isRunning) return;
+        this.update();
+        this.render();
+        requestAnimationFrame(() => this.gameLoop());
+      }
+    }
+
+    let game;
+    window.addEventListener('DOMContentLoaded', () => {
+      game = new GokuCVGame();
+    });
+  </script>
+</body>
+
+</html>
