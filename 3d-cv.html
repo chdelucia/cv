@@ -1,0 +1,1285 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="dark">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Chris Heredia 3D Universe 🌌 | Three.js Interactive CV</title>
+  <meta content="Explora la trayectoria profesional de Chris Heredia en una experiencia interactiva 3D con Three.js: Lead Angular Architect & AWS Cloud Specialist." name="description">
+
+  <!-- Open Graph / Social SEO -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Chris Heredia 3D Universe 🌌 | Three.js Interactive CV">
+  <meta property="og:description" content="Descubre la identidad, hitos profesionales, stack tecnológico y proyectos de Chris Heredia en un universo 3D interactivo construido con Three.js WebGL.">
+  <meta property="og:image" content="https://chdelucia.github.io/assets/img/profile-img.png">
+  <meta property="og:url" content="https://chdelucia.github.io/3d-cv.html">
+
+  <!-- Anti-Flicker Theme Initialization -->
+  <script>
+    (function() {
+      var savedTheme = localStorage.getItem('theme') || (window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+      document.documentElement.setAttribute('data-theme', savedTheme);
+    })();
+  </script>
+
+  <!-- Favicons -->
+  <link href="assets/img/favicon.ico" rel="icon">
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&family=Plus+Jakarta+Sans:wght@400;600;700;800&family=Orbitron:wght@500;700;900&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --3d-bg: #090d16;
+      --3d-cyan: #38bdf8;
+      --3d-gold: #f59e0b;
+      --3d-purple: #8b5cf6;
+      --3d-green: #10b981;
+      --3d-font-orbitron: 'Orbitron', sans-serif;
+      --3d-font-body: 'Plus Jakarta Sans', sans-serif;
+      --3d-font-mono: 'JetBrains Mono', monospace;
+    }
+
+    [data-theme="light"] {
+      --3d-bg: #f8fafc;
+    }
+
+    * {
+      box-sizing: border-box;
+      user-select: none;
+      -webkit-user-select: none;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: var(--3d-bg);
+      color: #ffffff;
+      font-family: var(--3d-font-body);
+      overflow-x: hidden;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Top Navigation Header */
+    .game-header {
+      background: rgba(9, 13, 22, 0.9);
+      border-bottom: 1px solid rgba(56, 189, 248, 0.25);
+      backdrop-filter: blur(12px);
+      padding: 10px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 100;
+      position: relative;
+    }
+
+    [data-theme="light"] .game-header {
+      background: rgba(255, 255, 255, 0.9);
+      border-bottom-color: rgba(0, 0, 0, 0.1);
+      color: #0f172a;
+    }
+
+    .brand-logo {
+      font-family: var(--3d-font-orbitron);
+      font-size: 14px;
+      color: var(--3d-cyan);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-shadow: 0 0 10px rgba(56, 189, 248, 0.5);
+      font-weight: 700;
+      letter-spacing: 0.5px;
+    }
+
+    .brand-logo:hover {
+      color: #ffffff;
+    }
+
+    .nav-actions {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .btn-3d {
+      font-family: var(--3d-font-mono);
+      font-size: 11px;
+      padding: 8px 14px;
+      border-radius: 8px;
+      border: 1px solid rgba(56, 189, 248, 0.4);
+      background: rgba(15, 23, 42, 0.8);
+      color: #38bdf8;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.2s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      backdrop-filter: blur(6px);
+    }
+
+    .btn-3d:hover {
+      background: #38bdf8;
+      color: #0f172a;
+      box-shadow: 0 0 15px rgba(56, 189, 248, 0.6);
+      transform: translateY(-2px);
+    }
+
+    .btn-3d-gold {
+      border-color: rgba(245, 158, 11, 0.5);
+      color: #f59e0b;
+    }
+
+    .btn-3d-gold:hover {
+      background: #f59e0b;
+      color: #0f172a;
+      box-shadow: 0 0 15px rgba(245, 158, 11, 0.6);
+    }
+
+    .btn-3d-green {
+      border-color: rgba(16, 185, 129, 0.5);
+      color: #10b981;
+    }
+
+    .btn-3d-green:hover {
+      background: #10b981;
+      color: #ffffff;
+      box-shadow: 0 0 15px rgba(16, 185, 129, 0.6);
+    }
+
+    /* Main Container */
+    .game-wrapper {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 15px;
+      max-width: 1200px;
+      margin: 0 auto;
+      width: 100%;
+    }
+
+    /* HUD Bar */
+    .hud-bar {
+      width: 100%;
+      max-width: 960px;
+      background: rgba(15, 23, 42, 0.85);
+      border: 1px solid rgba(56, 189, 248, 0.3);
+      border-bottom: none;
+      border-radius: 12px 12px 0 0;
+      padding: 12px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-family: var(--3d-font-mono);
+      font-size: 11px;
+      color: #fff;
+      flex-wrap: wrap;
+      gap: 10px;
+      backdrop-filter: blur(10px);
+    }
+
+    [data-theme="light"] .hud-bar {
+      background: rgba(255, 255, 255, 0.9);
+      border-color: rgba(0, 0, 0, 0.15);
+      color: #0f172a;
+    }
+
+    .hud-item {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .hud-label {
+      color: #94a3b8;
+      font-size: 9px;
+      letter-spacing: 1px;
+    }
+
+    .hud-value {
+      color: var(--3d-cyan);
+      font-weight: 700;
+    }
+
+    /* Progress Bar */
+    .identity-progress-container {
+      width: 100%;
+      max-width: 960px;
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px solid rgba(56, 189, 248, 0.3);
+      border-top: none;
+      border-bottom: none;
+      padding: 8px 20px;
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      font-family: var(--3d-font-mono);
+      font-size: 10px;
+    }
+
+    [data-theme="light"] .identity-progress-container {
+      background: rgba(241, 245, 249, 0.95);
+      border-color: rgba(0, 0, 0, 0.15);
+    }
+
+    .progress-bar-outer {
+      flex: 1;
+      height: 14px;
+      background: #0f172a;
+      border: 1px solid rgba(56, 189, 248, 0.4);
+      border-radius: 8px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .progress-bar-inner {
+      height: 100%;
+      width: 0%;
+      background: linear-gradient(90deg, #38bdf8, #8b5cf6, #f59e0b, #10b981);
+      transition: width 0.4s ease-out;
+      box-shadow: 0 0 10px rgba(56, 189, 248, 0.8);
+    }
+
+    /* 3D Canvas Container */
+    .canvas-container {
+      position: relative;
+      width: 100%;
+      max-width: 960px;
+      border: 1px solid rgba(56, 189, 248, 0.3);
+      border-radius: 0 0 12px 12px;
+      overflow: hidden;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8);
+      background: #000000;
+      aspect-ratio: 16 / 9;
+    }
+
+    #threeCanvas {
+      width: 100%;
+      height: 100%;
+      display: block;
+      cursor: grab;
+    }
+
+    #threeCanvas:active {
+      cursor: grabbing;
+    }
+
+    /* 3D Scene Controls Hint */
+    .controls-hint {
+      position: absolute;
+      bottom: 12px;
+      left: 12px;
+      background: rgba(15, 23, 42, 0.75);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      padding: 6px 12px;
+      border-radius: 20px;
+      font-size: 11px;
+      color: #cbd5e1;
+      backdrop-filter: blur(6px);
+      pointer-events: none;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    /* Node Hover Tooltip Card in 3D Canvas */
+    .node-tooltip {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px solid var(--3d-cyan);
+      border-radius: 12px;
+      padding: 14px 18px;
+      max-width: 280px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+      backdrop-filter: blur(10px);
+      opacity: 0;
+      transform: translateY(-10px);
+      transition: all 0.3s ease;
+      pointer-events: none;
+      z-index: 5;
+    }
+
+    .node-tooltip.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .node-tooltip h6 {
+      font-family: var(--3d-font-orbitron);
+      color: var(--3d-cyan);
+      font-size: 13px;
+      margin: 0 0 6px 0;
+    }
+
+    .node-tooltip p {
+      font-size: 12px;
+      color: #cbd5e1;
+      margin: 0;
+      line-height: 1.4;
+    }
+
+    /* Overlays (Start & Victory) */
+    .canvas-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(9, 13, 22, 0.92);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 25px;
+      z-index: 10;
+      backdrop-filter: blur(8px);
+    }
+
+    .overlay-title {
+      font-family: var(--3d-font-orbitron);
+      font-size: 24px;
+      color: var(--3d-cyan);
+      margin-bottom: 12px;
+      text-shadow: 0 0 20px rgba(56, 189, 248, 0.6);
+      font-weight: 900;
+    }
+
+    .overlay-subtitle {
+      font-size: 15px;
+      color: #cbd5e1;
+      max-width: 600px;
+      margin-bottom: 25px;
+      line-height: 1.6;
+    }
+
+    /* Shortcuts Bar */
+    .node-shortcuts {
+      display: flex;
+      gap: 8px;
+      margin-top: 15px;
+      flex-wrap: wrap;
+      justify-content: center;
+      width: 100%;
+      max-width: 960px;
+    }
+
+    .node-btn {
+      font-family: var(--3d-font-mono);
+      font-size: 10px;
+      padding: 8px 12px;
+      background: rgba(30, 41, 59, 0.8);
+      border: 1px solid rgba(56, 189, 248, 0.3);
+      color: #94a3b8;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .node-btn.active, .node-btn:hover {
+      background: var(--3d-cyan);
+      color: #0f172a;
+      border-color: #38bdf8;
+      box-shadow: 0 0 12px rgba(56, 189, 248, 0.5);
+    }
+
+    .node-btn.discovered {
+      border-color: #10b981;
+      color: #10b981;
+    }
+
+    /* Unlocked Milestones Log */
+    .unlocked-log {
+      width: 100%;
+      max-width: 960px;
+      margin-top: 20px;
+      background: rgba(15, 23, 42, 0.85);
+      border-radius: 12px;
+      padding: 20px;
+      border: 1px solid rgba(56, 189, 248, 0.3);
+      backdrop-filter: blur(10px);
+    }
+
+    [data-theme="light"] .unlocked-log {
+      background: rgba(255, 255, 255, 0.9);
+      border-color: rgba(0, 0, 0, 0.15);
+    }
+
+    .log-title {
+      font-family: var(--3d-font-orbitron);
+      font-size: 12px;
+      color: var(--3d-cyan);
+      margin-bottom: 15px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .log-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 12px;
+    }
+
+    .log-card {
+      background: rgba(9, 13, 22, 0.9);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 10px;
+      padding: 12px 16px;
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      opacity: 0.4;
+      transition: all 0.3s ease;
+    }
+
+    [data-theme="light"] .log-card {
+      background: rgba(241, 245, 249, 0.9);
+      border-color: rgba(0, 0, 0, 0.1);
+    }
+
+    .log-card.unlocked {
+      opacity: 1;
+      border-color: var(--3d-cyan);
+      box-shadow: 0 4px 15px rgba(56, 189, 248, 0.15);
+    }
+
+    .log-icon {
+      font-size: 24px;
+      line-height: 1;
+    }
+
+    .log-info h5 {
+      font-size: 14px;
+      font-weight: 700;
+      margin: 0 0 4px 0;
+      color: #f8fafc;
+    }
+
+    [data-theme="light"] .log-info h5 {
+      color: #0f172a;
+    }
+
+    .log-info p {
+      font-size: 12px;
+      color: #94a3b8;
+      margin: 0;
+      line-height: 1.4;
+    }
+
+    /* Modal Retro Sci-Fi */
+    .modal-content-3d {
+      background: #0f172a;
+      border: 2px solid var(--3d-cyan);
+      border-radius: 16px;
+      color: #ffffff;
+      box-shadow: 0 0 40px rgba(56, 189, 248, 0.4);
+    }
+
+    .modal-header-3d {
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      font-family: var(--3d-font-orbitron);
+      color: var(--3d-cyan);
+    }
+
+    .badge-3d {
+      background: rgba(56, 189, 248, 0.15);
+      border: 1px solid var(--3d-cyan);
+      color: #38bdf8;
+      font-family: var(--3d-font-mono);
+      font-size: 11px;
+      padding: 4px 10px;
+      border-radius: 20px;
+      display: inline-block;
+      margin-bottom: 12px;
+    }
+
+    /* Responsive Adjustments */
+    @media (max-width: 768px) {
+      .hud-bar {
+        font-size: 9px;
+        padding: 8px 12px;
+      }
+      .overlay-title {
+        font-size: 18px;
+      }
+      .overlay-subtitle {
+        font-size: 13px;
+      }
+      .node-btn {
+        font-size: 9px;
+        padding: 6px 10px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Top Navigation Bar -->
+  <header class="game-header">
+    <a href="index.html" class="brand-logo">
+      <i class="bi bi-box-seam-fill text-info fs-5"></i>
+      <span>CHRIS HEREDIA 3D CV</span>
+    </a>
+
+    <div class="nav-actions">
+      <button id="themeToggleBtn" class="btn-3d" title="Cambiar Tema Claro / Oscuro">
+        <i class="bi bi-sun-fill text-warning" id="themeIcon"></i> TEMA
+      </button>
+      <button id="soundToggle" class="btn-3d" title="Activar/Desactivar Sonido">
+        <i class="bi bi-volume-up-fill text-info" id="soundIcon"></i> SONIDO
+      </button>
+      <button id="autoPilotBtn" class="btn-3d btn-3d-gold" title="Iniciar Tour 3D Automático">
+        <i class="bi bi-play-circle-fill me-1"></i> TOUR 3D AUTOMÁTICO
+      </button>
+      <a href="interactive-story.html" class="btn-3d" title="Modo Historia">
+        <i class="bi bi-joystick text-warning"></i> STORY MODE
+      </a>
+      <a href="Chris_Heredia_CV.pdf" target="_blank" class="btn-3d btn-3d-green">
+        <i class="bi bi-file-earmark-pdf-fill me-1"></i> DESCARGAR CV PDF
+      </a>
+    </div>
+  </header>
+
+  <!-- Main 3D Wrapper -->
+  <main class="game-wrapper">
+
+    <!-- HUD Bar -->
+    <div class="hud-bar">
+      <div class="hud-item">
+        <span class="hud-label">ESTACIÓN 3D</span>
+        <span class="hud-value" id="hudStationName">GALAXY CORE</span>
+      </div>
+      <div class="hud-item">
+        <span class="hud-label">MODO 3D</span>
+        <span class="hud-value" id="hudModeText">ORBITING WEBGL</span>
+      </div>
+      <div class="hud-item">
+        <span class="hud-label">ESTADO IDENTIDAD</span>
+        <span class="hud-value" id="hudIdentityText">EXPLORANDO UNIVERSO 🌌</span>
+      </div>
+      <div class="hud-item">
+        <span class="hud-label">DESBLOQUEADOS</span>
+        <span class="hud-value" id="hudUnlockedCount">0 / 6 HITOS</span>
+      </div>
+    </div>
+
+    <!-- Identity Discovery Progress Bar -->
+    <div class="identity-progress-container">
+      <span style="color: var(--3d-cyan); font-family: var(--3d-font-orbitron);">IDENTIDAD DESCUBIERTA:</span>
+      <div class="progress-bar-outer">
+        <div class="progress-bar-inner" id="identityProgressBar"></div>
+      </div>
+      <span id="identityPercent" style="color: var(--3d-green); font-weight: bold;">0%</span>
+    </div>
+
+    <!-- Canvas 3D Area -->
+    <div class="canvas-container" id="canvasContainer">
+      <canvas id="threeCanvas"></canvas>
+
+      <!-- 3D Controls Hint -->
+      <div class="controls-hint">
+        <i class="bi bi-hand-index-thumb text-info"></i>
+        <span>Arrastra para rotar 3D · Rueda para Zoom · Haz clic en las esferas 3D</span>
+      </div>
+
+      <!-- Live Hover Tooltip -->
+      <div class="node-tooltip" id="nodeTooltip">
+        <h6 id="tooltipTitle">Estación 3D</h6>
+        <p id="tooltipDesc">Haz clic para enfocar la cámara y revelar los detalles de este hito.</p>
+      </div>
+
+      <!-- Start Overlay Screen -->
+      <div class="canvas-overlay" id="startOverlay">
+        <h1 class="overlay-title">3D TECH UNIVERSE 🌌</h1>
+        <p class="overlay-subtitle">
+          Bienvenido al universo 3D interactivo de <strong>Chris Heredia</strong> (Senior Lead Angular Architect & AWS Specialist). Haz clic en las orbes 3D orbitando en el espacio para descubrir su formación, experiencia, liderazgo y arquitectura cloud.
+        </p>
+        <div class="d-flex gap-2 mb-4 flex-wrap justify-content-center">
+          <span class="badge bg-primary-subtle text-primary border border-primary px-3 py-2"><i class="bi bi-box-seam me-1"></i> Three.js WebGL Engine</span>
+          <span class="badge bg-info-subtle text-info border border-info px-3 py-2"><i class="bi bi-camera-video me-1"></i> OrbitControls 3D Camera</span>
+          <span class="badge bg-warning-subtle text-warning border border-warning px-3 py-2"><i class="bi bi-hand-index-thumb me-1"></i> Raycaster Interactivo</span>
+        </div>
+        <button id="start3dBtn" class="btn-3d btn-3d-gold fs-6 px-4 py-3">
+          <i class="bi bi-rocket-takeoff-fill me-2"></i> ¡INICIAR EXPERIENCIA 3D!
+        </button>
+      </div>
+
+      <!-- Victory Overlay Screen -->
+      <div class="canvas-overlay" id="victoryOverlay" style="display: none;">
+        <h1 class="overlay-title" style="color: var(--3d-green);"><i class="bi bi-check-circle-fill me-2"></i>¡UNIVERSO 3D COMPLETAMENTE EXPLORADO!</h1>
+        <p class="overlay-subtitle">
+          ¡Has descubierto la identidad completa de <strong>Chris Heredia</strong>: Senior Lead Angular Architect & AWS Specialist con más de 10 años de experiencia, +20 proyectos empresariales entregados y Certified Scrum Master.
+        </p>
+        <div class="d-flex gap-3 flex-wrap justify-content-center">
+          <a href="mailto:c.heredia87@gmail.com" class="btn-3d btn-3d-gold px-4 py-2 fs-6">
+            <i class="bi bi-envelope-fill me-1"></i> CONTRATAR A CHRIS
+          </a>
+          <a href="index.html" class="btn-3d px-4 py-2 fs-6">
+            <i class="bi bi-person-badge-fill me-1"></i> VER CV WEB
+          </a>
+          <a href="Chris_Heredia_CV.pdf" target="_blank" class="btn-3d btn-3d-green px-4 py-2 fs-6">
+            <i class="bi bi-download me-1"></i> DESCARGAR RESUME PDF
+          </a>
+          <button id="reset3dBtn" class="btn-3d" style="border-color: #64748b; color: #94a3b8;">
+            <i class="bi bi-arrow-counterclockwise me-1"></i> REJUGAR TOUR 3D
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- 3D Node Station Direct Jump Shortcuts Bar -->
+    <div class="node-shortcuts">
+      <button class="node-btn" onclick="game3d.focusNode(0)"><i class="bi bi-mortarboard-fill"></i> 1. UPF & Pricesoft</button>
+      <button class="node-btn" onclick="game3d.focusNode(1)"><i class="bi bi-briefcase-fill"></i> 2. Deloitte & LaLiga</button>
+      <button class="node-btn" onclick="game3d.focusNode(2)"><i class="bi bi-activity"></i> 3. Obsidian & 3D</button>
+      <button class="node-btn" onclick="game3d.focusNode(3)"><i class="bi bi-cloud-check-fill"></i> 4. Dimatica Lead & AWS</button>
+      <button class="node-btn" onclick="game3d.focusNode(4)"><i class="bi bi-shield-check"></i> 5. Masters & CSM</button>
+      <button class="node-btn" onclick="game3d.focusNode(5)"><i class="bi bi-award-fill text-warning"></i> 6. Core Credentials</button>
+    </div>
+
+    <!-- Unlocked Milestones Log Section -->
+    <section class="unlocked-log">
+      <div class="log-title">
+        <span><i class="bi bi-radar me-2"></i>HITOS EXPLORADOS EN EL MUNDO 3D</span>
+        <span id="unlockedLogCounter" style="color: var(--3d-green);">0 / 6 Unlocked</span>
+      </div>
+      <div class="log-grid" id="logGrid">
+        <!-- Dynamically populated cards -->
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Milestone Detail Modal Popup -->
+  <div class="modal fade" id="milestoneModal3d" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content modal-content-3d">
+        <div class="modal-header modal-header-3d">
+          <h5 class="modal-title" id="modalTitle3d">ESTACIÓN 3D DESBLOQUEADA 🚀</h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body text-center p-4">
+          <div id="modalIcon3d" style="font-size: 48px;" class="mb-3">🌌</div>
+          <span class="badge-3d" id="modalCategory3d">Educación & Base Técnica</span>
+          <h4 class="fw-bold mb-2" id="modalHeaderTitle3d" style="color: #f8fafc;">Ingeniería Telemática (UPF)</h4>
+          <p id="modalDescription3d" style="color: #cbd5e1; font-size: 14px; line-height: 1.6;">
+            Formación sólida en redes de computadores, sistemas distribuidos e ingeniería de software en la Universidad Pompeu Fabra.
+          </p>
+        </div>
+        <div class="modal-footer border-0 justify-content-center">
+          <button type="button" class="btn-3d btn-3d-gold" data-bs-dismiss="modal">SEGUIR EXPLORANDO EL UNIVERSO 3D</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Vendors -->
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <!-- Three.js CDN -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+
+  <!-- 3D Three.js CV Logic -->
+  <script>
+    /* Procedural Web Audio API Synthesizer */
+    class AudioSynthesizer {
+      constructor() {
+        this.ctx = null;
+        this.enabled = true;
+      }
+
+      init() {
+        if (!this.ctx) {
+          const AudioContext = window.AudioContext || window.webkitAudioContext;
+          if (AudioContext) {
+            this.ctx = new AudioContext();
+          }
+        }
+      }
+
+      playHover() {
+        if (!this.enabled || !this.ctx) return;
+        try {
+          const osc = this.ctx.createOscillator();
+          const gain = this.ctx.createGain();
+          osc.type = 'sine';
+          osc.frequency.setValueAtTime(587.33, this.ctx.currentTime); // D5
+          gain.gain.setValueAtTime(0.015, this.ctx.currentTime);
+          gain.gain.exponentialRampToValueAtTime(0.001, this.ctx.currentTime + 0.08);
+          osc.connect(gain);
+          gain.connect(this.ctx.destination);
+          osc.start();
+          osc.stop(this.ctx.currentTime + 0.08);
+        } catch (e) {}
+      }
+
+      playClick() {
+        if (!this.enabled || !this.ctx) return;
+        try {
+          const notes = [523.25, 659.25, 783.99, 1046.50]; // C5, E5, G5, C6
+          notes.forEach((freq, i) => {
+            const osc = this.ctx.createOscillator();
+            const gain = this.ctx.createGain();
+            osc.type = 'triangle';
+            osc.frequency.value = freq;
+            gain.gain.setValueAtTime(0.03, this.ctx.currentTime + i * 0.05);
+            gain.gain.exponentialRampToValueAtTime(0.001, this.ctx.currentTime + (i + 1) * 0.05);
+            osc.connect(gain);
+            gain.connect(this.ctx.destination);
+            osc.start(this.ctx.currentTime + i * 0.05);
+            osc.stop(this.ctx.currentTime + (i + 1) * 0.05);
+          });
+        } catch (e) {}
+      }
+
+      playVictory() {
+        if (!this.enabled || !this.ctx) return;
+        try {
+          const notes = [392, 523, 659, 784, 1046];
+          notes.forEach((freq, i) => {
+            const osc = this.ctx.createOscillator();
+            const gain = this.ctx.createGain();
+            osc.type = 'sine';
+            osc.frequency.value = freq;
+            gain.gain.setValueAtTime(0.04, this.ctx.currentTime + i * 0.1);
+            gain.gain.exponentialRampToValueAtTime(0.001, this.ctx.currentTime + i * 0.1 + 0.2);
+            osc.connect(gain);
+            gain.connect(this.ctx.destination);
+            osc.start(this.ctx.currentTime + i * 0.1);
+            osc.stop(this.ctx.currentTime + i * 0.1 + 0.2);
+          });
+        } catch (e) {}
+      }
+    }
+
+    /* 3D CV Stations Milestones Data */
+    const CV_3D_MILESTONES = [
+      {
+        id: "node_1",
+        title: "Raíces: UPF & Pricesoft",
+        category: "Estación 1 · Educación & Full-Stack",
+        icon: "🎓",
+        color: 0x38bdf8,
+        position: { x: -18, y: 4, z: 12 },
+        shortDesc: "Grado en Ingeniería Telemática (UPF) y desarrollo B2B en Pricesoft.",
+        fullDesc: "Graduado en Ingeniería Telemática por la Universitat Pompeu Fabra (2011-2016). Desarrollo inicial full-stack en Pricesoft (2013-2016) creando aplicaciones B2B de reserva turística con React, jQuery, Laravel, Bootstrap y MySQL."
+      },
+      {
+        id: "node_2",
+        title: "Deloitte & NTT Data (LaLiga)",
+        category: "Estación 2 · Enterprise & AI",
+        icon: "⚽",
+        color: 0x8b5cf6,
+        position: { x: -10, y: -8, z: -16 },
+        shortDesc: "Angular, NgRx, Spring Boot, Chatbots IA con GraphQL y portal de analítica de LaLiga.",
+        fullDesc: "Desarrollo de módulos frontend empresariales para seguros de salud (Deloitte) e integración de Chatbot de IA con GraphQL. Dirección técnica del frontend para el portal de analítica deportiva en tiempo real para LaLiga (NTT Data) utilizando Angular y Node.js."
+      },
+      {
+        id: "node_3",
+        title: "Obsidian: 3D Dashboards & AWS",
+        category: "Estación 3 · Real-Time 3D & Security",
+        icon: "📊",
+        color: 0xf59e0b,
+        position: { x: 14, y: 10, z: -14 },
+        shortDesc: "Dashboards 3D en tiempo real con Angular, NgRx, Three.js, AWS CloudWatch & Lambda.",
+        fullDesc: "Ingeniero Frontend Senior y Scrum Master en Obsidian Software (2020-2022). Creación de dashboards con refresco de datos cada 60s utilizando Angular, NgRx, Three.js y AWS CloudWatch, conectados a backend serverless con NestJS, GraphQL y AWS Lambda."
+      },
+      {
+        id: "node_4",
+        title: "Dimatica: Lead Angular & AWS",
+        category: "Estación 4 · Arquitectura Cloud (Actual)",
+        icon: "🚀",
+        color: 0x10b981,
+        position: { x: 22, y: -4, z: 10 },
+        shortDesc: "Lead Angular Architect en plataforma turística B2B/B2C con Nx Microfrontends & AWS CloudFront.",
+        fullDesc: "Lead Frontend Engineer & Angular/AWS Architect en Dimatica Software (2022-Presente). Liderazgo de arquitectura Nx Monorepo con Microfrontends en Angular 16/17/18 y Signals. Despliegues automatizados en AWS (S3 y CloudFront CDN) con pipelines CloudBees CI/CD."
+      },
+      {
+        id: "node_5",
+        title: "Máster Ciberseguridad & CSM",
+        category: "Estación 5 · Certificaciones & Liderazgo",
+        icon: "🛡️",
+        color: 0x06b6d4,
+        position: { x: 10, y: -12, z: 16 },
+        shortDesc: "Master en Ciberseguridad (VIU), Master en Metodologías Ágiles (La Salle) y CSM.",
+        fullDesc: "Master en Ciberseguridad por la Valencia International University (VIU, 2022-2023), Master en Metodologías Ágiles por La Salle (2017-2018) y Certified Scrum Master (CSM) por la Scrum Alliance."
+      },
+      {
+        id: "node_6",
+        title: "Chris Heredia: Architect Core",
+        category: "Estación 6 · Identidad & Credenciales",
+        icon: "👑",
+        color: 0xec4899,
+        position: { x: 0, y: 0, z: 0 }, // Center core
+        shortDesc: "+10 Años Exp · Senior Lead Angular Architect & AWS Cloud Frontend Specialist.",
+        fullDesc: "Perfil profesional consolidado: Senior Lead Angular Architect y AWS Cloud Frontend Specialist con más de 10 años de trayectoria (desde 2013), +20 proyectos entregados, Certified Scrum Master y Master en Ciberseguridad."
+      }
+    ];
+
+    /* Three.js Engine Class */
+    class ThreeCVUniverse {
+      constructor() {
+        this.container = document.getElementById('canvasContainer');
+        this.canvas = document.getElementById('threeCanvas');
+        this.audio = new AudioSynthesizer();
+
+        this.unlockedMilestones = new Set();
+        this.autoPilot = false;
+        this.autoPilotIndex = 0;
+        this.autoPilotTimer = null;
+        this.hoveredNodeIndex = -1;
+
+        // Scene setup
+        this.scene = new THREE.Scene();
+        this.camera = new THREE.PerspectiveCamera(60, this.container.clientWidth / this.container.clientHeight, 0.1, 1000);
+        this.camera.position.set(0, 15, 45);
+
+        this.renderer = new THREE.WebGLRenderer({
+          canvas: this.canvas,
+          antialias: true,
+          alpha: true
+        });
+        this.renderer.setSize(this.container.clientWidth, this.container.clientHeight);
+        this.renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+
+        // OrbitControls
+        this.controls = new THREE.OrbitControls(this.camera, this.renderer.domElement);
+        this.controls.enableDamping = true;
+        this.controls.dampingFactor = 0.05;
+        this.controls.maxDistance = 90;
+        this.controls.minDistance = 8;
+
+        // Raycasting for interactive clicks
+        this.raycaster = new THREE.Raycaster();
+        this.mouse = new THREE.Vector2();
+
+        // Target camera lerping
+        this.targetCameraPos = null;
+        this.targetLookAt = new THREE.Vector3(0, 0, 0);
+
+        this.nodeMeshes = [];
+        this.orbitRings = [];
+
+        this.initLights();
+        this.initStarfield();
+        this.initNodes();
+        this.initEvents();
+        this.renderLogGrid();
+
+        // Animate
+        this.animate = this.animate.bind(this);
+        requestAnimationFrame(this.animate);
+      }
+
+      initLights() {
+        const ambientLight = new THREE.AmbientLight(0xffffff, 0.6);
+        this.scene.add(ambientLight);
+
+        const dirLight1 = new THREE.DirectionalLight(0x38bdf8, 1.2);
+        dirLight1.position.set(20, 30, 20);
+        this.scene.add(dirLight1);
+
+        const dirLight2 = new THREE.DirectionalLight(0xf59e0b, 0.8);
+        dirLight2.position.set(-20, -20, -20);
+        this.scene.add(dirLight2);
+
+        const pointLightCore = new THREE.PointLight(0xf59e0b, 2, 40);
+        pointLightCore.position.set(0, 0, 0);
+        this.scene.add(pointLightCore);
+      }
+
+      initStarfield() {
+        const particleCount = 1200;
+        const geometry = new THREE.BufferGeometry();
+        const positions = new Float32Array(particleCount * 3);
+        const colors = new Float32Array(particleCount * 3);
+
+        for (let i = 0; i < particleCount; i++) {
+          positions[i * 3] = (Math.random() - 0.5) * 200;
+          positions[i * 3 + 1] = (Math.random() - 0.5) * 200;
+          positions[i * 3 + 2] = (Math.random() - 0.5) * 200;
+
+          const colorChoice = Math.random();
+          if (colorChoice > 0.7) {
+            colors[i * 3] = 0.22; colors[i * 3 + 1] = 0.74; colors[i * 3 + 2] = 0.97; // Cyan
+          } else if (colorChoice > 0.4) {
+            colors[i * 3] = 0.96; colors[i * 3 + 1] = 0.62; colors[i * 3 + 2] = 0.04; // Gold
+          } else {
+            colors[i * 3] = 1.0; colors[i * 3 + 1] = 1.0; colors[i * 3 + 2] = 1.0; // White
+          }
+        }
+
+        geometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+        geometry.setAttribute('color', new THREE.BufferAttribute(colors, 3));
+
+        const material = new THREE.PointsMaterial({
+          size: 0.8,
+          vertexColors: true,
+          transparent: true,
+          opacity: 0.8
+        });
+
+        this.starfield = new THREE.Points(geometry, material);
+        this.scene.add(this.starfield);
+      }
+
+      initNodes() {
+        CV_3D_MILESTONES.forEach((milestone, idx) => {
+          const isCore = idx === 5;
+          const radius = isCore ? 3.5 : 2.2;
+
+          // Sphere Mesh
+          const geom = new THREE.SphereGeometry(radius, 32, 32);
+          const mat = new THREE.MeshStandardMaterial({
+            color: milestone.color,
+            metalness: 0.3,
+            roughness: 0.2,
+            emissive: milestone.color,
+            emissiveIntensity: isCore ? 0.6 : 0.2,
+            wireframe: false
+          });
+
+          const mesh = new THREE.Mesh(geom, mat);
+          mesh.position.set(milestone.position.x, milestone.position.y, milestone.position.z);
+          mesh.userData = { nodeIndex: idx, milestoneData: milestone };
+
+          // Outer Wireframe Ring / Halo
+          const haloGeom = new THREE.IcosahedronGeometry(radius * 1.35, 1);
+          const haloMat = new THREE.MeshBasicMaterial({
+            color: milestone.color,
+            wireframe: true,
+            transparent: true,
+            opacity: 0.35
+          });
+          const haloMesh = new THREE.Mesh(haloGeom, haloMat);
+          mesh.add(haloMesh);
+          mesh.userData.haloMesh = haloMesh;
+
+          this.scene.add(mesh);
+          this.nodeMeshes.push(mesh);
+
+          // Add Wireframe Orbit line to Core (if not core)
+          if (!isCore) {
+            const orbitDist = Math.hypot(milestone.position.x, milestone.position.z);
+            const ringGeom = new THREE.BufferGeometry();
+            const points = [];
+            for (let a = 0; a <= Math.PI * 2; a += 0.1) {
+              points.push(new THREE.Vector3(Math.cos(a) * orbitDist, milestone.position.y, Math.sin(a) * orbitDist));
+            }
+            ringGeom.setFromPoints(points);
+            const ringMat = new THREE.LineBasicMaterial({
+              color: milestone.color,
+              transparent: true,
+              opacity: 0.15
+            });
+            const orbitLine = new THREE.Line(ringGeom, ringMat);
+            this.scene.add(orbitLine);
+            this.orbitRings.push(orbitLine);
+          }
+        });
+      }
+
+      initEvents() {
+        // Window Resize
+        window.addEventListener('resize', () => {
+          this.camera.aspect = this.container.clientWidth / this.container.clientHeight;
+          this.camera.updateProjectionMatrix();
+          this.renderer.setSize(this.container.clientWidth, this.container.clientHeight);
+        });
+
+        // Mouse Move for Raycaster & Tooltip
+        this.canvas.addEventListener('mousemove', (e) => {
+          const rect = this.canvas.getBoundingClientRect();
+          this.mouse.x = ((e.clientX - rect.left) / rect.width) * 2 - 1;
+          this.mouse.y = -((e.clientY - rect.top) / rect.height) * 2 + 1;
+
+          this.checkRaycast();
+        });
+
+        // Click event on Canvas
+        this.canvas.addEventListener('click', () => {
+          this.audio.init();
+          this.raycaster.setFromCamera(this.mouse, this.camera);
+          const intersects = this.raycaster.intersectObjects(this.nodeMeshes);
+
+          if (intersects.length > 0) {
+            const hitMesh = intersects[0].object;
+            const idx = hitMesh.userData.nodeIndex;
+            this.focusNode(idx);
+          }
+        });
+
+        // Start 3D Experience Button
+        document.getElementById('start3dBtn').addEventListener('click', () => {
+          this.audio.init();
+          document.getElementById('startOverlay').style.display = 'none';
+          this.focusNode(0);
+        });
+
+        // Reset / Replay
+        document.getElementById('reset3dBtn').addEventListener('click', () => {
+          document.getElementById('victoryOverlay').style.display = 'none';
+          this.unlockedMilestones.clear();
+          this.renderLogGrid();
+          this.focusNode(0);
+        });
+
+        // Auto Pilot Tour Toggle
+        document.getElementById('autoPilotBtn').addEventListener('click', () => {
+          this.toggleAutoPilot();
+        });
+
+        // Theme Toggle
+        document.getElementById('themeToggleBtn').addEventListener('click', () => {
+          const currentTheme = document.documentElement.getAttribute('data-theme');
+          const nextTheme = currentTheme === 'light' ? 'dark' : 'light';
+          document.documentElement.setAttribute('data-theme', nextTheme);
+          localStorage.setItem('theme', nextTheme);
+
+          const icon = document.getElementById('themeIcon');
+          if (nextTheme === 'light') {
+            icon.className = 'bi bi-moon-stars-fill text-info';
+          } else {
+            icon.className = 'bi bi-sun-fill text-warning';
+          }
+        });
+
+        // Sound Toggle
+        document.getElementById('soundToggle').addEventListener('click', () => {
+          this.audio.enabled = !this.audio.enabled;
+          const icon = document.getElementById('soundIcon');
+          if (this.audio.enabled) {
+            icon.className = 'bi bi-volume-up-fill text-info';
+          } else {
+            icon.className = 'bi bi-volume-mute-fill text-secondary';
+          }
+        });
+      }
+
+      checkRaycast() {
+        this.raycaster.setFromCamera(this.mouse, this.camera);
+        const intersects = this.raycaster.intersectObjects(this.nodeMeshes);
+
+        const tooltip = document.getElementById('nodeTooltip');
+
+        if (intersects.length > 0) {
+          const hitMesh = intersects[0].object;
+          const idx = hitMesh.userData.nodeIndex;
+          const data = hitMesh.userData.milestoneData;
+
+          if (this.hoveredNodeIndex !== idx) {
+            this.hoveredNodeIndex = idx;
+            this.audio.playHover();
+          }
+
+          document.body.style.cursor = 'pointer';
+
+          // Tooltip update
+          document.getElementById('tooltipTitle').innerText = `${data.icon} ${data.title}`;
+          document.getElementById('tooltipDesc').innerText = data.shortDesc;
+          tooltip.classList.add('active');
+        } else {
+          this.hoveredNodeIndex = -1;
+          document.body.style.cursor = 'default';
+          tooltip.classList.remove('active');
+        }
+      }
+
+      focusNode(nodeIndex, showModal = true) {
+        const mesh = this.nodeMeshes[nodeIndex];
+        if (!mesh) return;
+
+        const data = mesh.userData.milestoneData;
+        this.audio.playClick();
+
+        // Calculate Target Camera Position (slightly offset from node)
+        const nodePos = mesh.position.clone();
+        const offset = new THREE.Vector3(
+          nodePos.x === 0 ? 0 : (nodePos.x > 0 ? 12 : -12),
+          nodePos.y + 6,
+          nodePos.z + 18
+        );
+
+        this.targetCameraPos = nodePos.clone().add(offset);
+        this.targetLookAt = nodePos.clone();
+
+        // Unlock milestone
+        this.unlockMilestone(nodeIndex, showModal);
+
+        // Update HUD
+        document.getElementById('hudStationName').innerText = data.title.toUpperCase();
+
+        // Update Shortcut Buttons UI
+        const btns = document.querySelectorAll('.node-btn');
+        btns.forEach((btn, idx) => {
+          if (idx === nodeIndex) btn.classList.add('active');
+          else btn.classList.remove('active');
+        });
+      }
+
+      toggleAutoPilot() {
+        this.autoPilot = !this.autoPilot;
+        const btn = document.getElementById('autoPilotBtn');
+
+        if (this.autoPilot) {
+          btn.classList.add('bg-success', 'text-white');
+          btn.innerHTML = `<i class="bi bi-gear-fill me-1"></i> TOUR AUTOMÁTICO ON`;
+
+          this.autoPilotIndex = 0;
+          this.runAutoPilotStep();
+        } else {
+          btn.classList.remove('bg-success', 'text-white');
+          btn.innerHTML = `<i class="bi bi-play-circle-fill me-1"></i> TOUR 3D AUTOMÁTICO`;
+          if (this.autoPilotTimer) clearTimeout(this.autoPilotTimer);
+        }
+      }
+
+      runAutoPilotStep() {
+        if (!this.autoPilot) return;
+
+        this.focusNode(this.autoPilotIndex, true);
+        this.autoPilotIndex = (this.autoPilotIndex + 1) % CV_3D_MILESTONES.length;
+
+        this.autoPilotTimer = setTimeout(() => {
+          if (this.autoPilot) {
+            this.runAutoPilotStep();
+          }
+        }, 4500);
+      }
+
+      unlockMilestone(index, showModal = true) {
+        const data = CV_3D_MILESTONES[index];
+        if (!data) return;
+
+        const isNew = !this.unlockedMilestones.has(data.id);
+        this.unlockedMilestones.add(data.id);
+
+        if (isNew && showModal) {
+          // Show Modal
+          document.getElementById('modalIcon3d').innerText = data.icon;
+          document.getElementById('modalCategory3d').innerText = data.category;
+          document.getElementById('modalHeaderTitle3d').innerText = data.title;
+          document.getElementById('modalDescription3d').innerText = data.fullDesc;
+
+          const modalEl = document.getElementById('milestoneModal3d');
+          const modal = bootstrap.Modal.getOrCreateInstance(modalEl);
+          modal.show();
+        }
+
+        this.renderLogGrid();
+      }
+
+      renderLogGrid() {
+        const container = document.getElementById('logGrid');
+        container.innerHTML = '';
+
+        CV_3D_MILESTONES.forEach(m => {
+          const isUnlocked = this.unlockedMilestones.has(m.id);
+          const card = document.createElement('div');
+          card.className = `log-card ${isUnlocked ? 'unlocked' : ''}`;
+          card.innerHTML = `
+            <div class="log-icon">${isUnlocked ? m.icon : '🔒'}</div>
+            <div class="log-info">
+              <h5>${isUnlocked ? m.title : '??? (Estación Bloqueada)'}</h5>
+              <p>${isUnlocked ? m.shortDesc : 'Haz clic en la orbe 3D en el espacio para desbloquear este hito.'}</p>
+            </div>
+          `;
+          container.appendChild(card);
+        });
+
+        const percent = Math.round((this.unlockedMilestones.size / CV_3D_MILESTONES.length) * 100);
+        document.getElementById('unlockedLogCounter').innerText = `${this.unlockedMilestones.size} / ${CV_3D_MILESTONES.length} Unlocked`;
+        document.getElementById('identityProgressBar').style.width = `${percent}%`;
+        document.getElementById('identityPercent').innerText = `${percent}%`;
+        document.getElementById('hudUnlockedCount').innerText = `${this.unlockedMilestones.size} / ${CV_3D_MILESTONES.length} HITOS`;
+
+        if (percent >= 100) {
+          document.getElementById('hudIdentityText').innerText = "ARCHITECT CORE UNLOCKED 👑";
+          document.getElementById('hudIdentityText').style.color = "var(--3d-green)";
+          this.triggerVictory();
+        }
+      }
+
+      triggerVictory() {
+        const victoryOverlay = document.getElementById('victoryOverlay');
+        if (victoryOverlay && victoryOverlay.style.display !== 'flex') {
+          victoryOverlay.style.display = 'flex';
+          this.audio.playVictory();
+        }
+      }
+
+      animate(time) {
+        requestAnimationFrame(this.animate);
+
+        const sec = time * 0.001;
+
+        // Rotate Starfield slowly
+        if (this.starfield) {
+          this.starfield.rotation.y = sec * 0.02;
+        }
+
+        // Animate 3D Nodes (rotate mesh & halos)
+        this.nodeMeshes.forEach((mesh, idx) => {
+          mesh.rotation.y = sec * (0.2 + idx * 0.05);
+          if (mesh.userData.haloMesh) {
+            mesh.userData.haloMesh.rotation.x = sec * 0.3;
+            mesh.userData.haloMesh.rotation.z = sec * 0.2;
+          }
+
+          // Gentle floating wave effect
+          if (idx !== 5) { // not center core
+            const orig = CV_3D_MILESTONES[idx].position;
+            mesh.position.y = orig.y + Math.sin(sec * 1.5 + idx) * 0.6;
+          }
+
+          // Scale effect if hovered
+          if (this.hoveredNodeIndex === idx) {
+            mesh.scale.lerp(new THREE.Vector3(1.25, 1.25, 1.25), 0.1);
+          } else {
+            mesh.scale.lerp(new THREE.Vector3(1.0, 1.0, 1.0), 0.1);
+          }
+        });
+
+        // Smooth Camera Transition when focused on node
+        if (this.targetCameraPos) {
+          this.camera.position.lerp(this.targetCameraPos, 0.05);
+          this.controls.target.lerp(this.targetLookAt, 0.05);
+
+          if (this.camera.position.distanceTo(this.targetCameraPos) < 0.1) {
+            this.targetCameraPos = null;
+          }
+        }
+
+        this.controls.update();
+        this.renderer.render(this.scene, this.camera);
+      }
+    }
+
+    // Initialize 3D Universe on Load
+    let game3d;
+    window.addEventListener('DOMContentLoaded', () => {
+      game3d = new ThreeCVUniverse();
+    });
+  </script>
+</body>
+
+</html>
