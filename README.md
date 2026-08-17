@@ -3,10 +3,8 @@ Barcelona, Spain · [LinkedIn](https://www.linkedin.com/in/christian-heredia-ang
 
 I am a **Senior Lead Angular Architect and AWS Cloud Frontend Specialist** with over 10 years of professional experience (since 2013), 20+ delivered enterprise applications, and a certified Scrum Master. I specialize in building enterprise-grade, high-performance web platforms using **Angular (16/17/18)**, **Angular Signals**, **Nx Microfrontends**, and scalable **AWS Cloud Architectures** (S3, CloudFront CDN, Lambda, API Gateway, Route 53, Serverless CI/CD), backed by a Master's Degree in Cybersecurity to guarantee security-by-design.
 
-🌌 **Interactive 3D Dragon Ball Goku CV:** Fly [3D Goku Nimbus (`3d-cv.html`)](https://chdelucia.github.io/3d-cv.html) to navigate an interactive 3D WebGL Dragon Ball universe built with Three.js, Kamehameha 3D beams, 7 collectible 3D Dragon Balls, and Web Audio API synthesis.
 🎮 **Interactive 2D Mario CV:** Play [Super Chris World (`mario-cv.html`)](https://chdelucia.github.io/mario-cv.html) to progressively reveal career milestones, skills, and projects through retro 2D platformer gameplay.
 🐉 **Interactive Goku Flying Nimbus CV:** Play [Dragon Ball CV (`goku-cv.html`)](https://chdelucia.github.io/goku-cv.html) to fly Goku on the Flying Nimbus (Nube Mágica), shoot Kamehameha beams, and collect the 7 Dragon Balls to summon Shenron and reveal official CV credentials.
-📖 **Interactive Story Quest CV:** Experience [Story Mode (`interactive-story.html`)](https://chdelucia.github.io/interactive-story.html) to journey through a linear chapter-based career quest with unlocked technical achievement badges.
 
 ---
 
