@@ -642,8 +642,8 @@
           osc.type = 'sine';
           osc.frequency.setValueAtTime(987.77, this.ctx.currentTime); // B5
           osc.frequency.setValueAtTime(1318.51, this.ctx.currentTime + 0.08); // E6
-          gain.gain.setValueAtTime(0.2, this.ctx.currentTime);
-          gain.gain.exponentialRampToValueAtTime(0.01, this.ctx.currentTime + 0.25);
+          gain.gain.setValueAtTime(0.03, this.ctx.currentTime);
+          gain.gain.exponentialRampToValueAtTime(0.001, this.ctx.currentTime + 0.25);
           osc.connect(gain);
           gain.connect(this.ctx.destination);
           osc.start();
@@ -659,8 +659,8 @@
           osc.type = 'square';
           osc.frequency.setValueAtTime(150, this.ctx.currentTime);
           osc.frequency.exponentialRampToValueAtTime(600, this.ctx.currentTime + 0.15);
-          gain.gain.setValueAtTime(0.15, this.ctx.currentTime);
-          gain.gain.exponentialRampToValueAtTime(0.01, this.ctx.currentTime + 0.15);
+          gain.gain.setValueAtTime(0.02, this.ctx.currentTime);
+          gain.gain.exponentialRampToValueAtTime(0.001, this.ctx.currentTime + 0.15);
           osc.connect(gain);
           gain.connect(this.ctx.destination);
           osc.start();
@@ -677,8 +677,8 @@
             const gain = this.ctx.createGain();
             osc.type = 'triangle';
             osc.frequency.value = freq;
-            gain.gain.setValueAtTime(0.2, this.ctx.currentTime + i * 0.06);
-            gain.gain.exponentialRampToValueAtTime(0.01, this.ctx.currentTime + (i + 1) * 0.06);
+            gain.gain.setValueAtTime(0.03, this.ctx.currentTime + i * 0.06);
+            gain.gain.exponentialRampToValueAtTime(0.001, this.ctx.currentTime + (i + 1) * 0.06);
             osc.connect(gain);
             gain.connect(this.ctx.destination);
             osc.start(this.ctx.currentTime + i * 0.06);
@@ -696,8 +696,8 @@
             const gain = this.ctx.createGain();
             osc.type = 'square';
             osc.frequency.value = freq;
-            gain.gain.setValueAtTime(0.25, this.ctx.currentTime + i * 0.1);
-            gain.gain.exponentialRampToValueAtTime(0.01, this.ctx.currentTime + i * 0.1 + 0.2);
+            gain.gain.setValueAtTime(0.04, this.ctx.currentTime + i * 0.1);
+            gain.gain.exponentialRampToValueAtTime(0.001, this.ctx.currentTime + i * 0.1 + 0.2);
             osc.connect(gain);
             gain.connect(this.ctx.destination);
             osc.start(this.ctx.currentTime + i * 0.1);
@@ -715,71 +715,71 @@
         title: "Ingeniería Telemática (UPF)",
         category: "Educación & Base Técnica",
         icon: "🎓",
-        shortDesc: "Fundamentos en redes, sistemas distribuidos y desarrollo de software.",
-        fullDesc: "Graduado en la Universidad Pompeu Fabra (2011-2016). Proporcionó la base técnica en telecomunicaciones, protocolos de red y arquitectura de software."
+        shortDesc: "Universidad Pompeu Fabra (2011-2016). Redes y desarrollo de software.",
+        fullDesc: "Grado en Ingeniería Telemática por la Universidad Pompeu Fabra (2011 - 2016). Base sólida en redes de computadores, sistemas distribuidos, software y telecomunicaciones."
       },
       {
         id: "m2",
         stageIndex: 0,
-        title: "Másteres: Agile & Ciberseguridad",
+        title: "Másteres & Certified Scrum Master",
         category: "Certificaciones & Liderazgo",
         icon: "🛡️",
-        shortDesc: "Certified Scrum Master (MSc La Salle) + Máster Ciberseguridad (VIU).",
-        fullDesc: "Doble titulación de posgrado: Máster en Metodologías Ágiles (La Salle) como Scrum Master y Máster en Ciberseguridad (VIU) aplicando desarrollo seguro (Security-by-Design y OWASP)."
+        shortDesc: "Master Ciberseguridad (VIU) + Master Metodologías Ágiles (La Salle) + CSM.",
+        fullDesc: "Master en Ciberseguridad (Valencia International University, 2022-2023), Master en Metodologías Ágiles (University Ramon Llull - La Salle, 2017-2018) y Certified Scrum Master (CSM)."
       },
       {
         id: "m3",
         stageIndex: 1,
-        title: "Full-Stack Developer (Pricesoft)",
+        title: "Pricesoft (Frontend Developer)",
         category: "Experiencia Profesional",
         icon: "💻",
-        shortDesc: "Desarrollo B2B en turismo con React, jQuery, Laravel y MySQL.",
-        fullDesc: "2013 - 2016: Primeros cimientos entregando plataformas web B2B de alta disponibilidad para agencias de viajes."
+        shortDesc: "Sept 2013 – Oct 2016: React, jQuery, Laravel, Bootstrap, MySQL.",
+        fullDesc: "Desarrollo de aplicaciones web B2B para agencias de viajes utilizando React, jQuery, Laravel, Bootstrap y MySQL."
       },
       {
         id: "m4",
         stageIndex: 1,
         title: "Deloitte & NTT Data (Everis)",
-        category: "Experiencia Senior Frontend",
+        category: "Senior Frontend Engineer",
         icon: "⚽",
-        shortDesc: "Plataformas de salud, chatbots de IA e Inteligencia LaLiga con Angular.",
-        fullDesc: "2017 - 2019: Desarrollo de portales corporativos de salud con Angular y Spring Boot, creación de chatbot IA con GraphQL y liderazgo del frontend de analítica para LaLiga Premier."
+        shortDesc: "Ene 2017 – Ago 2019: Angular, NgRx, Spring Boot, Chatbot IA GraphQL, LaLiga.",
+        fullDesc: "Módulos frontend corporativos para seguro médico con Angular y Java Spring Boot, chatbot de IA para configuración con GraphQL y portal de analítica deportiva para LaLiga con Angular y Node.js."
       },
       {
         id: "m5",
         stageIndex: 2,
-        title: "Obsidian Software (Senior & Scrum Master)",
-        category: "Arquitectura Cloud & Angular",
+        title: "Obsidian Software",
+        category: "Senior Frontend & Scrum Master",
         icon: "📊",
-        shortDesc: "Dashboard en tiempo real con Angular, AWS CloudWatch, Three.js y Lambda.",
-        fullDesc: "2020 - 2022: Creación de paneles de monitorización de servidores en tiempo real (refresco de 1 min) integrado con AWS CloudWatch, NestJS y GraphQL."
+        shortDesc: "Ene 2020 – Dic 2022: Angular, NgRx, Three.js, AWS CloudWatch, NestJS, Lambda.",
+        fullDesc: "Dashboard de monitorización en tiempo real con datos cada 1 min usando Angular, NgRx, Three.js y AWS CloudWatch. Integración serverless con NestJS, GraphQL y AWS Lambda."
       },
       {
         id: "m6",
         stageIndex: 3,
-        title: "Dimatica Software (Lead Angular Architect)",
-        category: "Liderazgo Técnico Actual",
+        title: "Dimatica Software (Trabajo Actual)",
+        category: "Lead Frontend Engineer & Angular/AWS Architect",
         icon: "🚀",
-        shortDesc: "Plataforma global B2B/B2C con Nx Microfrontends y Angular 16/17/18.",
-        fullDesc: "May 2022 - Presente: Liderazgo del equipo frontend creando arquitectura de microfrontends con Nx, reduciendo compilación en 40% y logrando >85% cobertura con Jest/Cypress."
+        shortDesc: "Mayo 2022 – Presente: Angular 16/17/18, Nx Microfrontends, AWS (S3/CloudFront) + CloudBees.",
+        fullDesc: "Liderazgo técnico frontend en plataforma turística B2B/B2C con Nx Microfrontends y Angular 16/17/18. Despliegues de frontend en AWS (S3 y CloudFront CDN) automatizados mediante CloudBees CI/CD."
       },
       {
         id: "m7",
         stageIndex: 3,
-        title: "AWS Cloud Frontend Architecture",
-        category: "Especialización Cloud",
+        title: "AWS Cloud & CloudBees CI/CD",
+        category: "Especialización Cloud Frontend",
         icon: "☁️",
-        shortDesc: "Despliegue escalable en AWS S3, CloudFront CDN, Lambda, API Gateway y Route 53.",
-        fullDesc: "Diseño y optimización de infraestructura Frontend en la nube AWS, garantizando aceleración Edge global, 99.99% disponibilidad y métricas Web Vitals óptimas."
+        shortDesc: "AWS S3, CloudFront CDN, Lambda, API Gateway, Route 53, CloudWatch y CloudBees.",
+        fullDesc: "Diseño y despliegues de arquitectura cloud frontend en AWS (S3, CloudFront, Route 53, API Gateway) utilizando CloudBees CI/CD para lanzamientos continuos y aceleración global."
       },
       {
         id: "m8",
         stageIndex: 4,
-        title: "REVELACIÓN FINAL: Chris Heredia",
+        title: "Chris Heredia Naranjo",
         category: "Senior Lead Angular Architect & AWS Specialist",
         icon: "👑",
-        shortDesc: "+10 Años de Experiencia · +20 Proyectos Entregados · Certified Scrum Master",
-        fullDesc: "¡Identidad completamente revelada! Chris Heredia es un profesional sénior de referencia en desarrollo frontend con Angular, arquitectura Cloud en AWS y liderazgo ágil."
+        shortDesc: "+10 Años de Experiencia (desde 2013) · +20 Proyectos Entregados · Barcelona",
+        fullDesc: "Senior Lead Angular Architect y AWS Cloud Frontend Specialist con más de 10 años de trayectoria (desde 2013), +20 proyectos empresariales entregados, Certified Scrum Master y Master en Ciberseguridad."
       }
     ];
 
