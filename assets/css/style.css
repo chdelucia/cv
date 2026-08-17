@@ -1,5 +1,5 @@
 /*--------------------------------------------------------------
-# Modern UX/UI Portfolio Styles & Native Scroll Animations
+# Modern UX/UI Portfolio Styles
 # Chris Heredia - Angular Expert & AWS Cloud Engineer
 --------------------------------------------------------------*/
 
@@ -90,7 +90,7 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: 700;
 }
 
-/* Scroll Progress Bar (Pure CSS Scroll Timeline) */
+/* Scroll Progress Bar */
 #scroll-progress {
   position: fixed;
   top: 0;
@@ -114,7 +114,7 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 
-/* Back to Top Button (Pure CSS Scroll Timeline) */
+/* Back to Top Button */
 @keyframes backToTopReveal {
   from {
     opacity: 0;
@@ -889,7 +889,7 @@ section {
 }
 
 /* --------------------------------------------------------------
-# Pure CSS Scroll-Driven Animations (CSS View Timeline)
+# Scroll-Driven Animations (CSS View Timeline)
 -------------------------------------------------------------- */
 
 @keyframes cssRevealFadeUp {
