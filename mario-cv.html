@@ -796,6 +796,8 @@
         this.coins = 0;
         this.currentStage = 0;
         this.unlockedMilestones = new Set();
+        this.stageTransitioning = false;
+        this.isVictorious = false;
 
         // Player State
         this.player = {
@@ -1031,6 +1033,7 @@
 
       loadStage(stageIndex) {
         this.currentStage = stageIndex;
+        this.stageTransitioning = false;
         this.player.x = 80;
         this.player.y = 360;
         this.player.vx = 0;
@@ -1139,11 +1142,16 @@
 
             // Flagpole or Castle triggered
             if (block.type === 'flagpole' || block.type === 'castle') {
-              this.audio.playFanfare();
-              if (this.currentStage < this.stages.length - 1) {
-                this.loadStage(this.currentStage + 1);
-              } else {
-                this.triggerVictory();
+              if (!this.stageTransitioning && !this.isVictorious) {
+                this.stageTransitioning = true;
+                this.audio.playFanfare();
+                if (this.currentStage < this.stages.length - 1) {
+                  setTimeout(() => {
+                    this.loadStage(this.currentStage + 1);
+                  }, 800);
+                } else {
+                  this.triggerVictory();
+                }
               }
             }
           }
@@ -1176,20 +1184,24 @@
         this.updateHUD();
       }
 
-      unlockMilestone(index) {
+      unlockMilestone(index, showModal = true) {
         const milestone = CV_MILESTONES[index];
-        if (!milestone || this.unlockedMilestones.has(milestone.id)) return;
+        if (!milestone) return;
 
+        const isNew = !this.unlockedMilestones.has(milestone.id);
         this.unlockedMilestones.add(milestone.id);
 
-        // Show Modal Popup
-        document.getElementById('modalIcon').innerText = milestone.icon;
-        document.getElementById('modalBadge').innerText = milestone.category;
-        document.getElementById('modalHeaderTitle').innerText = milestone.title;
-        document.getElementById('modalDescription').innerText = milestone.fullDesc;
+        if (isNew && showModal && !this.isVictorious) {
+          // Show Modal Popup
+          document.getElementById('modalIcon').innerText = milestone.icon;
+          document.getElementById('modalBadge').innerText = milestone.category;
+          document.getElementById('modalHeaderTitle').innerText = milestone.title;
+          document.getElementById('modalDescription').innerText = milestone.fullDesc;
 
-        const modal = new bootstrap.Modal(document.getElementById('milestoneModal'));
-        modal.show();
+          const modalEl = document.getElementById('milestoneModal');
+          const modal = bootstrap.Modal.getOrCreateInstance(modalEl);
+          modal.show();
+        }
 
         this.renderLogGrid();
       }
@@ -1226,9 +1238,24 @@
       }
 
       triggerVictory() {
-        // Unlock all remaining
-        CV_MILESTONES.forEach((m, idx) => this.unlockMilestone(idx));
-        document.getElementById('victoryOverlay').style.display = 'flex';
+        if (this.isVictorious) return;
+        this.isVictorious = true;
+
+        // Dismiss any active modal and backdrop if open
+        const modalEl = document.getElementById('milestoneModal');
+        const modalInstance = bootstrap.Modal.getInstance(modalEl);
+        if (modalInstance) {
+          modalInstance.hide();
+        }
+
+        // Unlock all remaining without triggering popup modals
+        CV_MILESTONES.forEach((m, idx) => this.unlockMilestone(idx, false));
+
+        // Show victory overlay
+        const victoryOverlay = document.getElementById('victoryOverlay');
+        if (victoryOverlay) {
+          victoryOverlay.style.display = 'flex';
+        }
       }
 
       updateHUD() {
