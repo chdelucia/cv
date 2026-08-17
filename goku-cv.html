@@ -542,24 +542,30 @@
 
       <!-- Victory Overlay -->
       <div class="canvas-overlay" id="victoryOverlay" style="display: none;">
-        <h1 class="overlay-title" style="color: #fcc200;">¡DRAGÓN SHENRON INVOCADO! 🐲</h1>
-        <p class="overlay-subtitle">
-          ¡Has reunido todas las Bolas de Dragón! Shenron ha concedido el deseo revelando a <strong>Chris Heredia</strong>: Senior Lead Angular Architect & AWS Cloud Frontend Specialist con más de 10 años de experiencia, +20 proyectos empresariales y Certified Scrum Master.
+        <h1 class="overlay-title" style="color: #fcc200;"><span style="font-size: 28px;">🐲</span> ¡SHENRON HA SIDO INVOCADO!</h1>
+        <p class="overlay-subtitle" style="font-size: 15px; color: #fde047; margin-bottom: 15px;">
+          "Has reunido las 7 Bolas de Dragón... ¡Dime cuál es tu deseo y te lo concederé!"
         </p>
-        <div class="d-flex gap-3 flex-wrap justify-content-center">
-          <a href="index.html" class="btn-db btn-db-blue">
-            <i class="bi bi-person-badge-fill me-1"></i> VER CV COMPLETO WEB
+        <div class="d-flex flex-column gap-2 w-100 align-items-center mb-3" style="max-width: 520px;">
+          <a href="mailto:c.heredia87@gmail.com?subject=Oferta%20de%20Trabajo%20-%20Senior%20Lead%20Angular%20Architect" class="btn-db btn-db-orange w-100 py-2 fs-6 text-center">
+            ✨ DESEO 1: ¡Contratar a Christian!
           </a>
-          <a href="Chris_Heredia_CV.pdf" target="_blank" class="btn-db btn-db-gold">
-            <i class="bi bi-download me-1"></i> DESCARGAR RESUME PDF
+          <a href="mailto:c.heredia87@gmail.com" class="btn-db btn-db-gold w-100 py-2 fs-6 text-center">
+            ✉️ DESEO 2: ¡Contactar a Christian!
           </a>
-          <a href="mailto:c.heredia87@gmail.com" class="btn-db btn-db-orange">
-            <i class="bi bi-envelope-fill me-1"></i> CONTACTAR A CHRIS
+          <a href="index.html" class="btn-db btn-db-blue w-100 py-2 fs-6 text-center">
+            📄 DESEO 3: ¡Ver el CV Web Completo!
           </a>
-          <button id="restartGameBtn" class="btn-db btn-db-orange" style="background:#475569;">
-            <i class="bi bi-arrow-counterclockwise me-1"></i> REJUGAR SAGA
-          </button>
+          <a href="Chris_Heredia_CV.pdf" target="_blank" class="btn-db btn-db-orange w-100 py-2 fs-6 text-center" style="background:#16a34a;">
+            📜 DESEO 4: ¡Descargar Resume en PDF!
+          </a>
+          <a href="mario-cv.html" class="btn-db btn-db-gold w-100 py-2 fs-6 text-center" style="background:#e52521; color:#fff;">
+            🎮 DESEO 5: ¡Probar el juego 2D de Super Mario!
+          </a>
         </div>
+        <button id="restartGameBtn" class="btn-db btn-db-gold" style="background:#475569; color:#fff;">
+          <i class="bi bi-arrow-counterclockwise me-1"></i> REJUGAR SAGA DRAGON BALL
+        </button>
       </div>
     </div>
 
@@ -681,18 +687,18 @@
       playFanfare() {
         if (!this.enabled || !this.ctx) return;
         try {
-          const notes = [392, 523, 659, 784, 1046, 1318];
+          const notes = [392, 523, 659, 784];
           notes.forEach((freq, i) => {
             const osc = this.ctx.createOscillator();
             const gain = this.ctx.createGain();
-            osc.type = 'triangle';
+            osc.type = 'sine';
             osc.frequency.value = freq;
-            gain.gain.setValueAtTime(0.04, this.ctx.currentTime + i * 0.08);
-            gain.gain.exponentialRampToValueAtTime(0.001, this.ctx.currentTime + i * 0.08 + 0.18);
+            gain.gain.setValueAtTime(0.02, this.ctx.currentTime + i * 0.1);
+            gain.gain.exponentialRampToValueAtTime(0.001, this.ctx.currentTime + i * 0.1 + 0.15);
             osc.connect(gain);
             gain.connect(this.ctx.destination);
-            osc.start(this.ctx.currentTime + i * 0.08);
-            osc.stop(this.ctx.currentTime + i * 0.08 + 0.18);
+            osc.start(this.ctx.currentTime + i * 0.1);
+            osc.stop(this.ctx.currentTime + i * 0.1 + 0.15);
           });
         } catch (e) {}
       }
@@ -997,6 +1003,7 @@
 
       loadStage(stageIndex) {
         this.currentStage = stageIndex;
+        this.stageTransitioning = false;
         this.player.x = 100;
         this.player.y = 240;
         this.cameraX = 0;
@@ -1071,7 +1078,8 @@
         });
 
         // Saga Portal Progression
-        if (this.player.x >= stage.portalX) {
+        if (this.player.x >= stage.portalX && !this.stageTransitioning) {
+          this.stageTransitioning = true;
           this.audio.playFanfare();
           if (this.currentStage < this.stages.length - 1) {
             this.loadStage(this.currentStage + 1);
