@@ -3,6 +3,9 @@ Barcelona, Spain · [LinkedIn](https://www.linkedin.com/in/christian-heredia-ang
 
 I am a **Senior Lead Angular Architect and AWS Cloud Frontend Specialist** with over 10 years of professional experience (since 2013), 20+ delivered enterprise applications, and a certified Scrum Master. I specialize in building enterprise-grade, high-performance web platforms using **Angular (16/17/18)**, **Angular Signals**, **Nx Microfrontends**, and scalable **AWS Cloud Architectures** (S3, CloudFront CDN, Lambda, API Gateway, Route 53, Serverless CI/CD), backed by a Master's Degree in Cybersecurity to guarantee security-by-design.
 
+🎮 **Interactive 2D Mario CV:** Play [Super Chris World (`mario-cv.html`)](https://chdelucia.github.io/mario-cv.html) to progressively reveal career milestones, skills, and projects through retro 2D platformer gameplay.
+🐉 **Interactive Goku Flying Nimbus CV:** Play [Dragon Ball CV (`goku-cv.html`)](https://chdelucia.github.io/goku-cv.html) to fly Goku on the Flying Nimbus (Nube Mágica), shoot Kamehameha beams, and collect the 7 Dragon Balls to summon Shenron and reveal official CV credentials.
+
 ---
 
 ## 🚀 CORE COMPETENCIES
@@ -22,7 +25,7 @@ I am a **Senior Lead Angular Architect and AWS Cloud Frontend Specialist** with 
 *May 2022 – Present*  
 - Led the end-to-end design and frontend development of a global enterprise B2B & B2C tourism accommodation platform handling millions of requests.
 - Architected a scalable **Microfrontend Architecture** using **Nx** and **Angular 16/17/18**, reducing build times by 40% and enabling independent team deployments.
-- Deployed and optimized cloud frontend assets on **AWS (S3, CloudFront CDN, Route 53, API Gateway)** for ultra-fast global distribution and 99.99% availability.
+- Deployed and optimized cloud frontend assets on **AWS (S3 and CloudFront CDN)** using **CloudBees** CI/CD pipelines alongside Route 53 and API Gateway for ultra-fast global distribution and 99.99% availability.
 - Implemented robust Automated Testing strategies with **Jest** and **Cypress**, achieving over 85% unit and E2E code coverage.
 - Created standardized UI component libraries with **Storybook** and **Tailwind CSS**.
 - Built real-time WebSocket messaging systems on **Node.js** and integrated with **Java Spring Boot** microservices.

@@ -1,128 +1,59 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Chris Heredia | Senior Lead Angular Architect & AWS Cloud Specialist (10+ Yrs, 20+ Projects)</title>
-  <meta content="Senior Lead Angular Architect & AWS Cloud Specialist with 10+ years experience & 20+ enterprise projects delivered. Expert in Angular 18, Nx Microfrontends, Signals, AWS S3/CloudFront/Lambda, Cybersecurity & Certified Scrum Master." name="description">
-  <meta content="Senior Lead Angular Developer, Angular Lead Architect, Angular 18 Specialist, Microfrontends Architect, Nx Monorepo Expert, AWS Cloud Frontend Engineer, Senior Frontend Lead 20+ Projects, Certified Scrum Master, Barcelona" name="keywords">
-  <link rel="canonical" href="https://chdelucia.github.io/">
+  <title>Chris Heredia | Senior Lead Angular Architect & AWS Cloud Frontend Specialist</title>
+  <meta content="Portfolio and resume of Chris Heredia, Senior Lead Angular Architect and AWS Cloud Frontend Specialist with 10+ years of experience leading Nx Microfrontends, NgRx, AWS Cloud (S3/CloudFront) and CloudBees CI/CD." name="description">
+  <meta content="Chris Heredia, Angular Architect, AWS Specialist, Frontend Lead, Microfrontends, NgRx, TypeScript, CloudBees, Senior Developer" name="keywords">
 
   <!-- Open Graph / Social SEO -->
   <meta property="og:type" content="website">
-  <meta property="og:title" content="Chris Heredia | Senior Lead Angular Architect & AWS Cloud Specialist (20+ Projects)">
-  <meta property="og:description" content="Senior Lead Angular Architect & AWS Specialist with 10+ years experience and 20+ enterprise projects delivered. Expert in Angular 18, Nx Microfrontends, Signals, AWS S3/CloudFront/Lambda, and Scrum Master Leadership.">
+  <meta property="og:title" content="Chris Heredia | Senior Lead Angular Architect & AWS Cloud Specialist">
+  <meta property="og:description" content="10+ years driving enterprise Angular architectures, Nx Microfrontends, AWS Cloud services, and CloudBees CI/CD pipelines. Discover my portfolio and technical stack.">
   <meta property="og:image" content="https://chdelucia.github.io/assets/img/profile-img.png">
   <meta property="og:url" content="https://chdelucia.github.io/">
 
-  <!-- Twitter Cards -->
+  <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Chris Heredia | Senior Lead Angular Architect & AWS Cloud Specialist">
-  <meta name="twitter:description" content="Senior Lead Angular Architect & AWS Specialist with 10+ years experience and 20+ enterprise projects delivered. Expert in Angular 18, Nx Microfrontends, Signals, AWS S3/CloudFront/Lambda, and Scrum Master Leadership.">
+  <meta name="twitter:description" content="Senior Lead Angular Architect and AWS Cloud Frontend Specialist with 10+ years of experience.">
   <meta name="twitter:image" content="https://chdelucia.github.io/assets/img/profile-img.png">
-
-  <!-- Anti-Flicker Theme Initialization -->
-  <script>
-    (function() {
-      var savedTheme = localStorage.getItem('theme') || (window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
-      document.documentElement.setAttribute('data-theme', savedTheme);
-    })();
-  </script>
-
-  <!-- Preload Critical Assets -->
-  <link rel="preload" as="image" href="assets/img/hero-bg.webp" type="image/webp">
-
-  <!-- Schema.org JSON-LD Structured Data -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@graph": [
-      {
-        "@type": "Person",
-        "@id": "https://chdelucia.github.io/#person",
-        "name": "Chris Heredia",
-        "jobTitle": "Senior Lead Angular Architect & AWS Cloud Specialist",
-        "description": "Senior Lead Angular Specialist with over 10 years professional experience and 20+ high-impact enterprise projects delivered. Specialist in Angular (16/17/18), Nx Microfrontends, AWS Cloud services, Cybersecurity, and Agile Technical Leadership.",
-        "url": "https://chdelucia.github.io/",
-        "sameAs": [
-          "https://github.com/chdelucia",
-          "https://www.linkedin.com/in/christian-heredia-angular-developer/"
-        ],
-        "knowsAbout": [
-          "Senior Lead Angular Architecture",
-          "Angular 18 & Signals",
-          "Nx Monorepo & Microfrontends",
-          "AWS Cloud (S3, CloudFront, Lambda, API Gateway)",
-          "TypeScript & RxJS",
-          "NgRx & State Management",
-          "Jest & Cypress Automated Testing",
-          "Cybersecurity & Security-by-Design",
-          "Scrum Master & Agile Leadership",
-          "20+ Enterprise Web Projects"
-        ]
-      },
-      {
-        "@type": "Occupation",
-        "name": "Senior Lead Angular Architect",
-        "occupationLocation": {
-          "@type": "City",
-          "name": "Barcelona"
-        },
-        "description": "Architecting and leading enterprise Angular frontends and AWS Cloud infrastructure across 20+ mission-critical applications.",
-        "skills": "Angular 18, Signals, Nx Microfrontends, AWS CloudFront, AWS S3, TypeScript, RxJS, NgRx, Cybersecurity, Agile Leadership"
-      },
-      {
-        "@type": "WebSite",
-        "@id": "https://chdelucia.github.io/#website",
-        "url": "https://chdelucia.github.io/",
-        "name": "Chris Heredia Portfolio",
-        "description": "Official Portfolio & Professional CV of Chris Heredia - Senior Lead Angular Architect & AWS Cloud Specialist",
-        "publisher": {
-          "@id": "https://chdelucia.github.io/#person"
-        },
-        "inLanguage": "en-US"
-      }
-    ]
-  }
-  </script>
 
   <!-- Favicons -->
   <link href="assets/img/favicon.ico" rel="icon">
-  <link rel="apple-touch-icon" sizes="180x180" href="assets/img/apple-icon-180x180.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicon-16x16.png">
-  <link rel="manifest" href="assets/img/manifest.json">
-  <meta name="theme-color" content="#0f172a">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
 
-  <!-- Google Fonts -->
+  <!-- Preconnect to Google Fonts for performance -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
 
   <!-- Vendor CSS Files -->
   <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
   <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
   <link href="assets/css/style.css" rel="stylesheet">
 </head>
 
 <body>
 
-  <!-- Top Progress Bar -->
-  <div id="scroll-progress"></div>
-
-  <!-- Floating Theme Switcher & Mobile Toggle -->
-  <button type="button" class="theme-toggle-btn" id="theme-toggle" aria-label="Toggle theme" title="Toggle Light/Dark Theme">
-    <i class="bi bi-moon-stars-fill text-info"></i>
-    <span class="theme-btn-text">Dark Mode</span>
+  <!-- Theme Toggle Button -->
+  <button id="theme-toggle" class="theme-toggle-btn" aria-label="Toggle Light and Dark Theme" title="Switch Theme">
+    <i class="bi bi-sun-fill theme-icon-light"></i>
+    <i class="bi bi-moon-stars-fill theme-icon-dark"></i>
   </button>
-  <i class="bi bi-list mobile-nav-toggle d-xl-none" aria-label="Toggle mobile menu"></i>
 
-  <!-- Navigation Header -->
+  <!-- Mobile nav toggle button -->
+  <i class="bi bi-list mobile-nav-toggle d-lg-none"></i>
+
+  <!-- Header / Sidebar -->
   <header id="header" class="d-flex flex-column justify-content-center">
-    <nav id="navbar" class="navbar nav-menu">
+    <nav id="navbar" class="nav-menu navbar">
       <ul>
         <li><a href="#hero" class="nav-link scrollto active"><i class="bx bx-home"></i> <span>Home</span></a></li>
         <li><a href="#about" class="nav-link scrollto"><i class="bx bx-user"></i> <span>About</span></a></li>
@@ -142,25 +73,26 @@
       <h1 class="hero-title">Chris Heredia</h1>
       <p class="hero-subtitle">I'm a <span class="typed" data-typed-items="Senior Lead Angular Architect, AWS Cloud Specialist, Nx Microfrontend Architect, Certified Scrum Master, 20+ Enterprise Projects Lead"></span></p>
 
-      <div class="hero-highlights">
-        <span class="tech-pill"><i class="bx bxl-angular text-danger"></i> Angular 18 & Signals</span>
-        <span class="tech-pill"><i class="bx bxl-aws text-warning"></i> AWS Cloud Architecture</span>
-        <span class="tech-pill"><i class="bx bx-layer text-info"></i> Nx Microfrontends</span>
-        <span class="tech-pill"><i class="bx bx-briefcase text-primary"></i> 20+ Delivered Projects</span>
-        <span class="tech-pill"><i class="bx bx-shield-quarter text-success"></i> Master's Cybersecurity</span>
+      <div class="hero-stats-row mt-4">
+        <div class="stat-pill"><i class="bi bi-award-fill text-warning"></i> <span>10+ Yrs Exp</span></div>
+        <div class="stat-pill"><i class="bi bi-cpu-fill text-info"></i> <span>Angular 18 & Nx</span></div>
+        <div class="stat-pill"><i class="bi bi-cloud-check-fill text-success"></i> <span>AWS & CloudBees</span></div>
+        <div class="stat-pill"><i class="bi bi-people-fill text-primary"></i> <span>Tech Lead & CSM</span></div>
       </div>
 
       <div class="hero-actions mt-4">
-        <a href="interactive-story.html" class="btn btn-accent-custom me-3 mb-2"><i class="bi bi-controller me-2"></i>Interactive Story CV</a>
-        <a href="#about" class="btn btn-primary-custom scrollto me-3 mb-2"><i class="bi bi-person-check me-2"></i>Why Hire Me</a>
-        <a href="Chris_Heredia_CV.pdf" target="_blank" class="btn btn-outline-custom me-3 mb-2"><i class="bi bi-download me-2"></i>Download Resume</a>
+        <a href="mario-cv.html" class="btn btn-warning font-monospace fw-bold me-2 mb-2 text-dark shadow"><i class="bi bi-controller me-1"></i>Mario CV 🎮</a>
+        <a href="goku-cv.html" class="btn btn-danger font-monospace fw-bold me-2 mb-2 text-white shadow"><i class="bi bi-cloud-sun me-1"></i>Goku Nimbus CV 🐉</a>
+        <a href="interactive-story.html" class="btn btn-accent-custom me-2 mb-2"><i class="bi bi-joystick me-2"></i>Story Mode CV</a>
+        <a href="#about" class="btn btn-primary-custom scrollto me-2 mb-2"><i class="bi bi-person-check me-2"></i>Why Hire Me</a>
+        <a href="Chris_Heredia_CV.pdf" target="_blank" class="btn btn-outline-custom me-2 mb-2"><i class="bi bi-download me-2"></i>Download Resume</a>
         <a href="mailto:c.heredia87@gmail.com" class="btn btn-outline-custom mb-2"><i class="bi bi-envelope-fill me-2"></i>Get in Touch</a>
       </div>
 
       <div class="social-links mt-4">
-        <a href="mailto:c.heredia87@gmail.com" class="social-icon" title="Email"><i class="bx bxl-gmail"></i></a>
         <a href="https://github.com/chdelucia" class="social-icon" target="_blank" title="GitHub"><i class="bx bxl-github"></i></a>
         <a href="https://www.linkedin.com/in/christian-heredia-angular-developer/" class="social-icon" target="_blank" title="LinkedIn"><i class="bx bxl-linkedin"></i></a>
+        <a href="mailto:c.heredia87@gmail.com" class="social-icon" title="Email"><i class="bx bx-envelope"></i></a>
       </div>
     </div>
   </section>
@@ -168,262 +100,232 @@
   <main id="main">
 
     <!-- About Section -->
-    <section id="about" class="about">
+    <section id="about" class="about section-bg">
       <div class="container" data-scroll-reveal="fade-up">
 
         <div class="section-title">
           <h2>About Me</h2>
-          <p class="lead-text">10+ years engineering modern, enterprise-grade Angular frontends and AWS Cloud architectures across 20+ successful high-scale applications.</p>
+          <p>Senior Lead Angular Architect and AWS Cloud Frontend Specialist with over 10 years of experience delivering robust web applications, leading high-performance engineering teams, and orchestrating cloud deployments.</p>
         </div>
 
         <div class="row align-items-center">
-          <div class="col-lg-4 text-center mb-4 mb-lg-0" data-scroll-reveal="scale-up">
+          <div class="col-lg-4 text-center mb-4 mb-lg-0" data-scroll-reveal="fade-right">
             <div class="profile-card">
-              <picture>
-                <source srcset="assets/img/profile-img.webp" type="image/webp">
-                <img src="assets/img/profile-img.png" class="img-fluid rounded-4 profile-img" alt="Chris Heredia - Senior Lead Angular Architect & AWS Cloud Specialist" loading="lazy" decoding="async" width="350" height="350">
-              </picture>
-              <div class="profile-badge">
-                <i class="bi bi-patch-check-fill text-primary"></i> 10+ Yrs Exp | 20+ Projects
+              <img src="assets/img/profile-img.png" class="img-fluid rounded-4 shadow-lg profile-img" alt="Chris Heredia Profile Picture">
+              <div class="profile-card-badge mt-3">
+                <span class="badge bg-success-subtle text-success border border-success px-3 py-2 rounded-pill"><i class="bi bi-circle-fill fs-6 me-1"></i> Available for Lead Architect Roles</span>
               </div>
             </div>
           </div>
           <div class="col-lg-8 content" data-scroll-reveal="fade-left">
-            <h3 class="fw-bold mb-3">Senior Lead Angular Architect &amp; AWS Cloud Frontend Specialist</h3>
-            <p>
-              I am a <strong>Senior Lead Frontend Architect and Certified Scrum Master</strong> with over 10 years of professional software engineering leadership (since 2013). Having successfully led and delivered over <strong>20+ enterprise web applications</strong>, I specialize in architecting scalable, ultra-performant platforms using <strong>Angular (16/17/18)</strong>, <strong>Signals</strong>, <strong>Nx Monorepos</strong>, and <strong>Microfrontend Architecture</strong>.
+            <h3 class="fw-bold mb-3">Senior Lead Angular Architect &amp; AWS Specialist</h3>
+            <p class="fst-italic text-secondary mb-4">
+              Passionate about scalable frontend architectures, Nx microfrontends, high-throughput reactive state management (NgRx/Signals), and cloud automation with AWS (S3, CloudFront CDN) and CloudBees CI/CD.
             </p>
-            <p>
-              Beyond core Angular expertise, I design and deploy frontend infrastructure on <strong>AWS Cloud Services</strong> (S3, CloudFront CDN, Lambda, API Gateway, Route 53, CloudWatch, Serverless CI/CD), ensuring global edge acceleration, zero downtime, and top-tier Web Vitals performance.
-            </p>
-            <p>
-              Holding both a <strong>Master's Degree in Cybersecurity</strong> and a <strong>Master's in Agile Methodologies</strong>, I bring a proven track record of technical leadership, security-by-design, and developer team mentorship to accelerate enterprise engineering roadmaps.
-            </p>
-
-            <!-- Key metrics grid -->
-            <div class="row g-3 stats-grid mt-3">
-              <div class="col-6 col-md-3">
-                <div class="stat-card">
-                  <div class="stat-number">10+</div>
-                  <div class="stat-label">Years Experience</div>
-                </div>
+            <div class="row">
+              <div class="col-lg-6">
+                <ul class="list-unstyled space-y-2">
+                  <li class="py-1"><i class="bi bi-chevron-right text-primary me-2"></i> <strong>Location:</strong> <span>Barcelona, Spain</span></li>
+                  <li class="py-1"><i class="bi bi-chevron-right text-primary me-2"></i> <strong>Experience:</strong> <span>10+ Years (Since Sept 2013)</span></li>
+                  <li class="py-1"><i class="bi bi-chevron-right text-primary me-2"></i> <strong>Degree:</strong> <span>B.Sc. Telematics Engineering (UPF)</span></li>
+                  <li class="py-1"><i class="bi bi-chevron-right text-primary me-2"></i> <strong>Master's:</strong> <span>Cybersecurity (VIU) &amp; Agile (La Salle)</span></li>
+                </ul>
               </div>
-              <div class="col-6 col-md-3">
-                <div class="stat-card">
-                  <div class="stat-number">20+</div>
-                  <div class="stat-label">Enterprise Projects</div>
-                </div>
-              </div>
-              <div class="col-6 col-md-3">
-                <div class="stat-card">
-                  <div class="stat-number">v18</div>
-                  <div class="stat-label">Angular & Signals</div>
-                </div>
-              </div>
-              <div class="col-6 col-md-3">
-                <div class="stat-card">
-                  <div class="stat-number">AWS</div>
-                  <div class="stat-label">S3/CloudFront/Lambda</div>
-                </div>
+              <div class="col-lg-6">
+                <ul class="list-unstyled space-y-2">
+                  <li class="py-1"><i class="bi bi-chevron-right text-primary me-2"></i> <strong>Current Role:</strong> <span>Lead Angular Architect at Dimatica Software</span></li>
+                  <li class="py-1"><i class="bi bi-chevron-right text-primary me-2"></i> <strong>Certifications:</strong> <span>Certified Scrum Master (CSM)</span></li>
+                  <li class="py-1"><i class="bi bi-chevron-right text-primary me-2"></i> <strong>Cloud Ecosystem:</strong> <span>AWS (S3, CloudFront, Lambda, API Gateway)</span></li>
+                  <li class="py-1"><i class="bi bi-chevron-right text-primary me-2"></i> <strong>CI/CD &amp; DevOps:</strong> <span>CloudBees, GitHub Actions, Docker</span></li>
+                </ul>
               </div>
             </div>
-
+            <p class="mt-4">
+              Proven track record in architecting large-scale B2B/B2C portals (e.g. travel platforms, health insurance systems, sports analytics for LaLiga). Expert at mentoring teams, driving agile standardizations, and optimizing performance to achieve sub-second load times.
+            </p>
           </div>
         </div>
 
       </div>
     </section>
 
-    <!-- Skills Section -->
-    <section id="skills" class="skills section-bg">
+    <!-- Skills & AWS Architecture Section -->
+    <section id="skills" class="skills">
       <div class="container" data-scroll-reveal="fade-up">
 
         <div class="section-title">
-          <h2>Technical Expertise & AWS Stack</h2>
-          <p>A categorized breakdown of my specialized skillset engineered for scalable, high-throughput applications.</p>
+          <h2>Technical Mastery &amp; Cloud Stack</h2>
+          <p>A comprehensive overview of my core technology stack, architectural specializations, and AWS cloud ecosystem proficiency built over 10+ years of active software engineering.</p>
         </div>
 
         <div class="row g-4">
-          <!-- Skill Card 1 -->
-          <div class="col-lg-6" data-scroll-reveal="slide-up" data-delay="100">
-            <div class="skill-category-card">
-              <div class="card-icon text-danger"><i class="bx bxl-angular"></i></div>
-              <h4 class="card-title">Angular & Frontend Ecosystem</h4>
-              <p class="card-desc">Expertise in enterprise Angular architecture, reactive state management, and modern component systems.</p>
-              <div class="skill-tags">
-                <span class="skill-tag highlight">Angular 16 / 17 / 18</span>
-                <span class="skill-tag">Signals & RxJS</span>
-                <span class="skill-tag">Nx Microfrontends</span>
-                <span class="skill-tag">NgRx / State</span>
-                <span class="skill-tag">TypeScript</span>
-                <span class="skill-tag">Tailwind CSS</span>
-                <span class="skill-tag">Storybook</span>
-                <span class="skill-tag">Module Federation</span>
-              </div>
+          <!-- Skill Category 1 -->
+          <div class="col-md-6 col-lg-3" data-scroll-reveal="zoom-in" data-scroll-delay="100">
+            <div class="skill-category-card h-100 p-4 rounded-4 shadow-sm">
+              <div class="category-icon text-primary mb-3"><i class="bx bx-code-alt fs-1"></i></div>
+              <h4 class="fw-bold mb-3">Frontend Architecture</h4>
+              <ul class="skill-list list-unstyled">
+                <li><i class="bi bi-check2-circle text-success me-2"></i>Angular 16 / 17 / 18 &amp; Signals</li>
+                <li><i class="bi bi-check2-circle text-success me-2"></i>Nx Monorepos &amp; Microfrontends</li>
+                <li><i class="bi bi-check2-circle text-success me-2"></i>NgRx / RxJS Reactive State</li>
+                <li><i class="bi bi-check2-circle text-success me-2"></i>TypeScript, JavaScript (ES6+)</li>
+                <li><i class="bi bi-check2-circle text-success me-2"></i>HTML5, SASS / SCSS, CSS Variables</li>
+                <li><i class="bi bi-check2-circle text-success me-2"></i>Bootstrap 5, Tailwind CSS</li>
+              </ul>
             </div>
           </div>
 
-          <!-- Skill Card 2 -->
-          <div class="col-lg-6" data-scroll-reveal="slide-up" data-delay="200">
-            <div class="skill-category-card">
-              <div class="card-icon text-warning"><i class="bx bxl-aws"></i></div>
-              <h4 class="card-title">AWS Cloud & Infrastructure</h4>
-              <p class="card-desc">Hands-on delivery of web assets, edge caching, serverless APIs, and cloud deployments on AWS.</p>
-              <div class="skill-tags">
-                <span class="skill-tag highlight-aws">AWS S3 Hosting</span>
-                <span class="skill-tag highlight-aws">AWS CloudFront CDN</span>
-                <span class="skill-tag">AWS Lambda</span>
-                <span class="skill-tag">API Gateway</span>
-                <span class="skill-tag">Route 53</span>
-                <span class="skill-tag">AWS Amplify</span>
-                <span class="skill-tag">CloudWatch Metrics</span>
-                <span class="skill-tag">IAM & Cloud Security</span>
-              </div>
+          <!-- Skill Category 2 -->
+          <div class="col-md-6 col-lg-3" data-scroll-reveal="zoom-in" data-scroll-delay="200">
+            <div class="skill-category-card h-100 p-4 rounded-4 shadow-sm">
+              <div class="category-icon text-warning mb-3"><i class="bx bx-cloud fs-1"></i></div>
+              <h4 class="fw-bold mb-3">AWS Cloud &amp; DevOps</h4>
+              <ul class="skill-list list-unstyled">
+                <li><i class="bi bi-check2-circle text-success me-2"></i>AWS S3 &amp; Static Site Hosting</li>
+                <li><i class="bi bi-check2-circle text-success me-2"></i>AWS CloudFront CDN &amp; Invalidation</li>
+                <li><i class="bi bi-check2-circle text-success me-2"></i>AWS Lambda &amp; API Gateway</li>
+                <li><i class="bi bi-check2-circle text-success me-2"></i>CloudBees CI/CD Pipelines</li>
+                <li><i class="bi bi-check2-circle text-success me-2"></i>AWS Route 53 &amp; CloudWatch</li>
+                <li><i class="bi bi-check2-circle text-success me-2"></i>Docker Containerization</li>
+              </ul>
             </div>
           </div>
 
-          <!-- Skill Card 3 -->
-          <div class="col-lg-6" data-scroll-reveal="slide-up" data-delay="300">
-            <div class="skill-category-card">
-              <div class="card-icon text-success"><i class="bx bx-check-shield"></i></div>
-              <h4 class="card-title">Testing, Security & DevOps</h4>
-              <p class="card-desc">End-to-end quality assurance, CI/CD automated pipelines, and cybersecurity protocols.</p>
-              <div class="skill-tags">
-                <span class="skill-tag">Jest</span>
-                <span class="skill-tag">Cypress</span>
-                <span class="skill-tag">Playwright</span>
-                <span class="skill-tag">Docker</span>
-                <span class="skill-tag">Jenkins / GitHub Actions</span>
-                <span class="skill-tag highlight">Security by Design (MSc)</span>
-                <span class="skill-tag">OWASP & API Security</span>
-              </div>
+          <!-- Skill Category 3 -->
+          <div class="col-md-6 col-lg-3" data-scroll-reveal="zoom-in" data-scroll-delay="300">
+            <div class="skill-category-card h-100 p-4 rounded-4 shadow-sm">
+              <div class="category-icon text-info mb-3"><i class="bx bx-check-shield fs-1"></i></div>
+              <h4 class="fw-bold mb-3">Testing &amp; Security</h4>
+              <ul class="skill-list list-unstyled">
+                <li><i class="bi bi-check2-circle text-success me-2"></i>Jest Unit Testing &amp; Spies</li>
+                <li><i class="bi bi-check2-circle text-success me-2"></i>Cypress End-to-End Testing</li>
+                <li><i class="bi bi-check2-circle text-success me-2"></i>Playwright Automated Testing</li>
+                <li><i class="bi bi-check2-circle text-success me-2"></i>Master's Degree in Cybersecurity</li>
+                <li><i class="bi bi-check2-circle text-success me-2"></i>OWASP Top 10 &amp; XSS Prevention</li>
+                <li><i class="bi bi-check2-circle text-success me-2"></i>OAuth2, JWT, OpenID Connect</li>
+              </ul>
             </div>
           </div>
 
-          <!-- Skill Card 4 -->
-          <div class="col-lg-6" data-scroll-reveal="slide-up" data-delay="400">
-            <div class="skill-category-card">
-              <div class="card-icon text-info"><i class="bx bx-server"></i></div>
-              <h4 class="card-title">Backend, DB & Agile Leadership</h4>
-              <p class="card-desc">Full-stack backend integration and proven team leadership in fast-paced agile environments.</p>
-              <div class="skill-tags">
-                <span class="skill-tag">Node.js / NestJS</span>
-                <span class="skill-tag">Java Spring Boot</span>
-                <span class="skill-tag">WebSockets</span>
-                <span class="skill-tag">GraphQL & REST</span>
-                <span class="skill-tag">PostgreSQL / MongoDB</span>
-                <span class="skill-tag highlight">Certified Scrum Master</span>
-                <span class="skill-tag">Team Mentorship</span>
-              </div>
+          <!-- Skill Category 4 -->
+          <div class="col-md-6 col-lg-3" data-scroll-reveal="zoom-in" data-scroll-delay="400">
+            <div class="skill-category-card h-100 p-4 rounded-4 shadow-sm">
+              <div class="category-icon text-success mb-3"><i class="bx bx-layer fs-1"></i></div>
+              <h4 class="fw-bold mb-3">Backend &amp; Agile</h4>
+              <ul class="skill-list list-unstyled">
+                <li><i class="bi bi-check2-circle text-success me-2"></i>Node.js &amp; Express APIs</li>
+                <li><i class="bi bi-check2-circle text-success me-2"></i>Java Spring Boot Services</li>
+                <li><i class="bi bi-check2-circle text-success me-2"></i>GraphQL &amp; RESTful APIs</li>
+                <li><i class="bi bi-check2-circle text-success me-2"></i>Certified Scrum Master (CSM)</li>
+                <li><i class="bi bi-check2-circle text-success me-2"></i>Master in Agile Methodologies</li>
+                <li><i class="bi bi-check2-circle text-success me-2"></i>Git, GitHub Actions &amp; JIRA</li>
+              </ul>
             </div>
           </div>
-
         </div>
 
       </div>
     </section>
 
-    <!-- Resume Section -->
-    <section id="resume" class="resume">
+    <!-- Experience / Resume Section -->
+    <section id="resume" class="resume section-bg">
       <div class="container" data-scroll-reveal="fade-up">
 
         <div class="section-title">
-          <h2>Professional Experience & Education</h2>
-          <p>A proven track record of delivering enterprise cloud frontends and leading high-performing engineering teams.</p>
+          <h2>Professional Career &amp; Education</h2>
+          <p>Over a decade of progressive responsibility leading technical strategy, architecting frontends, and automating cloud infrastructure.</p>
         </div>
 
         <div class="row">
-          <!-- Experience Column -->
-          <div class="col-lg-6">
-            <h3 class="resume-title"><i class="bx bx-briefcase me-2"></i>Professional Experience</h3>
+          <!-- Left Column: Experience -->
+          <div class="col-lg-6" data-scroll-reveal="fade-right">
+            <h3 class="resume-title"><i class="bi bi-briefcase-fill text-primary me-2"></i>Work Experience</h3>
 
-            <div class="resume-item" data-scroll-reveal="fade-up">
-              <h4>Lead Frontend Engineer &amp; Angular/AWS Architect</h4>
+            <!-- Job 1 -->
+            <div class="resume-item">
+              <h4>Senior Lead Frontend Engineer &amp; Angular/AWS Architect</h4>
               <h5>May 2022 - Present</h5>
-              <p><em>Dimatica Software · Full-time</em></p>
+              <p><em>Dimatica Software · Barcelona / Remote</em></p>
               <ul>
-                <li>Led the end-to-end frontend architecture of a high-volume B2B/B2C tourism platform built from scratch.</li>
-                <li>Architected a scalable, high-performance <strong>Microfrontend Architecture</strong> using <strong>Nx Monorepo</strong> and <strong>Angular 16/17/18</strong>, improving code modularity and enabling independent release cycles.</li>
-                <li>Deployed and optimized frontend assets on <strong>AWS Services (S3, CloudFront CDN, Route 53, API Gateway)</strong> for global edge acceleration and 99.99% reliability.</li>
-                <li>Established an automated testing strategy using <strong>Jest</strong> and <strong>Cypress</strong>, guaranteeing high unit &amp; E2E coverage across micro-apps.</li>
-                <li>Created a reusable UI design system in <strong>Storybook</strong> paired with <strong>Tailwind CSS</strong> to enforce UI consistency.</li>
-                <li>Engineered real-time features using <strong>WebSockets</strong> and <strong>Node.js</strong> while integrating with <strong>Java Spring Boot</strong> backends.</li>
-                <li>Mentored junior/mid developers, led pull-request code reviews, and enforced CI/CD best practices as Scrum Master.</li>
+                <li><strong>Technical Leadership:</strong> Lead Angular Architect for a major B2B/B2C travel and tourism platform handling high transaction volume.</li>
+                <li><strong>Microfrontends &amp; Nx:</strong> Architected Nx Monorepo with Microfrontend architecture using Angular 16/17/18, improving build speeds by 40% and code reuse across 5 sub-teams.</li>
+                <li><strong>AWS Cloud Deployments:</strong> Designed automated cloud hosting pipeline deploying built artifacts to <strong>AWS S3 buckets</strong> served via <strong>AWS CloudFront CDN</strong> for worldwide low-latency distribution.</li>
+                <li><strong>CloudBees CI/CD:</strong> Automated testing, linting, building, and CloudFront cache invalidation using <strong>CloudBees CI/CD</strong> pipelines.</li>
+                <li><strong>State &amp; Performance:</strong> Standardized NgRx state patterns and Signals, achieving Lighthouse scores over 90.</li>
               </ul>
             </div>
 
-            <div class="resume-item" data-scroll-reveal="fade-up">
+            <!-- Job 2 -->
+            <div class="resume-item">
               <h4>Senior Frontend Engineer &amp; Scrum Master</h4>
               <h5>Jan 2020 - Dec 2022</h5>
-              <p><em>Obsidian Software · Full-time</em></p>
+              <p><em>Obsidian Software · Barcelona</em></p>
               <ul>
-                <li>Engineered a real-time server and cloud infrastructure monitoring dashboard with 1-minute live data updates using <strong>Angular</strong>, <strong>NgRx</strong>, <strong>Three.js</strong>, and <strong>AWS CloudWatch</strong> integration.</li>
-                <li>Integrated serverless backend services leveraging <strong>NestJS</strong>, <strong>GraphQL</strong>, and <strong>AWS Lambda</strong>.</li>
-                <li>Facilitated agile ceremonies as Scrum Master for a distributed international engineering team.</li>
-                <li>Implemented comprehensive unit test suites with <strong>Jest</strong> and <strong>Cypress</strong> to maintain high code reliability.</li>
+                <li><strong>Real-Time Monitoring:</strong> Developed high-performance dashboard streaming live metrics every 60 seconds utilizing Angular, NgRx, Three.js, and AWS CloudWatch integration.</li>
+                <li><strong>Serverless Integrations:</strong> Built frontend interfaces connecting to NestJS, GraphQL, and AWS Lambda serverless functions.</li>
+                <li><strong>Agile Leadership:</strong> Served as Certified Scrum Master, facilitating sprint planning, retrospectives, and cross-functional team alignment.</li>
               </ul>
             </div>
 
-            <div class="resume-item" data-scroll-reveal="fade-up">
+            <!-- Job 3 -->
+            <div class="resume-item">
               <h4>Senior Frontend Engineer</h4>
               <h5>Jan 2017 - Aug 2019</h5>
-              <p><em>Deloitte &amp; NTT Data (Everis)</em></p>
+              <p><em>Deloitte &amp; NTT Data (Everis) · Barcelona</em></p>
               <ul>
-                <li>Engineered scalable frontend modules for an enterprise B2B health insurance platform using <strong>Angular</strong> and <strong>Java Spring Boot</strong>.</li>
-                <li>Created an interactive AI chatbot helper for platform configuration using <strong>Angular</strong>, <strong>GraphQL</strong>, and cloud microservices.</li>
-                <li>Led a frontend sub-team developing a LaLiga football statistical analytics suite powered by <strong>Angular</strong>, <strong>Node.js</strong>, and <strong>MongoDB</strong>.</li>
+                <li><strong>Health Insurance Portal (Deloitte):</strong> Engineered modular Angular frontend integrated with Java Spring Boot backend services.</li>
+                <li><strong>AI Chatbot Interface:</strong> Built GraphQL-powered chatbot configuration dashboard with Angular and RxJS.</li>
+                <li><strong>LaLiga Sports Analytics (NTT Data):</strong> Architected interactive sports analytics portal using Angular, Node.js, and complex data visualization charts.</li>
               </ul>
             </div>
 
-            <div class="resume-item" data-scroll-reveal="fade-up">
+            <!-- Job 4 -->
+            <div class="resume-item">
               <h4>Frontend Developer</h4>
               <h5>Sept 2013 - Oct 2016</h5>
-              <p><em>Pricesoft · Full-time</em></p>
+              <p><em>Pricesoft · Barcelona</em></p>
               <ul>
-                <li>Developed B2B web applications for travel agencies using <strong>React</strong>, <strong>jQuery</strong>, <strong>Laravel</strong>, <strong>Bootstrap</strong>, and <strong>MySQL</strong>.</li>
+                <li>Developed web applications for travel agency clients using React, jQuery, Laravel, Bootstrap, and MySQL database management.</li>
               </ul>
             </div>
-
           </div>
 
-          <!-- Education Column -->
-          <div class="col-lg-6">
-            <h3 class="resume-title"><i class="bx bx-graduation me-2"></i>Education &amp; Masters</h3>
+          <!-- Right Column: Education & Master's -->
+          <div class="col-lg-6" data-scroll-reveal="fade-left">
+            <h3 class="resume-title"><i class="bi bi-mortarboard-fill text-primary me-2"></i>Education &amp; Credentials</h3>
 
-            <div class="resume-item" data-scroll-reveal="fade-up">
-              <h4>Master of Cybersecurity</h4>
+            <!-- Edu 1 -->
+            <div class="resume-item">
+              <h4>Master's Degree in Cybersecurity</h4>
               <h5>2022 - 2023</h5>
-              <p><em>Valencia International University</em></p>
-              <p>
-                Specialized in cloud security, secure API architectures, web vulnerability prevention (OWASP), threat modeling, and applying security-by-design to web software pipelines.
-              </p>
+              <p><em>Valencia International University (VIU)</em></p>
+              <p>Specialized in cloud security, vulnerability management, secure coding principles (OWASP), application security auditing, and threat analysis.</p>
             </div>
 
-            <div class="resume-item" data-scroll-reveal="fade-up">
-              <h4>Master in Agile Methodologies</h4>
+            <!-- Edu 2 -->
+            <div class="resume-item">
+              <h4>Master's Degree in Agile Methodologies</h4>
               <h5>2017 - 2018</h5>
               <p><em>University Ramon Llull - La Salle</em></p>
-              <p>
-                In-depth mastery of Scrum, Kanban, Lean IT leadership, sprint facilitation, and continuous delivery strategies for modern development teams.
-              </p>
+              <p>In-depth study of Agile frameworks, Scrum, Kanban, Lean IT management, and organizational digital transformation.</p>
             </div>
 
-            <div class="resume-item" data-scroll-reveal="fade-up">
-              <h4>Telematics Engineering Degree</h4>
+            <!-- Edu 3 -->
+            <div class="resume-item">
+              <h4>Bachelor's Degree in Telematics Engineering</h4>
               <h5>2011 - 2016</h5>
-              <p><em>University Pompeu Fabra</em></p>
-              <p>
-                Comprehensive foundation in computer networking, distributed systems, software engineering, telecommunications, and algorithms.
-              </p>
+              <p><em>Universitat Pompeu Fabra (UPF), Barcelona</em></p>
+              <p>Comprehensive foundation in computer network architecture, distributed software systems, telecommunications, and computer science engineering.</p>
             </div>
 
-            <!-- Callout Card -->
-            <div class="cta-hiring-card mt-4" data-scroll-reveal="scale-up">
-              <h4><i class="bi bi-rocket-takeoff text-warning me-2"></i>Ready to boost your Frontend & AWS Cloud capabilities?</h4>
-              <p class="mb-3">I am available for senior/lead Angular engineering roles, cloud frontend architecture, and team leadership.</p>
-              <a href="mailto:c.heredia87@gmail.com" class="btn btn-accent-custom w-100 text-center"><i class="bi bi-envelope-check-fill me-2"></i>Hire Chris Heredia</a>
+            <!-- Certifications Box -->
+            <div class="resume-item bg-primary-subtle border-primary p-3 rounded-3">
+              <h4 class="text-primary"><i class="bi bi-shield-check me-2"></i>Official Certifications</h4>
+              <ul class="mb-0">
+                <li><strong>Certified Scrum Master (CSM)</strong> - Scrum Alliance</li>
+                <li><strong>AWS Cloud Practitioner Knowledge</strong> - Cloud Architecture &amp; CDN Deployments</li>
+              </ul>
             </div>
-
           </div>
         </div>
 
@@ -434,29 +336,25 @@
 
   <!-- Footer -->
   <footer id="footer">
-    <div class="container">
+    <div class="container text-center">
       <h3>Chris Heredia</h3>
-      <p>Senior Angular Expert · AWS Cloud Frontend Engineer · Certified Scrum Master</p>
-      <div class="social-links">
-        <a href="mailto:c.heredia87@gmail.com" class="social-icon" title="Email"><i class="bx bxl-gmail"></i></a>
+      <p>Senior Lead Angular Architect &amp; AWS Cloud Frontend Specialist · Barcelona, Spain</p>
+      <div class="social-links mb-3">
         <a href="https://github.com/chdelucia" class="social-icon" target="_blank" title="GitHub"><i class="bx bxl-github"></i></a>
         <a href="https://www.linkedin.com/in/christian-heredia-angular-developer/" class="social-icon" target="_blank" title="LinkedIn"><i class="bx bxl-linkedin"></i></a>
       </div>
       <div class="copyright">
-        &copy; Chris Heredia portfolio. Senior Lead Angular Architect & AWS Cloud Specialist.
+        &copy; Chris Heredia portfolio. Senior Angular Architect &amp; AWS Cloud Specialist.
       </div>
     </div>
   </footer>
 
-  <div id="preloader"></div>
-  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
-
   <!-- Vendor JS Files -->
-  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js" defer></script>
-  <script src="assets/vendor/typed.js/typed.min.js" defer></script>
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/typed.js/typed.umd.js"></script>
 
-  <!-- Main JS Script -->
-  <script src="assets/js/main.js" defer></script>
+  <!-- Template Main JS File -->
+  <script src="assets/js/main.js"></script>
 
 </body>
 

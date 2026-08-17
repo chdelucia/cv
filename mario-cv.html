@@ -1,0 +1,1434 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Super Chris World 🎮 | 2D Mario CV - Descubre quién soy</title>
+  <meta content="Videojuego interactivo 2D estilo Super Mario para descubrir la trayectoria profesional de Chris Heredia: Lead Angular Architect & AWS Specialist." name="description">
+
+  <!-- Open Graph / Social SEO -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Super Chris World 🎮 | 2D Mario Interactive CV">
+  <meta property="og:description" content="¡Juega a Super Chris World! Explora niveles 2D estilo Mario para desbloquear habilidades, proyectos y la identidad de Chris Heredia.">
+  <meta property="og:image" content="https://chdelucia.github.io/assets/img/profile-img.png">
+  <meta property="og:url" content="https://chdelucia.github.io/mario-cv.html">
+
+  <!-- Favicons -->
+  <link href="assets/img/favicon.ico" rel="icon">
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+
+  <!-- Retro Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --mario-sky: #5c94fc;
+      --mario-ground: #c84c0c;
+      --mario-grass: #00a800;
+      --mario-brick: #b84418;
+      --mario-yellow: #f8d820;
+      --mario-dark: #10141e;
+      --mario-font: 'Press Start 2P', cursive, monospace;
+    }
+
+    * {
+      box-sizing: border-box;
+      user-select: none;
+      -webkit-user-select: none;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: var(--mario-dark);
+      color: #ffffff;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      overflow-x: hidden;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Top Nav Bar */
+    .game-header {
+      background: rgba(16, 20, 30, 0.95);
+      border-bottom: 3px solid #334155;
+      padding: 10px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 100;
+    }
+
+    .brand-logo {
+      font-family: var(--mario-font);
+      font-size: 14px;
+      color: var(--mario-yellow);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-shadow: 2px 2px #000;
+    }
+
+    .brand-logo:hover {
+      color: #ffffff;
+    }
+
+    .nav-actions {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .btn-mario {
+      font-family: var(--mario-font);
+      font-size: 10px;
+      padding: 8px 14px;
+      border-radius: 6px;
+      border: 2px solid #ffffff;
+      cursor: pointer;
+      text-decoration: none;
+      transition: transform 0.1s ease, background-color 0.2s;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .btn-mario:active {
+      transform: scale(0.95);
+    }
+
+    .btn-mario-primary {
+      background: #e52521;
+      color: #fff;
+    }
+
+    .btn-mario-primary:hover {
+      background: #b91c1c;
+      color: #fff;
+    }
+
+    .btn-mario-accent {
+      background: #43b02a;
+      color: #fff;
+    }
+
+    .btn-mario-accent:hover {
+      background: #2e7d1b;
+      color: #fff;
+    }
+
+    .btn-mario-gold {
+      background: #f59e0b;
+      color: #000;
+      border-color: #000;
+    }
+
+    .btn-mario-gold:hover {
+      background: #d97706;
+      color: #000;
+    }
+
+    /* Main Container */
+    .game-wrapper {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 15px;
+      max-width: 1200px;
+      margin: 0 auto;
+      width: 100%;
+    }
+
+    /* HUD Bar */
+    .hud-bar {
+      width: 100%;
+      max-width: 960px;
+      background: #000000;
+      border: 4px solid #ffffff;
+      border-bottom: none;
+      border-radius: 12px 12px 0 0;
+      padding: 12px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-family: var(--mario-font);
+      font-size: 11px;
+      color: #fff;
+      text-shadow: 2px 2px #000;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .hud-item {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .hud-label {
+      color: #94a3b8;
+      font-size: 9px;
+    }
+
+    .hud-value {
+      color: var(--mario-yellow);
+    }
+
+    /* Progress Bar */
+    .identity-progress-container {
+      width: 100%;
+      max-width: 960px;
+      background: #1e293b;
+      border: 4px solid #ffffff;
+      border-top: none;
+      border-bottom: none;
+      padding: 6px 20px;
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      font-family: var(--mario-font);
+      font-size: 10px;
+    }
+
+    .progress-bar-outer {
+      flex: 1;
+      height: 16px;
+      background: #0f172a;
+      border: 2px solid #64748b;
+      border-radius: 8px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .progress-bar-inner {
+      height: 100%;
+      width: 0%;
+      background: linear-gradient(90deg, #3b82f6, #10b981, #f59e0b);
+      transition: width 0.3s ease-out;
+    }
+
+    /* Game Canvas Container */
+    .canvas-container {
+      position: relative;
+      width: 100%;
+      max-width: 960px;
+      border: 4px solid #ffffff;
+      border-radius: 0 0 12px 12px;
+      overflow: hidden;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+      background: var(--mario-sky);
+    }
+
+    canvas {
+      display: block;
+      width: 100%;
+      height: auto;
+      aspect-ratio: 16 / 9;
+      image-rendering: pixelated;
+    }
+
+    /* Overlay Screen (Start / Pause / Victory) */
+    .canvas-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(15, 23, 42, 0.92);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 20px;
+      z-index: 10;
+      backdrop-filter: blur(4px);
+    }
+
+    .overlay-title {
+      font-family: var(--mario-font);
+      font-size: 22px;
+      color: var(--mario-yellow);
+      margin-bottom: 15px;
+      text-shadow: 3px 3px #e52521;
+      line-height: 1.4;
+    }
+
+    .overlay-subtitle {
+      font-size: 15px;
+      color: #cbd5e1;
+      max-width: 600px;
+      margin-bottom: 25px;
+      line-height: 1.6;
+    }
+
+    /* On-Screen Mobile Controls */
+    .touch-controls {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+      max-width: 960px;
+      margin-top: 15px;
+      padding: 0 10px;
+    }
+
+    .dpad {
+      display: flex;
+      gap: 10px;
+    }
+
+    .touch-btn {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.15);
+      border: 2px solid rgba(255, 255, 255, 0.4);
+      color: #ffffff;
+      font-size: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      user-select: none;
+      touch-action: manipulation;
+    }
+
+    .touch-btn:active {
+      background: rgba(245, 158, 11, 0.6);
+      transform: scale(0.92);
+    }
+
+    .touch-btn-jump {
+      width: 75px;
+      height: 75px;
+      background: rgba(229, 37, 33, 0.6);
+      border-color: #ffffff;
+      font-family: var(--mario-font);
+      font-size: 12px;
+    }
+
+    /* Level Selector Shortcuts */
+    .level-shortcuts {
+      display: flex;
+      gap: 8px;
+      margin-top: 15px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .lvl-btn {
+      font-family: var(--mario-font);
+      font-size: 9px;
+      padding: 6px 10px;
+      background: #1e293b;
+      border: 1px solid #475569;
+      color: #94a3b8;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    .lvl-btn.active, .lvl-btn:hover {
+      background: #3b82f6;
+      color: #fff;
+      border-color: #60a5fa;
+    }
+
+    /* Modals for Unlocked CV Details */
+    .modal-content-retro {
+      background: #0f172a;
+      border: 4px solid var(--mario-yellow);
+      border-radius: 12px;
+      color: #ffffff;
+    }
+
+    .modal-header-retro {
+      border-bottom: 2px solid #334155;
+      font-family: var(--mario-font);
+      color: var(--mario-yellow);
+    }
+
+    .badge-unlock {
+      background: #16a34a;
+      color: #fff;
+      font-family: var(--mario-font);
+      font-size: 10px;
+      padding: 4px 8px;
+      border-radius: 4px;
+      display: inline-block;
+      margin-bottom: 10px;
+    }
+
+    /* Inventory Sidebar or Panel */
+    .unlocked-log {
+      width: 100%;
+      max-width: 960px;
+      margin-top: 20px;
+      background: #1e293b;
+      border-radius: 12px;
+      padding: 20px;
+      border: 2px solid #334155;
+    }
+
+    .log-title {
+      font-family: var(--mario-font);
+      font-size: 12px;
+      color: var(--mario-yellow);
+      margin-bottom: 15px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .log-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 12px;
+    }
+
+    .log-card {
+      background: #0f172a;
+      border: 1px solid #334155;
+      border-radius: 8px;
+      padding: 12px;
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      opacity: 0.4;
+      transition: all 0.3s ease;
+    }
+
+    .log-card.unlocked {
+      opacity: 1;
+      border-color: #10b981;
+      box-shadow: 0 4px 12px rgba(16, 185, 129, 0.15);
+    }
+
+    .log-icon {
+      font-size: 24px;
+      color: var(--mario-yellow);
+      line-height: 1;
+    }
+
+    .log-info h5 {
+      font-size: 14px;
+      font-weight: 700;
+      margin: 0 0 4px 0;
+      color: #f8fafc;
+    }
+
+    .log-info p {
+      font-size: 12px;
+      color: #94a3b8;
+      margin: 0;
+    }
+
+    /* Sound Toggle */
+    .sound-toggle-btn {
+      background: transparent;
+      border: none;
+      color: #fff;
+      font-size: 20px;
+      cursor: pointer;
+    }
+
+    @media (max-width: 768px) {
+      .hud-bar {
+        font-size: 8px;
+        padding: 8px 12px;
+      }
+      .overlay-title {
+        font-size: 16px;
+      }
+      .overlay-subtitle {
+        font-size: 13px;
+      }
+      .btn-mario {
+        font-size: 8px;
+        padding: 6px 10px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Top Navigation -->
+  <header class="game-header">
+    <a href="index.html" class="brand-logo">
+      <i class="bi bi-arrow-left-circle-fill text-warning fs-5"></i>
+      <span>VOLVER AL CV WEB</span>
+    </a>
+
+    <div class="nav-actions">
+      <button id="soundToggle" class="sound-toggle-btn" title="Activar/Desactivar Sonido">
+        <i class="bi bi-volume-up-fill text-warning"></i>
+      </button>
+      <button id="autoPlayBtn" class="btn-mario btn-mario-gold" title="Modo Piloto Automático">
+        <i class="bi bi-play-circle-fill me-1"></i> TOUR AUTOMÁTICO
+      </button>
+      <a href="Chris_Heredia_CV.pdf" target="_blank" class="btn-mario btn-mario-accent">
+        <i class="bi bi-file-earmark-pdf-fill me-1"></i> DESCARGAR CV PDF
+      </a>
+    </div>
+  </header>
+
+  <!-- Game Main Section -->
+  <main class="game-wrapper">
+
+    <!-- HUD -->
+    <div class="hud-bar">
+      <div class="hud-item">
+        <span class="hud-label">JUGADOR</span>
+        <span class="hud-value" id="hudPlayer">HERO ARCHITECT</span>
+      </div>
+      <div class="hud-item">
+        <span class="hud-label">COINS / EXP</span>
+        <span class="hud-value" id="hudCoins">🪙 x00</span>
+      </div>
+      <div class="hud-item">
+        <span class="hud-label">NIVEL</span>
+        <span class="hud-value" id="hudStage">WORLD 1-1</span>
+      </div>
+      <div class="hud-item">
+        <span class="hud-label">PUNTOS</span>
+        <span class="hud-value" id="hudScore">000000</span>
+      </div>
+      <div class="hud-item">
+        <span class="hud-label">IDENTIDAD</span>
+        <span class="hud-value" id="hudIdentityText">DESCONOCIDO ❓</span>
+      </div>
+    </div>
+
+    <!-- Identity Progress Bar -->
+    <div class="identity-progress-container">
+      <span style="color: var(--mario-yellow);">DESCUBRIENDO IDENTIDAD:</span>
+      <div class="progress-bar-outer">
+        <div class="progress-bar-inner" id="identityProgressBar"></div>
+      </div>
+      <span id="identityPercent" style="color:#10b981; font-weight:bold;">0%</span>
+    </div>
+
+    <!-- Canvas Wrapper -->
+    <div class="canvas-container" id="canvasContainer">
+      <canvas id="marioCanvas" width="960" height="540"></canvas>
+
+      <!-- Start Overlay -->
+      <div class="canvas-overlay" id="startOverlay">
+        <h1 class="overlay-title">SUPER CHRIS WORLD 🎮</h1>
+        <p class="overlay-subtitle">
+          ¿Quién se oculta tras este desarrollador? salta sobre los bloques <strong>[?]</strong>, recolecta monedas de experiencia y supera los 5 mundos para revelar la trayectoria, habilidades y proyectos de este candidato.
+        </p>
+        <div class="mb-4">
+          <span class="badge bg-danger me-2"><i class="bi bi-controller me-1"></i> Controles: Flechas / WASD / Espacio</span>
+          <span class="badge bg-success me-2"><i class="bi bi-hand-index-thumb me-1"></i> Controles Táctiles en Pantalla</span>
+        </div>
+        <button id="startGameBtn" class="btn-mario btn-mario-primary fs-6 px-4 py-3">
+          <i class="bi bi-play-fill me-1"></i> ¡EMPEZAR AVENTURA Y DESCUBRIR!
+        </button>
+      </div>
+
+      <!-- Victory Overlay -->
+      <div class="canvas-overlay" id="victoryOverlay" style="display: none;">
+        <h1 class="overlay-title" style="color: #10b981;">¡IDENTIDAD COMPLETAMENTE DESCUBIERTA! 🏆</h1>
+        <p class="overlay-subtitle">
+          ¡Has completado todos los mundos! Has descubierto a <strong>Chris Heredia</strong>: Senior Lead Angular Architect & AWS Cloud Frontend Specialist con más de 10 años de experiencia y +20 proyectos empresariales entregados.
+        </p>
+        <div class="d-flex gap-3 flex-wrap justify-content-center">
+          <a href="index.html" class="btn-mario btn-mario-accent">
+            <i class="bi bi-person-badge-fill me-1"></i> VER CV COMPLETO WEB
+          </a>
+          <a href="Chris_Heredia_CV.pdf" target="_blank" class="btn-mario btn-mario-gold">
+            <i class="bi bi-download me-1"></i> DESCARGAR RESUME PDF
+          </a>
+          <a href="mailto:c.heredia87@gmail.com" class="btn-mario btn-mario-primary">
+            <i class="bi bi-envelope-fill me-1"></i> CONTACTAR A CHRIS
+          </a>
+          <button id="restartGameBtn" class="btn-mario btn-mario-primary" style="background:#475569;">
+            <i class="bi bi-arrow-counterclockwise me-1"></i> REJUGAR
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- On-screen Controls for Mobile & Touch -->
+    <div class="touch-controls">
+      <div class="dpad">
+        <button class="touch-btn" id="btnLeft" aria-label="Mover a la izquierda"><i class="bi bi-arrow-left"></i></button>
+        <button class="touch-btn" id="btnRight" aria-label="Mover a la derecha"><i class="bi bi-arrow-right"></i></button>
+      </div>
+      <div class="level-shortcuts">
+        <button class="lvl-btn active" onclick="game.loadStage(0)">W1: Raíces</button>
+        <button class="lvl-btn" onclick="game.loadStage(1)">W2: Full-Stack</button>
+        <button class="lvl-btn" onclick="game.loadStage(2)">W3: Sr Cloud</button>
+        <button class="lvl-btn" onclick="game.loadStage(3)">W4: Lead Arch</button>
+        <button class="lvl-btn" onclick="game.loadStage(4)">W5: Castillo Final</button>
+      </div>
+      <button class="touch-btn touch-btn-jump" id="btnJump" aria-label="Saltar">SALTAR</button>
+    </div>
+
+    <!-- Unlocked CV Milestones Tracker -->
+    <section class="unlocked-log">
+      <div class="log-title">
+        <span><i class="bi bi-unlock-fill me-2"></i>HITOS Y HABILIDADES DESBLOQUEADAS DE LA IDENTIDAD</span>
+        <span id="unlockedCounter" style="color: #10b981;">0 / 8 Unlocked</span>
+      </div>
+      <div class="log-grid" id="logGrid">
+        <!-- Dynamically populated cards -->
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Milestone Modal Popup -->
+  <div class="modal fade" id="milestoneModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content modal-content-retro">
+        <div class="modal-header modal-header-retro">
+          <h5 class="modal-title" id="modalTitle">¡NUEVA HABILIDAD DESBLOQUEADA! 🌟</h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body text-center p-4">
+          <div id="modalIcon" style="font-size: 48px;" class="mb-3">🎁</div>
+          <span class="badge-unlock" id="modalBadge">Mundo 1 · Educación</span>
+          <h4 class="fw-bold mb-2" id="modalHeaderTitle" style="color: #f8fafc;">Grado en Ingeniería Telemática</h4>
+          <p id="modalDescription" style="color: #cbd5e1; font-size: 14px; line-height: 1.6;">
+            Formación sólida en redes de computadores, sistemas distribuidos e ingeniería de software en la Universidad Pompeu Fabra.
+          </p>
+        </div>
+        <div class="modal-footer border-0 justify-content-center">
+          <button type="button" class="btn-mario btn-mario-primary" data-bs-dismiss="modal">¡CONTINUAR JUGANDO!</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap JS -->
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  <!-- 2D Game Engine Logic Script -->
+  <script>
+    /* Audio Synthesizer via Web Audio API */
+    class RetroAudio {
+      constructor() {
+        this.ctx = null;
+        this.enabled = true;
+      }
+
+      init() {
+        if (!this.ctx) {
+          const AudioContext = window.AudioContext || window.webkitAudioContext;
+          if (AudioContext) {
+            this.ctx = new AudioContext();
+          }
+        }
+      }
+
+      playCoin() {
+        if (!this.enabled || !this.ctx) return;
+        try {
+          const osc = this.ctx.createOscillator();
+          const gain = this.ctx.createGain();
+          osc.type = 'sine';
+          osc.frequency.setValueAtTime(987.77, this.ctx.currentTime); // B5
+          osc.frequency.setValueAtTime(1318.51, this.ctx.currentTime + 0.08); // E6
+          gain.gain.setValueAtTime(0.03, this.ctx.currentTime);
+          gain.gain.exponentialRampToValueAtTime(0.001, this.ctx.currentTime + 0.25);
+          osc.connect(gain);
+          gain.connect(this.ctx.destination);
+          osc.start();
+          osc.stop(this.ctx.currentTime + 0.25);
+        } catch (e) {}
+      }
+
+      playJump() {
+        if (!this.enabled || !this.ctx) return;
+        try {
+          const osc = this.ctx.createOscillator();
+          const gain = this.ctx.createGain();
+          osc.type = 'square';
+          osc.frequency.setValueAtTime(150, this.ctx.currentTime);
+          osc.frequency.exponentialRampToValueAtTime(600, this.ctx.currentTime + 0.15);
+          gain.gain.setValueAtTime(0.02, this.ctx.currentTime);
+          gain.gain.exponentialRampToValueAtTime(0.001, this.ctx.currentTime + 0.15);
+          osc.connect(gain);
+          gain.connect(this.ctx.destination);
+          osc.start();
+          osc.stop(this.ctx.currentTime + 0.15);
+        } catch (e) {}
+      }
+
+      playPowerup() {
+        if (!this.enabled || !this.ctx) return;
+        try {
+          const notes = [330, 392, 659, 523, 587, 784];
+          notes.forEach((freq, i) => {
+            const osc = this.ctx.createOscillator();
+            const gain = this.ctx.createGain();
+            osc.type = 'triangle';
+            osc.frequency.value = freq;
+            gain.gain.setValueAtTime(0.03, this.ctx.currentTime + i * 0.06);
+            gain.gain.exponentialRampToValueAtTime(0.001, this.ctx.currentTime + (i + 1) * 0.06);
+            osc.connect(gain);
+            gain.connect(this.ctx.destination);
+            osc.start(this.ctx.currentTime + i * 0.06);
+            osc.stop(this.ctx.currentTime + (i + 1) * 0.06);
+          });
+        } catch (e) {}
+      }
+
+      playFanfare() {
+        if (!this.enabled || !this.ctx) return;
+        try {
+          const notes = [261, 329, 392, 523, 659, 784, 1046];
+          notes.forEach((freq, i) => {
+            const osc = this.ctx.createOscillator();
+            const gain = this.ctx.createGain();
+            osc.type = 'square';
+            osc.frequency.value = freq;
+            gain.gain.setValueAtTime(0.04, this.ctx.currentTime + i * 0.1);
+            gain.gain.exponentialRampToValueAtTime(0.001, this.ctx.currentTime + i * 0.1 + 0.2);
+            osc.connect(gain);
+            gain.connect(this.ctx.destination);
+            osc.start(this.ctx.currentTime + i * 0.1);
+            osc.stop(this.ctx.currentTime + i * 0.1 + 0.2);
+          });
+        } catch (e) {}
+      }
+    }
+
+    /* CV Data & Unlocked Milestones */
+    const CV_MILESTONES = [
+      {
+        id: "m1",
+        stageIndex: 0,
+        title: "Ingeniería Telemática (UPF)",
+        category: "Educación & Base Técnica",
+        icon: "🎓",
+        shortDesc: "Universidad Pompeu Fabra (2011-2016). Redes y desarrollo de software.",
+        fullDesc: "Grado en Ingeniería Telemática por la Universidad Pompeu Fabra (2011 - 2016). Base sólida en redes de computadores, sistemas distribuidos, software y telecomunicaciones."
+      },
+      {
+        id: "m2",
+        stageIndex: 0,
+        title: "Másteres & Certified Scrum Master",
+        category: "Certificaciones & Liderazgo",
+        icon: "🛡️",
+        shortDesc: "Master Ciberseguridad (VIU) + Master Metodologías Ágiles (La Salle) + CSM.",
+        fullDesc: "Master en Ciberseguridad (Valencia International University, 2022-2023), Master en Metodologías Ágiles (University Ramon Llull - La Salle, 2017-2018) y Certified Scrum Master (CSM)."
+      },
+      {
+        id: "m3",
+        stageIndex: 1,
+        title: "Pricesoft (Frontend Developer)",
+        category: "Experiencia Profesional",
+        icon: "💻",
+        shortDesc: "Sept 2013 – Oct 2016: React, jQuery, Laravel, Bootstrap, MySQL.",
+        fullDesc: "Desarrollo de aplicaciones web B2B para agencias de viajes utilizando React, jQuery, Laravel, Bootstrap y MySQL."
+      },
+      {
+        id: "m4",
+        stageIndex: 1,
+        title: "Deloitte & NTT Data (Everis)",
+        category: "Senior Frontend Engineer",
+        icon: "⚽",
+        shortDesc: "Ene 2017 – Ago 2019: Angular, NgRx, Spring Boot, Chatbot IA GraphQL, LaLiga.",
+        fullDesc: "Módulos frontend corporativos para seguro médico con Angular y Java Spring Boot, chatbot de IA para configuración con GraphQL y portal de analítica deportiva para LaLiga con Angular y Node.js."
+      },
+      {
+        id: "m5",
+        stageIndex: 2,
+        title: "Obsidian Software",
+        category: "Senior Frontend & Scrum Master",
+        icon: "📊",
+        shortDesc: "Ene 2020 – Dic 2022: Angular, NgRx, Three.js, AWS CloudWatch, NestJS, Lambda.",
+        fullDesc: "Dashboard de monitorización en tiempo real con datos cada 1 min usando Angular, NgRx, Three.js y AWS CloudWatch. Integración serverless con NestJS, GraphQL y AWS Lambda."
+      },
+      {
+        id: "m6",
+        stageIndex: 3,
+        title: "Dimatica Software (Trabajo Actual)",
+        category: "Lead Frontend Engineer & Angular/AWS Architect",
+        icon: "🚀",
+        shortDesc: "Mayo 2022 – Presente: Angular 16/17/18, Nx Microfrontends, AWS (S3/CloudFront) + CloudBees.",
+        fullDesc: "Liderazgo técnico frontend en plataforma turística B2B/B2C con Nx Microfrontends y Angular 16/17/18. Despliegues de frontend en AWS (S3 y CloudFront CDN) automatizados mediante CloudBees CI/CD."
+      },
+      {
+        id: "m7",
+        stageIndex: 3,
+        title: "AWS Cloud & CloudBees CI/CD",
+        category: "Especialización Cloud Frontend",
+        icon: "☁️",
+        shortDesc: "AWS S3, CloudFront CDN, Lambda, API Gateway, Route 53, CloudWatch y CloudBees.",
+        fullDesc: "Diseño y despliegues de arquitectura cloud frontend en AWS (S3, CloudFront, Route 53, API Gateway) utilizando CloudBees CI/CD para lanzamientos continuos y aceleración global."
+      },
+      {
+        id: "m8",
+        stageIndex: 4,
+        title: "Chris Heredia Naranjo",
+        category: "Senior Lead Angular Architect & AWS Specialist",
+        icon: "👑",
+        shortDesc: "+10 Años de Experiencia (desde 2013) · +20 Proyectos Entregados · Barcelona",
+        fullDesc: "Senior Lead Angular Architect y AWS Cloud Frontend Specialist con más de 10 años de trayectoria (desde 2013), +20 proyectos empresariales entregados, Certified Scrum Master y Master en Ciberseguridad."
+      }
+    ];
+
+    /* Game Engine Class */
+    class MarioCVGame {
+      constructor() {
+        this.canvas = document.getElementById('marioCanvas');
+        this.ctx = this.canvas.getContext('2d');
+        this.audio = new RetroAudio();
+
+        this.isRunning = false;
+        this.autoPlay = false;
+        this.score = 0;
+        this.coins = 0;
+        this.currentStage = 0;
+        this.unlockedMilestones = new Set();
+        this.stageTransitioning = false;
+        this.isVictorious = false;
+
+        // Player State
+        this.player = {
+          x: 80,
+          y: 360,
+          width: 32,
+          height: 48,
+          vx: 0,
+          vy: 0,
+          speed: 4.5,
+          jumpStrength: -13.5,
+          grounded: false,
+          facing: 'right',
+          frame: 0,
+          animTimer: 0
+        };
+
+        // Keys State
+        this.keys = {
+          left: false,
+          right: false,
+          jump: false
+        };
+
+        // Game World Physics & Camera
+        this.gravity = 0.65;
+        this.cameraX = 0;
+        this.worldWidth = 3200;
+
+        // Stage definitions
+        this.stages = [
+          {
+            name: "WORLD 1-1: RAÍCES Y EDUCACIÓN",
+            bgSky: "#5c94fc",
+            groundColor: "#c84c0c",
+            blocks: [
+              { x: 300, y: 260, type: '?', milestoneIndex: 0, hit: false },
+              { x: 550, y: 260, type: 'brick' },
+              { x: 600, y: 260, type: '?', milestoneIndex: 1, hit: false },
+              { x: 650, y: 260, type: 'brick' },
+              { x: 900, y: 220, type: 'cloud_platform', width: 120 },
+              { x: 1200, y: 340, type: 'pipe', height: 80 },
+              { x: 1500, y: 320, type: 'pipe', height: 100 },
+              { x: 1800, y: 260, type: 'brick' },
+              { x: 1850, y: 260, type: 'coin_block', coins: 3 },
+              { x: 2500, y: 160, type: 'flagpole', width: 60, height: 260 }
+            ],
+            coins: [
+              { x: 400, y: 380, collected: false },
+              { x: 450, y: 380, collected: false },
+              { x: 920, y: 180, collected: false },
+              { x: 960, y: 180, collected: false },
+              { x: 1350, y: 380, collected: false }
+            ]
+          },
+          {
+            name: "WORLD 1-2: FULL-STACK FOUNDATIONS",
+            bgSky: "#3b82f6",
+            groundColor: "#00a800",
+            blocks: [
+              { x: 350, y: 260, type: '?', milestoneIndex: 2, hit: false },
+              { x: 700, y: 220, type: 'cloud_platform', width: 160 },
+              { x: 1000, y: 260, type: '?', milestoneIndex: 3, hit: false },
+              { x: 1300, y: 320, type: 'pipe', height: 100 },
+              { x: 1700, y: 220, type: 'cloud_platform', width: 140 },
+              { x: 2100, y: 260, type: 'brick' },
+              { x: 2500, y: 160, type: 'flagpole', width: 60, height: 260 }
+            ],
+            coins: [
+              { x: 450, y: 380, collected: false },
+              { x: 730, y: 180, collected: false },
+              { x: 780, y: 180, collected: false },
+              { x: 1100, y: 380, collected: false },
+              { x: 1750, y: 180, collected: false }
+            ]
+          },
+          {
+            name: "WORLD 2-1: SR CLOUD ARCHITECT",
+            bgSky: "#0f172a",
+            groundColor: "#1e293b",
+            blocks: [
+              { x: 400, y: 260, type: '?', milestoneIndex: 4, hit: false },
+              { x: 800, y: 220, type: 'cloud_platform', width: 180 },
+              { x: 1200, y: 310, type: 'pipe', height: 110 },
+              { x: 1600, y: 220, type: 'cloud_platform', width: 140 },
+              { x: 2000, y: 260, type: 'brick' },
+              { x: 2500, y: 160, type: 'flagpole', width: 60, height: 260 }
+            ],
+            coins: [
+              { x: 500, y: 380, collected: false },
+              { x: 830, y: 180, collected: false },
+              { x: 870, y: 180, collected: false },
+              { x: 1650, y: 180, collected: false }
+            ]
+          },
+          {
+            name: "WORLD 2-2: LEAD ANGULAR & AWS",
+            bgSky: "#431407",
+            groundColor: "#78350f",
+            blocks: [
+              { x: 350, y: 260, type: '?', milestoneIndex: 5, hit: false },
+              { x: 750, y: 260, type: '?', milestoneIndex: 6, hit: false },
+              { x: 1100, y: 220, type: 'cloud_platform', width: 200 },
+              { x: 1500, y: 320, type: 'pipe', height: 100 },
+              { x: 1900, y: 260, type: 'brick' },
+              { x: 2500, y: 160, type: 'flagpole', width: 60, height: 260 }
+            ],
+            coins: [
+              { x: 450, y: 380, collected: false },
+              { x: 850, y: 380, collected: false },
+              { x: 1150, y: 180, collected: false },
+              { x: 1200, y: 180, collected: false }
+            ]
+          },
+          {
+            name: "WORLD 3-1: CASTILLO DE LA IDENTIDAD",
+            bgSky: "#18181b",
+            groundColor: "#27272a",
+            blocks: [
+              { x: 400, y: 260, type: 'brick' },
+              { x: 600, y: 220, type: 'cloud_platform', width: 160 },
+              { x: 900, y: 260, type: '?', milestoneIndex: 7, hit: false },
+              { x: 1400, y: 320, type: 'castle_entrance' },
+              { x: 2200, y: 260, type: 'castle', width: 160, height: 160 }
+            ],
+            coins: [
+              { x: 300, y: 380, collected: false },
+              { x: 630, y: 180, collected: false },
+              { x: 670, y: 180, collected: false }
+            ]
+          }
+        ];
+
+        this.initUI();
+        this.initEvents();
+        this.renderLogGrid();
+      }
+
+      initUI() {
+        document.getElementById('startGameBtn').addEventListener('click', () => {
+          this.audio.init();
+          document.getElementById('startOverlay').style.display = 'none';
+          this.start();
+        });
+
+        document.getElementById('restartGameBtn').addEventListener('click', () => {
+          document.getElementById('victoryOverlay').style.display = 'none';
+          this.loadStage(0);
+          this.start();
+        });
+
+        document.getElementById('soundToggle').addEventListener('click', () => {
+          this.audio.enabled = !this.audio.enabled;
+          const icon = document.querySelector('#soundToggle i');
+          if (this.audio.enabled) {
+            icon.className = 'bi bi-volume-up-fill text-warning';
+          } else {
+            icon.className = 'bi bi-volume-mute-fill text-secondary';
+          }
+        });
+
+        document.getElementById('autoPlayBtn').addEventListener('click', () => {
+          this.autoPlay = !this.autoPlay;
+          const btn = document.getElementById('autoPlayBtn');
+          if (this.autoPlay) {
+            btn.classList.add('bg-success', 'text-white');
+            btn.innerHTML = `<i class="bi bi-gear-fill me-1"></i> PILOTO AUTOMÁTICO ON`;
+          } else {
+            btn.classList.remove('bg-success', 'text-white');
+            btn.innerHTML = `<i class="bi bi-play-circle-fill me-1"></i> TOUR AUTOMÁTICO`;
+          }
+        });
+      }
+
+      initEvents() {
+        // Keyboard controls
+        window.addEventListener('keydown', (e) => {
+          if (e.key === 'ArrowLeft' || e.key === 'a' || e.key === 'A') this.keys.left = true;
+          if (e.key === 'ArrowRight' || e.key === 'd' || e.key === 'D') this.keys.right = true;
+          if (e.key === 'ArrowUp' || e.key === 'w' || e.key === 'W' || e.key === ' ') {
+            if (!this.keys.jump && this.player.grounded) {
+              this.player.vy = this.player.jumpStrength;
+              this.player.grounded = false;
+              this.audio.playJump();
+            }
+            this.keys.jump = true;
+          }
+        });
+
+        window.addEventListener('keyup', (e) => {
+          if (e.key === 'ArrowLeft' || e.key === 'a' || e.key === 'A') this.keys.left = false;
+          if (e.key === 'ArrowRight' || e.key === 'd' || e.key === 'D') this.keys.right = false;
+          if (e.key === 'ArrowUp' || e.key === 'w' || e.key === 'W' || e.key === ' ') this.keys.jump = false;
+        });
+
+        // Touch controls
+        const setupTouchBtn = (id, keyName) => {
+          const btn = document.getElementById(id);
+          if (!btn) return;
+          const start = (e) => {
+            e.preventDefault();
+            this.audio.init();
+            if (keyName === 'jump') {
+              if (this.player.grounded) {
+                this.player.vy = this.player.jumpStrength;
+                this.player.grounded = false;
+                this.audio.playJump();
+              }
+            }
+            this.keys[keyName] = true;
+          };
+          const end = (e) => {
+            e.preventDefault();
+            this.keys[keyName] = false;
+          };
+          btn.addEventListener('touchstart', start);
+          btn.addEventListener('touchend', end);
+          btn.addEventListener('mousedown', start);
+          btn.addEventListener('mouseup', end);
+        };
+
+        setupTouchBtn('btnLeft', 'left');
+        setupTouchBtn('btnRight', 'right');
+        setupTouchBtn('btnJump', 'jump');
+      }
+
+      start() {
+        if (!this.isRunning) {
+          this.isRunning = true;
+          requestAnimationFrame(() => this.gameLoop());
+        }
+      }
+
+      loadStage(stageIndex) {
+        this.currentStage = stageIndex;
+        this.stageTransitioning = false;
+        this.player.x = 80;
+        this.player.y = 360;
+        this.player.vx = 0;
+        this.player.vy = 0;
+        this.cameraX = 0;
+
+        // Update Level selector UI buttons
+        const lvlBtns = document.querySelectorAll('.lvl-btn');
+        lvlBtns.forEach((btn, idx) => {
+          if (idx === stageIndex) btn.classList.add('active');
+          else btn.classList.remove('active');
+        });
+
+        document.getElementById('hudStage').innerText = `WORLD ${stageIndex + 1}-1`;
+      }
+
+      update() {
+        const stage = this.stages[this.currentStage];
+
+        // Auto-play logic if enabled
+        if (this.autoPlay) {
+          this.keys.right = true;
+          // Jump over pipes, platforms, or jump underneath ? blocks
+          const nextBlock = stage.blocks.find(b => (b.type === 'pipe' || b.type === '?') && b.x > this.player.x && b.x - this.player.x < 90);
+          if (nextBlock && this.player.grounded) {
+            this.player.vy = this.player.jumpStrength;
+            this.player.grounded = false;
+            this.audio.playJump();
+          }
+        }
+
+        // Horizontal Movement
+        if (this.keys.left) {
+          this.player.vx = -this.player.speed;
+          this.player.facing = 'left';
+        } else if (this.keys.right) {
+          this.player.vx = this.player.speed;
+          this.player.facing = 'right';
+        } else {
+          this.player.vx *= 0.8;
+        }
+
+        this.player.x += this.player.vx;
+
+        // Keep inside bounds
+        if (this.player.x < 0) this.player.x = 0;
+
+        // Gravity & Vertical Movement
+        this.player.vy += this.gravity;
+        this.player.y += this.player.vy;
+
+        // Ground Collision (y = 420 base floor)
+        const groundY = 420;
+        if (this.player.y + this.player.height >= groundY) {
+          this.player.y = groundY - this.player.height;
+          this.player.vy = 0;
+          this.player.grounded = true;
+        } else {
+          this.player.grounded = false;
+        }
+
+        // Block Collision
+        stage.blocks.forEach(block => {
+          const blockWidth = block.width || 48;
+          const blockHeight = block.height || 48;
+
+          if (
+            this.player.x + this.player.width > block.x + 4 &&
+            this.player.x < block.x + blockWidth - 4 &&
+            this.player.y + this.player.height > block.y &&
+            this.player.y < block.y + blockHeight
+          ) {
+            const playerPrevY = this.player.y - this.player.vy;
+
+            // Collision from below (hitting block with head)
+            if (this.player.vy < 0 && playerPrevY >= block.y + blockHeight - 12) {
+              this.player.y = block.y + blockHeight;
+              this.player.vy = 0;
+
+              // Hit Question Block
+              if (block.type === '?' && !block.hit) {
+                block.hit = true;
+                this.audio.playPowerup();
+                this.score += 500;
+                this.coins += 5;
+                if (block.milestoneIndex !== undefined) {
+                  this.unlockMilestone(block.milestoneIndex);
+                }
+              } else if (block.type === 'brick' || block.type === 'coin_block') {
+                this.audio.playCoin();
+                this.score += 100;
+              }
+            }
+            // Collision from above (landing on platform/pipe)
+            else if (this.player.vy >= 0 && playerPrevY + this.player.height <= block.y + 12) {
+              this.player.y = block.y - this.player.height;
+              this.player.vy = 0;
+              this.player.grounded = true;
+            }
+            // Collision from side
+            else if (this.player.vx > 0) {
+              this.player.x = block.x - this.player.width - 4;
+            } else if (this.player.vx < 0) {
+              this.player.x = block.x + blockWidth + 4;
+            }
+
+            // Flagpole or Castle triggered
+            if (block.type === 'flagpole' || block.type === 'castle') {
+              if (!this.stageTransitioning && !this.isVictorious) {
+                this.stageTransitioning = true;
+                this.audio.playFanfare();
+                if (this.currentStage < this.stages.length - 1) {
+                  setTimeout(() => {
+                    this.loadStage(this.currentStage + 1);
+                  }, 800);
+                } else {
+                  this.triggerVictory();
+                }
+              }
+            }
+          }
+        });
+
+        // Coins collection
+        stage.coins.forEach(coin => {
+          if (!coin.collected && Math.hypot(this.player.x - coin.x, this.player.y - coin.y) < 35) {
+            coin.collected = true;
+            this.coins++;
+            this.score += 200;
+            this.audio.playCoin();
+          }
+        });
+
+        // Camera Follows Player
+        this.cameraX = this.player.x - 200;
+        if (this.cameraX < 0) this.cameraX = 0;
+
+        // Animation counter
+        if (Math.abs(this.player.vx) > 0.5) {
+          this.player.animTimer++;
+          if (this.player.animTimer % 8 === 0) {
+            this.player.frame = (this.player.frame + 1) % 3;
+          }
+        } else {
+          this.player.frame = 0;
+        }
+
+        this.updateHUD();
+      }
+
+      unlockMilestone(index, showModal = true) {
+        const milestone = CV_MILESTONES[index];
+        if (!milestone) return;
+
+        const isNew = !this.unlockedMilestones.has(milestone.id);
+        this.unlockedMilestones.add(milestone.id);
+
+        if (isNew && showModal && !this.isVictorious) {
+          // Show Modal Popup
+          document.getElementById('modalIcon').innerText = milestone.icon;
+          document.getElementById('modalBadge').innerText = milestone.category;
+          document.getElementById('modalHeaderTitle').innerText = milestone.title;
+          document.getElementById('modalDescription').innerText = milestone.fullDesc;
+
+          const modalEl = document.getElementById('milestoneModal');
+          const modal = bootstrap.Modal.getOrCreateInstance(modalEl);
+          modal.show();
+        }
+
+        this.renderLogGrid();
+      }
+
+      renderLogGrid() {
+        const container = document.getElementById('logGrid');
+        container.innerHTML = '';
+
+        CV_MILESTONES.forEach(m => {
+          const isUnlocked = this.unlockedMilestones.has(m.id);
+          const card = document.createElement('div');
+          card.className = `log-card ${isUnlocked ? 'unlocked' : ''}`;
+          card.innerHTML = `
+            <div class="log-icon">${isUnlocked ? m.icon : '🔒'}</div>
+            <div class="log-info">
+              <h5>${isUnlocked ? m.title : '??? (Bloque Bloqueado)'}</h5>
+              <p>${isUnlocked ? m.shortDesc : 'Salta sobre los bloques [?] en el juego para desbloquear esta parte de la historia.'}</p>
+            </div>
+          `;
+          container.appendChild(card);
+        });
+
+        const percent = Math.round((this.unlockedMilestones.size / CV_MILESTONES.length) * 100);
+        document.getElementById('unlockedCounter').innerText = `${this.unlockedMilestones.size} / ${CV_MILESTONES.length} Unlocked`;
+        document.getElementById('identityProgressBar').style.width = `${percent}%`;
+        document.getElementById('identityPercent').innerText = `${percent}%`;
+
+        if (percent >= 100) {
+          document.getElementById('hudIdentityText').innerText = "CHRIS HEREDIA 👑";
+          document.getElementById('hudIdentityText').style.color = "#10b981";
+        } else if (percent > 40) {
+          document.getElementById('hudIdentityText').innerText = "ANGULAR ARCHITECT ⚡";
+        }
+      }
+
+      triggerVictory() {
+        if (this.isVictorious) return;
+        this.isVictorious = true;
+
+        // Dismiss any active modal and backdrop if open
+        const modalEl = document.getElementById('milestoneModal');
+        const modalInstance = bootstrap.Modal.getInstance(modalEl);
+        if (modalInstance) {
+          modalInstance.hide();
+        }
+
+        // Unlock all remaining without triggering popup modals
+        CV_MILESTONES.forEach((m, idx) => this.unlockMilestone(idx, false));
+
+        // Show victory overlay
+        const victoryOverlay = document.getElementById('victoryOverlay');
+        if (victoryOverlay) {
+          victoryOverlay.style.display = 'flex';
+        }
+      }
+
+      updateHUD() {
+        document.getElementById('hudCoins').innerText = `🪙 x${String(this.coins).padStart(2, '0')}`;
+        document.getElementById('hudScore').innerText = String(this.score).padStart(6, '0');
+      }
+
+      render() {
+        const stage = this.stages[this.currentStage];
+
+        // Clear Canvas Sky
+        this.ctx.fillStyle = stage.bgSky;
+        this.ctx.fillRect(0, 0, this.canvas.width, this.canvas.height);
+
+        this.ctx.save();
+        this.ctx.translate(-this.cameraX, 0);
+
+        // Parallax Clouds
+        this.ctx.fillStyle = "rgba(255, 255, 255, 0.4)";
+        for (let i = 0; i < 10; i++) {
+          this.drawCloud(i * 400 + 100, 80 + (i % 3) * 30);
+        }
+
+        // Draw Ground Floor
+        this.ctx.fillStyle = stage.groundColor;
+        this.ctx.fillRect(0, 420, this.worldWidth, 120);
+
+        // Ground Top Border Line
+        this.ctx.fillStyle = "#000";
+        this.ctx.fillRect(0, 420, this.worldWidth, 4);
+
+        // Grass Top Layer
+        this.ctx.fillStyle = "#00a800";
+        this.ctx.fillRect(0, 420, this.worldWidth, 12);
+
+        // Draw Stage Blocks
+        stage.blocks.forEach(block => {
+          if (block.type === '?') {
+            this.ctx.fillStyle = block.hit ? '#9a3412' : '#f59e0b';
+            this.ctx.fillRect(block.x, block.y, 48, 48);
+            this.ctx.strokeStyle = '#000';
+            this.ctx.lineWidth = 3;
+            this.ctx.strokeRect(block.x, block.y, 48, 48);
+
+            this.ctx.fillStyle = '#000';
+            this.ctx.font = '20px "Press Start 2P"';
+            this.ctx.fillText(block.hit ? '✓' : '?', block.x + 14, block.y + 34);
+          } else if (block.type === 'brick') {
+            this.ctx.fillStyle = '#b84418';
+            this.ctx.fillRect(block.x, block.y, 48, 48);
+            this.ctx.strokeStyle = '#000';
+            this.ctx.lineWidth = 2;
+            this.ctx.strokeRect(block.x, block.y, 48, 48);
+          } else if (block.type === 'pipe') {
+            this.ctx.fillStyle = '#00a800';
+            this.ctx.fillRect(block.x, block.y, 60, block.height);
+            this.ctx.strokeStyle = '#000';
+            this.ctx.lineWidth = 3;
+            this.ctx.strokeRect(block.x, block.y, 60, block.height);
+            // Pipe Rim
+            this.ctx.fillRect(block.x - 4, block.y, 68, 16);
+            this.ctx.strokeRect(block.x - 4, block.y, 68, 16);
+          } else if (block.type === 'cloud_platform') {
+            this.ctx.fillStyle = '#ffffff';
+            this.ctx.beginPath();
+            this.ctx.roundRect(block.x, block.y, block.width, 24, 12);
+            this.ctx.fill();
+            this.ctx.strokeStyle = '#38bdf8';
+            this.ctx.lineWidth = 3;
+            this.ctx.stroke();
+          } else if (block.type === 'flagpole') {
+            // Pole
+            this.ctx.fillStyle = '#cbd5e1';
+            this.ctx.fillRect(block.x + 20, 160, 10, 260);
+            // Ball top
+            this.ctx.fillStyle = '#f59e0b';
+            this.ctx.beginPath();
+            this.ctx.arc(block.x + 25, 150, 15, 0, Math.PI * 2);
+            this.ctx.fill();
+            // Flag
+            this.ctx.fillStyle = '#e52521';
+            this.ctx.beginPath();
+            this.ctx.moveTo(block.x + 30, 160);
+            this.ctx.lineTo(block.x + 90, 185);
+            this.ctx.lineTo(block.x + 30, 210);
+            this.ctx.fill();
+          } else if (block.type === 'castle') {
+            // Pixel Castle
+            this.ctx.fillStyle = '#64748b';
+            this.ctx.fillRect(block.x, 260, 160, 160);
+            this.ctx.fillStyle = '#000';
+            this.ctx.fillRect(block.x + 60, 340, 40, 80); // Door
+          }
+        });
+
+        // Draw Coins
+        stage.coins.forEach(coin => {
+          if (!coin.collected) {
+            this.ctx.fillStyle = '#f59e0b';
+            this.ctx.beginPath();
+            this.ctx.arc(coin.x, coin.y, 10, 0, Math.PI * 2);
+            this.ctx.fill();
+            this.ctx.strokeStyle = '#fff';
+            this.ctx.lineWidth = 2;
+            this.ctx.stroke();
+          }
+        });
+
+        // Draw Player Sprite (Hero Chris)
+        this.drawPlayer();
+
+        this.ctx.restore();
+      }
+
+      drawCloud(x, y) {
+        this.ctx.beginPath();
+        this.ctx.arc(x, y, 20, Math.PI * 0.5, Math.PI * 1.5);
+        this.ctx.arc(x + 25, y - 20, 25, Math.PI * 1, Math.PI * 1.85);
+        this.ctx.arc(x + 60, y - 15, 20, Math.PI * 1.37, Math.PI * 1.91);
+        this.ctx.arc(x + 80, y, 20, Math.PI * 1.5, Math.PI * 0.5);
+        this.ctx.moveTo(x + 80, y + 20);
+        this.ctx.lineTo(x, y + 20);
+        this.ctx.fill();
+      }
+
+      drawPlayer() {
+        const p = this.player;
+
+        // Player Shadow
+        this.ctx.fillStyle = "rgba(0, 0, 0, 0.2)";
+        this.ctx.beginPath();
+        this.ctx.ellipse(p.x + p.width / 2, 420, 16, 6, 0, 0, Math.PI * 2);
+        this.ctx.fill();
+
+        // Sprite Body (Red Shirt & Blue Overalls Mario Style with Laptop/Hero Cap)
+        this.ctx.fillStyle = '#e52521'; // Red Shirt / Cap
+        this.ctx.fillRect(p.x + 4, p.y + 4, 24, 12); // Cap
+
+        this.ctx.fillStyle = '#fde047'; // Face
+        this.ctx.fillRect(p.x + 6, p.y + 12, 20, 12);
+
+        this.ctx.fillStyle = '#2563eb'; // Blue Overalls
+        this.ctx.fillRect(p.x + 4, p.y + 24, 24, 16);
+
+        // Legs
+        this.ctx.fillStyle = '#78350f';
+        if (p.frame === 1) {
+          this.ctx.fillRect(p.x + 2, p.y + 40, 10, 8);
+          this.ctx.fillRect(p.x + 20, p.y + 40, 10, 8);
+        } else {
+          this.ctx.fillRect(p.x + 4, p.y + 40, 10, 8);
+          this.ctx.fillRect(p.x + 18, p.y + 40, 10, 8);
+        }
+
+        // Developer Laptop in hand
+        this.ctx.fillStyle = '#94a3b8';
+        this.ctx.fillRect(p.facing === 'right' ? p.x + 20 : p.x - 4, p.y + 20, 12, 10);
+      }
+
+      gameLoop() {
+        if (!this.isRunning) return;
+        this.update();
+        this.render();
+        requestAnimationFrame(() => this.gameLoop());
+      }
+    }
+
+    // Initialize Game on Load
+    let game;
+    window.addEventListener('DOMContentLoaded', () => {
+      game = new MarioCVGame();
+    });
+  </script>
+</body>
+
+</html>
