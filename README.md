@@ -1,65 +1,59 @@
 # Chris Heredia Naranjo  
-Barcelona, Spain · [LinkedIn](https://www.linkedin.com/in/christian-heredia-angular-developer/) · c.heredia87@gmail.com
+Barcelona, Spain · [LinkedIn](https://www.linkedin.com/in/christian/) · c.heredia.naranjo@gmail.com
 
-I am a **Senior Lead Angular Architect and AWS Cloud Frontend Specialist** with over 10 years of professional experience (since 2013), 20+ delivered enterprise applications, and a certified Scrum Master. I specialize in building enterprise-grade, high-performance web platforms using **Angular (16/17/18)**, **Angular Signals**, **Nx Microfrontends**, and scalable **AWS Cloud Architectures** (S3, CloudFront CDN, Lambda, API Gateway, Route 53, Serverless CI/CD), backed by a Master's Degree in Cybersecurity to guarantee security-by-design.
+I’m a software engineer with expertise in frontend development (Angular) and full-stack integration. I’ve led teams on large-scale projects, delivering high-performance platforms in the tech and tourism industries. I focus on creating scalable solutions, optimizing code quality, and driving agile practices to enhance team productivity and deliver impactful results.
 
 🎮 **Interactive 2D Mario CV:** Play [Super Chris World (`mario-cv.html`)](https://chdelucia.github.io/mario-cv.html) to progressively reveal career milestones, skills, and projects through retro 2D platformer gameplay.
-🐉 **Interactive Goku Flying Nimbus CV:** Play [Dragon Ball CV (`goku-cv.html`)](https://chdelucia.github.io/goku-cv.html) to fly Goku on the Flying Nimbus (Nube Mágica), shoot Kamehameha beams, and collect the 7 Dragon Balls to summon Shenron and reveal official CV credentials.
+🐉 **Interactive Goku Flying Nimbus CV:** Play [Dragon Ball CV (`goku-cv.html`)](https://chdelucia.github.io/goku-cv.html) to fly Goku on the Flying Nimbus (Nube Mágica), shoot Kamehameha beam attacks, and collect Dragon Balls to reveal CV credentials.
 
 ---
 
 ## 🚀 CORE COMPETENCIES
 
-- **Frontend (Angular Expert):** Angular (16/17/18), Signals, Microfrontends (Module Federation), Nx Workspaces, NgRx, RxJS, TypeScript, Tailwind CSS, Bootstrap, Storybook.
-- **AWS & Cloud Services:** AWS S3, CloudFront CDN, AWS Lambda, API Gateway, Route 53, AWS Amplify, IAM, CloudWatch, Serverless Architectures.
-- **Backend & Database:** Node.js, NestJS, Java Spring Boot, WebSockets, GraphQL, RESTful APIs, PostgreSQL, MongoDB, MySQL.
-- **Testing & Quality:** Jest, Cypress, Playwright, Karma.
-- **DevOps, Security & Agile:** Docker, Jenkins, GitHub Actions CI/CD, Certified Scrum Master (CSM), Cybersecurity (Master's Level).
+- **Frontend & Architecture:** Angular (17 & previous versions), NX Micro Frontend Architecture, Storybook Component Libraries, TypeScript, JavaScript, HTML5, SASS/SCSS, Standardized Design Patterns.
+- **Stage & Live Deployments:** AWS S3 Bucket Hosting & AWS CloudFront CDN Distribution (responsible for Stage and Live deployments).
+- **Testing & Quality Assurance:** Jest Unit & Integration Testing, Cypress End-to-End Testing, Integrated Testing Strategy.
+- **Agile Leadership & Full-Stack:** Certified Scrum Master (CSM), Master of Agile Methodologies, Distributed Team Leadership, Real-Time Monitoring Tools.
 
 ---
 
 ## 💼 PROFESSIONAL EXPERIENCE
 
 ### **Dimatica Software**
-**Lead Frontend Engineer & Angular/AWS Architect**
-*May 2022 – Present*  
-- Led the end-to-end design and frontend development of a global enterprise B2B & B2C tourism accommodation platform handling millions of requests.
-- Architected a scalable **Microfrontend Architecture** using **Nx** and **Angular 16/17/18**, reducing build times by 40% and enabling independent team deployments.
-- Deployed and optimized cloud frontend assets on **AWS (S3 and CloudFront CDN)** using **CloudBees** CI/CD pipelines alongside Route 53 and API Gateway for ultra-fast global distribution and 99.99% availability.
-- Implemented robust Automated Testing strategies with **Jest** and **Cypress**, achieving over 85% unit and E2E code coverage.
-- Created standardized UI component libraries with **Storybook** and **Tailwind CSS**.
-- Built real-time WebSocket messaging systems on **Node.js** and integrated with **Java Spring Boot** microservices.
+**Architect Frontend Engineer**
+*Barcelona, Spain · May 2022 – Current*
+- Led the end-to-end development of a comprehensive platform for a B2B and B2C business, specializing in the sale of tourism accommodations, from the ground up.
+- Designed and implemented a highly scalable, micro frontend architecture using NX and Angular 17, ensuring modularity, performance, and maintainability across various components and teams.
+- Developed a robust and fully integrated testing strategy using Jest and Cypress to ensure top-tier reliability, performance, and quality for all aspects of the platform.
+- Created reusable UI components and standardized design patterns using Storybook to streamline development and improve collaboration between design and engineering teams.
+- Managed and executed frontend deployments across stage and live environments using AWS S3 and CloudFront CDN.
 
 ### **Obsidian Software**
-**Senior Frontend Engineer & Scrum Master**  
-*Jan 2020 – Dec 2022*  
-- Engineered a real-time server and cloud resource monitoring dashboard with 1-minute metric refresh rates using **Angular**, **NgRx**, **Three.js**, and **AWS CloudWatch** integration.
-- Designed serverless backend integrations with **NestJS**, **GraphQL**, and **AWS Lambda**.
-- Served as Scrum Master, facilitating agile ceremonies and delivering international client projects on schedule.
+**Senior Frontend Engineer & Scrum master**
+*Coruña, Spain · Jan 2020 – Dec 2022*
+- Led the development of an external tool to monitor and measure, in real time (with a 1-minute delay), the status of servers and other resources.
+- Worked with a distributed and agile team, taking leadership in a project with an international scope, ensuring smooth collaboration and timely delivery.
 
-### **Deloitte & NTT Data (Everis)**
-**Senior Frontend Engineer**
-*Jan 2017 – Aug 2019*  
-- Delivered enterprise frontend solutions for a major health insurance provider using **Angular**, **NgRx**, and **Java Spring Boot**.
-- Developed an AI chatbot helper for website configuration, integrating **GraphQL** APIs and cloud microservices.
-- Led the frontend engineering team for a Spanish Premier League football analytics portal built with **Angular** and **Node.js**.
+### **Deloitte & NTT Data**
+**Frontend Engineer**
+*Barcelona, Spain · Jan 2017 – Aug 2019*
+- Contributed as a frontend expert in a large-scale B2B project focused on health insurance, collaborating with an internationally distributed team to build scalable solutions.
 
-### **Pricesoft**
-**Frontend Developer**
-*Sept 2013 – Oct 2016*  
-- Developed B2B web applications for travel agencies using **React**, **jQuery**, **Laravel**, **Bootstrap**, and **MySQL**.
+### **Pricesoft & internship**
+**Trainee Engineer**
+*Barcelona, Spain · Sept 2013 – Oct 2016*
+- Collaborated with cross-functional teams to deliver custom features that met clients' business needs.
 
 ---
 
-## 🎓 EDUCATION & CERTIFICATIONS
+## 🎓 EDUCATION
 
-- **Valencia International University** — *Master of Cybersecurity* (2022 - 2023)
-- **University Ramon Llull - La Salle** — *Master in Agile Methodologies* (2017 - 2018)
-- **University Pompeu Fabra** — *Telematics Engineering Degree* (2011 - 2016)
-- **Certifications:** Certified Scrum Master (CSM)
+- **University Ramon Llull - La Salle** — *Master of Agile Methodologies* (Sept 2017 – May 2018)
+- **University Pompeu Fabra** — *Telematics Engineering Degree* (Sept 2011 – May 2016)
 
 ---
 
-## 🌐 LANGUAGES
-- English (Professional B2)
+## 🌐 LANGUAGES & QUALIFICATIONS
+- English (B2)
 - Native Spanish & Catalan
+- Certified Scrum Master (CSM)
