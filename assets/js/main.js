@@ -172,9 +172,40 @@
     }
   }
 
+  /**
+   * Skills Filter Controller
+   */
+  const initSkillsFilter = () => {
+    const filterContainer = select('#skills-filter');
+    if (!filterContainer) return;
+
+    const filterBtns = select('#skills-filter .filter-btn', true);
+    const skillCards = select('#skills-cards-container .skill-card-wrapper', true);
+
+    filterBtns.forEach(btn => {
+      btn.addEventListener('click', function() {
+        const filterValue = this.getAttribute('data-filter');
+
+        filterBtns.forEach(b => b.classList.remove('active-filter'));
+        this.classList.add('active-filter');
+
+        skillCards.forEach(card => {
+          const category = card.getAttribute('data-category');
+          if (filterValue === 'all' || category === filterValue) {
+            card.style.display = 'block';
+            card.classList.add('animate__animated', 'animate__fadeIn');
+          } else {
+            card.style.display = 'none';
+          }
+        });
+      });
+    });
+  };
+
   window.addEventListener('DOMContentLoaded', () => {
     initTheme();
     updateActiveNav();
+    initSkillsFilter();
   });
 
 })();

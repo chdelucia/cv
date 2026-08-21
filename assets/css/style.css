@@ -678,6 +678,62 @@ section {
   margin-top: 4px;
 }
 
+/* Utility Font Sizes */
+.fs-7 { font-size: 0.85rem !important; }
+.fs-8 { font-size: 0.75rem !important; }
+.fw-extrabold { font-weight: 800 !important; }
+
+/* Metric Cards in About Section */
+.metric-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-card) !important;
+  backdrop-filter: blur(10px);
+  transition: var(--transition-fast);
+}
+
+.metric-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--primary) !important;
+  box-shadow: 0 10px 25px var(--primary-glow);
+}
+
+/* Skills Filter Buttons */
+.filter-btn {
+  border-radius: 20px !important;
+  font-size: 0.88rem;
+  font-weight: 600;
+  transition: var(--transition-fast);
+}
+
+.filter-btn.active-filter {
+  background: var(--primary) !important;
+  color: #ffffff !important;
+  border-color: var(--primary) !important;
+  box-shadow: 0 6px 18px var(--primary-glow);
+}
+
+/* Progression Timeline */
+.progression-timeline .timeline-step {
+  transition: var(--transition-fast);
+}
+
+.progression-timeline .timeline-step:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.progression-timeline .progress {
+  background-color: rgba(255, 255, 255, 0.08);
+  border-radius: 10px;
+}
+
+/* Tech Progress Item */
+.tech-progress-list .progress {
+  background-color: rgba(255, 255, 255, 0.08);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
 /* Skills Section */
 .skill-category-card {
   background: var(--bg-card);
@@ -1009,6 +1065,7 @@ section {
 [data-theme="light"] .skill-category-card,
 [data-theme="light"] .stat-card,
 [data-theme="light"] .tech-pill,
+[data-theme="light"] .metric-card,
 [data-theme="light"] .btn-outline-custom,
 [data-theme="light"] .social-icon,
 [data-theme="light"] .profile-badge,
@@ -1016,6 +1073,11 @@ section {
 [data-theme="light"] .mobile-nav-toggle,
 [data-theme="light"] .back-to-top {
   box-shadow: 0 4px 15px rgba(15, 23, 42, 0.06);
+}
+
+[data-theme="light"] .progression-timeline .progress,
+[data-theme="light"] .tech-progress-list .progress {
+  background-color: rgba(15, 23, 42, 0.1);
 }
 
 [data-theme="light"] .skill-tag {
