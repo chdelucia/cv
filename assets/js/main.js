@@ -287,10 +287,105 @@
     });
   };
 
+  /**
+   * Scrollytelling Interaction Engine
+   */
+  const initScrollytelling = () => {
+    const chapters = document.querySelectorAll('.scrolly-chapter');
+    const stageViews = document.querySelectorAll('.stage-view');
+    const navItems = document.querySelectorAll('.scrolly-nav-item');
+    const badgeEl = select('#stage-chap-badge');
+    const titleEl = select('#stage-chap-title');
+    const percentEl = select('#scroll-percentage');
+    const chatScrollyBtn = select('#open-chat-scrolly');
+
+    if (!chapters.length) return;
+
+    // Connect open AI chat button in Chapter 6
+    if (chatScrollyBtn) {
+      chatScrollyBtn.addEventListener('click', () => {
+        const chatWin = select('#ai-chat-window');
+        if (chatWin) {
+          chatWin.classList.add('active');
+          const input = select('#ai-chat-input');
+          if (input) setTimeout(() => input.focus(), 200);
+        }
+      });
+    }
+
+    const chapterTitles = {
+      intro: { badge: 'CAPÍTULO 01 / 06', title: 'Genesis & Perfil' },
+      career: { badge: 'CAPÍTULO 02 / 06', title: 'Trayectoria Profesional' },
+      tech: { badge: 'CAPÍTULO 03 / 06', title: 'Stack Angular & AWS' },
+      projects: { badge: 'CAPÍTULO 04 / 06', title: 'Métricas de Impacto' },
+      education: { badge: 'CAPÍTULO 05 / 06', title: 'Educación & Másters' },
+      contact: { badge: 'CAPÍTULO 06 / 06', title: 'Contacto & Contratación' }
+    };
+
+    const activateChapter = (chapterName) => {
+      // Update stage view
+      stageViews.forEach(view => {
+        if (view.dataset.view === chapterName) {
+          view.classList.add('active');
+        } else {
+          view.classList.remove('active');
+        }
+      });
+
+      // Update navbar links
+      navItems.forEach(item => {
+        if (item.dataset.chapTarget === chapterName) {
+          item.classList.add('active');
+        } else {
+          item.classList.remove('active');
+        }
+      });
+
+      // Update badge header
+      if (chapterTitles[chapterName]) {
+        if (badgeEl) badgeEl.textContent = chapterTitles[chapterName].badge;
+        if (titleEl) titleEl.textContent = chapterTitles[chapterName].title;
+      }
+    };
+
+    // IntersectionObserver for scrolly chapters
+    const observerOptions = {
+      root: null,
+      rootMargin: '-20% 0px -40% 0px',
+      threshold: 0.1
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const chapterName = entry.target.dataset.chapter;
+          if (chapterName) {
+            activateChapter(chapterName);
+          }
+        }
+      });
+    }, observerOptions);
+
+    chapters.forEach(chap => observer.observe(chap));
+
+    // Calculate scroll percentage
+    const updateScrollPercentage = () => {
+      if (!percentEl) return;
+      const scrollTop = window.scrollY || document.documentElement.scrollTop;
+      const docHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      const progress = docHeight > 0 ? Math.min(100, Math.max(0, Math.round((scrollTop / docHeight) * 100))) : 0;
+      percentEl.textContent = `${progress}%`;
+    };
+
+    window.addEventListener('scroll', updateScrollPercentage, { passive: true });
+    updateScrollPercentage();
+  };
+
   window.addEventListener('DOMContentLoaded', () => {
     initTheme();
     updateActiveNav();
     initAIChat();
+    initScrollytelling();
   });
 
 })();
