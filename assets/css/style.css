@@ -1304,3 +1304,215 @@ section {
   color: #0f172a;
   border-color: rgba(15, 23, 42, 0.2);
 }
+
+/* --------------------------------------------------------------
+# Scrollytelling CV Dedicated Page Styles
+-------------------------------------------------------------- */
+.scrolly-body {
+  padding-top: 80px;
+}
+
+/* Scrolly Header */
+.scrolly-header {
+  height: 70px;
+  background: rgba(11, 15, 25, 0.85);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--border-card);
+  z-index: 9990;
+  display: flex;
+  align-items: center;
+  transition: var(--transition-fast);
+}
+
+[data-theme="light"] .scrolly-header {
+  background: rgba(255, 255, 255, 0.9);
+  border-bottom-color: rgba(15, 23, 42, 0.12);
+}
+
+.avatar-mini {
+  width: 38px;
+  height: 38px;
+  border-radius: 12px;
+  background: var(--bg-card);
+  border: 1px solid var(--border-card);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+}
+
+.scrolly-brand {
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+
+.brand-text .lead-name {
+  font-size: 15px;
+  line-height: 1.1;
+  color: var(--text-heading);
+  white-space: nowrap;
+}
+
+.scrolly-badge {
+  background: rgba(221, 0, 49, 0.15);
+  border: 1px solid rgba(221, 0, 49, 0.4);
+  color: #ff4d6d;
+  font-size: 12px;
+  padding: 5px 12px;
+  border-radius: 20px;
+}
+
+[data-theme="light"] .scrolly-badge {
+  background: rgba(190, 18, 60, 0.12);
+  color: #be123c;
+  border-color: rgba(190, 18, 60, 0.3);
+}
+
+/* Header Chapter Navigation Pills */
+.scrolly-nav-item {
+  padding: 6px 14px;
+  border-radius: 20px;
+  color: var(--text-muted);
+  font-size: 13px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: var(--transition-fast);
+}
+
+.scrolly-nav-item .chap-num {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  opacity: 0.7;
+}
+
+.scrolly-nav-item:hover,
+.scrolly-nav-item.active {
+  color: #ffffff;
+  background: rgba(221, 0, 49, 0.2);
+  border: 1px solid rgba(221, 0, 49, 0.5);
+}
+
+[data-theme="light"] .scrolly-nav-item:hover,
+[data-theme="light"] .scrolly-nav-item.active {
+  color: #be123c;
+  background: rgba(190, 18, 60, 0.1);
+  border-color: rgba(190, 18, 60, 0.3);
+}
+
+/* Scrolly Main Container Layout */
+.scrolly-container {
+  padding-top: 30px;
+}
+
+/* Sticky Stage Panel (Left side) */
+.scrolly-stage-col {
+  z-index: 10;
+}
+
+.scrolly-stage-sticky {
+  position: sticky;
+  top: 95px;
+  max-height: calc(100vh - 120px);
+}
+
+.stage-card {
+  background: var(--bg-card);
+  border-color: var(--border-card) !important;
+  backdrop-filter: blur(20px);
+  min-height: 480px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.stage-visual-viewport {
+  position: relative;
+  min-height: 340px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.stage-view {
+  display: none;
+  width: 100%;
+  animation: stageFadeIn 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.stage-view.active {
+  display: block;
+}
+
+@keyframes stageFadeIn {
+  from { opacity: 0; transform: translateY(12px) scale(0.98); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.stage-profile-img {
+  width: 110px;
+  height: 110px;
+  object-fit: cover;
+}
+
+/* Meter Progress Bar */
+.progress-sm {
+  height: 6px;
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+[data-theme="light"] .progress-sm {
+  background: rgba(15, 23, 42, 0.1);
+}
+
+/* Scrolling Narrative Column (Right side) */
+.scrolly-chapter {
+  min-height: 85vh;
+  padding-bottom: 60px;
+  display: flex;
+  align-items: center;
+}
+
+.chapter-card {
+  background: var(--bg-card);
+  border-color: var(--border-card) !important;
+  backdrop-filter: blur(16px);
+  width: 100%;
+  transition: var(--transition-smooth);
+}
+
+.chapter-card:hover {
+  border-color: var(--border-card-active) !important;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3) !important;
+}
+
+.story-list li {
+  margin-bottom: 8px;
+}
+
+.story-experience-item {
+  background: rgba(255, 255, 255, 0.02);
+  transition: var(--transition-fast);
+}
+
+.story-experience-item:hover {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(221, 0, 49, 0.3) !important;
+}
+
+[data-theme="light"] .story-experience-item {
+  background: rgba(15, 23, 42, 0.02);
+}
+
+[data-theme="light"] .story-experience-item:hover {
+  background: rgba(15, 23, 42, 0.04);
+}
+
+/* Font utilities */
+.fs-7 { font-size: 0.875rem; }
+.fs-8 { font-size: 0.775rem; }
+.fw-extrabold { font-weight: 800; }
+.space-y-2 > * + * { margin-top: 0.5rem; }
+.space-y-3 > * + * { margin-top: 0.75rem; }
