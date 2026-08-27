@@ -1514,5 +1514,125 @@ section {
 .fs-7 { font-size: 0.875rem; }
 .fs-8 { font-size: 0.775rem; }
 .fw-extrabold { font-weight: 800; }
+.fw-mono { font-family: var(--font-mono); }
 .space-y-2 > * + * { margin-top: 0.5rem; }
 .space-y-3 > * + * { margin-top: 0.75rem; }
+
+/* --------------------------------------------------------------
+# Storytelling Enhancements & Micro-Animations
+-------------------------------------------------------------- */
+
+/* Floating Profile Avatar */
+@keyframes floatSubtle {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-8px) rotate(1deg); }
+}
+
+.float-animation {
+  animation: floatSubtle 4s ease-in-out infinite;
+}
+
+/* Pulsing Badge & Icon Glows */
+@keyframes badgeGlowPulse {
+  0%, 100% { box-shadow: 0 0 5px var(--primary-glow); }
+  50% { box-shadow: 0 0 15px var(--primary-glow); }
+}
+
+.pulse-badge {
+  animation: badgeGlowPulse 2.5s ease-in-out infinite;
+}
+
+.pulse-glow-avatar {
+  box-shadow: 0 0 12px var(--primary-glow);
+  transition: transform var(--transition-fast);
+}
+
+.pulse-glow-avatar:hover {
+  transform: scale(1.1) rotate(5deg);
+}
+
+@keyframes mousePulse {
+  0%, 100% { opacity: 0.6; transform: translateY(0); }
+  50% { opacity: 1; transform: translateY(3px); }
+}
+
+.pulse-icon {
+  display: inline-block;
+  animation: mousePulse 1.8s ease-in-out infinite;
+}
+
+@keyframes btnPulseShadow {
+  0%, 100% { box-shadow: 0 10px 25px var(--primary-glow); }
+  50% { box-shadow: 0 12px 30px rgba(221, 0, 49, 0.6); }
+}
+
+.pulse-button {
+  animation: btnPulseShadow 2.5s infinite;
+}
+
+/* Dynamic Badge & Highlight Text Transitions */
+.dynamic-badge {
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.highlight-stage-title {
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+/* Stage Progress Bar Gradient Fill */
+.bg-gradient-primary {
+  background: linear-gradient(90deg, var(--primary) 0%, var(--aws-orange) 60%, var(--accent-cyan) 100%);
+  transition: width 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Interactive Stage Cards */
+.interactive-hover-card {
+  transition: transform var(--transition-fast), border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.interactive-hover-card:hover {
+  transform: translateY(-3px) scale(1.02);
+  border-color: rgba(221, 0, 49, 0.4) !important;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+}
+
+/* Animated Meter Bar Expansion */
+.stage-view.active .animated-bar {
+  animation: meterExpand 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes meterExpand {
+  from { width: 0% !important; }
+}
+
+/* Visual Story Cards in Scrollytelling Right Side */
+.visual-story-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.visual-story-card::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.04), transparent);
+  transform: skewX(-25deg);
+  transition: left 0.75s ease;
+}
+
+.visual-story-card:hover::after {
+  left: 150%;
+}
+
+.human-quote-box {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(8px);
+  position: relative;
+}
+
+[data-theme="light"] .human-quote-box {
+  background: rgba(15, 23, 42, 0.03);
+}

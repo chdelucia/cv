@@ -296,6 +296,7 @@
     const navItems = document.querySelectorAll('.scrolly-nav-item');
     const badgeEl = select('#stage-chap-badge');
     const titleEl = select('#stage-chap-title');
+    const progressFill = select('#stage-progress-fill');
     const percentEl = select('#scroll-percentage');
     const chatScrollyBtn = select('#open-chat-scrolly');
 
@@ -314,16 +315,16 @@
     }
 
     const chapterTitles = {
-      intro: { badge: 'CAPÍTULO 01 / 06', title: 'Genesis & Perfil' },
-      career: { badge: 'CAPÍTULO 02 / 06', title: 'Trayectoria Profesional' },
-      tech: { badge: 'CAPÍTULO 03 / 06', title: 'Stack Angular & AWS' },
-      projects: { badge: 'CAPÍTULO 04 / 06', title: 'Métricas de Impacto' },
-      education: { badge: 'CAPÍTULO 05 / 06', title: 'Educación & Másters' },
-      contact: { badge: 'CAPÍTULO 06 / 06', title: 'Contacto & Contratación' }
+      'chap-1': { badge: 'CAPÍTULO 01 / 06', title: 'El Origen & Telemática', fill: '16.6%' },
+      'chap-2': { badge: 'CAPÍTULO 02 / 06', title: 'Escala Enterprise & Agilidad', fill: '33.3%' },
+      'chap-3': { badge: 'CAPÍTULO 03 / 06', title: 'Serverless Cloud & Ciberseguridad', fill: '50.0%' },
+      'chap-4': { badge: 'CAPÍTULO 04 / 06', title: 'Liderazgo Angular & AWS', fill: '66.6%' },
+      'chap-5': { badge: 'CAPÍTULO 05 / 06', title: 'Stack & Filosofía', fill: '83.3%' },
+      'chap-6': { badge: 'CAPÍTULO 06 / 06', title: 'Conexión & Próximo Capítulo', fill: '100%' }
     };
 
     const activateChapter = (chapterName) => {
-      // Update stage view
+      // Update stage view with transition
       stageViews.forEach(view => {
         if (view.dataset.view === chapterName) {
           view.classList.add('active');
@@ -341,10 +342,11 @@
         }
       });
 
-      // Update badge header
+      // Update badge header & progress bar fill
       if (chapterTitles[chapterName]) {
         if (badgeEl) badgeEl.textContent = chapterTitles[chapterName].badge;
         if (titleEl) titleEl.textContent = chapterTitles[chapterName].title;
+        if (progressFill) progressFill.style.width = chapterTitles[chapterName].fill;
       }
     };
 
@@ -352,7 +354,7 @@
     const observerOptions = {
       root: null,
       rootMargin: '-20% 0px -40% 0px',
-      threshold: 0.1
+      threshold: 0.15
     };
 
     const observer = new IntersectionObserver((entries) => {
