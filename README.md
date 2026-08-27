@@ -3,8 +3,7 @@ Barcelona, Spain · [LinkedIn](https://www.linkedin.com/in/christian-heredia-ang
 
 I am a **Senior Lead Angular Architect and AWS Cloud Frontend Specialist** with over 10 years of professional experience (since 2013), 20+ delivered enterprise applications, and a certified Scrum Master. I specialize in building enterprise-grade, high-performance web platforms using **Angular (16/17/18)**, **Angular Signals**, **Nx Microfrontends**, and scalable **AWS Cloud Architectures** (S3, CloudFront CDN, Lambda, API Gateway, Route 53, Serverless CI/CD), backed by a Master's Degree in Cybersecurity to guarantee security-by-design.
 
-🎮 **Interactive 2D Mario CV:** Play [Super Chris World (`mario-cv.html`)](https://chdelucia.github.io/mario-cv.html) to progressively reveal career milestones, skills, and projects through retro 2D platformer gameplay.
-🐉 **Interactive Goku Flying Nimbus CV:** Play [Dragon Ball CV (`goku-cv.html`)](https://chdelucia.github.io/goku-cv.html) to fly Goku on the Flying Nimbus (Nube Mágica), shoot Kamehameha beams, and collect the 7 Dragon Balls to summon Shenron and reveal official CV credentials.
+🤖 **AI Assistant:** An interactive AI Assistant chat is integrated into the portfolio site to answer questions about Chris Heredia's background, technical skills, AWS architecture, and professional experience in real-time.
 
 ---
 
