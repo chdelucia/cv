@@ -190,55 +190,128 @@
       chatCloseBtn.addEventListener('click', () => toggleChat(false));
     }
 
-    // Knowledge base for Chris Heredia
-    const answers = [
+    // String normalization helper (removes accents, converts to lower case)
+    const normalizeText = (str) => {
+      return (str || '')
+        .normalize('NFD')
+        .replace(/[\u0300-\u036f]/g, '')
+        .toLowerCase()
+        .trim();
+    };
+
+    // Extended intent knowledge base for natural language responses
+    const intents = [
       {
-        keywords: ['experiencia', 'trabajo', 'empresa', 'dimatica', 'obsidian', 'deloitte', 'everis', 'pricesoft', 'años', 'trayectoria'],
-        response: 'Chris Heredia cuenta con más de 10 años de experiencia profesional (desde Sept 2013). Actualmente es <strong>Lead Angular Architect en Dimatica Software</strong>, habiendo trabajado previamente en Obsidian Software, Deloitte, NTT Data (Everis) y Pricesoft.'
+        id: 'greetings',
+        patterns: ['hola', 'buenas', 'buenos dias', 'buenas tardes', 'buenas noches', 'que tal', 'quien eres', 'quien es chris', 'como estas', 'hey', 'saludos'],
+        response: '¡Hola! 👋 Soy el asistente virtual de <strong>Chris Heredia</strong>.<br>Puedo responder a preguntas sobre <strong>a qué se dedica actualmente</strong>, <strong>qué ha estudiado</strong>, su <strong>experiencia laboral</strong>, su <strong>stack de Angular y AWS</strong> o su <strong>contacto</strong>. ¿Qué te gustaría saber?'
       },
       {
-        keywords: ['angular', 'frontend', 'nx', 'microfrontend', 'ngrx', 'rxjs', 'signals', 'typescript', 'stack'],
-        response: 'Su especialidad core es <strong>Angular (16/17/18)</strong>, Signals, arquitectura <strong>Nx Monorepo y Microfrontends</strong> (Module Federation), NgRx, RxJS, TypeScript, Tailwind CSS, Bootstrap y Storybook.'
+        id: 'thanks',
+        patterns: ['gracias', 'muchas gracias', 'genial', 'perfecto', 'excelente', 'estupendo', 'adios', 'hasta luego', 'chao', 'top'],
+        response: '¡De nada! 😊 Si quieres saber cualquier otra cosa sobre Chris o sus proyectos, estoy a tu disposición. ¡Que tengas un gran día!'
       },
       {
-        keywords: ['aws', 'cloud', 's3', 'cloudfront', 'cdn', 'lambda', 'api gateway', 'cloudbees', 'devops', 'despliegue'],
-        response: 'En el ámbito AWS Cloud, gestiona despliegues frontend automatizados utilizando <strong>AWS S3</strong> y distribución mediante <strong>AWS CloudFront CDN</strong>, integrados con pipelines de <strong>CloudBees CI/CD</strong>, Lambda y API Gateway.'
+        id: 'current_role',
+        patterns: [
+          'que hace', 'dedica', 'se dedica', 'actualmente', 'trabajo actual', 'puesto actual',
+          'rol actual', 'cargo', 'donde trabaja', 'que esta haciendo', 'empresa actual', 'dimatica'
+        ],
+        response: '<strong>Actualmente</strong>, Chris Heredia es <strong>Lead Angular Architect y Deployment Manager AWS en Dimatica Software</strong> (desde mayo de 2022).<br>Lidera la arquitectura frontend de una gran plataforma internacional B2B/B2C de viajes y turismo, coordinando la adopción de <strong>Angular (16/17/18)</strong>, <strong>Nx Microfrontends</strong> y automatizando los despliegues en <strong>AWS (S3 y CloudFront CDN)</strong> con pipelines en <strong>CloudBees CI/CD</strong>.'
       },
       {
-        keywords: ['educación', 'educacion', 'estudios', 'universidad', 'título', 'titulo', 'master', 'máster', 'carrera', 'telematica', 'upf', 'seguridad', 'cybersecurity', 'agile'],
-        response: 'Chris es <strong>Ingeniero Técnico en Telemática</strong> por la Universitat Pompeu Fabra (UPF). Posee además un <strong>Máster en Ciberseguridad</strong> (VIU) y un <strong>Máster en Metodologías Ágiles</strong> (La Salle - URL).'
+        id: 'education',
+        patterns: [
+          'estudio', 'estudiado', 'estudios', 'educacion', 'universidad', 'titulo', 'titulos',
+          'grado', 'ingenieria', 'telematica', 'upf', 'master', 'masters', 'formacion', 'carrera', 'academico', 'titulacion', 'viu', 'la salle'
+        ],
+        response: 'Chris cuenta con una sólida formación universitaria de ingeniería y especialización de posgrado:<br>• 🎓 <strong>Ingeniería Técnica en Telemática</strong> — Universitat Pompeu Fabra (UPF), Barcelona.<br>• 🔒 <strong>Máster en Ciberseguridad</strong> — Universidad Internacional de Valencia (VIU).<br>• ⚡ <strong>Máster en Metodologías Ágiles</strong> — La Salle - Universitat Ramon Llull.<br>• 📜 <strong>Certified Scrum Master (CSM)</strong> — Scrum Alliance.'
       },
       {
-        keywords: ['certificación', 'certificacion', 'certificaciones', 'scrum', 'csm', 'agile'],
-        response: 'Está certificado oficialmente como <strong>Certified Scrum Master (CSM)</strong> por la Scrum Alliance y cuenta con un Máster en Metodologías Ágiles.'
+        id: 'experience',
+        patterns: [
+          'experiencia', 'trayectoria', 'empresas', 'donde ha trabajado', 'historial', 'anos',
+          'anos de experiencia', 'cuantos anos', 'obsidian', 'deloitte', 'everis', 'ntt data', 'pricesoft', 'pasado', 'carrera profesional'
+        ],
+        response: 'Chris acumula <strong>más de 10 años de experiencia profesional</strong> (desde septiembre de 2013):<br>• 🏢 <strong>Dimatica Software</strong> (2022-Presente): Lead Angular Architect & AWS Cloud Specialist.<br>• 🚀 <strong>Obsidian Software</strong> (2020-2022): Senior Frontend Engineer & Scrum Master.<br>• 💼 <strong>Deloitte & NTT Data (Everis)</strong> (2017-2019): Senior Frontend Lead en portales de salud e investigación y analítica deportiva para LaLiga.<br>• 💻 <strong>Pricesoft</strong> (2013-2016): Frontend Developer.'
       },
       {
-        keywords: ['contacto', 'email', 'correo', 'linkedin', 'github', 'contratar', 'telefono', 'teléfono', 'barcelona'],
-        response: 'Puedes contactar con Chris directamente a través de:<br>• ✉️ Email: <a href="mailto:c.heredia87@gmail.com">c.heredia87@gmail.com</a><br>• 🔗 LinkedIn: <a href="https://www.linkedin.com/in/christian-heredia-angular-developer/" target="_blank">Perfil en LinkedIn</a><br>• 🐙 GitHub: <a href="https://github.com/chdelucia" target="_blank">github.com/chdelucia</a><br>• 📍 Ubicación: Barcelona, España.'
+        id: 'angular_stack',
+        patterns: [
+          'angular', 'frontend', 'front end', 'stack', 'tecnologias', 'lenguajes', 'microfrontends',
+          'microfrontend', 'nx', 'ngrx', 'rxjs', 'signals', 'typescript', 'javascript', 'tailwind', 'bootstrap', 'storybook', 'frameworks'
+        ],
+        response: 'El stack técnico core de Chris abarca:<br>• ⚡ <strong>Framework:</strong> Angular (16/17/18) con Signals reactivas y RxJS.<br>• 🏗️ <strong>Arquitectura:</strong> Nx Monorepos y Microfrontends (Module Federation).<br>• 📦 <strong>Gestión de Estado:</strong> NgRx Store & Effects.<br>• 🎨 <strong>UI & Estilos:</strong> TypeScript (ES2023+), HTML5/SASS, Tailwind CSS, Bootstrap 5 y Storybook.'
       },
       {
-        keywords: ['proyectos', 'la liga', 'laliga', 'turismo', 'viajes', 'salud', 'chatbot'],
-        response: 'Ha liderado proyectos como una gran plataforma internacional B2B/B2C de alojamiento y viajes en Dimatica, cuadros de mando de analítica deportiva para LaLiga en NTT Data, portales de salud para Deloitte y sistemas de monitorización en tiempo real.'
+        id: 'aws_cloud',
+        patterns: [
+          'aws', 'cloud', 'nube', 's3', 'cloudfront', 'cdn', 'lambda', 'api gateway', 'route 53',
+          'cloudbees', 'devops', 'despliegue', 'despliegues', 'deploy', 'desplegar', 'ci/cd', 'pipeline', 'infraestructura'
+        ],
+        response: 'En el ecosistema <strong>AWS Cloud & DevOps</strong>, Chris gestiona el ciclo de despliegue frontend:<br>• 🪣 <strong>AWS S3:</strong> Hosting de paquetes estáticos y distribuciones de producción.<br>• 🌐 <strong>AWS CloudFront CDN:</strong> Distribución global de baja latencia con invalidador automatizado de caché.<br>• ⚙️ <strong>CloudBees CI/CD & GitHub Actions:</strong> Integración y entrega continua.<br>• 🧩 Integración con <strong>AWS Lambda, API Gateway y Route 53</strong>.'
+      },
+      {
+        id: 'projects',
+        patterns: [
+          'proyectos', 'proyecto', 'la liga', 'laliga', 'viajes', 'turismo', 'salud', 'dashboard',
+          'monitorizacion', 'logros', 'impacto', 'casos de exito'
+        ],
+        response: 'Entre los proyectos destacados de Chris se incluyen:<br>• ✈️ <strong>Plataforma Internacional B2B/B2C de Alojamiento</strong> en Dimatica (Nx Microfrontends + AWS S3/CloudFront CDN).<br>• ⚽ <strong>Portal de Analítica Deportiva para LaLiga</strong> en NTT Data (cuadros de mando interactivos en tiempo real).<br>• 📊 <strong>Dashboard de Monitorización en Tiempo Real</strong> en Obsidian (telemetría AWS CloudWatch + Three.js + Angular).<br>• 🏥 <strong>Portal de Salud e Inserción</strong> en Deloitte.'
+      },
+      {
+        id: 'testing_security',
+        patterns: [
+          'testing', 'tests', 'test', 'cobertura', 'jest', 'cypress', 'playwright', 'calidad',
+          'seguridad', 'ciberseguridad', 'owasp', 'xss', 'jwt', 'oauth'
+        ],
+        response: 'Chris prioriza la calidad y la ciberseguridad:<br>• 🧪 <strong>Testing:</strong> Cobertura superior al 85% con <strong>Jest</strong> (unitarios) y <strong>Cypress / Playwright</strong> (E2E).<br>• 🛡️ <strong>Seguridad:</strong> Principios de <i>Security-by-Design</i> gracias a su Máster en Ciberseguridad (mitigación OWASP Top 10, prevención XSS, JWT y OAuth2).'
+      },
+      {
+        id: 'agile_scrum',
+        patterns: [
+          'agile', 'scrum', 'scrum master', 'metodologias', 'kanban', 'liderazgo', 'equipo', 'equipos', 'gestion'
+        ],
+        response: 'Chris es <strong>Certified Scrum Master (CSM)</strong> por la Scrum Alliance y cuenta con un <strong>Máster en Metodologías Ágiles</strong> (La Salle - URL). Facilita sprint plannings, retrospectivas y optimiza la eficiencia de entregas del equipo.'
+      },
+      {
+        id: 'location_hire',
+        patterns: [
+          'donde vive', 'ubicacion', 'reside', 'barcelona', 'disponibilidad', 'remoto', 'hibrido',
+          'contratar', 'trabajar', 'oferta', 'disponible', 'modalidad'
+        ],
+        response: 'Chris reside en <strong>Barcelona, España</strong>. Está abierto a roles de <strong>Lead Architect</strong>, <strong>Frontend Manager</strong> o <strong>Consultoría Cloud / Angular</strong> en modalidad remota, híbrida o presencial.'
+      },
+      {
+        id: 'contact',
+        patterns: [
+          'contacto', 'email', 'correo', 'escribir', 'hablar', 'telefono', 'linkedin', 'github',
+          'redes', 'cv', 'pdf', 'descargar'
+        ],
+        response: 'Puedes contactar con Chris a través de:<br>• ✉️ <strong>Email:</strong> <a href="mailto:c.heredia87@gmail.com">c.heredia87@gmail.com</a><br>• 🔗 <strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/christian-heredia-angular-developer/" target="_blank">Perfil en LinkedIn</a><br>• 🐙 <strong>GitHub:</strong> <a href="https://github.com/chdelucia" target="_blank">github.com/chdelucia</a><br>• 📄 <strong>CV PDF:</strong> <a href="Chris_Heredia_CV.pdf" target="_blank">Descargar CV en PDF</a>'
       }
     ];
 
     const getBotResponse = (query) => {
-      const text = query.toLowerCase().trim();
-      if (!text) return 'Por favor, escribe una pregunta sobre Chris Heredia.';
+      const normalizedQuery = normalizeText(query);
+      if (!normalizedQuery) return 'Por favor, escribe una pregunta sobre la trayectoria, estudios o proyectos de Chris Heredia.';
 
       let bestMatch = null;
       let maxScore = 0;
 
-      answers.forEach(item => {
+      intents.forEach(intent => {
         let score = 0;
-        item.keywords.forEach(kw => {
-          if (text.includes(kw)) {
-            score++;
+        intent.patterns.forEach(pattern => {
+          const normPattern = normalizeText(pattern);
+          if (normalizedQuery.includes(normPattern)) {
+            // Give higher weight for multi-word exact matches or precise pattern hits
+            score += normPattern.includes(' ') ? 3 : 1;
           }
         });
+
         if (score > maxScore) {
           maxScore = score;
-          bestMatch = item.response;
+          bestMatch = intent.response;
         }
       });
 
@@ -246,7 +319,13 @@
         return bestMatch;
       }
 
-      return 'Chris Heredia es Senior Lead Angular Architect y Especialista AWS Cloud Frontend con 10+ años de experiencia. ¿Te gustaría saber sobre su <strong>experiencia</strong>, su <strong>stack de Angular y AWS</strong>, su <strong>educación</strong> o sus datos de <strong>contacto</strong>?';
+      // Intelligent fallback menu with dynamic hints
+      return 'Puedo ayudarte a conocer mejor a Chris Heredia. Prueba a preguntarme por:<br>' +
+        '• 🎓 <strong>"¿Qué ha estudiado?"</strong> (Formación universitaria y másters)<br>' +
+        '• 💼 <strong>"¿A qué se dedica actualmente?"</strong> (Rol y liderazgo en Dimatica)<br>' +
+        '• ⚡ <strong>"¿Cuál es su stack de Angular?"</strong> (Signals, Nx Microfrontends, NgRx)<br>' +
+        '• ☁️ <strong>"¿Cómo utiliza AWS?"</strong> (S3, CloudFront CDN, CloudBees CI/CD)<br>' +
+        '• ✉️ <strong>"¿Cómo puedo contactarle?"</strong> (Email y LinkedIn)';
     };
 
     const addMessage = (sender, content) => {
