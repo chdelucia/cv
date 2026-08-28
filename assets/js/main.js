@@ -367,17 +367,14 @@
   };
 
   /**
-   * Scrollytelling Interaction Engine
+   * GSAP & ScrollTrigger Scrollytelling Engine
    */
   const initScrollytelling = () => {
-    const chapters = document.querySelectorAll('.scrolly-chapter');
-    const stageViews = document.querySelectorAll('.stage-view');
+    const chapters = document.querySelectorAll('.gsap-chapter, .scrolly-chapter');
     const navItems = document.querySelectorAll('.scrolly-nav-item');
-    const badgeEl = select('#stage-chap-badge');
-    const titleEl = select('#stage-chap-title');
-    const progressFill = select('#stage-progress-fill');
-    const percentEl = select('#scroll-percentage');
+    const liveBadge = select('#gsap-live-chapter-badge');
     const chatScrollyBtn = select('#open-chat-scrolly');
+    const spineFill = select('.gsap-spine-fill');
 
     if (!chapters.length) return;
 
@@ -393,73 +390,91 @@
       });
     }
 
-    const chapterTitles = {
-      'chap-1': { badge: 'CAPÍTULO 01 / 06', title: 'El Origen & Telemática', fill: '16.6%' },
-      'chap-2': { badge: 'CAPÍTULO 02 / 06', title: 'Escala Enterprise & Agilidad', fill: '33.3%' },
-      'chap-3': { badge: 'CAPÍTULO 03 / 06', title: 'Serverless Cloud & Ciberseguridad', fill: '50.0%' },
-      'chap-4': { badge: 'CAPÍTULO 04 / 06', title: 'Liderazgo Angular & AWS', fill: '66.6%' },
-      'chap-5': { badge: 'CAPÍTULO 05 / 06', title: 'Stack & Filosofía', fill: '83.3%' },
-      'chap-6': { badge: 'CAPÍTULO 06 / 06', title: 'Conexión & Próximo Capítulo', fill: '100%' }
+    const chapterBadges = {
+      'chap-hero': 'CAPÍTULO 00 / 06',
+      'chap-1': 'CAPÍTULO 01 / 06',
+      'chap-2': 'CAPÍTULO 02 / 06',
+      'chap-3': 'CAPÍTULO 03 / 06',
+      'chap-4': 'CAPÍTULO 04 / 06',
+      'chap-5': 'CAPÍTULO 05 / 06',
+      'chap-6': 'CAPÍTULO 06 / 06'
     };
 
-    const activateChapter = (chapterName) => {
-      // Update stage view with transition
-      stageViews.forEach(view => {
-        if (view.dataset.view === chapterName) {
-          view.classList.add('active');
-        } else {
-          view.classList.remove('active');
-        }
-      });
-
-      // Update navbar links
+    const updateActiveChapterUI = (chapId) => {
       navItems.forEach(item => {
-        if (item.dataset.chapTarget === chapterName) {
+        if (item.dataset.chapTarget === chapId) {
           item.classList.add('active');
         } else {
           item.classList.remove('active');
         }
       });
 
-      // Update badge header & progress bar fill
-      if (chapterTitles[chapterName]) {
-        if (badgeEl) badgeEl.textContent = chapterTitles[chapterName].badge;
-        if (titleEl) titleEl.textContent = chapterTitles[chapterName].title;
-        if (progressFill) progressFill.style.width = chapterTitles[chapterName].fill;
+      if (liveBadge && chapterBadges[chapId]) {
+        liveBadge.textContent = chapterBadges[chapId];
       }
     };
 
-    // IntersectionObserver for scrolly chapters
-    const observerOptions = {
-      root: null,
-      rootMargin: '-20% 0px -40% 0px',
-      threshold: 0.15
-    };
+    // If GSAP and ScrollTrigger are available, initialize cinematic animations
+    if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
+      gsap.registerPlugin(ScrollTrigger);
 
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          const chapterName = entry.target.dataset.chapter;
-          if (chapterName) {
-            activateChapter(chapterName);
+      // Spine line progress fill
+      if (spineFill) {
+        gsap.to(spineFill, {
+          height: '100%',
+          ease: 'none',
+          scrollTrigger: {
+            trigger: '.gsap-scrolly-container',
+            start: 'top 30%',
+            end: 'bottom bottom',
+            scrub: true
           }
+        });
+      }
+
+      // Animate each chapter card entrance with GSAP
+      chapters.forEach(chap => {
+        const card = chap.querySelector('.gsap-card, .story-card, .chapter-card');
+        const chapId = chap.dataset.chapter || chap.id;
+
+        if (card) {
+          gsap.fromTo(card,
+            {
+              opacity: 0,
+              y: 60,
+              scale: 0.96
+            },
+            {
+              opacity: 1,
+              y: 0,
+              scale: 1,
+              duration: 1,
+              ease: 'power3.out',
+              scrollTrigger: {
+                trigger: chap,
+                start: 'top 80%',
+                end: 'top 30%',
+                toggleActions: 'play none none reverse',
+                onEnter: () => updateActiveChapterUI(chapId),
+                onEnterBack: () => updateActiveChapterUI(chapId)
+              }
+            }
+          );
         }
       });
-    }, observerOptions);
+    } else {
+      // Fallback: IntersectionObserver
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const chapId = entry.target.dataset.chapter || entry.target.id;
+            if (chapId) updateActiveChapterUI(chapId);
+          }
+        });
+      }, { rootMargin: '-20% 0px -40% 0px', threshold: 0.15 });
 
-    chapters.forEach(chap => observer.observe(chap));
-
-    // Calculate scroll percentage
-    const updateScrollPercentage = () => {
-      if (!percentEl) return;
-      const scrollTop = window.scrollY || document.documentElement.scrollTop;
-      const docHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-      const progress = docHeight > 0 ? Math.min(100, Math.max(0, Math.round((scrollTop / docHeight) * 100))) : 0;
-      percentEl.textContent = `${progress}%`;
-    };
-
-    window.addEventListener('scroll', updateScrollPercentage, { passive: true });
-    updateScrollPercentage();
+      chapters.forEach(chap => observer.observe(chap));
+    }
   };
 
   window.addEventListener('DOMContentLoaded', () => {
