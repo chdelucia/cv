@@ -490,7 +490,7 @@
   };
 
   /**
-   * GSAP & ScrollTrigger Scrollytelling Engine (Full-Screen Pinned Sections)
+   * Lightweight IntersectionObserver Storytelling Engine (Natural Jump-Free Scroll)
    */
   const initScrollytelling = () => {
     const pinnedSlides = document.querySelectorAll('.pinned-slide-section');
@@ -557,171 +557,51 @@
       }
     }, { passive: true });
 
-    // GSAP ScrollTrigger Engine
-    if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
-      gsap.registerPlugin(ScrollTrigger);
+    // High-performance IntersectionObserver Engine for scroll tracking & visual reveals
+    const observerOptions = {
+      root: null,
+      rootMargin: '-20% 0px -20% 0px',
+      threshold: 0.15
+    };
 
-      // Map to store ScrollTrigger instances for smooth navigation
-      const slideTriggers = {};
-
-      // Pinned section animations using a single unified GSAP timeline per slide
-      pinnedSlides.forEach((slide) => {
-        const chapId = slide.dataset.chapter || slide.id;
-        const panel = slide.querySelector('.glass-story-panel, .hero-pinned-content');
-        const watermark = slide.querySelector('.watermark-bg-text');
-        const orbs = slide.querySelectorAll('.background-glow-orb');
-        const innerQuote = slide.querySelector('.human-quote-box');
-        const innerStats = slide.querySelectorAll('.stat-card');
-
-        const tl = gsap.timeline({
-          scrollTrigger: {
-            trigger: slide,
-            start: 'top top',
-            end: '+=100%',
-            pin: true,
-            pinSpacing: true,
-            scrub: 0.8,
-            anticipatePin: 1,
-            fastScrollEnd: true,
-            onEnter: () => updateActiveChapterUI(chapId),
-            onEnterBack: () => updateActiveChapterUI(chapId)
-          }
-        });
-
-        slideTriggers[chapId] = tl.scrollTrigger;
-
-        if (panel) {
-          tl.fromTo(panel,
-            { opacity: 0, y: 40, scale: 0.96 },
-            { opacity: 1, y: 0, scale: 1, ease: 'power2.out', duration: 0.5 },
-            0
-          );
-        }
-
-        if (watermark) {
-          tl.fromTo(watermark,
-            { yPercent: -25, opacity: 0.05, rotate: -1.5, scale: 0.96 },
-            { yPercent: 25, opacity: 0.25, rotate: 1.5, scale: 1.05, ease: 'none', duration: 1 },
-            0
-          );
-        }
-
-        orbs.forEach((orb, index) => {
-          const factor = index % 2 === 0 ? -30 : 30;
-          tl.fromTo(orb,
-            { yPercent: -factor, scale: 0.8, opacity: 0.15 },
-            { yPercent: factor, scale: 1.2, opacity: 0.35, ease: 'none', duration: 1 },
-            0
-          );
-        });
-
-        if (innerQuote) {
-          tl.fromTo(innerQuote,
-            { y: 25, opacity: 0 },
-            { y: 0, opacity: 1, ease: 'power1.out', duration: 0.4 },
-            0.15
-          );
-        }
-
-        if (innerStats.length) {
-          tl.fromTo(innerStats,
-            { y: 30, opacity: 0, scale: 0.92 },
-            { y: 0, opacity: 1, scale: 1, stagger: 0.08, ease: 'power1.out', duration: 0.4 },
-            0.2
-          );
+    const sectionObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const chapId = entry.target.dataset.chapter || entry.target.id;
+          if (chapId) updateActiveChapterUI(chapId);
+          entry.target.classList.add('story-revealed');
         }
       });
+    }, observerOptions);
 
-      // Smooth navigation click handler for chapter pills, side dots and hero scroll indicator
-      const allNavLinks = document.querySelectorAll('.scrolly-nav-item, .pinned-chapter-dots .dot-item, .hero-scroll-indicator a');
-      allNavLinks.forEach(link => {
-        link.addEventListener('click', (e) => {
-          let targetId = link.dataset.chapTarget;
-          if (!targetId && link.getAttribute('href')) {
-            targetId = link.getAttribute('href').replace('#', '');
-          }
-          if (targetId && slideTriggers[targetId]) {
+    sections.forEach(sec => {
+      sectionObserver.observe(sec);
+    });
+
+    // Smooth navigation click handler for chapter pills, side dots and hero scroll indicator
+    const allNavLinks = document.querySelectorAll('.scrolly-nav-item, .pinned-chapter-dots .dot-item, .hero-scroll-indicator a');
+    allNavLinks.forEach(link => {
+      link.addEventListener('click', (e) => {
+        let targetId = link.dataset.chapTarget;
+        if (!targetId && link.getAttribute('href')) {
+          targetId = link.getAttribute('href').replace('#', '');
+        }
+        if (targetId) {
+          const targetEl = document.getElementById(targetId);
+          if (targetEl) {
             e.preventDefault();
-            const targetST = slideTriggers[targetId];
+            const headerOffset = 80;
+            const elementPosition = targetEl.getBoundingClientRect().top + window.scrollY;
+            const offsetPosition = elementPosition - headerOffset;
+
             window.scrollTo({
-              top: targetST.start + 2,
+              top: offsetPosition,
               behavior: 'smooth'
             });
           }
-        });
+        }
       });
-
-      // Interactive 3D Mouse Parallax Tilt for Story Panels
-      const tiltPanels = document.querySelectorAll('.glass-story-panel, .hero-pinned-content');
-      if (window.matchMedia('(pointer: fine)').matches) {
-        tiltPanels.forEach((panel) => {
-          const section = panel.closest('.pinned-slide-section');
-          if (!section) return;
-
-          section.addEventListener('mousemove', (e) => {
-            const rect = panel.getBoundingClientRect();
-            const centerX = rect.left + rect.width / 2;
-            const centerY = rect.top + rect.height / 2;
-            const mouseX = e.clientX - centerX;
-            const mouseY = e.clientY - centerY;
-
-            const rotateX = (-mouseY / (rect.height / 2)) * 6;
-            const rotateY = (mouseX / (rect.width / 2)) * 6;
-
-            gsap.to(panel, {
-              rotateX: rotateX,
-              rotateY: rotateY,
-              transformPerspective: 1000,
-              ease: 'power1.out',
-              duration: 0.4
-            });
-
-            // Deep inner parallax movement
-            const quote = panel.querySelector('.human-quote-box');
-            if (quote) {
-              gsap.to(quote, {
-                x: (mouseX / rect.width) * 15,
-                y: (mouseY / rect.height) * 15,
-                ease: 'power1.out',
-                duration: 0.4
-              });
-            }
-          });
-
-          section.addEventListener('mouseleave', () => {
-            gsap.to(panel, {
-              rotateX: 0,
-              rotateY: 0,
-              ease: 'power2.out',
-              duration: 0.6
-            });
-
-            const quote = panel.querySelector('.human-quote-box');
-            if (quote) {
-              gsap.to(quote, {
-                x: 0,
-                y: 0,
-                ease: 'power2.out',
-                duration: 0.6
-              });
-            }
-          });
-        });
-      }
-
-    } else {
-      // Fallback: IntersectionObserver
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            const chapId = entry.target.dataset.chapter || entry.target.id;
-            if (chapId) updateActiveChapterUI(chapId);
-          }
-        });
-      }, { rootMargin: '-30% 0px -30% 0px', threshold: 0.2 });
-
-      sections.forEach(sec => observer.observe(sec));
-    }
+    });
   };
 
   window.addEventListener('DOMContentLoaded', () => {
