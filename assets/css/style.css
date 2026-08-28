@@ -1648,14 +1648,14 @@ section {
 }
 
 /* --------------------------------------------------------------
-# PINNED SCROLLYTELLING STYLES (rijrookvrij.nl style full-screen slides)
+# SCROLLYTELLING STYLES (Clean, Jump-Free & High Readability)
 -------------------------------------------------------------- */
 
 html:has(.pinned-storyteller-body),
 html:has(.scrolly-body),
 body.pinned-storyteller-body,
 body.scrolly-body {
-  scroll-behavior: auto !important;
+  scroll-behavior: smooth;
 }
 
 .pinned-storyteller-body {
@@ -1671,15 +1671,15 @@ body.scrolly-body {
 
 /* Glass Header Styling */
 .glass-header {
-  background: rgba(15, 23, 42, 0.75);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  background: rgba(15, 23, 42, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   transition: background 0.3s ease, border-color 0.3s ease;
 }
 
 [data-theme="light"] .glass-header {
-  background: rgba(255, 255, 255, 0.85);
+  background: rgba(255, 255, 255, 0.9);
   border-bottom: 1px solid rgba(15, 23, 42, 0.1);
 }
 
@@ -1744,7 +1744,7 @@ body.scrolly-body {
   box-shadow: 0 0 12px var(--primary-glow);
 }
 
-/* Pinned Fullscreen Slides Wrapper & Sections */
+/* Clean Slides Wrapper & Story Sections */
 .pinned-slides-wrapper {
   position: relative;
   width: 100%;
@@ -1752,25 +1752,41 @@ body.scrolly-body {
 
 .pinned-slide-section {
   width: 100%;
-  min-height: 100vh;
-  padding-top: 90px;
-  padding-bottom: 50px;
+  min-height: calc(100vh - 80px);
+  padding-top: 6rem;
+  padding-bottom: 5rem;
   box-sizing: border-box;
   position: relative;
+  display: flex;
+  align-items: center;
 }
 
-/* Glass Story Panels */
+/* Smooth Scroll Reveal Animations */
+.glass-story-panel,
+.hero-pinned-content {
+  opacity: 0.2;
+  transform: translateY(24px);
+  transition: opacity 0.5s ease-out, transform 0.5s ease-out, box-shadow 0.3s ease;
+}
+
+.story-revealed .glass-story-panel,
+.story-revealed .hero-pinned-content {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Glass Story Panels - Enhanced Readability */
 .glass-story-panel {
-  background: rgba(30, 41, 59, 0.65);
+  background: rgba(30, 41, 59, 0.75);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
   border: 1px solid rgba(255, 255, 255, 0.12) !important;
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
-  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
+  border-radius: 1.25rem;
 }
 
 [data-theme="light"] .glass-story-panel {
-  background: rgba(255, 255, 255, 0.85);
+  background: rgba(255, 255, 255, 0.92);
   border: 1px solid rgba(15, 23, 42, 0.1) !important;
   box-shadow: 0 20px 50px rgba(15, 23, 42, 0.08);
 }
@@ -1781,26 +1797,26 @@ body.scrolly-body {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  font-size: clamp(4rem, 15vw, 16rem);
+  font-size: clamp(3.5rem, 12vw, 13rem);
   font-weight: 900;
-  color: rgba(255, 255, 255, 0.02);
+  color: rgba(255, 255, 255, 0.03);
   user-select: none;
   pointer-events: none;
   white-space: nowrap;
   z-index: 1;
-  letter-spacing: -0.04em;
+  letter-spacing: -0.03em;
 }
 
 [data-theme="light"] .watermark-bg-text {
-  color: rgba(15, 23, 42, 0.03);
+  color: rgba(15, 23, 42, 0.04);
 }
 
 /* Background Glow Orbs */
 .background-glow-orb {
   position: absolute;
   border-radius: 50%;
-  filter: blur(90px);
-  opacity: 0.25;
+  filter: blur(100px);
+  opacity: 0.2;
   pointer-events: none;
   z-index: 1;
 }
@@ -1845,31 +1861,14 @@ body.scrolly-body {
   left: 15%;
 }
 
-/* 3D Perspective & GPU Hardware Acceleration for Parallax */
-.pinned-slide-section {
-  perspective: 1000px;
-}
-
-.glass-story-panel,
-.hero-pinned-content {
-  transform-style: preserve-3d;
-  will-change: transform, opacity;
-  transition: transform 0.15s ease-out, box-shadow 0.3s ease;
-}
-
-.watermark-bg-text {
-  will-change: transform, opacity;
-}
-
 .human-quote-box,
 .stat-card {
-  transform-style: preserve-3d;
-  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s ease;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
 .human-quote-box:hover,
 .stat-card:hover {
-  transform: translateZ(15px);
+  transform: translateY(-3px);
 }
 
 /* Chapter Number Pill Badges */
