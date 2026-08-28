@@ -561,119 +561,94 @@
     if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
       gsap.registerPlugin(ScrollTrigger);
 
-      // Pinned section animations
+      // Map to store ScrollTrigger instances for smooth navigation
+      const slideTriggers = {};
+
+      // Pinned section animations using a single unified GSAP timeline per slide
       pinnedSlides.forEach((slide) => {
         const chapId = slide.dataset.chapter || slide.id;
         const panel = slide.querySelector('.glass-story-panel, .hero-pinned-content');
         const watermark = slide.querySelector('.watermark-bg-text');
-
-        // Pin each fullscreen section during scroll
-        ScrollTrigger.create({
-          trigger: slide,
-          start: 'top top',
-          end: '+=80%',
-          pin: true,
-          pinSpacing: true,
-          onEnter: () => updateActiveChapterUI(chapId),
-          onEnterBack: () => updateActiveChapterUI(chapId)
-        });
-
-        // Scrubbed entrance & scale for inner glass panel
-        if (panel) {
-          gsap.fromTo(panel,
-            { opacity: 0, y: 50, scale: 0.95 },
-            {
-              opacity: 1,
-              y: 0,
-              scale: 1,
-              duration: 1,
-              ease: 'power2.out',
-              scrollTrigger: {
-                trigger: slide,
-                start: 'top 80%',
-                end: 'top top',
-                scrub: 1
-              }
-            }
-          );
-        }
-
-        // Multi-axis scrub parallax effect for background watermark text
-        if (watermark) {
-          gsap.fromTo(watermark,
-            { yPercent: -40, opacity: 0.05, rotate: -2, scale: 0.95 },
-            {
-              yPercent: 40,
-              opacity: 0.25,
-              rotate: 2,
-              scale: 1.08,
-              scrollTrigger: {
-                trigger: slide,
-                start: 'top bottom',
-                end: 'bottom top',
-                scrub: 1
-              }
-            }
-          );
-        }
-
-        // Differential parallax effect for ambient glowing background orbs
         const orbs = slide.querySelectorAll('.background-glow-orb');
-        orbs.forEach((orb, index) => {
-          const speedFactor = index % 2 === 0 ? -50 : 50;
-          gsap.fromTo(orb,
-            { yPercent: -speedFactor, scale: 0.8, opacity: 0.15 },
-            {
-              yPercent: speedFactor,
-              scale: 1.25,
-              opacity: 0.35,
-              scrollTrigger: {
-                trigger: slide,
-                start: 'top bottom',
-                end: 'bottom top',
-                scrub: 1.2
-              }
-            }
-          );
-        });
-
-        // Staggered depth layer parallax for inner card elements
         const innerQuote = slide.querySelector('.human-quote-box');
         const innerStats = slide.querySelectorAll('.stat-card');
 
+        const tl = gsap.timeline({
+          scrollTrigger: {
+            trigger: slide,
+            start: 'top top',
+            end: '+=100%',
+            pin: true,
+            pinSpacing: true,
+            scrub: 0.8,
+            anticipatePin: 1,
+            fastScrollEnd: true,
+            onEnter: () => updateActiveChapterUI(chapId),
+            onEnterBack: () => updateActiveChapterUI(chapId)
+          }
+        });
+
+        slideTriggers[chapId] = tl.scrollTrigger;
+
+        if (panel) {
+          tl.fromTo(panel,
+            { opacity: 0, y: 40, scale: 0.96 },
+            { opacity: 1, y: 0, scale: 1, ease: 'power2.out', duration: 0.5 },
+            0
+          );
+        }
+
+        if (watermark) {
+          tl.fromTo(watermark,
+            { yPercent: -25, opacity: 0.05, rotate: -1.5, scale: 0.96 },
+            { yPercent: 25, opacity: 0.25, rotate: 1.5, scale: 1.05, ease: 'none', duration: 1 },
+            0
+          );
+        }
+
+        orbs.forEach((orb, index) => {
+          const factor = index % 2 === 0 ? -30 : 30;
+          tl.fromTo(orb,
+            { yPercent: -factor, scale: 0.8, opacity: 0.15 },
+            { yPercent: factor, scale: 1.2, opacity: 0.35, ease: 'none', duration: 1 },
+            0
+          );
+        });
+
         if (innerQuote) {
-          gsap.fromTo(innerQuote,
-            { y: 30, opacity: 0 },
-            {
-              y: 0,
-              opacity: 1,
-              scrollTrigger: {
-                trigger: slide,
-                start: 'top 70%',
-                end: 'top 40%',
-                scrub: 0.8
-              }
-            }
+          tl.fromTo(innerQuote,
+            { y: 25, opacity: 0 },
+            { y: 0, opacity: 1, ease: 'power1.out', duration: 0.4 },
+            0.15
           );
         }
 
         if (innerStats.length) {
-          gsap.fromTo(innerStats,
-            { y: 40, opacity: 0, scale: 0.9 },
-            {
-              y: 0,
-              opacity: 1,
-              scale: 1,
-              stagger: 0.1,
-              scrollTrigger: {
-                trigger: slide,
-                start: 'top 65%',
-                end: 'top 35%',
-                scrub: 0.8
-              }
-            }
+          tl.fromTo(innerStats,
+            { y: 30, opacity: 0, scale: 0.92 },
+            { y: 0, opacity: 1, scale: 1, stagger: 0.08, ease: 'power1.out', duration: 0.4 },
+            0.2
           );
         }
+      });
+
+      // Smooth navigation click handler for chapter pills, side dots and hero scroll indicator
+      const allNavLinks = document.querySelectorAll('.scrolly-nav-item, .pinned-chapter-dots .dot-item, .hero-scroll-indicator a');
+      allNavLinks.forEach(link => {
+        link.addEventListener('click', (e) => {
+          let targetId = link.dataset.chapTarget;
+          if (!targetId && link.getAttribute('href')) {
+            targetId = link.getAttribute('href').replace('#', '');
+          }
+          if (targetId && slideTriggers[targetId]) {
+            e.preventDefault();
+            const targetST = slideTriggers[targetId];
+            window.scrollTo({
+              top: targetST.start + 2,
+              behavior: 'smooth'
+            });
+          }
+        });
       });
 
       // Interactive 3D Mouse Parallax Tilt for Story Panels

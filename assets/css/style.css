@@ -1651,6 +1651,13 @@ section {
 # PINNED SCROLLYTELLING STYLES (rijrookvrij.nl style full-screen slides)
 -------------------------------------------------------------- */
 
+html:has(.pinned-storyteller-body),
+html:has(.scrolly-body),
+body.pinned-storyteller-body,
+body.scrolly-body {
+  scroll-behavior: auto !important;
+}
+
 .pinned-storyteller-body {
   overflow-x: hidden;
   background-color: var(--bg-dark);
