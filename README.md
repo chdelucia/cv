@@ -3,7 +3,7 @@ Barcelona, Spain · [LinkedIn](https://www.linkedin.com/in/christian-heredia-ang
 
 I am a **Senior Lead Angular Architect and AWS Cloud Frontend Specialist** with over 10 years of professional experience (since 2013), 20+ delivered enterprise applications, and a certified Scrum Master. I specialize in building enterprise-grade, high-performance web platforms using **Angular (16/17/18)**, **Angular Signals**, **Nx Microfrontends**, and scalable **AWS Cloud Architectures** (S3, CloudFront CDN, Lambda, API Gateway, Route 53, Serverless CI/CD), backed by a Master's Degree in Cybersecurity to guarantee security-by-design.
 
-🤖 **AI Assistant:** An interactive AI Assistant chat is integrated into the portfolio site to answer questions about Chris Heredia's background, technical skills, AWS architecture, and professional experience in real-time.
+🤖 **Real Client-Side Neural AI Assistant:** An interactive AI Assistant chat powered 100% in-browser using **TensorFlow.js** and the **Universal Sentence Encoder** deep learning neural model. It performs real-time client-side vector embedding inference and cosine similarity semantic matching—100% free, requiring 0 API keys and zero backend server dependencies.
 
 ---
 
