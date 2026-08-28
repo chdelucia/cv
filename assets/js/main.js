@@ -598,23 +598,141 @@
           );
         }
 
-        // Parallax effect for background watermark text
+        // Multi-axis scrub parallax effect for background watermark text
         if (watermark) {
           gsap.fromTo(watermark,
-            { y: -30, opacity: 0.1 },
+            { yPercent: -40, opacity: 0.05, rotate: -2, scale: 0.95 },
             {
-              y: 30,
-              opacity: 0.3,
+              yPercent: 40,
+              opacity: 0.25,
+              rotate: 2,
+              scale: 1.08,
               scrollTrigger: {
                 trigger: slide,
                 start: 'top bottom',
                 end: 'bottom top',
-                scrub: true
+                scrub: 1
+              }
+            }
+          );
+        }
+
+        // Differential parallax effect for ambient glowing background orbs
+        const orbs = slide.querySelectorAll('.background-glow-orb');
+        orbs.forEach((orb, index) => {
+          const speedFactor = index % 2 === 0 ? -50 : 50;
+          gsap.fromTo(orb,
+            { yPercent: -speedFactor, scale: 0.8, opacity: 0.15 },
+            {
+              yPercent: speedFactor,
+              scale: 1.25,
+              opacity: 0.35,
+              scrollTrigger: {
+                trigger: slide,
+                start: 'top bottom',
+                end: 'bottom top',
+                scrub: 1.2
+              }
+            }
+          );
+        });
+
+        // Staggered depth layer parallax for inner card elements
+        const innerQuote = slide.querySelector('.human-quote-box');
+        const innerStats = slide.querySelectorAll('.stat-card');
+
+        if (innerQuote) {
+          gsap.fromTo(innerQuote,
+            { y: 30, opacity: 0 },
+            {
+              y: 0,
+              opacity: 1,
+              scrollTrigger: {
+                trigger: slide,
+                start: 'top 70%',
+                end: 'top 40%',
+                scrub: 0.8
+              }
+            }
+          );
+        }
+
+        if (innerStats.length) {
+          gsap.fromTo(innerStats,
+            { y: 40, opacity: 0, scale: 0.9 },
+            {
+              y: 0,
+              opacity: 1,
+              scale: 1,
+              stagger: 0.1,
+              scrollTrigger: {
+                trigger: slide,
+                start: 'top 65%',
+                end: 'top 35%',
+                scrub: 0.8
               }
             }
           );
         }
       });
+
+      // Interactive 3D Mouse Parallax Tilt for Story Panels
+      const tiltPanels = document.querySelectorAll('.glass-story-panel, .hero-pinned-content');
+      if (window.matchMedia('(pointer: fine)').matches) {
+        tiltPanels.forEach((panel) => {
+          const section = panel.closest('.pinned-slide-section');
+          if (!section) return;
+
+          section.addEventListener('mousemove', (e) => {
+            const rect = panel.getBoundingClientRect();
+            const centerX = rect.left + rect.width / 2;
+            const centerY = rect.top + rect.height / 2;
+            const mouseX = e.clientX - centerX;
+            const mouseY = e.clientY - centerY;
+
+            const rotateX = (-mouseY / (rect.height / 2)) * 6;
+            const rotateY = (mouseX / (rect.width / 2)) * 6;
+
+            gsap.to(panel, {
+              rotateX: rotateX,
+              rotateY: rotateY,
+              transformPerspective: 1000,
+              ease: 'power1.out',
+              duration: 0.4
+            });
+
+            // Deep inner parallax movement
+            const quote = panel.querySelector('.human-quote-box');
+            if (quote) {
+              gsap.to(quote, {
+                x: (mouseX / rect.width) * 15,
+                y: (mouseY / rect.height) * 15,
+                ease: 'power1.out',
+                duration: 0.4
+              });
+            }
+          });
+
+          section.addEventListener('mouseleave', () => {
+            gsap.to(panel, {
+              rotateX: 0,
+              rotateY: 0,
+              ease: 'power2.out',
+              duration: 0.6
+            });
+
+            const quote = panel.querySelector('.human-quote-box');
+            if (quote) {
+              gsap.to(quote, {
+                x: 0,
+                y: 0,
+                ease: 'power2.out',
+                duration: 0.6
+              });
+            }
+          });
+        });
+      }
 
     } else {
       // Fallback: IntersectionObserver
