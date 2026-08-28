@@ -155,7 +155,7 @@
   }
 
   /**
-   * AI Chat Assistant Module
+   * AI Chat Assistant Module (100% Free Real Client-Side Neural AI Engine)
    */
   const initAIChat = () => {
     const chatToggleBtn = select('#ai-chat-toggle');
@@ -165,6 +165,7 @@
     const chatForm = select('#ai-chat-form');
     const chatInput = select('#ai-chat-input');
     const chatBody = select('#ai-chat-body');
+    const statusBadge = select('#ai-status-badge');
 
     if (!chatToggleBtn || !chatWindow) return;
 
@@ -190,7 +191,7 @@
       chatCloseBtn.addEventListener('click', () => toggleChat(false));
     }
 
-    // String normalization helper (removes accents, converts to lower case)
+    // Helper: Normalize string (remove accents, lowercase)
     const normalizeText = (str) => {
       return (str || '')
         .normalize('NFD')
@@ -199,20 +200,40 @@
         .trim();
     };
 
-    // Extended intent knowledge base for natural language responses
+    // Helper: Cosine Similarity between vector arrays
+    const cosineSimilarity = (vecA, vecB) => {
+      let dotProduct = 0;
+      let normA = 0;
+      let normB = 0;
+      for (let i = 0; i < vecA.length; i++) {
+        dotProduct += vecA[i] * vecB[i];
+        normA += vecA[i] * vecA[i];
+        normB += vecB[i] * vecB[i];
+      }
+      if (normA === 0 || normB === 0) return 0;
+      return dotProduct / (Math.sqrt(normA) * Math.sqrt(normB));
+    };
+
+    // Extended intent knowledge base
     const intents = [
       {
         id: 'greetings',
+        samples: ['hola', 'buenas', 'buenos dias', 'buenas tardes', 'buenas noches', 'que tal', 'quien eres', 'quien es chris', 'como estas', 'hey', 'saludos'],
         patterns: ['hola', 'buenas', 'buenos dias', 'buenas tardes', 'buenas noches', 'que tal', 'quien eres', 'quien es chris', 'como estas', 'hey', 'saludos'],
-        response: '¡Hola! 👋 Soy el asistente virtual de <strong>Chris Heredia</strong>.<br>Puedo responder a preguntas sobre <strong>a qué se dedica actualmente</strong>, <strong>qué ha estudiado</strong>, su <strong>experiencia laboral</strong>, su <strong>stack de Angular y AWS</strong> o su <strong>contacto</strong>. ¿Qué te gustaría saber?'
+        response: '¡Hola! 👋 Soy el asistente virtual inteligente con **Red Neuronal IA** de <strong>Chris Heredia</strong>.<br>Puedo responder a preguntas sobre su <strong>puesto actual</strong>, <strong>estudios y másters</strong>, <strong>experiencia laboral</strong>, <strong>stack de Angular y AWS</strong> o <strong>contacto</strong>. ¿Qué te gustaría saber?'
       },
       {
         id: 'thanks',
+        samples: ['gracias', 'muchas gracias', 'genial', 'perfecto', 'excelente', 'estupendo', 'adios', 'hasta luego', 'chao', 'top'],
         patterns: ['gracias', 'muchas gracias', 'genial', 'perfecto', 'excelente', 'estupendo', 'adios', 'hasta luego', 'chao', 'top'],
         response: '¡De nada! 😊 Si quieres saber cualquier otra cosa sobre Chris o sus proyectos, estoy a tu disposición. ¡Que tengas un gran día!'
       },
       {
         id: 'current_role',
+        samples: [
+          'que hace actualmente', 'a que se dedica', 'trabajo actual en dimatica', 'puesto actual de chris',
+          'rol actual como lead architect', 'donde trabaja ahora', 'cargo actual en dimatica software'
+        ],
         patterns: [
           'que hace', 'dedica', 'se dedica', 'actualmente', 'trabajo actual', 'puesto actual',
           'rol actual', 'cargo', 'donde trabaja', 'que esta haciendo', 'empresa actual', 'dimatica'
@@ -221,6 +242,10 @@
       },
       {
         id: 'education',
+        samples: [
+          'que ha estudiado', 'donde estudio la carrera', 'formacion universitaria y titulacion', 'grados o ingenierias',
+          'estudios de telematica en upf', 'master en ciberseguridad viu', 'master en metodologias agiles la salle', 'certificacion scrum master csm'
+        ],
         patterns: [
           'estudio', 'estudiado', 'estudios', 'educacion', 'universidad', 'titulo', 'titulos',
           'grado', 'ingenieria', 'telematica', 'upf', 'master', 'masters', 'formacion', 'carrera', 'academico', 'titulacion', 'viu', 'la salle'
@@ -229,6 +254,10 @@
       },
       {
         id: 'experience',
+        samples: [
+          'experiencia profesional y laboral', 'trayectoria en empresas', 'donde ha trabajado antes',
+          'cuantos años de experiencia tiene', 'trabajos pasados en obsidian deloitte everis pricesoft'
+        ],
         patterns: [
           'experiencia', 'trayectoria', 'empresas', 'donde ha trabajado', 'historial', 'anos',
           'anos de experiencia', 'cuantos anos', 'obsidian', 'deloitte', 'everis', 'ntt data', 'pricesoft', 'pasado', 'carrera profesional'
@@ -237,6 +266,10 @@
       },
       {
         id: 'angular_stack',
+        samples: [
+          'stack de frontend y tecnologias', 'experiencia en angular nx microfrontends', 'librerias ngrx rxjs signals typescript',
+          'componentes tailwind bootstrap storybook'
+        ],
         patterns: [
           'angular', 'frontend', 'front end', 'stack', 'tecnologias', 'lenguajes', 'microfrontends',
           'microfrontend', 'nx', 'ngrx', 'rxjs', 'signals', 'typescript', 'javascript', 'tailwind', 'bootstrap', 'storybook', 'frameworks'
@@ -245,6 +278,10 @@
       },
       {
         id: 'aws_cloud',
+        samples: [
+          'conocimientos de aws y nube', 'como utiliza aws s3 y cloudfront cdn', 'infraestructura cloudbees ci cd devops',
+          'despliegues automatizados en la nube'
+        ],
         patterns: [
           'aws', 'cloud', 'nube', 's3', 'cloudfront', 'cdn', 'lambda', 'api gateway', 'route 53',
           'cloudbees', 'devops', 'despliegue', 'despliegues', 'deploy', 'desplegar', 'ci/cd', 'pipeline', 'infraestructura'
@@ -253,6 +290,9 @@
       },
       {
         id: 'projects',
+        samples: [
+          'proyectos destacados de chris', 'proyecto de la liga', 'plataforma de viajes y turismo', 'dashboard de monitorizacion aws cloudwatch'
+        ],
         patterns: [
           'proyectos', 'proyecto', 'la liga', 'laliga', 'viajes', 'turismo', 'salud', 'dashboard',
           'monitorizacion', 'logros', 'impacto', 'casos de exito'
@@ -261,6 +301,9 @@
       },
       {
         id: 'testing_security',
+        samples: [
+          'testing y calidad de software', 'seguridad por diseño owasp xss', 'pruebas unitarias jest cypress playwright'
+        ],
         patterns: [
           'testing', 'tests', 'test', 'cobertura', 'jest', 'cypress', 'playwright', 'calidad',
           'seguridad', 'ciberseguridad', 'owasp', 'xss', 'jwt', 'oauth'
@@ -269,6 +312,9 @@
       },
       {
         id: 'agile_scrum',
+        samples: [
+          'metodologias agiles y scrum', 'certified scrum master csm', 'liderazgo de equipos'
+        ],
         patterns: [
           'agile', 'scrum', 'scrum master', 'metodologias', 'kanban', 'liderazgo', 'equipo', 'equipos', 'gestion'
         ],
@@ -276,6 +322,9 @@
       },
       {
         id: 'location_hire',
+        samples: [
+          'donde reside o vive chris', 'disponibilidad para contratar', 'remoto o presencial barcelona'
+        ],
         patterns: [
           'donde vive', 'ubicacion', 'reside', 'barcelona', 'disponibilidad', 'remoto', 'hibrido',
           'contratar', 'trabajar', 'oferta', 'disponible', 'modalidad'
@@ -284,6 +333,9 @@
       },
       {
         id: 'contact',
+        samples: [
+          'como contactar con chris', 'direccion de email correo', 'perfil de linkedin o github', 'descargar cv pdf'
+        ],
         patterns: [
           'contacto', 'email', 'correo', 'escribir', 'hablar', 'telefono', 'linkedin', 'github',
           'redes', 'cv', 'pdf', 'descargar'
@@ -292,11 +344,84 @@
       }
     ];
 
-    const getBotResponse = (query) => {
+    // Neural Model state
+    let useModel = null;
+    let sampleVectors = null;
+    let sampleIntentsList = [];
+    let isModelLoading = false;
+
+    // Async loader for Universal Sentence Encoder
+    const loadNeuralModel = async () => {
+      if (useModel || isModelLoading) return;
+      if (typeof window.use === 'undefined' || typeof window.tf === 'undefined') return;
+
+      try {
+        isModelLoading = true;
+        if (statusBadge) {
+          statusBadge.innerHTML = '<i class="bi bi-cpu-fill text-warning fs-6 me-1"></i>Cargando Red Neuronal IA...';
+        }
+        useModel = await window.use.load();
+
+        const flatSamples = [];
+        intents.forEach(intent => {
+          (intent.samples || []).forEach(sample => {
+            flatSamples.push(sample);
+            sampleIntentsList.push(intent);
+          });
+        });
+
+        const embeddings = await useModel.embed(flatSamples);
+        sampleVectors = await embeddings.array();
+
+        if (statusBadge) {
+          statusBadge.innerHTML = '<i class="bi bi-cpu-fill text-success fs-6 me-1"></i>Red Neuronal IA Activa 🧠';
+        }
+      } catch (err) {
+        console.warn('Neural model init warning, falling back to pattern matching:', err);
+        if (statusBadge) {
+          statusBadge.innerHTML = '<i class="bi bi-robot text-info fs-6 me-1"></i>IA NLU Activa';
+        }
+      } finally {
+        isModelLoading = false;
+      }
+    };
+
+    // Load model on window load or interaction
+    if (window.use) {
+      setTimeout(loadNeuralModel, 800);
+    }
+
+    const getBotResponse = async (query) => {
       const normalizedQuery = normalizeText(query);
       if (!normalizedQuery) return 'Por favor, escribe una pregunta sobre la trayectoria, estudios o proyectos de Chris Heredia.';
 
-      let bestMatch = null;
+      // Attempt 1: Neural Vector Similarity if TensorFlow.js model is loaded
+      if (useModel && sampleVectors && sampleVectors.length > 0) {
+        try {
+          const queryEmbed = await useModel.embed([query]);
+          const queryVector = (await queryEmbed.array())[0];
+
+          let bestMatchIntent = null;
+          let maxSim = -1;
+
+          for (let i = 0; i < sampleVectors.length; i++) {
+            const sim = cosineSimilarity(queryVector, sampleVectors[i]);
+            if (sim > maxSim) {
+              maxSim = sim;
+              bestMatchIntent = sampleIntentsList[i];
+            }
+          }
+
+          if (bestMatchIntent && maxSim >= 0.55) {
+            return bestMatchIntent.response;
+          }
+        } catch (e) {
+          console.warn('Neural match exception:', e);
+        }
+      }
+
+      // Attempt 2: Pattern Matcher Engine
+      let bestPatternMatch = null;
       let maxScore = 0;
 
       intents.forEach(intent => {
@@ -304,22 +429,21 @@
         intent.patterns.forEach(pattern => {
           const normPattern = normalizeText(pattern);
           if (normalizedQuery.includes(normPattern)) {
-            // Give higher weight for multi-word exact matches or precise pattern hits
             score += normPattern.includes(' ') ? 3 : 1;
           }
         });
 
         if (score > maxScore) {
           maxScore = score;
-          bestMatch = intent.response;
+          bestPatternMatch = intent.response;
         }
       });
 
-      if (bestMatch && maxScore > 0) {
-        return bestMatch;
+      if (bestPatternMatch && maxScore > 0) {
+        return bestPatternMatch;
       }
 
-      // Intelligent fallback menu with dynamic hints
+      // Fallback menu
       return 'Puedo ayudarte a conocer mejor a Chris Heredia. Prueba a preguntarme por:<br>' +
         '• 🎓 <strong>"¿Qué ha estudiado?"</strong> (Formación universitaria y másters)<br>' +
         '• 💼 <strong>"¿A qué se dedica actualmente?"</strong> (Rol y liderazgo en Dimatica)<br>' +
@@ -336,13 +460,12 @@
       chatBody.scrollTop = chatBody.scrollHeight;
     };
 
-    const handleUserQuestion = (q) => {
+    const handleUserQuestion = async (q) => {
       addMessage('user', q);
-      // Simulate typing speed
+      const reply = await getBotResponse(q);
       setTimeout(() => {
-        const reply = getBotResponse(q);
         addMessage('bot', reply);
-      }, 350);
+      }, 300);
     };
 
     if (chatForm) {
