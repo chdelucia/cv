@@ -490,16 +490,19 @@
   };
 
   /**
-   * GSAP & ScrollTrigger Scrollytelling Engine
+   * GSAP & ScrollTrigger Scrollytelling Engine (Full-Screen Pinned Sections)
    */
   const initScrollytelling = () => {
+    const pinnedSlides = document.querySelectorAll('.pinned-slide-section');
     const chapters = document.querySelectorAll('.gsap-chapter, .scrolly-chapter');
+    const sections = pinnedSlides.length ? pinnedSlides : chapters;
     const navItems = document.querySelectorAll('.scrolly-nav-item');
+    const dotItems = document.querySelectorAll('.pinned-chapter-dots .dot-item');
     const liveBadge = select('#gsap-live-chapter-badge');
+    const progressBar = select('#scroll-progress');
     const chatScrollyBtn = select('#open-chat-scrolly');
-    const spineFill = select('.gsap-spine-fill');
 
-    if (!chapters.length) return;
+    if (!sections.length) return;
 
     // Connect open AI chat button in Chapter 6
     if (chatScrollyBtn) {
@@ -532,59 +535,87 @@
         }
       });
 
+      dotItems.forEach(item => {
+        if (item.dataset.chapTarget === chapId) {
+          item.classList.add('active');
+        } else {
+          item.classList.remove('active');
+        }
+      });
+
       if (liveBadge && chapterBadges[chapId]) {
         liveBadge.textContent = chapterBadges[chapId];
       }
     };
 
-    // If GSAP and ScrollTrigger are available, initialize cinematic animations
+    // Global scroll progress listener
+    window.addEventListener('scroll', () => {
+      if (progressBar) {
+        const totalHeight = document.documentElement.scrollHeight - window.innerHeight;
+        const currentProgress = totalHeight > 0 ? (window.scrollY / totalHeight) * 100 : 0;
+        progressBar.style.width = `${Math.min(100, Math.max(0, currentProgress))}%`;
+      }
+    }, { passive: true });
+
+    // GSAP ScrollTrigger Engine
     if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
       gsap.registerPlugin(ScrollTrigger);
 
-      // Spine line progress fill
-      if (spineFill) {
-        gsap.to(spineFill, {
-          height: '100%',
-          ease: 'none',
-          scrollTrigger: {
-            trigger: '.gsap-scrolly-container',
-            start: 'top 30%',
-            end: 'bottom bottom',
-            scrub: true
-          }
+      // Pinned section animations
+      pinnedSlides.forEach((slide) => {
+        const chapId = slide.dataset.chapter || slide.id;
+        const panel = slide.querySelector('.glass-story-panel, .hero-pinned-content');
+        const watermark = slide.querySelector('.watermark-bg-text');
+
+        // Pin each fullscreen section during scroll
+        ScrollTrigger.create({
+          trigger: slide,
+          start: 'top top',
+          end: '+=80%',
+          pin: true,
+          pinSpacing: true,
+          onEnter: () => updateActiveChapterUI(chapId),
+          onEnterBack: () => updateActiveChapterUI(chapId)
         });
-      }
 
-      // Animate each chapter card entrance with GSAP
-      chapters.forEach(chap => {
-        const card = chap.querySelector('.gsap-card, .story-card, .chapter-card');
-        const chapId = chap.dataset.chapter || chap.id;
-
-        if (card) {
-          gsap.fromTo(card,
-            {
-              opacity: 0,
-              y: 60,
-              scale: 0.96
-            },
+        // Scrubbed entrance & scale for inner glass panel
+        if (panel) {
+          gsap.fromTo(panel,
+            { opacity: 0, y: 50, scale: 0.95 },
             {
               opacity: 1,
               y: 0,
               scale: 1,
               duration: 1,
-              ease: 'power3.out',
+              ease: 'power2.out',
               scrollTrigger: {
-                trigger: chap,
+                trigger: slide,
                 start: 'top 80%',
-                end: 'top 30%',
-                toggleActions: 'play none none reverse',
-                onEnter: () => updateActiveChapterUI(chapId),
-                onEnterBack: () => updateActiveChapterUI(chapId)
+                end: 'top top',
+                scrub: 1
+              }
+            }
+          );
+        }
+
+        // Parallax effect for background watermark text
+        if (watermark) {
+          gsap.fromTo(watermark,
+            { y: -30, opacity: 0.1 },
+            {
+              y: 30,
+              opacity: 0.3,
+              scrollTrigger: {
+                trigger: slide,
+                start: 'top bottom',
+                end: 'bottom top',
+                scrub: true
               }
             }
           );
         }
       });
+
     } else {
       // Fallback: IntersectionObserver
       const observer = new IntersectionObserver((entries) => {
@@ -594,9 +625,9 @@
             if (chapId) updateActiveChapterUI(chapId);
           }
         });
-      }, { rootMargin: '-20% 0px -40% 0px', threshold: 0.15 });
+      }, { rootMargin: '-30% 0px -30% 0px', threshold: 0.2 });
 
-      chapters.forEach(chap => observer.observe(chap));
+      sections.forEach(sec => observer.observe(sec));
     }
   };
 

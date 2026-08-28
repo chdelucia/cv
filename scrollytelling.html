@@ -6,7 +6,7 @@
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
   <title>Chris Heredia | Storyteller CV - Angular Architect & AWS Specialist</title>
-  <meta content="Interactive Scrollytelling Resume of Chris Heredia, Senior Lead Angular Architect and AWS Cloud Frontend Specialist. GSAP ScrollTrigger powered narrative CV." name="description">
+  <meta content="Cinematic Pinned Scrollytelling Resume of Chris Heredia, Senior Lead Angular Architect and AWS Cloud Frontend Specialist. GSAP ScrollTrigger pinned narrative CV." name="description">
   <meta content="Chris Heredia, Scrollytelling CV, Angular Architect, AWS Specialist, Microfrontends, GSAP, ScrollTrigger, Storytelling Resume" name="keywords">
 
   <!-- Open Graph / Social SEO -->
@@ -38,23 +38,25 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 </head>
 
-<body class="scrolly-body gsap-scrolly-body">
+<body class="scrolly-body pinned-storyteller-body">
 
-  <!-- Scroll Progress Top Bar -->
-  <div id="scroll-progress"></div>
+  <!-- Top Progress Fill Bar -->
+  <div id="scroll-progress" class="pinned-progress-bar"></div>
 
   <!-- Header / Navigation Bar for Scrollytelling Page -->
-  <header class="scrolly-header fixed-top">
+  <header class="scrolly-header fixed-top glass-header">
     <div class="container-fluid px-3 px-lg-5 d-flex align-items-center justify-content-between">
       <div class="d-flex align-items-center gap-2 gap-sm-3">
         <a href="index.html" class="scrolly-brand text-decoration-none d-flex align-items-center gap-2">
           <span class="avatar-mini pulse-glow-avatar"><i class="bi bi-cpu-fill text-primary"></i></span>
           <div class="brand-text">
-            <span class="fw-bold d-block lead-name">Chris Heredia</span>
+            <span class="fw-bold d-block lead-name text-gradient">Chris Heredia</span>
             <span class="text-muted fs-7 d-none d-md-block">Angular Architect &amp; AWS Specialist</span>
           </div>
         </a>
-        <span class="badge scrolly-badge pulse-badge d-none d-sm-inline-flex"><i class="bi bi-stars text-warning me-1"></i>GSAP Storyteller CV</span>
+        <span class="badge scrolly-badge pulse-badge d-none d-sm-inline-flex">
+          <i class="bi bi-stars text-warning me-1"></i>GSAP Interactive Story
+        </span>
       </div>
 
       <!-- Chapter Navigation Nodes -->
@@ -62,19 +64,19 @@
         <a href="#chap-hero" class="scrolly-nav-item active" data-chap-target="chap-hero" title="Inicio">
           <span class="chap-num">00</span><span class="chap-label">Inicio</span>
         </a>
-        <a href="#chap-1" class="scrolly-nav-item" data-chap-target="chap-1" title="Capítulo 1: Raíces (2013-2016)">
+        <a href="#chap-1" class="scrolly-nav-item" data-chap-target="chap-1" title="Capítulo 1: Raíces">
           <span class="chap-num">01</span><span class="chap-label">Raíces</span>
         </a>
-        <a href="#chap-2" class="scrolly-nav-item" data-chap-target="chap-2" title="Capítulo 2: Enterprise (2017-2019)">
+        <a href="#chap-2" class="scrolly-nav-item" data-chap-target="chap-2" title="Capítulo 2: Enterprise">
           <span class="chap-num">02</span><span class="chap-label">Enterprise</span>
         </a>
-        <a href="#chap-3" class="scrolly-nav-item" data-chap-target="chap-3" title="Capítulo 3: Cloud (2020-2022)">
+        <a href="#chap-3" class="scrolly-nav-item" data-chap-target="chap-3" title="Capítulo 3: Cloud">
           <span class="chap-num">03</span><span class="chap-label">Cloud</span>
         </a>
-        <a href="#chap-4" class="scrolly-nav-item" data-chap-target="chap-4" title="Capítulo 4: Liderazgo (2022-Pres)">
+        <a href="#chap-4" class="scrolly-nav-item" data-chap-target="chap-4" title="Capítulo 4: Liderazgo">
           <span class="chap-num">04</span><span class="chap-label">Liderazgo</span>
         </a>
-        <a href="#chap-5" class="scrolly-nav-item" data-chap-target="chap-5" title="Capítulo 5: Stack & Filosofía">
+        <a href="#chap-5" class="scrolly-nav-item" data-chap-target="chap-5" title="Capítulo 5: Stack">
           <span class="chap-num">05</span><span class="chap-label">Stack</span>
         </a>
         <a href="#chap-6" class="scrolly-nav-item" data-chap-target="chap-6" title="Capítulo 6: Contacto">
@@ -99,398 +101,422 @@
     </div>
   </header>
 
-  <!-- Full-Width GSAP Scrollytelling Story Container -->
-  <main class="gsap-scrolly-container container-xl px-3 px-md-4">
+  <!-- Side Floating Pagination Indicators -->
+  <aside class="pinned-chapter-dots d-none d-md-flex flex-column gap-3">
+    <a href="#chap-hero" class="dot-item active" data-chap-target="chap-hero" data-bs-toggle="tooltip" data-bs-placement="left" title="Inicio"><span></span></a>
+    <a href="#chap-1" class="dot-item" data-chap-target="chap-1" data-bs-toggle="tooltip" data-bs-placement="left" title="01. Raíces"><span></span></a>
+    <a href="#chap-2" class="dot-item" data-chap-target="chap-2" data-bs-toggle="tooltip" data-bs-placement="left" title="02. Enterprise"><span></span></a>
+    <a href="#chap-3" class="dot-item" data-chap-target="chap-3" data-bs-toggle="tooltip" data-bs-placement="left" title="03. Cloud"><span></span></a>
+    <a href="#chap-4" class="dot-item" data-chap-target="chap-4" data-bs-toggle="tooltip" data-bs-placement="left" title="04. Liderazgo"><span></span></a>
+    <a href="#chap-5" class="dot-item" data-chap-target="chap-5" data-bs-toggle="tooltip" data-bs-placement="left" title="05. Stack"><span></span></a>
+    <a href="#chap-6" class="dot-item" data-chap-target="chap-6" data-bs-toggle="tooltip" data-bs-placement="left" title="06. Contacto"><span></span></a>
+  </aside>
 
-    <!-- Timeline Central Spine Line (GSAP Scrub Progress) -->
-    <div class="gsap-story-spine">
-      <div class="gsap-spine-fill"></div>
-    </div>
+  <!-- Pinned Fullscreen Sections Container -->
+  <main class="pinned-slides-wrapper">
 
-    <!-- HERO INTRODUCTION CHAPTER -->
-    <section id="chap-hero" class="gsap-chapter hero-chapter py-5 position-relative" data-chapter="chap-hero">
-      <div class="gsap-card hero-story-card p-4 p-md-5 rounded-4 shadow-lg text-center border">
-        <div class="profile-avatar-wrapper mb-3 position-relative d-inline-block gsap-hero-avatar">
-          <img src="assets/img/profile-img.png" alt="Chris Heredia" class="img-fluid rounded-circle shadow-lg border border-3 border-primary float-animation" style="width: 140px; height: 140px; object-fit: cover;">
-          <span class="badge bg-primary position-absolute bottom-0 start-50 translate-middle-x px-3 py-1 rounded-pill fs-8">10+ Años Experiencia</span>
-        </div>
+    <!-- HERO SLIDE SECTION -->
+    <section id="chap-hero" class="pinned-slide-section hero-pinned-slide d-flex align-items-center justify-content-center text-center position-relative overflow-hidden" data-chapter="chap-hero">
+      <div class="background-glow-orb orb-primary"></div>
+      <div class="background-glow-orb orb-secondary"></div>
+      <div class="watermark-bg-text font-mono">HEREDIA</div>
 
-        <h1 class="display-5 fw-extrabold hero-story-title mb-2">
-          La Historia de un Arquitecto Frontend &amp; AWS Specialist
-        </h1>
-        <p class="lead text-secondary max-w-700 mx-auto mb-4 fs-5">
-          Un viaje interactivo a través de más de una década creando software: desde los cimientos de la <strong>Ingeniería Telemática (UPF)</strong> hasta liderar la arquitectura <strong>Angular (16/17/18)</strong> y despliegues en <strong>AWS Cloud</strong>.
-        </p>
+      <div class="container position-relative z-2 px-3 px-md-5">
+        <div class="hero-pinned-content max-w-900 mx-auto">
+          <div class="profile-avatar-hero mb-3 d-inline-block position-relative">
+            <img src="assets/img/profile-img.png" alt="Chris Heredia" class="img-fluid rounded-circle shadow-lg border border-3 border-primary float-animation" style="width: 150px; height: 150px; object-fit: cover;">
+            <span class="badge bg-primary position-absolute bottom-0 start-50 translate-middle-x px-3 py-1 rounded-pill fs-8 shadow">10+ Años Experiencia</span>
+          </div>
 
-        <div class="d-flex flex-wrap justify-content-center gap-2 mb-4">
-          <span class="badge bg-body-tertiary border text-primary px-3 py-2 rounded-pill fs-7"><i class="bi bi-code-slash me-1"></i>Angular 18 & Signals</span>
-          <span class="badge bg-body-tertiary border text-warning px-3 py-2 rounded-pill fs-7"><i class="bi bi-cloud-check-fill me-1"></i>AWS S3 & CloudFront CDN</span>
-          <span class="badge bg-body-tertiary border text-info px-3 py-2 rounded-pill fs-7"><i class="bi bi-diagram-3-fill me-1"></i>Nx Microfrontends</span>
-          <span class="badge bg-body-tertiary border text-success px-3 py-2 rounded-pill fs-7"><i class="bi bi-award-fill me-1"></i>Certified Scrum Master</span>
-        </div>
+          <span class="d-block text-uppercase font-mono text-primary letter-spacing-2 mb-2 fw-bold fs-7 hero-subtitle-reveal">
+            Interactive Resume Story
+          </span>
 
-        <div class="scroll-down-prompt text-muted fs-7">
-          <i class="bi bi-mouse pulse-icon fs-4 d-block text-primary mb-1"></i>
-          <span>Haz scroll para comenzar el relato cinemático</span>
+          <h1 class="display-3 fw-extrabold hero-title-reveal text-gradient mb-3">
+            El Viaje de un Arquitecto Frontend &amp; AWS Specialist
+          </h1>
+
+          <p class="lead text-secondary max-w-750 mx-auto mb-4 fs-5 hero-desc-reveal">
+            Descubre cómo se construye una carrera tecnológica de alto impacto: desde la base de la <strong>Ingeniería Telemática (UPF)</strong> hasta liderar arquitecturas <strong>Angular (16/17/18)</strong> y despliegues en <strong>AWS Cloud</strong>.
+          </p>
+
+          <div class="hero-tags-reveal d-flex flex-wrap justify-content-center gap-2 mb-4">
+            <span class="badge bg-body-tertiary border text-primary px-3 py-2 rounded-pill fs-7"><i class="bi bi-code-slash me-1"></i>Angular 18 &amp; Signals</span>
+            <span class="badge bg-body-tertiary border text-warning px-3 py-2 rounded-pill fs-7"><i class="bi bi-cloud-check-fill me-1"></i>AWS S3 &amp; CloudFront CDN</span>
+            <span class="badge bg-body-tertiary border text-info px-3 py-2 rounded-pill fs-7"><i class="bi bi-diagram-3-fill me-1"></i>Nx Microfrontends</span>
+            <span class="badge bg-body-tertiary border text-success px-3 py-2 rounded-pill fs-7"><i class="bi bi-award-fill me-1"></i>Certified Scrum Master</span>
+          </div>
+
+          <div class="hero-scroll-indicator">
+            <a href="#chap-1" class="text-decoration-none text-muted fs-7">
+              <span class="d-block mb-1">Haz scroll para ver la historia cinemática</span>
+              <i class="bi bi-chevron-down fs-4 text-primary animate-bounce d-block"></i>
+            </a>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- CHAPTER 1: RAÍCES (2013-2016) -->
-    <section id="chap-1" class="gsap-chapter py-5 position-relative" data-chapter="chap-1">
-      <div class="gsap-card story-card p-4 p-md-5 rounded-4 shadow-lg border">
-
-        <div class="d-flex justify-content-between align-items-center mb-4 flex-wrap gap-2 border-bottom pb-3">
-          <div class="d-flex align-items-center gap-2">
-            <span class="chapter-number-pill">01</span>
-            <div>
-              <span class="badge bg-primary-subtle text-primary border border-primary px-3 py-1 rounded-pill fw-bold fs-7">
-                CAPÍTULO 01 · 2013 – 2016
-              </span>
-              <h2 class="h3 fw-extrabold mb-0 mt-1">El Origen: Raíces en Ingeniería Telemática</h2>
+    <!-- CHAPTER 1 SLIDE SECTION: RAÍCES (2013-2016) -->
+    <section id="chap-1" class="pinned-slide-section d-flex align-items-center justify-content-center position-relative overflow-hidden" data-chapter="chap-1">
+      <div class="watermark-bg-text font-mono">01 / RAÍCES</div>
+      <div class="container position-relative z-2 px-3 px-md-5">
+        <div class="glass-story-panel p-4 p-md-5 rounded-4 border shadow-2xl">
+          <div class="d-flex justify-content-between align-items-center mb-4 flex-wrap gap-2 border-bottom pb-3">
+            <div class="d-flex align-items-center gap-3">
+              <span class="pinned-num-badge bg-primary text-white font-mono">01</span>
+              <div>
+                <span class="badge bg-primary-subtle text-primary border border-primary px-3 py-1 rounded-pill fw-bold fs-7">
+                  CAPÍTULO 01 · 2013 – 2016
+                </span>
+                <h2 class="display-6 fw-extrabold mb-0 mt-1">El Origen: Raíces en Ingeniería Telemática</h2>
+              </div>
             </div>
+            <span class="text-muted fs-7 font-mono"><i class="bi bi-geo-alt-fill text-danger me-1"></i>Barcelona · UPF &amp; PrimeSoft</span>
           </div>
-          <span class="text-muted fs-7 font-mono"><i class="bi bi-geo-alt-fill text-danger me-1"></i>Barcelona · UPF &amp; PrimeSoft</span>
-        </div>
 
-        <div class="row g-4 align-items-center">
-          <div class="col-lg-7">
-            <div class="human-quote-box p-3 rounded-3 border-start border-4 border-primary bg-body-tertiary mb-3">
-              <p class="fst-italic mb-0 text-secondary">
-                "Mi viaje en la tecnología no comenzó solo frente a una pantalla escribiendo líneas de código, sino entendiendo la ingeniería de redes y la conexión entre personas y sistemas distribuidos."
+          <div class="row g-4 align-items-center">
+            <div class="col-lg-7">
+              <div class="human-quote-box p-3 p-md-4 rounded-3 border-start border-4 border-primary bg-body-tertiary mb-3">
+                <p class="fst-italic mb-0 text-secondary fs-6">
+                  "Mi viaje en la tecnología no comenzó solo frente a una pantalla escribiendo código, sino entendiendo la ingeniería de redes y la conexión entre personas y sistemas distribuidos."
+                </p>
+              </div>
+              <p class="lead text-secondary fs-6 mb-3">
+                En 2011 inicié mis estudios de <strong>Ingeniería Técnica en Telemática</strong> en la <strong>Universitat Pompeu Fabra (UPF)</strong>. Esta etapa me dio una base sólida en protocolos de red, estructuras de datos y arquitectura de software.
+              </p>
+              <p class="text-muted fs-7 mb-0">
+                En septiembre de 2013 di mi primer paso profesional en <strong>Pricesoft</strong> como Frontend Developer, creando aplicaciones B2B con React, jQuery, Bootstrap y Laravel.
               </p>
             </div>
-            <p class="lead text-secondary fs-6 mb-3">
-              En 2011 inicié mis estudios de <strong>Ingeniería Técnica en Telemática</strong> en la <strong>Universitat Pompeu Fabra (UPF)</strong>. Esta etapa me dio una base sólida en protocolos de red, estructuras de datos y principios de arquitectura de software.
-            </p>
-            <p class="text-muted fs-7 mb-0">
-              En septiembre de 2013 di mi primer paso profesional en <strong>Pricesoft</strong> como Frontend Developer, desarrollando aplicaciones B2B interactivas para agencias de viajes con React, jQuery, Bootstrap y Laravel.
-            </p>
-          </div>
 
-          <div class="col-lg-5">
-            <div class="visual-panel p-4 rounded-4 bg-body-tertiary border">
-              <h5 class="fw-bold text-primary mb-3"><i class="bi bi-mortarboard-fill me-2"></i>Hitos del Capítulo</h5>
-              <div class="grid-stats row g-2">
+            <div class="col-lg-5">
+              <div class="pinned-stats-grid row g-3">
                 <div class="col-6">
-                  <div class="p-3 rounded-3 bg-dark-subtle border text-center interactive-hover-card">
+                  <div class="stat-card p-4 rounded-4 bg-body-tertiary border text-center">
+                    <i class="bi bi-mortarboard-fill display-5 text-primary mb-2 d-block"></i>
                     <div class="fs-4 fw-extrabold text-primary">UPF</div>
                     <div class="fs-8 text-muted">Grado Telemática</div>
                   </div>
                 </div>
                 <div class="col-6">
-                  <div class="p-3 rounded-3 bg-dark-subtle border text-center interactive-hover-card">
+                  <div class="stat-card p-4 rounded-4 bg-body-tertiary border text-center">
+                    <i class="bi bi-code-slash display-5 text-info mb-2 d-block"></i>
                     <div class="fs-4 fw-extrabold text-info">2013</div>
-                    <div class="fs-8 text-muted">Primer Rol Dev</div>
+                    <div class="fs-8 text-muted">Primer Rol Developer</div>
                   </div>
                 </div>
                 <div class="col-12">
-                  <div class="p-3 rounded-3 bg-dark-subtle border text-center interactive-hover-card">
-                    <div class="fs-6 fw-bold text-success">PrimeSoft B2B Travel</div>
-                    <div class="fs-8 text-muted">React, jQuery, Laravel, MySQL</div>
+                  <div class="stat-card p-3 rounded-4 bg-body-tertiary border text-center">
+                    <div class="fs-6 fw-bold text-success mb-1">PrimeSoft B2B Travel Platform</div>
+                    <div class="fs-8 text-muted">React · jQuery · Laravel · MySQL</div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-
       </div>
     </section>
 
-    <!-- CHAPTER 2: ENTERPRISE & AGILITY (2017-2019) -->
-    <section id="chap-2" class="gsap-chapter py-5 position-relative" data-chapter="chap-2">
-      <div class="gsap-card story-card p-4 p-md-5 rounded-4 shadow-lg border">
-
-        <div class="d-flex justify-content-between align-items-center mb-4 flex-wrap gap-2 border-bottom pb-3">
-          <div class="d-flex align-items-center gap-2">
-            <span class="chapter-number-pill chapter-pill-warning">02</span>
-            <div>
-              <span class="badge bg-warning-subtle text-warning border border-warning px-3 py-1 rounded-pill fw-bold fs-7">
-                CAPÍTULO 02 · 2017 – 2019
-              </span>
-              <h2 class="h3 fw-extrabold mb-0 mt-1">Escala Enterprise, LaLiga &amp; Máster en Agilidad</h2>
-            </div>
-          </div>
-          <span class="text-muted fs-7 font-mono"><i class="bi bi-building me-1"></i>Deloitte &amp; NTT Data (Everis)</span>
-        </div>
-
-        <div class="row g-4 align-items-center">
-          <div class="col-lg-7">
-            <div class="human-quote-box p-3 rounded-3 border-start border-4 border-warning bg-body-tertiary mb-3">
-              <p class="fst-italic mb-0 text-secondary">
-                "Escalar aplicaciones enterprise no es solo cuestión de código eficiente; se trata de coordinar personas, simplificar procesos y entregar valor continuo en entornos de alta exigencia."
-              </p>
-            </div>
-            <p class="lead text-secondary fs-6 mb-3">
-              Durante este período asumí la responsabilidad de Senior Frontend Lead en consultoría tecnológica de primer nivel, liderando proyectos críticos para la salud y el deporte profesional.
-            </p>
-            <ul class="story-list text-muted fs-7 mb-0">
-              <li><strong class="text-body">Portal Analítico para LaLiga (NTT Data):</strong> Visualización en tiempo real de estadísticas avanzadas de partidos con alto rendimiento de renderizado.</li>
-              <li><strong class="text-body">Sistemas Modulares de Salud (Deloitte):</strong> Diseño de arquitecturas frontend conectadas a microservicios Java Spring Boot.</li>
-            </ul>
-          </div>
-
-          <div class="col-lg-5">
-            <div class="p-4 rounded-4 bg-warning-subtle border border-warning text-dark h-100 d-flex flex-column justify-content-center">
-              <div class="d-flex align-items-center gap-3 mb-3">
-                <i class="bi bi-award-fill display-5 text-warning"></i>
-                <div>
-                  <h5 class="fw-bold mb-1 text-dark">Máster en Metodologías Ágiles</h5>
-                  <span class="fs-7 fw-semibold opacity-75">La Salle - Universitat Ramon Llull</span>
-                </div>
-              </div>
-              <p class="fs-7 mb-0">
-                Especialización en Scrum, Kanban, Lean Software Engineering y dinamización de equipos multidisciplinares orientados a la entrega continua de valor.
-              </p>
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </section>
-
-    <!-- CHAPTER 3: CLOUD & REAL-TIME (2020-2022) -->
-    <section id="chap-3" class="gsap-chapter py-5 position-relative" data-chapter="chap-3">
-      <div class="gsap-card story-card p-4 p-md-5 rounded-4 shadow-lg border">
-
-        <div class="d-flex justify-content-between align-items-center mb-4 flex-wrap gap-2 border-bottom pb-3">
-          <div class="d-flex align-items-center gap-2">
-            <span class="chapter-number-pill chapter-pill-info">03</span>
-            <div>
-              <span class="badge bg-info-subtle text-info border border-info px-3 py-1 rounded-pill fw-bold fs-7">
-                CAPÍTULO 03 · 2020 – 2022
-              </span>
-              <h2 class="h3 fw-extrabold mb-0 mt-1">Innovación Serverless Cloud &amp; Ciberseguridad</h2>
-            </div>
-          </div>
-          <span class="text-muted fs-7 font-mono"><i class="bi bi-cpu me-1"></i>Obsidian Software &amp; VIU</span>
-        </div>
-
-        <div class="row g-4 align-items-center">
-          <div class="col-lg-7">
-            <div class="human-quote-box p-3 rounded-3 border-start border-4 border-info bg-body-tertiary mb-3">
-              <p class="fst-italic mb-0 text-secondary">
-                "En un entorno donde los sistemas operan 24/7, el rendimiento en tiempo real debe ir respaldado por una arquitectura segura por diseño."
-              </p>
-            </div>
-            <p class="lead text-secondary fs-6 mb-3">
-              Como Senior Frontend Engineer y Scrum Master en <strong>Obsidian Software</strong>, diseñé un dashboard crítico de monitorización en tiempo real que procesaba telemetría cada 60 segundos conectando Angular, NgRx, Three.js 3D y AWS CloudWatch.
-            </p>
-            <div class="d-flex gap-2 flex-wrap fs-8">
-              <span class="badge bg-dark text-info border">AWS CloudWatch & Lambda</span>
-              <span class="badge bg-dark text-info border">NestJS GraphQL</span>
-              <span class="badge bg-dark text-warning border">Certified Scrum Master (CSM)</span>
-            </div>
-          </div>
-
-          <div class="col-lg-5">
-            <div class="p-4 rounded-4 bg-danger-subtle border border-danger text-danger h-100">
-              <div class="d-flex align-items-center gap-3 mb-2">
-                <i class="bi bi-shield-lock-fill display-5 text-danger"></i>
-                <div>
-                  <h5 class="fw-bold mb-1 text-danger">Máster en Ciberseguridad</h5>
-                  <span class="fs-7 fw-semibold text-muted">Universidad Internacional de Valencia (VIU)</span>
-                </div>
-              </div>
-              <p class="fs-7 text-muted mb-0">
-                Auditoría de código seguro, mitigación OWASP Top 10, autenticación OAuth2/OIDC y protección avanzada de infraestructuras cloud.
-              </p>
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </section>
-
-    <!-- CHAPTER 4: LEADERSHIP & AWS ARCHITECTURE (2022-PRESENT) -->
-    <section id="chap-4" class="gsap-chapter py-5 position-relative" data-chapter="chap-4">
-      <div class="gsap-card story-card p-4 p-md-5 rounded-4 shadow-lg border border-primary-subtle">
-
-        <div class="d-flex justify-content-between align-items-center mb-4 flex-wrap gap-2 border-bottom pb-3">
-          <div class="d-flex align-items-center gap-2">
-            <span class="chapter-number-pill">04</span>
-            <div>
-              <span class="badge bg-primary px-3 py-1 rounded-pill fw-bold fs-7">
-                CAPÍTULO 04 · 2022 – PRESENTE
-              </span>
-              <h2 class="h3 fw-extrabold mb-0 mt-1">Liderazgo Angular Architect &amp; Despliegues AWS</h2>
-            </div>
-          </div>
-          <span class="text-muted fs-7 font-mono"><i class="bi bi-award-fill text-primary me-1"></i>Dimatica Software</span>
-        </div>
-
-        <div class="row g-4 align-items-center">
-          <div class="col-lg-7">
-            <div class="human-quote-box p-3 rounded-3 border-start border-4 border-danger bg-body-tertiary mb-3">
-              <p class="fst-italic mb-0 text-secondary">
-                "Ser Lead Architect significa conectar las prioridades de negocio con la excelencia técnica: inspirar al equipo, acelerar despliegues automatizados y elevar el estándar de calidad."
-              </p>
-            </div>
-            <p class="lead text-secondary fs-6 mb-3">
-              Desde mayo de 2022 lidero la arquitectura frontend en <strong>Dimatica Software</strong>, orquestando la transformación tecnológica de una gran plataforma internacional B2B/B2C de viajes y alojamiento turístico.
-            </p>
-            <ul class="story-list text-muted fs-7 mb-0">
-              <li><strong>Arquitectura Microfrontend Nx &amp; Angular 18:</strong> Signals reactivas y optimización monorepo con un 40% de reducción en tiempos de build.</li>
-              <li><strong>Gestión de Despliegues AWS Cloud:</strong> Hosting de assets en <strong>AWS S3</strong>, distribución con <strong>AWS CloudFront CDN</strong> e integración en <strong>CloudBees CI/CD</strong>.</li>
-              <li><strong>Pruebas Automatizadas:</strong> Cobertura superior al 85% con <strong>Jest</strong> y <strong>Cypress</strong>.</li>
-            </ul>
-          </div>
-
-          <div class="col-lg-5">
-            <div class="visual-panel p-4 rounded-4 bg-body-tertiary border">
-              <h5 class="fw-bold text-primary mb-3 text-center"><i class="bi bi-graph-up-arrow me-2"></i>Métricas de Impacto</h5>
-              <div class="row g-2 text-center">
-                <div class="col-4">
-                  <div class="p-3 rounded-3 bg-dark border">
-                    <div class="fs-4 fw-extrabold text-primary">-40%</div>
-                    <div class="fs-8 text-muted">Build Time</div>
-                  </div>
-                </div>
-                <div class="col-4">
-                  <div class="p-3 rounded-3 bg-dark border">
-                    <div class="fs-4 fw-extrabold text-warning">99.99%</div>
-                    <div class="fs-8 text-muted">CloudFront CDN</div>
-                  </div>
-                </div>
-                <div class="col-4">
-                  <div class="p-3 rounded-3 bg-dark border">
-                    <div class="fs-4 fw-extrabold text-success">+85%</div>
-                    <div class="fs-8 text-muted">Test Cover</div>
-                  </div>
-                </div>
+    <!-- CHAPTER 2 SLIDE SECTION: ENTERPRISE (2017-2019) -->
+    <section id="chap-2" class="pinned-slide-section d-flex align-items-center justify-content-center position-relative overflow-hidden" data-chapter="chap-2">
+      <div class="watermark-bg-text font-mono">02 / ENTERPRISE</div>
+      <div class="container position-relative z-2 px-3 px-md-5">
+        <div class="glass-story-panel p-4 p-md-5 rounded-4 border shadow-2xl">
+          <div class="d-flex justify-content-between align-items-center mb-4 flex-wrap gap-2 border-bottom pb-3">
+            <div class="d-flex align-items-center gap-3">
+              <span class="pinned-num-badge bg-warning text-dark font-mono">02</span>
+              <div>
+                <span class="badge bg-warning-subtle text-warning border border-warning px-3 py-1 rounded-pill fw-bold fs-7">
+                  CAPÍTULO 02 · 2017 – 2019
+                </span>
+                <h2 class="display-6 fw-extrabold mb-0 mt-1">Escala Enterprise, LaLiga &amp; Máster en Agilidad</h2>
               </div>
             </div>
+            <span class="text-muted fs-7 font-mono"><i class="bi bi-building me-1"></i>Deloitte &amp; NTT Data (Everis)</span>
           </div>
-        </div>
 
-      </div>
-    </section>
-
-    <!-- CHAPTER 5: TECH STACK & PHILOSOPHY -->
-    <section id="chap-5" class="gsap-chapter py-5 position-relative" data-chapter="chap-5">
-      <div class="gsap-card story-card p-4 p-md-5 rounded-4 shadow-lg border">
-
-        <div class="d-flex justify-content-between align-items-center mb-4 flex-wrap gap-2 border-bottom pb-3">
-          <div class="d-flex align-items-center gap-2">
-            <span class="chapter-number-pill chapter-pill-info">05</span>
-            <div>
-              <span class="badge bg-info-subtle text-info border border-info px-3 py-1 rounded-pill fw-bold fs-7">
-                CAPÍTULO 05 · DOMINIO TÉCNICO
-              </span>
-              <h2 class="h3 fw-extrabold mb-0 mt-1">Ecosistema Tecnológico &amp; Medidores de Progreso</h2>
-            </div>
-          </div>
-          <span class="text-muted fs-7 font-mono"><i class="bi bi-sliders me-1"></i>Core Engineering Stack</span>
-        </div>
-
-        <div class="row g-4">
-          <div class="col-lg-6">
-            <div class="p-4 rounded-4 bg-body-tertiary border h-100">
-              <h5 class="fw-bold text-primary mb-3"><i class="bi bi-layers-fill me-2"></i>Frontend &amp; Architecture</h5>
-              <ul class="list-unstyled space-y-2 fs-7 text-muted mb-0">
-                <li><i class="bi bi-check-circle-fill text-success me-2"></i>Angular 16/17/18 &amp; Reactive Signals</li>
-                <li><i class="bi bi-check-circle-fill text-success me-2"></i>Nx Workspaces &amp; Microfrontends</li>
-                <li><i class="bi bi-check-circle-fill text-success me-2"></i>NgRx Store, Effects &amp; RxJS Streams</li>
-                <li><i class="bi bi-check-circle-fill text-success me-2"></i>TypeScript, HTML5, SASS, Tailwind CSS, Bootstrap 5</li>
-                <li><i class="bi bi-check-circle-fill text-success me-2"></i>Storybook Design Systems</li>
+          <div class="row g-4 align-items-center">
+            <div class="col-lg-7">
+              <div class="human-quote-box p-3 p-md-4 rounded-3 border-start border-4 border-warning bg-body-tertiary mb-3">
+                <p class="fst-italic mb-0 text-secondary fs-6">
+                  "Escalar aplicaciones enterprise no es solo cuestión de código eficiente; se trata de coordinar personas, simplificar procesos y entregar valor continuo en entornos exigentes."
+                </p>
+              </div>
+              <p class="lead text-secondary fs-6 mb-3">
+                Como Senior Frontend Lead en consultoría tecnológica de primer nivel, lideré proyectos críticos para el deporte profesional y el sector salud.
+              </p>
+              <ul class="story-list text-muted fs-7 mb-0">
+                <li><strong class="text-body">Portal Analítico LaLiga (NTT Data):</strong> Visualización en tiempo real de estadísticas avanzadas con alto rendimiento de renderizado.</li>
+                <li><strong class="text-body">Sistemas Modulares de Salud (Deloitte):</strong> Arquitecturas frontend desacopladas conectadas a microservicios Java Spring Boot.</li>
               </ul>
             </div>
-          </div>
 
-          <div class="col-lg-6">
-            <div class="p-4 rounded-4 bg-body-tertiary border h-100">
-              <h5 class="fw-bold text-warning mb-3"><i class="bi bi-cloud-check-fill me-2"></i>AWS Deployment &amp; DevOps</h5>
-              <ul class="list-unstyled space-y-2 fs-7 text-muted mb-0">
-                <li><i class="bi bi-check-circle-fill text-success me-2"></i>AWS S3 Bucket Hosting &amp; Assets Management</li>
-                <li><i class="bi bi-check-circle-fill text-success me-2"></i>AWS CloudFront CDN &amp; Cache Invalidation</li>
-                <li><i class="bi bi-check-circle-fill text-success me-2"></i>CloudBees CI/CD &amp; GitHub Actions Pipelines</li>
-                <li><i class="bi bi-check-circle-fill text-success me-2"></i>Testing: Jest, Cypress, Playwright</li>
-                <li><i class="bi bi-check-circle-fill text-success me-2"></i>Security: OWASP Top 10, OAuth2/OIDC</li>
-              </ul>
+            <div class="col-lg-5">
+              <div class="p-4 rounded-4 bg-warning-subtle border border-warning text-dark h-100 d-flex flex-column justify-content-center shadow-sm">
+                <div class="d-flex align-items-center gap-3 mb-3">
+                  <i class="bi bi-award-fill display-4 text-warning"></i>
+                  <div>
+                    <h5 class="fw-extrabold mb-1 text-dark">Máster en Metodologías Ágiles</h5>
+                    <span class="fs-7 fw-semibold opacity-75">La Salle - Universitat Ramon Llull</span>
+                  </div>
+                </div>
+                <p class="fs-7 mb-0">
+                  Especialización en Scrum, Kanban, Lean Software Engineering y dinamización de equipos multidisciplinares orientados a la entrega continua.
+                </p>
+              </div>
             </div>
           </div>
+        </div>
+      </div>
+    </section>
 
-          <!-- Technical Progress Meters -->
-          <div class="col-12 mt-3">
-            <div class="p-4 rounded-4 bg-body-tertiary border">
-              <h5 class="fw-bold text-info mb-3"><i class="bi bi-speedometer2 me-2"></i>Nivel de Dominio por Áreas</h5>
-              <div class="row g-3">
-                <div class="col-md-6">
-                  <div class="d-flex justify-content-between fs-7 fw-semibold mb-1">
-                    <span>Angular 16/17/18 &amp; Signals</span>
-                    <span class="text-primary fw-bold">98%</span>
+    <!-- CHAPTER 3 SLIDE SECTION: CLOUD (2020-2022) -->
+    <section id="chap-3" class="pinned-slide-section d-flex align-items-center justify-content-center position-relative overflow-hidden" data-chapter="chap-3">
+      <div class="watermark-bg-text font-mono">03 / CLOUD</div>
+      <div class="container position-relative z-2 px-3 px-md-5">
+        <div class="glass-story-panel p-4 p-md-5 rounded-4 border shadow-2xl">
+          <div class="d-flex justify-content-between align-items-center mb-4 flex-wrap gap-2 border-bottom pb-3">
+            <div class="d-flex align-items-center gap-3">
+              <span class="pinned-num-badge bg-info text-dark font-mono">03</span>
+              <div>
+                <span class="badge bg-info-subtle text-info border border-info px-3 py-1 rounded-pill fw-bold fs-7">
+                  CAPÍTULO 03 · 2020 – 2022
+                </span>
+                <h2 class="display-6 fw-extrabold mb-0 mt-1">Innovación Serverless Cloud &amp; Ciberseguridad</h2>
+              </div>
+            </div>
+            <span class="text-muted fs-7 font-mono"><i class="bi bi-cpu me-1"></i>Obsidian Software &amp; VIU</span>
+          </div>
+
+          <div class="row g-4 align-items-center">
+            <div class="col-lg-7">
+              <div class="human-quote-box p-3 p-md-4 rounded-3 border-start border-4 border-info bg-body-tertiary mb-3">
+                <p class="fst-italic mb-0 text-secondary fs-6">
+                  "En un entorno donde los sistemas operan 24/7, el rendimiento en tiempo real debe ir respaldado por una arquitectura segura por diseño."
+                </p>
+              </div>
+              <p class="lead text-secondary fs-6 mb-3">
+                Como Senior Frontend Engineer y Scrum Master en <strong>Obsidian Software</strong>, diseñé un dashboard crítico de monitorización en tiempo real procesando telemetría cada 60 segundos conectando Angular, NgRx, Three.js 3D y AWS CloudWatch.
+              </p>
+              <div class="d-flex gap-2 flex-wrap fs-8">
+                <span class="badge bg-dark text-info border px-3 py-2">AWS CloudWatch &amp; Lambda</span>
+                <span class="badge bg-dark text-info border px-3 py-2">NestJS GraphQL</span>
+                <span class="badge bg-dark text-warning border px-3 py-2">Certified Scrum Master (CSM)</span>
+              </div>
+            </div>
+
+            <div class="col-lg-5">
+              <div class="p-4 rounded-4 bg-danger-subtle border border-danger text-danger h-100 shadow-sm">
+                <div class="d-flex align-items-center gap-3 mb-2">
+                  <i class="bi bi-shield-lock-fill display-4 text-danger"></i>
+                  <div>
+                    <h5 class="fw-extrabold mb-1 text-danger">Máster en Ciberseguridad</h5>
+                    <span class="fs-7 fw-semibold text-muted">Universidad Internacional de Valencia (VIU)</span>
                   </div>
-                  <div class="progress progress-sm"><div class="progress-bar bg-primary animated-bar" style="width: 98%"></div></div>
                 </div>
+                <p class="fs-7 text-muted mb-0">
+                  Auditoría de código seguro, mitigación OWASP Top 10, autenticación OAuth2/OIDC y protección avanzada de infraestructuras cloud.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-                <div class="col-md-6">
-                  <div class="d-flex justify-content-between fs-7 fw-semibold mb-1">
-                    <span>Nx Monorepo &amp; Microfrontends</span>
-                    <span class="text-primary fw-bold">95%</span>
-                  </div>
-                  <div class="progress progress-sm"><div class="progress-bar bg-primary animated-bar" style="width: 95%"></div></div>
-                </div>
+    <!-- CHAPTER 4 SLIDE SECTION: LEADERSHIP & AWS ARCHITECTURE (2022-PRES) -->
+    <section id="chap-4" class="pinned-slide-section d-flex align-items-center justify-content-center position-relative overflow-hidden" data-chapter="chap-4">
+      <div class="watermark-bg-text font-mono">04 / LIDERAZGO</div>
+      <div class="container position-relative z-2 px-3 px-md-5">
+        <div class="glass-story-panel p-4 p-md-5 rounded-4 border border-primary-subtle shadow-2xl">
+          <div class="d-flex justify-content-between align-items-center mb-4 flex-wrap gap-2 border-bottom pb-3">
+            <div class="d-flex align-items-center gap-3">
+              <span class="pinned-num-badge bg-primary text-white font-mono">04</span>
+              <div>
+                <span class="badge bg-primary px-3 py-1 rounded-pill fw-bold fs-7">
+                  CAPÍTULO 04 · 2022 – PRESENTE
+                </span>
+                <h2 class="display-6 fw-extrabold mb-0 mt-1">Liderazgo Angular Architect &amp; Despliegues AWS</h2>
+              </div>
+            </div>
+            <span class="text-muted fs-7 font-mono"><i class="bi bi-award-fill text-primary me-1"></i>Dimatica Software</span>
+          </div>
 
-                <div class="col-md-6">
-                  <div class="d-flex justify-content-between fs-7 fw-semibold mb-1">
-                    <span>AWS Cloud (S3, CloudFront CDN, Lambda)</span>
-                    <span class="text-warning fw-bold">90%</span>
-                  </div>
-                  <div class="progress progress-sm"><div class="progress-bar bg-warning animated-bar" style="width: 90%"></div></div>
-                </div>
+          <div class="row g-4 align-items-center">
+            <div class="col-lg-7">
+              <div class="human-quote-box p-3 p-md-4 rounded-3 border-start border-4 border-danger bg-body-tertiary mb-3">
+                <p class="fst-italic mb-0 text-secondary fs-6">
+                  "Ser Lead Architect significa conectar las prioridades de negocio con la excelencia técnica: inspirar al equipo, acelerar despliegues automatizados y elevar el estándar de calidad."
+                </p>
+              </div>
+              <p class="lead text-secondary fs-6 mb-3">
+                Desde mayo de 2022 lidero la arquitectura frontend en <strong>Dimatica Software</strong>, orquestando la transformación tecnológica de una gran plataforma internacional B2B/B2C de viajes y alojamiento turístico.
+              </p>
+              <ul class="story-list text-muted fs-7 mb-0">
+                <li><strong>Arquitectura Microfrontend Nx &amp; Angular 18:</strong> Signals reactivas y optimización monorepo con un 40% de reducción en tiempos de build.</li>
+                <li><strong>Gestión de Despliegues AWS Cloud:</strong> Hosting de assets en <strong>AWS S3</strong>, distribución con <strong>AWS CloudFront CDN</strong> e integración en <strong>CloudBees CI/CD</strong>.</li>
+                <li><strong>Pruebas Automatizadas:</strong> Cobertura superior al 85% con <strong>Jest</strong> y <strong>Cypress</strong>.</li>
+              </ul>
+            </div>
 
-                <div class="col-md-6">
-                  <div class="d-flex justify-content-between fs-7 fw-semibold mb-1">
-                    <span>Testing (Jest, Cypress, Playwright)</span>
-                    <span class="text-success fw-bold">92%</span>
+            <div class="col-lg-5">
+              <div class="p-4 rounded-4 bg-body-tertiary border shadow-sm">
+                <h5 class="fw-bold text-primary mb-3 text-center"><i class="bi bi-graph-up-arrow me-2"></i>Métricas de Impacto</h5>
+                <div class="row g-2 text-center">
+                  <div class="col-4">
+                    <div class="p-3 rounded-3 bg-dark border">
+                      <div class="fs-3 fw-extrabold text-primary">-40%</div>
+                      <div class="fs-8 text-muted">Build Time</div>
+                    </div>
                   </div>
-                  <div class="progress progress-sm"><div class="progress-bar bg-success animated-bar" style="width: 92%"></div></div>
+                  <div class="col-4">
+                    <div class="p-3 rounded-3 bg-dark border">
+                      <div class="fs-3 fw-extrabold text-warning">99.99%</div>
+                      <div class="fs-8 text-muted">CloudFront CDN</div>
+                    </div>
+                  </div>
+                  <div class="col-4">
+                    <div class="p-3 rounded-3 bg-dark border">
+                      <div class="fs-3 fw-extrabold text-success">+85%</div>
+                      <div class="fs-8 text-muted">Test Cover</div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-
       </div>
     </section>
 
-    <!-- CHAPTER 6: CONTACT & NEXT CHAPTER -->
-    <section id="chap-6" class="gsap-chapter py-5 mb-5 position-relative" data-chapter="chap-6">
-      <div class="gsap-card story-card p-4 p-md-5 rounded-4 shadow-lg text-center border">
+    <!-- CHAPTER 5 SLIDE SECTION: STACK & METERS -->
+    <section id="chap-5" class="pinned-slide-section d-flex align-items-center justify-content-center position-relative overflow-hidden" data-chapter="chap-5">
+      <div class="watermark-bg-text font-mono">05 / STACK</div>
+      <div class="container position-relative z-2 px-3 px-md-5">
+        <div class="glass-story-panel p-4 p-md-5 rounded-4 border shadow-2xl">
+          <div class="d-flex justify-content-between align-items-center mb-4 flex-wrap gap-2 border-bottom pb-3">
+            <div class="d-flex align-items-center gap-3">
+              <span class="pinned-num-badge bg-info text-dark font-mono">05</span>
+              <div>
+                <span class="badge bg-info-subtle text-info border border-info px-3 py-1 rounded-pill fw-bold fs-7">
+                  CAPÍTULO 05 · DOMINIO TÉCNICO
+                </span>
+                <h2 class="display-6 fw-extrabold mb-0 mt-1">Ecosistema Tecnológico &amp; Medidores de Progreso</h2>
+              </div>
+            </div>
+            <span class="text-muted fs-7 font-mono"><i class="bi bi-sliders me-1"></i>Core Engineering Stack</span>
+          </div>
 
-        <div class="chapter-meta mb-3">
-          <span class="badge bg-success-subtle text-success border border-success px-3 py-1 rounded-pill fw-bold fs-7">
-            CAPÍTULO 06 · SIGUIENTE PASO
-          </span>
+          <div class="row g-4">
+            <div class="col-lg-6">
+              <div class="p-4 rounded-4 bg-body-tertiary border h-100">
+                <h5 class="fw-bold text-primary mb-3"><i class="bi bi-layers-fill me-2"></i>Frontend &amp; Architecture</h5>
+                <ul class="list-unstyled space-y-2 fs-7 text-muted mb-0">
+                  <li><i class="bi bi-check-circle-fill text-success me-2"></i>Angular 16/17/18 &amp; Reactive Signals</li>
+                  <li><i class="bi bi-check-circle-fill text-success me-2"></i>Nx Workspaces &amp; Microfrontends</li>
+                  <li><i class="bi bi-check-circle-fill text-success me-2"></i>NgRx Store, Effects &amp; RxJS Streams</li>
+                  <li><i class="bi bi-check-circle-fill text-success me-2"></i>TypeScript, HTML5, SASS, Bootstrap 5</li>
+                  <li><i class="bi bi-check-circle-fill text-success me-2"></i>Storybook Design Systems</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="col-lg-6">
+              <div class="p-4 rounded-4 bg-body-tertiary border h-100">
+                <h5 class="fw-bold text-warning mb-3"><i class="bi bi-cloud-check-fill me-2"></i>AWS Deployment &amp; DevOps</h5>
+                <ul class="list-unstyled space-y-2 fs-7 text-muted mb-0">
+                  <li><i class="bi bi-check-circle-fill text-success me-2"></i>AWS S3 Bucket Hosting &amp; Assets Management</li>
+                  <li><i class="bi bi-check-circle-fill text-success me-2"></i>AWS CloudFront CDN &amp; Cache Invalidation</li>
+                  <li><i class="bi bi-check-circle-fill text-success me-2"></i>CloudBees CI/CD &amp; GitHub Actions Pipelines</li>
+                  <li><i class="bi bi-check-circle-fill text-success me-2"></i>Testing: Jest, Cypress, Playwright</li>
+                  <li><i class="bi bi-check-circle-fill text-success me-2"></i>Security: OWASP Top 10, OAuth2/OIDC</li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Technical Progress Meters -->
+            <div class="col-12">
+              <div class="p-4 rounded-4 bg-body-tertiary border">
+                <h5 class="fw-bold text-info mb-3"><i class="bi bi-speedometer2 me-2"></i>Nivel de Dominio por Áreas</h5>
+                <div class="row g-3">
+                  <div class="col-md-6">
+                    <div class="d-flex justify-content-between fs-7 fw-semibold mb-1">
+                      <span>Angular 16/17/18 &amp; Signals</span>
+                      <span class="text-primary fw-bold">98%</span>
+                    </div>
+                    <div class="progress progress-sm"><div class="progress-bar bg-primary animated-bar" style="width: 98%"></div></div>
+                  </div>
+
+                  <div class="col-md-6">
+                    <div class="d-flex justify-content-between fs-7 fw-semibold mb-1">
+                      <span>Nx Monorepo &amp; Microfrontends</span>
+                      <span class="text-primary fw-bold">95%</span>
+                    </div>
+                    <div class="progress progress-sm"><div class="progress-bar bg-primary animated-bar" style="width: 95%"></div></div>
+                  </div>
+
+                  <div class="col-md-6">
+                    <div class="d-flex justify-content-between fs-7 fw-semibold mb-1">
+                      <span>AWS Cloud (S3, CloudFront CDN, Lambda)</span>
+                      <span class="text-warning fw-bold">90%</span>
+                    </div>
+                    <div class="progress progress-sm"><div class="progress-bar bg-warning animated-bar" style="width: 90%"></div></div>
+                  </div>
+
+                  <div class="col-md-6">
+                    <div class="d-flex justify-content-between fs-7 fw-semibold mb-1">
+                      <span>Testing (Jest, Cypress, Playwright)</span>
+                      <span class="text-success fw-bold">92%</span>
+                    </div>
+                    <div class="progress progress-sm"><div class="progress-bar bg-success animated-bar" style="width: 92%"></div></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
+      </div>
+    </section>
 
-        <h2 class="display-6 fw-extrabold mb-3">
-          El Próximo Capítulo: ¡Construyamos Algo Grande!
-        </h2>
+    <!-- CHAPTER 6 SLIDE SECTION: CALL TO ACTION / CONTACT -->
+    <section id="chap-6" class="pinned-slide-section d-flex align-items-center justify-content-center position-relative overflow-hidden" data-chapter="chap-6">
+      <div class="watermark-bg-text font-mono">06 / CONTACTO</div>
+      <div class="container position-relative z-2 px-3 px-md-5">
+        <div class="glass-story-panel p-4 p-md-5 rounded-4 border shadow-2xl text-center">
+          <div class="chapter-meta mb-3">
+            <span class="badge bg-success-subtle text-success border border-success px-3 py-1 rounded-pill fw-bold fs-7">
+              CAPÍTULO 06 · SIGUIENTE PASO
+            </span>
+          </div>
 
-        <p class="lead text-secondary max-w-700 mx-auto mb-4">
-          Si buscas un <strong>Lead Angular Architect</strong> o <strong>Especialista AWS Cloud Frontend</strong> para impulsar tu plataforma tecnológica o liderar el crecimiento de tu equipo de ingeniería, me encantará conversar contigo.
-        </p>
+          <h2 class="display-5 fw-extrabold text-gradient mb-3">
+            El Próximo Capítulo: ¡Construyamos Algo Grande!
+          </h2>
 
-        <div class="d-flex flex-wrap justify-content-center gap-3 mt-4">
-          <a href="mailto:c.heredia87@gmail.com" class="btn btn-primary-custom btn-lg pulse-button">
-            <i class="bi bi-envelope-fill me-2"></i>c.heredia87@gmail.com
-          </a>
-          <button id="open-chat-scrolly" class="btn btn-accent-custom btn-lg">
-            <i class="bi bi-robot me-2"></i>Preguntar al Asistente IA 💬
-          </button>
-          <a href="Chris_Heredia_CV.pdf" target="_blank" class="btn btn-outline-custom btn-lg">
-            <i class="bi bi-file-earmark-pdf me-2"></i>Descargar CV PDF
-          </a>
+          <p class="lead text-secondary max-w-750 mx-auto mb-4 fs-5">
+            Si buscas un <strong>Lead Angular Architect</strong> o <strong>Especialista AWS Cloud Frontend</strong> para impulsar tu plataforma tecnológica o liderar el crecimiento de tu equipo de ingeniería, me encantará conversar contigo.
+          </p>
+
+          <div class="d-flex flex-wrap justify-content-center gap-3 mt-4">
+            <a href="mailto:c.heredia87@gmail.com" class="btn btn-primary-custom btn-lg pulse-button">
+              <i class="bi bi-envelope-fill me-2"></i>c.heredia87@gmail.com
+            </a>
+            <button id="open-chat-scrolly" class="btn btn-accent-custom btn-lg">
+              <i class="bi bi-robot me-2"></i>Preguntar al Asistente IA 💬
+            </button>
+            <a href="Chris_Heredia_CV.pdf" target="_blank" class="btn btn-outline-custom btn-lg">
+              <i class="bi bi-file-earmark-pdf me-2"></i>Descargar CV PDF
+            </a>
+          </div>
+
+          <div class="mt-5 pt-3 border-top text-muted fs-7 d-flex justify-content-center gap-4 flex-wrap">
+            <span><i class="bi bi-geo-alt me-1 text-primary"></i>Barcelona, España</span>
+            <span><i class="bi bi-linkedin me-1 text-info"></i><a href="https://www.linkedin.com/in/christian-heredia-angular-developer/" target="_blank">LinkedIn Profile</a></span>
+            <span><i class="bi bi-github me-1 text-light"></i><a href="https://github.com/chdelucia" target="_blank">GitHub Profile</a></span>
+          </div>
         </div>
-
-        <div class="mt-5 pt-3 border-top text-muted fs-7 d-flex justify-content-center gap-4 flex-wrap">
-          <span><i class="bi bi-geo-alt me-1 text-primary"></i>Barcelona, España</span>
-          <span><i class="bi bi-linkedin me-1 text-info"></i><a href="https://www.linkedin.com/in/christian-heredia-angular-developer/" target="_blank">LinkedIn Profile</a></span>
-          <span><i class="bi bi-github me-1 text-light"></i><a href="https://github.com/chdelucia" target="_blank">GitHub Profile</a></span>
-        </div>
-
       </div>
     </section>
 
@@ -546,25 +572,6 @@
       </form>
     </div>
   </div>
-
-  <!-- Footer -->
-  <footer id="footer" class="mt-5">
-    <div class="container text-center">
-      <h3>Chris Heredia</h3>
-      <p>Senior Lead Angular Architect &amp; AWS Cloud Frontend Specialist · Barcelona, Spain</p>
-      <div class="d-flex justify-content-center gap-3 mb-3">
-        <a href="index.html" class="btn btn-outline-custom btn-sm"><i class="bi bi-layout-text-window me-1"></i> CV Estándar</a>
-        <a href="Chris_Heredia_CV.pdf" target="_blank" class="btn btn-outline-custom btn-sm"><i class="bi bi-download me-1"></i> Descargar PDF</a>
-      </div>
-      <div class="copyright">
-        &copy; Chris Heredia GSAP Scrollytelling CV. Senior Angular Architect &amp; AWS Cloud Specialist.
-      </div>
-    </div>
-  </footer>
-
-  <!-- TensorFlow.js & Universal Sentence Encoder (100% Free Client-Side Neural AI) -->
-  <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/universal-sentence-encoder"></script>
 
   <!-- Vendor JS Files -->
   <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
