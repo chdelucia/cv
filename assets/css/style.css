@@ -1799,19 +1799,70 @@ section {
 }
 
 .orb-primary {
-  width: 400px;
-  height: 400px;
+  width: 420px;
+  height: 420px;
   background: var(--primary);
   top: 15%;
   left: 10%;
 }
 
-.orb-secondary {
+.orb-secondary, .orb-warning {
   width: 450px;
   height: 450px;
   background: var(--aws-orange);
   bottom: 10%;
   right: 10%;
+}
+
+.orb-info {
+  width: 380px;
+  height: 380px;
+  background: var(--accent-cyan);
+  top: 20%;
+  right: 12%;
+}
+
+.orb-success {
+  width: 400px;
+  height: 400px;
+  background: #22c55e;
+  bottom: 15%;
+  left: 8%;
+}
+
+.orb-danger {
+  width: 360px;
+  height: 360px;
+  background: #ef4444;
+  top: 25%;
+  left: 15%;
+}
+
+/* 3D Perspective & GPU Hardware Acceleration for Parallax */
+.pinned-slide-section {
+  perspective: 1000px;
+}
+
+.glass-story-panel,
+.hero-pinned-content {
+  transform-style: preserve-3d;
+  will-change: transform, opacity;
+  transition: transform 0.15s ease-out, box-shadow 0.3s ease;
+}
+
+.watermark-bg-text {
+  will-change: transform, opacity;
+}
+
+.human-quote-box,
+.stat-card {
+  transform-style: preserve-3d;
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s ease;
+}
+
+.human-quote-box:hover,
+.stat-card:hover {
+  transform: translateZ(15px);
 }
 
 /* Chapter Number Pill Badges */
