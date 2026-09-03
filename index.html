@@ -29,12 +29,15 @@
   <!-- Preconnect to Google Fonts for performance -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&family=Be+Vietnam+Pro:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
   <!-- Vendor CSS Files -->
   <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
   <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+
+  <!-- Native Scroll Progress Bar -->
+  <div id="scroll-progress"></div>
 
   <!-- Template Main CSS File -->
   <link href="assets/css/style.css" rel="stylesheet">
@@ -65,13 +68,18 @@
   <!-- Hero Section -->
   <section id="hero" class="d-flex flex-column justify-content-center">
     <div class="container hero-container" data-scroll-reveal="fade-up">
+      <div class="d-flex align-items-center gap-2 mb-3">
+        <span class="led-glow-dot success"></span>
+        <span class="text-uppercase font-mono text-info fw-bold fs-7 tracking-wider">Lumina Architect UI System</span>
+      </div>
+
       <h1 class="hero-title">Chris Heredia</h1>
       <p class="hero-subtitle">Senior Lead Angular Architect &amp; AWS Cloud Frontend Specialist</p>
 
       <div class="hero-stats-row mt-4">
         <div class="stat-pill"><i class="bi bi-award-fill text-warning"></i> <span>10+ Yrs Exp</span></div>
-        <div class="stat-pill"><i class="bi bi-cpu-fill text-info"></i> <span>Angular 18 & Nx</span></div>
-        <div class="stat-pill"><i class="bi bi-cloud-check-fill text-success"></i> <span>AWS & CloudBees</span></div>
+        <div class="stat-pill"><i class="bi bi-cpu-fill text-info"></i> <span>Angular 18 & Nx Signals</span></div>
+        <div class="stat-pill"><i class="bi bi-cloud-check-fill text-success"></i> <span>AWS S3 & CloudFront CDN</span></div>
         <div class="stat-pill"><i class="bi bi-people-fill text-primary"></i> <span>Tech Lead & CSM</span></div>
       </div>
 
@@ -116,21 +124,50 @@
             <p class="fst-italic text-secondary mb-4">
               Passionate about scalable frontend architectures, Nx microfrontends, high-throughput reactive state management (NgRx/Signals), and cloud automation with AWS (S3, CloudFront CDN) and CloudBees CI/CD.
             </p>
+
+            <!-- Impact Metric Cards -->
+            <div class="row g-3 mb-4">
+              <div class="col-6 col-md-3">
+                <div class="glass-card p-3 text-center">
+                  <div class="text-info fw-extrabold fs-3">10+</div>
+                  <div class="fs-8 text-muted">Years Exp</div>
+                </div>
+              </div>
+              <div class="col-6 col-md-3">
+                <div class="glass-card p-3 text-center">
+                  <div class="text-primary fw-extrabold fs-3">-40%</div>
+                  <div class="fs-8 text-muted">Build Time</div>
+                </div>
+              </div>
+              <div class="col-6 col-md-3">
+                <div class="glass-card p-3 text-center">
+                  <div class="text-warning fw-extrabold fs-3">99.99%</div>
+                  <div class="fs-8 text-muted">CloudFront CDN</div>
+                </div>
+              </div>
+              <div class="col-6 col-md-3">
+                <div class="glass-card p-3 text-center">
+                  <div class="text-success fw-extrabold fs-3">+85%</div>
+                  <div class="fs-8 text-muted">Test Coverage</div>
+                </div>
+              </div>
+            </div>
+
             <div class="row">
               <div class="col-lg-6">
                 <ul class="list-unstyled space-y-2">
-                  <li class="py-1"><i class="bi bi-chevron-right text-primary me-2"></i> <strong>Location:</strong> <span>Barcelona, Spain</span></li>
-                  <li class="py-1"><i class="bi bi-chevron-right text-primary me-2"></i> <strong>Experience:</strong> <span>10+ Years (Since Sept 2013)</span></li>
-                  <li class="py-1"><i class="bi bi-chevron-right text-primary me-2"></i> <strong>Degree:</strong> <span>B.Sc. Telematics Engineering (UPF)</span></li>
-                  <li class="py-1"><i class="bi bi-chevron-right text-primary me-2"></i> <strong>Master's:</strong> <span>Cybersecurity (VIU) &amp; Agile (La Salle)</span></li>
+                  <li class="py-1"><i class="bi bi-chevron-right text-info me-2"></i> <strong>Location:</strong> <span>Barcelona, Spain</span></li>
+                  <li class="py-1"><i class="bi bi-chevron-right text-info me-2"></i> <strong>Experience:</strong> <span>10+ Years (Since Sept 2013)</span></li>
+                  <li class="py-1"><i class="bi bi-chevron-right text-info me-2"></i> <strong>Degree:</strong> <span>B.Sc. Telematics Engineering (UPF)</span></li>
+                  <li class="py-1"><i class="bi bi-chevron-right text-info me-2"></i> <strong>Master's:</strong> <span>Cybersecurity (VIU) &amp; Agile (La Salle)</span></li>
                 </ul>
               </div>
               <div class="col-lg-6">
                 <ul class="list-unstyled space-y-2">
-                  <li class="py-1"><i class="bi bi-chevron-right text-primary me-2"></i> <strong>Current Role:</strong> <span>Lead Angular Architect at Dimatica Software</span></li>
-                  <li class="py-1"><i class="bi bi-chevron-right text-primary me-2"></i> <strong>Certifications:</strong> <span>Certified Scrum Master (CSM)</span></li>
-                  <li class="py-1"><i class="bi bi-chevron-right text-primary me-2"></i> <strong>Cloud Ecosystem:</strong> <span>AWS (S3, CloudFront, Lambda, API Gateway)</span></li>
-                  <li class="py-1"><i class="bi bi-chevron-right text-primary me-2"></i> <strong>CI/CD &amp; DevOps:</strong> <span>CloudBees, GitHub Actions, Docker</span></li>
+                  <li class="py-1"><i class="bi bi-chevron-right text-info me-2"></i> <strong>Current Role:</strong> <span>Lead Angular Architect at Dimatica Software</span></li>
+                  <li class="py-1"><i class="bi bi-chevron-right text-info me-2"></i> <strong>Certifications:</strong> <span>Certified Scrum Master (CSM)</span></li>
+                  <li class="py-1"><i class="bi bi-chevron-right text-info me-2"></i> <strong>Cloud Ecosystem:</strong> <span>AWS (S3, CloudFront, Lambda, API Gateway)</span></li>
+                  <li class="py-1"><i class="bi bi-chevron-right text-info me-2"></i> <strong>CI/CD &amp; DevOps:</strong> <span>CloudBees, GitHub Actions, Docker</span></li>
                 </ul>
               </div>
             </div>
@@ -152,11 +189,20 @@
           <p>A comprehensive overview of my core technology stack, architectural specializations, and AWS cloud ecosystem proficiency built over 10+ years of active software engineering.</p>
         </div>
 
+        <!-- Interactive Tech Stack Category Filters -->
+        <div class="tech-filter-bar">
+          <button class="filter-chip-btn active" data-filter="all">All Stack</button>
+          <button class="filter-chip-btn" data-filter="frontend">Frontend & Nx</button>
+          <button class="filter-chip-btn" data-filter="aws">AWS Cloud & DevOps</button>
+          <button class="filter-chip-btn" data-filter="testing">Testing & Security</button>
+          <button class="filter-chip-btn" data-filter="agile">Agile & Architecture</button>
+        </div>
+
         <div class="row g-4">
           <!-- Skill Category 1 -->
-          <div class="col-md-6 col-lg-3" data-scroll-reveal="zoom-in" data-scroll-delay="100">
-            <div class="skill-category-card h-100 p-4 rounded-4 shadow-sm">
-              <div class="category-icon text-primary mb-3"><i class="bx bx-code-alt fs-1"></i></div>
+          <div class="col-md-6 col-lg-3 skill-item-card" data-category="frontend" data-scroll-reveal="zoom-in" data-scroll-delay="100">
+            <div class="glass-card h-100 p-4">
+              <div class="category-icon text-info mb-3"><i class="bx bx-code-alt fs-1"></i></div>
               <h4 class="fw-bold mb-3">Frontend Architecture</h4>
               <ul class="skill-list list-unstyled">
                 <li><i class="bi bi-check2-circle text-success me-2"></i>Angular 16 / 17 / 18 &amp; Signals</li>
@@ -170,8 +216,8 @@
           </div>
 
           <!-- Skill Category 2 -->
-          <div class="col-md-6 col-lg-3" data-scroll-reveal="zoom-in" data-scroll-delay="200">
-            <div class="skill-category-card h-100 p-4 rounded-4 shadow-sm">
+          <div class="col-md-6 col-lg-3 skill-item-card" data-category="aws" data-scroll-reveal="zoom-in" data-scroll-delay="200">
+            <div class="glass-card h-100 p-4">
               <div class="category-icon text-warning mb-3"><i class="bx bx-cloud fs-1"></i></div>
               <h4 class="fw-bold mb-3">AWS Cloud &amp; DevOps</h4>
               <ul class="skill-list list-unstyled">
@@ -186,8 +232,8 @@
           </div>
 
           <!-- Skill Category 3 -->
-          <div class="col-md-6 col-lg-3" data-scroll-reveal="zoom-in" data-scroll-delay="300">
-            <div class="skill-category-card h-100 p-4 rounded-4 shadow-sm">
+          <div class="col-md-6 col-lg-3 skill-item-card" data-category="testing" data-scroll-reveal="zoom-in" data-scroll-delay="300">
+            <div class="glass-card h-100 p-4">
               <div class="category-icon text-info mb-3"><i class="bx bx-check-shield fs-1"></i></div>
               <h4 class="fw-bold mb-3">Testing &amp; Security</h4>
               <ul class="skill-list list-unstyled">
@@ -202,8 +248,8 @@
           </div>
 
           <!-- Skill Category 4 -->
-          <div class="col-md-6 col-lg-3" data-scroll-reveal="zoom-in" data-scroll-delay="400">
-            <div class="skill-category-card h-100 p-4 rounded-4 shadow-sm">
+          <div class="col-md-6 col-lg-3 skill-item-card" data-category="agile" data-scroll-reveal="zoom-in" data-scroll-delay="400">
+            <div class="glass-card h-100 p-4">
               <div class="category-icon text-success mb-3"><i class="bx bx-layer fs-1"></i></div>
               <h4 class="fw-bold mb-3">Backend &amp; Agile</h4>
               <ul class="skill-list list-unstyled">
@@ -233,7 +279,7 @@
         <div class="row">
           <!-- Left Column: Experience -->
           <div class="col-lg-6" data-scroll-reveal="fade-right">
-            <h3 class="resume-title"><i class="bi bi-briefcase-fill text-primary me-2"></i>Work Experience</h3>
+            <h3 class="resume-title"><i class="bi bi-briefcase-fill text-info me-2"></i>Work Experience</h3>
 
             <!-- Job 1 -->
             <div class="resume-item">
@@ -286,7 +332,7 @@
 
           <!-- Right Column: Education & Master's -->
           <div class="col-lg-6" data-scroll-reveal="fade-left">
-            <h3 class="resume-title"><i class="bi bi-mortarboard-fill text-primary me-2"></i>Education &amp; Credentials</h3>
+            <h3 class="resume-title"><i class="bi bi-mortarboard-fill text-info me-2"></i>Education &amp; Credentials</h3>
 
             <!-- Edu 1 -->
             <div class="resume-item">
@@ -313,8 +359,8 @@
             </div>
 
             <!-- Certifications Box -->
-            <div class="resume-item bg-primary-subtle border-primary p-3 rounded-3">
-              <h4 class="text-primary"><i class="bi bi-shield-check me-2"></i>Official Certifications</h4>
+            <div class="glass-card p-3 border-info">
+              <h4 class="text-info"><i class="bi bi-shield-check me-2"></i>Official Certifications</h4>
               <ul class="mb-0">
                 <li><strong>Certified Scrum Master (CSM)</strong> - Scrum Alliance</li>
                 <li><strong>AWS Cloud Practitioner Knowledge</strong> - Cloud Architecture &amp; CDN Deployments</li>
