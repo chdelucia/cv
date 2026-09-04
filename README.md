@@ -1,7 +1,7 @@
 # Chris Heredia Naranjo  
-Barcelona, Spain · [LinkedIn](https://www.linkedin.com/in/christian-heredia-angular-developer/) · c.heredia87@gmail.com
+Barcelona, Spain · [LinkedIn](https://www.linkedin.com/in/christian/) · c.heredia.naranjo@gmail.com
 
-I am a **Senior Lead Angular Architect and AWS Cloud Frontend Specialist** with over 10 years of professional experience (since 2013), 20+ delivered enterprise applications, and a certified Scrum Master. I specialize in building enterprise-grade, high-performance web platforms using **Angular (16/17/18)**, **Angular Signals**, **Nx Microfrontends**, and scalable **AWS Cloud Architectures** (S3, CloudFront CDN, Lambda, API Gateway, Route 53, Serverless CI/CD), backed by a Master's Degree in Cybersecurity to guarantee security-by-design.
+I am a **Architect Frontend Engineer** with over 10 years of professional experience (since 2013), 20+ delivered enterprise applications, and a certified Scrum Master. I specialize in building enterprise-grade, high-performance web platforms using **Angular (16/17/18)**, **Angular Signals**, **Nx Microfrontends**, and scalable **AWS Cloud Architectures** (S3, CloudFront CDN, Lambda, API Gateway, Route 53, Serverless CI/CD), backed by a Master's Degree in Cybersecurity to guarantee security-by-design.
 
 🤖 **Real Client-Side Neural AI Assistant:** An interactive AI Assistant chat powered 100% in-browser using **TensorFlow.js** and the **Universal Sentence Encoder** deep learning neural model. It performs real-time client-side vector embedding inference and cosine similarity semantic matching—100% free, requiring 0 API keys and zero backend server dependencies.
 
@@ -20,7 +20,7 @@ I am a **Senior Lead Angular Architect and AWS Cloud Frontend Specialist** with 
 ## 💼 PROFESSIONAL EXPERIENCE
 
 ### **Dimatica Software**
-**Lead Frontend Engineer & Angular/AWS Architect**
+**Architect Frontend Engineer**
 *May 2022 – Present*  
 - Led the end-to-end design and frontend development of a global enterprise B2B & B2C tourism accommodation platform handling millions of requests.
 - Architected a scalable **Microfrontend Architecture** using **Nx** and **Angular 16/17/18**, reducing build times by 40% and enabling independent team deployments.
@@ -30,7 +30,7 @@ I am a **Senior Lead Angular Architect and AWS Cloud Frontend Specialist** with 
 - Built real-time WebSocket messaging systems on **Node.js** and integrated with **Java Spring Boot** microservices.
 
 ### **Obsidian Software**
-**Senior Frontend Engineer & Scrum Master**  
+**Senior Frontend Engineer & Scrum master**
 *Jan 2020 – Dec 2022*  
 - Engineered a real-time server and cloud resource monitoring dashboard with 1-minute metric refresh rates using **Angular**, **NgRx**, **Three.js**, and **AWS CloudWatch** integration.
 - Designed serverless backend integrations with **NestJS**, **GraphQL**, and **AWS Lambda**.
@@ -43,8 +43,8 @@ I am a **Senior Lead Angular Architect and AWS Cloud Frontend Specialist** with 
 - Developed an AI chatbot helper for website configuration, integrating **GraphQL** APIs and cloud microservices.
 - Led the frontend engineering team for a Spanish Premier League football analytics portal built with **Angular** and **Node.js**.
 
-### **Pricesoft**
-**Frontend Developer**
+### **Pricesoft & internship**
+**Trainee Engineer**
 *Sept 2013 – Oct 2016*  
 - Developed B2B web applications for travel agencies using **React**, **jQuery**, **Laravel**, **Bootstrap**, and **MySQL**.
 
@@ -53,8 +53,8 @@ I am a **Senior Lead Angular Architect and AWS Cloud Frontend Specialist** with 
 ## 🎓 EDUCATION & CERTIFICATIONS
 
 - **Valencia International University** — *Master of Cybersecurity* (2022 - 2023)
-- **University Ramon Llull - La Salle** — *Master in Agile Methodologies* (2017 - 2018)
-- **University Pompeu Fabra** — *Telematics Engineering Degree* (2011 - 2016)
+- **University Ramon Llull** — *Master of agile methodologies* (Sept 2017 - May 2018)
+- **University Pompeu Fabra** — *Telematics Engineering degree* (Sept 2011 - May 2016)
 - **Certifications:** Certified Scrum Master (CSM)
 
 ---

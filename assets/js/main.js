@@ -340,7 +340,7 @@
           'contacto', 'email', 'correo', 'escribir', 'hablar', 'telefono', 'linkedin', 'github',
           'redes', 'cv', 'pdf', 'descargar'
         ],
-        response: 'Puedes contactar con Chris a través de:<br>• ✉️ <strong>Email:</strong> <a href="mailto:c.heredia87@gmail.com">c.heredia87@gmail.com</a><br>• 🔗 <strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/christian-heredia-angular-developer/" target="_blank">Perfil en LinkedIn</a><br>• 🐙 <strong>GitHub:</strong> <a href="https://github.com/chdelucia" target="_blank">github.com/chdelucia</a><br>• 📄 <strong>CV PDF:</strong> <a href="Chris_Heredia_CV.pdf" target="_blank">Descargar CV en PDF</a>'
+        response: 'Puedes contactar con Chris a través de:<br>• ✉️ <strong>Email:</strong> <a href="mailto:c.heredia.naranjo@gmail.com">c.heredia.naranjo@gmail.com</a><br>• 🔗 <strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/christian/" target="_blank">Perfil en LinkedIn</a><br>• 🐙 <strong>GitHub:</strong> <a href="https://github.com/chdelucia" target="_blank">github.com/chdelucia</a><br>• 📄 <strong>CV PDF:</strong> <a href="Chris_Heredia_CV.pdf" target="_blank">Descargar CV en PDF</a>'
       }
     ];
 
