@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es" data-theme="dark">
+<html lang="es">
 
 <head>
   <meta charset="utf-8">
@@ -79,15 +79,24 @@
 
 <body>
 
-  <!-- Theme Toggle Button -->
-  <button id="theme-toggle" class="theme-toggle-btn" aria-label="Cambiar Tema Claro u Oscuro" title="Cambiar Tema">
-    <i class="bi bi-moon-stars-fill text-info"></i>
-  </button>
+  <!-- Zero-JS Native UI Inputs -->
+  <input type="checkbox" id="theme-toggle-check" class="native-ui-check" aria-label="Cambiar Tema Claro u Oscuro">
+  <input type="checkbox" id="mobile-nav-check" class="native-ui-check" aria-label="Abrir o Cerrar Menú">
 
-  <!-- Mobile Nav Toggle -->
-  <button class="mobile-nav-toggle d-lg-none border-0 bg-transparent" aria-label="Abrir Menú de Navegación">
-    <i class="bi bi-list"></i>
-  </button>
+  <!-- Scroll Progress Bar (Pure CSS animation-timeline: scroll()) -->
+  <div id="scroll-progress"></div>
+
+  <!-- Theme Toggle Button (CSS Label for #theme-toggle-check) -->
+  <label for="theme-toggle-check" class="theme-toggle-btn" title="Cambiar Tema Claro u Oscuro">
+    <i class="bi bi-moon-stars-fill text-info theme-icon-dark"></i>
+    <i class="bi bi-sun-fill text-warning theme-icon-light"></i>
+  </label>
+
+  <!-- Mobile Nav Toggle (CSS Label for #mobile-nav-check) -->
+  <label for="mobile-nav-check" class="mobile-nav-toggle d-lg-none border-0 bg-transparent" title="Menú de Navegación">
+    <i class="bi bi-list icon-open"></i>
+    <i class="bi bi-x icon-close"></i>
+  </label>
 
   <!-- Header / Sidebar Nav -->
   <header id="header" class="d-flex flex-column justify-content-center">
@@ -203,11 +212,17 @@
           <p>Competencias técnicas probadas en producción para plataformas de alto tráfico y rendimiento.</p>
         </div>
 
+        <!-- Native Zero-JS Skill Filter Radios -->
+        <input type="radio" name="skill-filter" id="filter-all" class="native-ui-check skill-filter-radio" checked>
+        <input type="radio" name="skill-filter" id="filter-frontend" class="native-ui-check skill-filter-radio">
+        <input type="radio" name="skill-filter" id="filter-aws" class="native-ui-check skill-filter-radio">
+        <input type="radio" name="skill-filter" id="filter-quality" class="native-ui-check skill-filter-radio">
+
         <div class="d-flex justify-content-center gap-2 mb-4 flex-wrap">
-          <button class="btn btn-sm btn-outline-primary skill-filter-btn active" data-filter="all">Todos</button>
-          <button class="btn btn-sm btn-outline-primary skill-filter-btn" data-filter="frontend">Frontend &amp; Angular</button>
-          <button class="btn btn-sm btn-outline-primary skill-filter-btn" data-filter="aws">AWS Cloud &amp; CI/CD</button>
-          <button class="btn btn-sm btn-outline-primary skill-filter-btn" data-filter="quality">Testing &amp; Calidad</button>
+          <label for="filter-all" class="btn btn-sm btn-outline-primary skill-filter-btn filter-lbl-all">Todos</label>
+          <label for="filter-frontend" class="btn btn-sm btn-outline-primary skill-filter-btn filter-lbl-frontend">Frontend &amp; Angular</label>
+          <label for="filter-aws" class="btn btn-sm btn-outline-primary skill-filter-btn filter-lbl-aws">AWS Cloud &amp; CI/CD</label>
+          <label for="filter-quality" class="btn btn-sm btn-outline-primary skill-filter-btn filter-lbl-quality">Testing &amp; Calidad</label>
         </div>
 
         <div class="row g-4">
@@ -271,7 +286,7 @@
                 <h4 class="mb-0 fs-5 fw-bold">TypeScript &amp; Web Standards</h4>
               </div>
               <p class="small text-muted">
-                Desarrollo estrictamente tipado, RxJS, HTML5 semántico, CSS3, Tailwind, Bootstrap y Storybook para Design Systems.
+                Desarrollo strictly typed, RxJS, HTML5 semántico, CSS3, Tailwind, Bootstrap y Storybook para Design Systems.
               </p>
             </div>
           </div>
@@ -413,10 +428,6 @@
       </div>
     </div>
   </footer>
-
-  <!-- Minimal JS Bundle -->
-  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="assets/js/main.js"></script>
 
 </body>
 
