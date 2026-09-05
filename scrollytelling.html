@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es" data-theme="dark">
+<html lang="es">
 
 <head>
   <meta charset="utf-8">
@@ -60,7 +60,10 @@
 
 <body class="scrolly-body pinned-storyteller-body">
 
-  <!-- Top Progress Fill Bar -->
+  <!-- Zero-JS Theme Input Toggle -->
+  <input type="checkbox" id="theme-toggle-check" class="native-ui-check" aria-label="Cambiar Tema Claro u Oscuro">
+
+  <!-- Top Scroll Progress Fill Bar (Pure CSS animation-timeline: scroll()) -->
   <div id="scroll-progress" class="pinned-progress-bar"></div>
 
   <!-- Header / Navigation Bar for Scrollytelling Page -->
@@ -81,23 +84,21 @@
 
       <!-- Chapter Navigation Links -->
       <nav class="scrolly-chapter-nav d-none d-xl-flex align-items-center gap-1">
-        <button class="scrolly-nav-item active" data-chap-target="chap-hero">00. Inicio</button>
-        <button class="scrolly-nav-item" data-chap-target="chap-1">01. Orígenes</button>
-        <button class="scrolly-nav-item" data-chap-target="chap-2">02. Deloitte &amp; NTT</button>
-        <button class="scrolly-nav-item" data-chap-target="chap-3">03. Real-Time Cloud</button>
-        <button class="scrolly-nav-item" data-chap-target="chap-4">04. Dimatica &amp; AWS</button>
-        <button class="scrolly-nav-item" data-chap-target="chap-5">05. Stack</button>
-        <button class="scrolly-nav-item" data-chap-target="chap-6">06. Contacto</button>
+        <a href="#chap-hero" class="scrolly-nav-item active">00. Inicio</a>
+        <a href="#chap-1" class="scrolly-nav-item">01. Orígenes</a>
+        <a href="#chap-2" class="scrolly-nav-item">02. Deloitte &amp; NTT</a>
+        <a href="#chap-3" class="scrolly-nav-item">03. Real-Time Cloud</a>
+        <a href="#chap-4" class="scrolly-nav-item">04. Dimatica &amp; AWS</a>
+        <a href="#chap-5" class="scrolly-nav-item">05. Stack</a>
+        <a href="#chap-6" class="scrolly-nav-item">06. Contacto</a>
       </nav>
 
       <!-- Right Header Actions -->
       <div class="d-flex align-items-center gap-2">
-        <span id="gsap-live-chapter-badge" class="badge bg-primary-subtle text-primary border border-primary px-3 py-1 rounded-pill fw-bold fs-8 d-none d-sm-inline-block">
-          CAPÍTULO 00 / 06
-        </span>
-        <button id="theme-toggle" class="btn btn-sm btn-outline-secondary rounded-circle" aria-label="Cambiar tema">
-          <i class="bi bi-moon-stars-fill text-info"></i>
-        </button>
+        <label for="theme-toggle-check" class="btn btn-sm btn-outline-secondary rounded-circle theme-toggle-btn-mini mb-0" title="Cambiar tema">
+          <i class="bi bi-moon-stars-fill text-info theme-icon-dark"></i>
+          <i class="bi bi-sun-fill text-warning theme-icon-light"></i>
+        </label>
         <a href="index.html" class="btn btn-sm btn-outline-primary rounded-pill px-3 fw-semibold">
           <i class="bi bi-arrow-left me-1"></i>Volver al CV
         </a>
@@ -107,13 +108,13 @@
 
   <!-- Side Dot Navigation -->
   <aside class="pinned-chapter-dots d-none d-md-flex flex-column gap-3 position-fixed top-50 translate-middle-y end-0 me-3 z-3">
-    <button class="dot-item active" data-chap-target="chap-hero" title="Capítulo 0: Inicio"></button>
-    <button class="dot-item" data-chap-target="chap-1" title="Capítulo 1: Orígenes e Ingeniería"></button>
-    <button class="dot-item" data-chap-target="chap-2" title="Capítulo 2: Deloitte & NTT Data"></button>
-    <button class="dot-item" data-chap-target="chap-3" title="Capítulo 3: Real-Time & CloudWatch"></button>
-    <button class="dot-item" data-chap-target="chap-4" title="Capítulo 4: Dimatica & AWS Cloud"></button>
-    <button class="dot-item" data-chap-target="chap-5" title="Capítulo 5: Ecosistema Tecnológico"></button>
-    <button class="dot-item" data-chap-target="chap-6" title="Capítulo 6: Contacto"></button>
+    <a href="#chap-hero" class="dot-item active" title="Capítulo 0: Inicio"><span></span></a>
+    <a href="#chap-1" class="dot-item" title="Capítulo 1: Orígenes e Ingeniería"><span></span></a>
+    <a href="#chap-2" class="dot-item" title="Capítulo 2: Deloitte & NTT Data"><span></span></a>
+    <a href="#chap-3" class="dot-item" title="Capítulo 3: Real-Time & CloudWatch"><span></span></a>
+    <a href="#chap-4" class="dot-item" title="Capítulo 4: Dimatica & AWS Cloud"><span></span></a>
+    <a href="#chap-5" class="dot-item" title="Capítulo 5: Ecosistema Tecnológico"><span></span></a>
+    <a href="#chap-6" class="dot-item" title="Capítulo 6: Contacto"><span></span></a>
   </aside>
 
   <!-- MAIN SCROLLYTELLING CONTAINER -->
@@ -138,7 +139,7 @@
             Una trayectoria de <strong>más de 10 años</strong> evolucionando el desarrollo web: desde las telecomunicaciones y la telemática hasta la arquitectura de <strong>Microfrontends en Angular 18</strong> y despliegues globales en <strong>AWS Cloud</strong>.
           </p>
           <div class="d-flex justify-content-center gap-3 flex-wrap">
-            <a href="#chap-1" class="btn btn-primary-custom btn-lg scrolly-nav-item" data-chap-target="chap-1">
+            <a href="#chap-1" class="btn btn-primary-custom btn-lg scrolly-nav-item">
               Comenzar la Historia <i class="bi bi-arrow-down-circle ms-2"></i>
             </a>
             <a href="Chris_Heredia_CV.pdf" target="_blank" class="btn btn-outline-custom btn-lg">
@@ -273,7 +274,7 @@
               <ul class="space-y-3 list-unstyled text-muted fs-6 mb-0">
                 <li class="mb-3">
                   <i class="bi bi-check-circle-fill text-primary me-2"></i>
-                  <strong>Métricas en Vivo:</strong> Dashboard con refresco automático de 60 segundos conectando Angular, NgRx y telemetría de <strong>AWS CloudWatch</strong>.
+                  <strong>Métricas en Vivo:</strong> Dashboard con refresco automático conectando Angular, NgRx y telemetría de <strong>AWS CloudWatch</strong>.
                 </li>
                 <li class="mb-3">
                   <i class="bi bi-check-circle-fill text-primary me-2"></i>
@@ -436,10 +437,6 @@
     </section>
 
   </main>
-
-  <!-- Vendor JS Files -->
-  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="assets/js/main.js"></script>
 
 </body>
 
