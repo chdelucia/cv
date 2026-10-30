@@ -1,60 +1,60 @@
 # Chris Heredia Naranjo  
-Barcelona, Spain · [LinkedIn](https://www.linkedin.com/in/christian/) · c.heredia.naranjo@gmail.com
+Barcelona, España · [LinkedIn](https://www.linkedin.com/in/christian/) · [GitHub](https://github.com/chdelucia) · c.heredia.naranjo@gmail.com
 
-I am an **Architect Frontend Engineer** and **AWS Cloud Specialist** with over 10 years of professional experience (since 2013), 20+ delivered enterprise applications, and a Certified Scrum Master. I specialize in building enterprise-grade, ultra-fast web platforms using **Angular (16/17/18)**, **Angular Signals**, **Nx Microfrontends**, and scalable **AWS Cloud Architectures** (S3, CloudFront CDN, Lambda, API Gateway, Serverless CI/CD), backed by a Master's Degree in Cybersecurity to guarantee security-by-design.
-
----
-
-## 🚀 CORE COMPETENCIES
-
-- **Frontend (Angular Expert):** Angular (16/17/18), Signals, Microfrontends (Module Federation), Nx Workspaces, NgRx, RxJS, TypeScript, Tailwind CSS, Bootstrap, Storybook.
-- **AWS & Cloud Services:** AWS S3, CloudFront CDN, AWS Lambda, API Gateway, Route 53, AWS Amplify, IAM, CloudWatch, Serverless Architectures.
-- **Backend & Database:** Node.js, NestJS, Java Spring Boot, WebSockets, GraphQL, RESTful APIs, PostgreSQL, MongoDB, MySQL.
-- **Testing & Quality:** Jest, Cypress, Playwright.
-- **DevOps, Security & Agile:** Docker, Jenkins, CloudBees, GitHub Actions CI/CD, Certified Scrum Master (CSM), Cybersecurity (Master's Level).
+Soy **Architect Frontend Engineer** y **AWS Cloud Specialist** con más de 10 años de trayectoria (desde 2013), +20 aplicaciones enterprise entregadas y Certified Scrum Master (CSM). Especializado en diseñar y liderar arquitecturas web desacopladas y de alto rendimiento utilizando **Angular (16/17/18)**, **Angular Signals**, **Nx Microfrontends** y distribución en la nube mediante **AWS (S3, CloudFront CDN, Route 53, CloudBees CI/CD)**, respaldado por un Máster en Ciberseguridad para garantizar soluciones seguras por diseño.
 
 ---
 
-## 💼 PROFESSIONAL EXPERIENCE
+## 🚀 COMPETENCIAS Y STACK CLAVE
+
+- **Frontend Architecture & Angular:** Angular (16/17/18), Angular Signals, Microfrontends (Module Federation), Nx Workspaces, NgRx, RxJS, TypeScript, Tailwind CSS, Storybook.
+- **AWS Cloud Frontend Services:** AWS S3, AWS CloudFront CDN, Invalidation Automation, Route 53, CloudWatch, Lambda integrations.
+- **Backend & APIs:** Node.js, NestJS, Java Spring Boot, GraphQL, RESTful APIs, PostgreSQL, MongoDB, MySQL.
+- **Testing & Continuous Quality:** Jest, Cypress, Playwright (>85% code coverage).
+- **CI/CD, Seguridad & Agile:** CloudBees, GitHub Actions, Docker, Máster en Ciberseguridad (OWASP Top 10), Certified Scrum Master (CSM).
+
+---
+
+## 💼 TRAYECTORIA PROFESIONAL
 
 ### **Dimatica Software**
 **Architect Frontend Engineer**
-*May 2022 – Present*  
-- Led the end-to-end design and frontend development of a global enterprise B2B & B2C tourism accommodation platform handling millions of requests.
-- Architected a scalable **Microfrontend Architecture** using **Nx** and **Angular 16/17/18**, reducing build times by 40% and enabling independent team deployments.
-- Deployed and optimized cloud frontend assets on **AWS (S3 and CloudFront CDN)** using **CloudBees** CI/CD pipelines alongside Route 53 and API Gateway for ultra-fast global distribution and 99.99% availability.
-- Implemented robust Automated Testing strategies with **Jest** and **Cypress**, achieving over 85% unit and E2E code coverage.
-- Created standardized UI component libraries with **Storybook** and **Tailwind CSS**.
+*Mayo 2022 – Presente*
+- Liderazgo en el diseño de arquitectura y desarrollo frontend de una plataforma global de turismo B2B/B2C procesando millones de peticiones.
+- Arquitectura de **Microfrontends** con **Nx Monorepo** y **Angular 16/17/18**, reduciendo tiempos de build un 40% y habilitando despliegues desacoplados en 5 equipos.
+- Alojamiento y optimización de assets estáticos en **AWS (S3 y CloudFront CDN)** mediante pipelines **CloudBees CI/CD**, garantizando 99.99% de disponibilidad y respuesta global ultrarrápida.
+- Estrategia integral de testing automatizado con **Jest** y **Cypress** con más del 85% de cobertura de código.
+- Creación de librerías de componentes UI normalizadas con **Storybook** y **Tailwind CSS**.
 
 ### **Obsidian Software**
 **Senior Frontend Engineer & Scrum Master**
-*Jan 2020 – Dec 2022*  
-- Engineered a real-time server and cloud resource monitoring dashboard with 1-minute metric refresh rates using **Angular**, **NgRx**, **Three.js**, and **AWS CloudWatch** integration.
-- Designed serverless backend integrations with **NestJS**, **GraphQL**, and **AWS Lambda**.
-- Served as Scrum Master, facilitating agile ceremonies and delivering international client projects on schedule.
+*Enero 2020 – Diciembre 2022*
+- Desarrollo de un panel de control y monitorización de infraestructura cloud en tiempo real (refresco cada 60s) con **Angular**, **NgRx**, **Three.js** y telemetría de **AWS CloudWatch**.
+- Integración de frontend con microservicios backend construidos en **NestJS**, **GraphQL** y funciones serverless **AWS Lambda**.
+- Desempeño como Scrum Master facilitando ceremonias ágiles, eliminando bloqueos y asegurando entregas en plazo.
 
 ### **Deloitte & NTT Data (Everis)**
 **Senior Frontend Engineer**
-*Jan 2017 – Aug 2019*  
-- Delivered enterprise frontend solutions for a major health insurance provider using **Angular**, **NgRx**, and **Java Spring Boot**.
-- Led the frontend engineering team for a Spanish Premier League football analytics portal built with **Angular** and **Node.js**.
+*Enero 2017 – Agosto 2019*
+- Desarrollo del portal de salud asegurador enterprise en Deloitte utilizando **Angular**, **NgRx** y servicios **Java Spring Boot**.
+- Liderazgo del equipo de desarrollo frontend para la plataforma de analítica deportiva de LaLiga construida con **Angular** y **Node.js**.
 
-### **Pricesoft & Internship**
+### **Pricesoft & Prácticas**
 **Trainee Engineer**
-*Sept 2013 – Oct 2016*  
-- Developed B2B web applications for travel agencies using **React**, **jQuery**, **Laravel**, **Bootstrap**, and **MySQL**.
+*Septiembre 2013 – Octubre 2016*
+- Desarrollo de plataformas B2B para agencias de viajes usando **React**, **jQuery**, **Laravel**, **Bootstrap** y **MySQL**.
 
 ---
 
-## 🎓 EDUCATION & CERTIFICATIONS
+## 🎓 FORMACIÓN ACADÉMICA Y CERTIFICACIONES
 
-- **Valencia International University** — *Master of Cybersecurity* (2022 - 2023)
-- **University Ramon Llull** — *Master of Agile Methodologies* (Sept 2017 - May 2018)
-- **University Pompeu Fabra** — *Telematics Engineering Degree* (Sept 2011 - May 2016)
-- **Certifications:** Certified Scrum Master (CSM)
+- **Universidad Internacional de Valencia (VIU)** — *Máster Universitario en Ciberseguridad* (2022 - 2023)
+- **Universidad Ramon Llull - La Salle** — *Máster en Metodologías Ágiles* (2017 - 2018)
+- **Universitat Pompeu Fabra (UPF)** — *Grado en Ingeniería Telemática* (2011 - 2016)
+- **Certificaciones:** Certified Scrum Master (CSM) · Scrum Alliance
 
 ---
 
-## 🌐 LANGUAGES
-- English (Professional B2)
-- Native Spanish & Catalan
+## 🌐 IDIOMAS
+- Inglés (Profesional B2)
+- Español & Catalán (Nativo)
