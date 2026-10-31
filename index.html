@@ -112,37 +112,122 @@
 
   <!-- Hero Section -->
   <section id="hero" class="d-flex flex-column justify-content-center">
-    <div class="container hero-container" data-scroll-reveal="fade-up">
-      <div class="hero-pretitle">
-        <span class="status-dot"></span>
-        <span>Disponible para retos de arquitectura enterprise y liderazgo técnico</span>
-      </div>
-      <h1 class="hero-title">Chris Heredia</h1>
-      <p class="hero-subtitle">Architect Frontend Engineer &amp; AWS Cloud Specialist</p>
+    <div class="container hero-layout-grid" data-scroll-reveal="fade-up">
+      <div class="hero-content-col">
+        <div class="hero-pretitle">
+          <span class="status-dot"></span>
+          <span>Disponible para retos de arquitectura enterprise y liderazgo técnico</span>
+        </div>
+        <h1 class="hero-title">Chris Heredia</h1>
+        <p class="hero-subtitle">Architect Frontend Engineer &amp; AWS Cloud Specialist</p>
 
-      <p class="hero-lead">
-        Diseño y lidero arquitecturas frontend desacopladas en <strong>Angular 18</strong> y <strong>Nx Microfrontends</strong>, con despliegues globales de alta disponibilidad en <strong>AWS S3 y CloudFront CDN</strong>. Reduzco tiempos de entrega y aseguro plataformas preparadas para millones de usuarios.
-      </p>
+        <p class="hero-lead">
+          Diseño y lidero arquitecturas frontend desacopladas en <strong>Angular 18</strong> y <strong>Nx Microfrontends</strong>, con despliegues globales de alta disponibilidad en <strong>AWS S3 y CloudFront CDN</strong>. Reduzco tiempos de entrega y aseguro plataformas preparadas para millones de usuarios.
+        </p>
 
-      <div class="hero-stats-row mt-3">
-        <div class="stat-pill"><i class="bi bi-award-fill text-warning"></i> <span>+10 Años de Experiencia</span></div>
-        <div class="stat-pill"><i class="bi bi-cpu-fill text-info"></i> <span>Angular 18 &amp; Nx Monorepos</span></div>
-        <div class="stat-pill"><i class="bi bi-cloud-check-fill text-success"></i> <span>AWS S3 &amp; CloudFront CDN</span></div>
-        <div class="stat-pill"><i class="bi bi-shield-check text-primary"></i> <span>Máster en Ciberseguridad</span></div>
+        <div class="hero-stats-row mt-3">
+          <div class="stat-pill"><i class="bi bi-award-fill text-warning"></i> <span>+10 Años de Experiencia</span></div>
+          <div class="stat-pill"><i class="bi bi-cpu-fill text-info"></i> <span>Angular 18 &amp; Nx Monorepos</span></div>
+          <div class="stat-pill"><i class="bi bi-cloud-check-fill text-success"></i> <span>AWS S3 &amp; CloudFront CDN</span></div>
+          <div class="stat-pill"><i class="bi bi-shield-check text-primary"></i> <span>Máster en Ciberseguridad</span></div>
+        </div>
+
+        <div class="hero-actions mt-4">
+          <a href="mailto:c.heredia.naranjo@gmail.com" class="btn btn-primary-custom me-2 mb-2"><i class="bi bi-send-fill me-2"></i>Contactar para Proyectos</a>
+          <a href="Chris_Heredia_CV.pdf" target="_blank" class="btn btn-accent-custom me-2 mb-2"><i class="bi bi-file-earmark-pdf-fill me-2"></i>Descargar CV Técnico (PDF)</a>
+          <a href="scrollytelling.html" class="btn btn-outline-custom me-2 mb-2"><i class="bi bi-stars me-2"></i>Explorar Storyteller CV</a>
+          <a href="#about" class="btn btn-outline-custom mb-2"><i class="bi bi-graph-up-arrow me-2"></i>Métricas de Impacto</a>
+        </div>
+
+        <div class="social-links mt-4">
+          <a href="https://github.com/chdelucia" class="social-icon" target="_blank" rel="noopener" title="Perfil GitHub de Chris Heredia" aria-label="GitHub"><i class="bx bxl-github"></i></a>
+          <a href="https://www.linkedin.com/in/christian/" class="social-icon" target="_blank" rel="noopener" title="Perfil LinkedIn de Chris Heredia" aria-label="LinkedIn"><i class="bx bxl-linkedin"></i></a>
+          <a href="mailto:c.heredia.naranjo@gmail.com" class="social-icon" title="Enviar correo a Chris Heredia" aria-label="Email"><i class="bx bx-envelope"></i></a>
+        </div>
       </div>
 
-      <div class="hero-actions mt-4">
-        <a href="mailto:c.heredia.naranjo@gmail.com" class="btn btn-primary-custom me-2 mb-2"><i class="bi bi-send-fill me-2"></i>Contactar para Proyectos</a>
-        <a href="Chris_Heredia_CV.pdf" target="_blank" class="btn btn-accent-custom me-2 mb-2"><i class="bi bi-file-earmark-pdf-fill me-2"></i>Descargar CV Técnico (PDF)</a>
-        <a href="scrollytelling.html" class="btn btn-outline-custom me-2 mb-2"><i class="bi bi-stars me-2"></i>Explorar Storyteller CV</a>
-        <a href="#about" class="btn btn-outline-custom mb-2"><i class="bi bi-graph-up-arrow me-2"></i>Métricas de Impacto</a>
-      </div>
+      <!-- Architectural Blueprint Visual Console -->
+      <aside class="hero-blueprint-card" aria-label="Arquitectura del Ecosistema Frontend & Cloud">
+        <div class="blueprint-header">
+          <div class="blueprint-window-dots">
+            <span></span><span></span><span></span>
+          </div>
+          <span class="blueprint-title">production-architecture.spec</span>
+          <span class="blueprint-tag">Edge Live</span>
+        </div>
+        <div class="blueprint-body">
+          <div class="blueprint-layer">
+            <div class="layer-meta">
+              <span class="layer-badge badge-mfe">Microfrontends</span>
+              <span class="layer-metric">Nx Monorepo · Module Federation</span>
+            </div>
+            <div class="layer-nodes">
+              <div class="node-box">
+                <i class="bx bxl-angular text-danger"></i>
+                <div class="node-info">
+                  <span class="node-name">Shell Host</span>
+                  <span class="node-desc">Angular 18 &middot; Signals</span>
+                </div>
+              </div>
+              <div class="node-arrow">&rarr;</div>
+              <div class="node-box">
+                <i class="bx bx-grid-alt text-info"></i>
+                <div class="node-info">
+                  <span class="node-name">Remote MFEs</span>
+                  <span class="node-desc">Independent Teams</span>
+                </div>
+              </div>
+            </div>
+          </div>
 
-      <div class="social-links mt-4">
-        <a href="https://github.com/chdelucia" class="social-icon" target="_blank" rel="noopener" title="Perfil GitHub de Chris Heredia" aria-label="GitHub"><i class="bx bxl-github"></i></a>
-        <a href="https://www.linkedin.com/in/christian/" class="social-icon" target="_blank" rel="noopener" title="Perfil LinkedIn de Chris Heredia" aria-label="LinkedIn"><i class="bx bxl-linkedin"></i></a>
-        <a href="mailto:c.heredia.naranjo@gmail.com" class="social-icon" title="Enviar correo a Chris Heredia" aria-label="Email"><i class="bx bx-envelope"></i></a>
-      </div>
+          <div class="blueprint-connector">
+            <span class="connector-line"></span>
+            <span class="connector-label">CloudBees Automated CI/CD Pipeline</span>
+            <span class="connector-line"></span>
+          </div>
+
+          <div class="blueprint-layer">
+            <div class="layer-meta">
+              <span class="layer-badge badge-aws">AWS Global Edge</span>
+              <span class="layer-metric">Zero Downtime &middot; Multi-Region CDN</span>
+            </div>
+            <div class="layer-nodes">
+              <div class="node-box">
+                <i class="bx bxl-aws text-warning"></i>
+                <div class="node-info">
+                  <span class="node-name">Amazon S3</span>
+                  <span class="node-desc">Encrypted Origin Store</span>
+                </div>
+              </div>
+              <div class="node-arrow">&rarr;</div>
+              <div class="node-box">
+                <i class="bi bi-globe2 text-success"></i>
+                <div class="node-info">
+                  <span class="node-name">CloudFront CDN</span>
+                  <span class="node-desc">Edge Cache &middot; Route 53</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="blueprint-footer">
+            <div class="telemetry-item">
+              <span class="telemetry-val">99.99%</span>
+              <span class="telemetry-lbl">SLA Availability</span>
+            </div>
+            <div class="telemetry-divider"></div>
+            <div class="telemetry-item">
+              <span class="telemetry-val">-40%</span>
+              <span class="telemetry-lbl">Build Speed</span>
+            </div>
+            <div class="telemetry-divider"></div>
+            <div class="telemetry-item">
+              <span class="telemetry-val">&gt;85%</span>
+              <span class="telemetry-lbl">Test Coverage</span>
+            </div>
+          </div>
+        </div>
+      </aside>
     </div>
   </section>
 
