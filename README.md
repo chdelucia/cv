@@ -21,7 +21,7 @@ Soy **Architect Frontend Engineer** y **AWS Cloud Specialist** con más de 10 a�
 **Architect Frontend Engineer**
 *Mayo 2022 – Presente*
 - Liderazgo en el diseño de arquitectura y desarrollo frontend de una plataforma global de turismo B2B/B2C procesando millones de peticiones.
-- Arquitectura de **Microfrontends** con **Nx Monorepo** y **Angular 16/17/18**, reduciendo tiempos de build un 40% y habilitando despliegues desacoplados en 5 equipos.
+- Arquitectura de **Microfrontends** con **Nx Monorepo** y **Angular 16/17/18**, reduciendo tiempos de compilación un 40% y habilitando despliegues desacoplados en 5 equipos.
 - Alojamiento y optimización de assets estáticos en **AWS (S3 y CloudFront CDN)** mediante pipelines **CloudBees CI/CD**, garantizando 99.99% de disponibilidad y respuesta global ultrarrápida.
 - Estrategia integral de testing automatizado con **Jest** y **Cypress** con más del 85% de cobertura de código.
 - Creación de librerías de componentes UI normalizadas con **Storybook** y **Tailwind CSS**.
